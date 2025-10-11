@@ -323,7 +323,7 @@ func CreateNode(numValidators int, chain genesis.ChainType, workingDir string,
 	switch chain {
 	case genesis.Mainnet:
 		genDoc := genesis.MainnetGenesis()
-		if err = genDoc.Validate(); err != nil {
+		if err := genDoc.Validate(); err != nil {
 			return nil, "", err
 		}
 
@@ -336,7 +336,7 @@ func CreateNode(numValidators int, chain genesis.ChainType, workingDir string,
 		}
 	case genesis.Testnet:
 		genDoc := genesis.TestnetGenesis()
-		if err = genDoc.Validate(); err != nil {
+		if err := genDoc.Validate(); err != nil {
 			return nil, "", err
 		}
 

@@ -117,11 +117,12 @@ func FromString(str string) (Amount, error) {
 	return NewAmount(f)
 }
 
-// MaxNanoAUM returns the maximum amount based on chain type
+// MaxNanoAUM returns the maximum amount based on chain type.
 func MaxNanoAUM() Amount {
 	if crypto.AddressHRP == "tae" { // Testnet
 		return TestnetMaxNanoAUM
 	}
+
 	return DefaultMaxNanoAUM // Mainnet
 }
 
