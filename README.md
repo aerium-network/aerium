@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/aerium-network/aerium/branch/main/graph/badge.svg?token=8N6N60D5UI)](https://codecov.io/gh/aerium-network/aerium)
+[![codecov](https://codecov.io/gh/aerium-network/aerium/graph/badge.svg?token=O9DBEAAQ46)](https://codecov.io/gh/aerium-network/aerium)
 [![Go Report Card](https://goreportcard.com/badge/github.com/aerium-network/aerium)](https://goreportcard.com/report/github.com/aerium-network/aerium)
 [![Twitter(X)](https://badgen.net/badge/icon/twitter?icon=twitter&label)](https://x.com/AeriumNetwork)
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/Hp6UkThyUh)
