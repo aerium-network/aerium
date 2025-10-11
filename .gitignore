@@ -1,0 +1,17 @@
+build/
+.DS_Store
+
+# IDEs
+.idea
+.vscode
+
+# TODO tasks
+todo
+
+# Releasers output
+/aerium-*
+
+# VIM artifacts
+.swp
+.*.sw*
+packages/

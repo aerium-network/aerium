@@ -1,0 +1,210 @@
+version: "2"
+linters:
+  enable:
+    - asasalint
+    - asciicheck
+    - bidichk
+    - bodyclose
+    - contextcheck
+    - copyloopvar
+    - decorder
+    - dogsled
+    - dupword
+    - durationcheck
+    - errchkjson
+    - errname
+    - errorlint
+    - exhaustive
+    - forbidigo
+    - gocheckcompilerdirectives
+    - gocognit
+    - gocritic
+    - gocyclo
+    - godot
+    - goheader
+    - gomoddirectives
+    - gomodguard
+    - goprintffuncname
+    - gosec
+    - gosmopolitan
+    - grouper
+    - importas
+    - lll
+    - loggercheck
+    - maintidx
+    - makezero
+    - mirror
+    - misspell
+    - musttag
+    - nakedret
+    - nestif
+    - nilerr
+    - nilnil
+    - nlreturn
+    - noctx
+    - nolintlint
+    - nosprintfhostport
+    - prealloc
+    - predeclared
+    - promlinter
+    - reassign
+    - revive
+    - rowserrcheck
+    - sqlclosecheck
+    - staticcheck
+    - tagalign
+    - tagliatelle
+    - testableexamples
+    - thelper
+    - tparallel
+    - unconvert
+    - unparam
+    - usestdlibvars
+    - varnamelen
+    - wastedassign
+    - whitespace
+    - zerologlint
+  settings:
+    gocritic:
+      disabled-checks:
+        - ifElseChain
+        - unnamedResult
+        - importShadow
+      enabled-tags:
+        - diagnostic
+        - style
+        - performance
+    gosec:
+      excludes:
+        - G304
+        - G204
+        - G115
+    govet:
+      disable:
+        - fieldalignment
+      enable-all: true
+      settings:
+        shadow:
+          strict: true
+    nestif:
+      min-complexity: 6
+    predeclared:
+      ignore:
+        - len
+        - ' min'
+        - ' max'
+      qualified-name: true
+    revive:
+      enable-all-rules: true
+      rules:
+        - name: exported
+          disabled: true
+        - name: package-comments
+          disabled: true
+        - name: add-constant
+          disabled: true
+        - name: line-length-limit
+          disabled: true
+        - name: cognitive-complexity
+          disabled: true
+        - name: function-length
+          disabled: true
+        - name: cyclomatic
+          disabled: true
+        - name: unchecked-type-assertion
+          disabled: true
+        - name: max-public-structs
+          disabled: true
+        - name: flag-parameter
+          disabled: true
+        - name: deep-exit
+          disabled: true
+        - name: get-return
+          disabled: true
+        - name: confusing-naming
+          disabled: true
+        - name: function-result-limit
+          disabled: true
+        - name: import-shadowing
+          disabled: true
+        - name: redefines-builtin-id
+          disabled: true
+        - name: enforce-switch-style
+          disabled: true
+        - name: unhandled-error
+          arguments:
+            - fmt.Printf
+            - fmt.Println
+            - fmt.Fprintf
+            - strings.Builder.WriteString
+            - strings.Builder.WriteRune
+            - strings.Builder.WriteByte
+            - bytes.Buffer.Write
+            - bytes.Buffer.WriteString
+    staticcheck:
+      checks:
+        - all
+        - -ST1000
+        - -QF1008
+    tagliatelle:
+      case:
+        rules:
+          json: snake
+          yaml: snake
+        use-field-name: false
+    varnamelen:
+      ignore-names:
+        - ok
+        - ip
+        - "no"
+        - tt
+        - n
+        - i
+        - j
+        - l
+        - h
+        - il
+        - r
+        - w
+      ignore-decls:
+        - wg sync.WaitGroup
+        - ts *testsuite.TestSuite
+        - td *testData
+        - ma multiaddr.Multiaddr
+        - db *leveldb.DB
+  exclusions:
+    generated: lax
+    rules:
+      - linters:
+          - forbidigo
+          - gocognit
+          - maintidx
+          - nestif
+        path: _test.go
+      - linters:
+          - gosmopolitan
+          - misspell
+        path: util/bip39/wordlists/
+      - path: (.+)\.go$
+        text: 'shadow: declaration of "err" shadows'
+      - path: (.+)\.go$
+        text: 'builtinShadow: shadowing of predeclared identifier: min'
+      - path: (.+)\.go$
+        text: 'builtinShadow: shadowing of predeclared identifier: max'
+      - path: (.+)\.go$
+        text: 'builtinShadow: shadowing of predeclared identifier: len'
+      - linters:
+          - revive
+        path: 'util/*'
+        text: 'var-naming: avoid meaningless package names'
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+      - util/bip39/wordlists/
+formatters:
+  enable:
+    - gci
+    - gofmt
+    - gofumpt
+    - goimports

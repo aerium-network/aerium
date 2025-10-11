@@ -1,0 +1,54 @@
+package peer
+
+import (
+	"time"
+
+	"github.com/aerium-network/aerium/crypto/bls"
+	"github.com/aerium-network/aerium/crypto/hash"
+	"github.com/aerium-network/aerium/sync/peerset/peer/metric"
+	"github.com/aerium-network/aerium/sync/peerset/peer/service"
+	"github.com/aerium-network/aerium/sync/peerset/peer/status"
+	lp2pnetwork "github.com/libp2p/go-libp2p/core/network"
+	lp2ppeer "github.com/libp2p/go-libp2p/core/peer"
+)
+
+type ID = lp2ppeer.ID
+
+type Peer struct {
+	Status            status.Status
+	Moniker           string
+	Agent             string
+	Address           string
+	Direction         lp2pnetwork.Direction
+	Protocols         []string
+	PeerID            ID
+	ConsensusKeys     []*bls.PublicKey
+	Services          service.Services
+	LastSent          time.Time
+	LastReceived      time.Time
+	LastBlockHash     hash.Hash
+	Height            uint32
+	TotalSessions     int
+	CompletedSessions int
+	Metric            metric.Metric
+	// OutboundHelloSent tracks whether we've sent the initial hello message for outbound connections
+	OutboundHelloSent bool
+}
+
+func NewPeer(peerID ID) *Peer {
+	return &Peer{
+		ConsensusKeys: make([]*bls.PublicKey, 0),
+		Status:        status.StatusUnknown,
+		PeerID:        peerID,
+		Metric:        metric.NewMetric(),
+		Protocols:     make([]string, 0),
+	}
+}
+
+func (p *Peer) IsFullNode() bool {
+	return p.Services.IsFullNode()
+}
+
+func (p *Peer) DownloadScore() int {
+	return (p.CompletedSessions + 1) * 100 / (p.TotalSessions + 1)
+}

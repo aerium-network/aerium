@@ -1,0 +1,8 @@
+{
+    "mainnet": [
+        "localhost:50051"
+    ],
+    "testnet": [
+        "localhost:50052"
+    ]
+}

@@ -1,0 +1,34 @@
+# Example
+# https://github.com/grpc-ecosystem/grpc-gateway/blob/main/examples/internal/proto/examplepb/unannotated_echo_service.swagger.yaml#L4
+openapiOptions:
+  file:
+    - file: "transaction.proto"
+      option:
+        basePath: "/http/api"
+        info:
+          title: Aerium APIs
+          version: "2.0"
+          description: |
+            Every node in the Aerium network can be configured to expose HTTP-APIs for communication.
+            These APIs follow the [OpenAPI (Swagger)](https://swagger.io/specification/) specification, and a complete list of available endpoints can be found here.
+
+            ## Units
+
+            All the amounts are in NanoAUM units, which are atomic and the smallest unit in the Aerium blockchain.
+            Each AUM is equivalent to 1,000,000,000 or 10<sup>9</sup> NanoAUMs.
+          contact:
+            name: Aerium Blockchain
+            url: https://aerium.network
+          license:
+            name: MIT License
+            url: https://github.com/aerium-network/aerium/blob/main/LICENSE
+        schemes:
+          - HTTP
+          - HTTPS
+        securityDefinitions:
+          security:
+            BasicAuth:
+              type: TYPE_BASIC
+        security:
+          - securityRequirement:
+              BasicAuth: {}

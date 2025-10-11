@@ -1,0 +1,82 @@
+package sync
+
+import (
+	"github.com/aerium-network/aerium/sync/bundle"
+	"github.com/aerium-network/aerium/sync/bundle/message"
+	"github.com/aerium-network/aerium/sync/peerset/peer"
+	"github.com/aerium-network/aerium/types/block"
+)
+
+type blocksResponseHandler struct {
+	*synchronizer
+}
+
+func newBlocksResponseHandler(sync *synchronizer) messageHandler {
+	return &blocksResponseHandler{
+		sync,
+	}
+}
+
+func (handler *blocksResponseHandler) ParseMessage(m message.Message, pid peer.ID) {
+	msg := m.(*message.BlocksResponseMessage)
+	handler.logger.Trace("parsing BlocksResponse message", "msg", msg)
+
+	if msg.IsRequestRejected() {
+		handler.logger.Warn("blocks request is rejected", "pid", pid,
+			"reason", msg.Reason, "sid", msg.SessionID)
+	} else {
+		handler.logger.Info("blocks received", "from", msg.From, "count", msg.Count(),
+			"pid", pid, "sid", msg.SessionID)
+
+		// TODO:
+		// It is good to check the latest height before adding blocks to the cache.
+		// If they have already been committed, this message can be ignored.
+		// Need to test!
+		for _, data := range msg.BlocksData {
+			blk, err := block.FromBytes(data)
+			if err != nil {
+				handler.logger.Warn("unable to decode block data",
+					"from", msg.From, "pid", pid, "error", err)
+			} else {
+				handler.cache.AddBlock(blk)
+			}
+		}
+		handler.cache.AddCertificate(msg.LastCertificate)
+		handler.tryCommitBlocks()
+	}
+
+	handler.updateSession(msg.SessionID, msg.ResponseCode)
+}
+
+func (*blocksResponseHandler) PrepareBundle(m message.Message) *bundle.Bundle {
+	bdl := bundle.NewBundle(m)
+	bdl.CompressIt()
+
+	return bdl
+}
+
+func (handler *blocksResponseHandler) updateSession(sid int, code message.ResponseCode) {
+	switch code {
+	case message.ResponseCodeOK:
+		handler.logger.Debug("session accepted. keep session open", "sid", sid)
+		handler.peerSet.UpdateSessionLastActivity(sid)
+
+	case message.ResponseCodeRejected:
+		handler.logger.Debug("session rejected, uncompleted session", "sid", sid)
+		handler.peerSet.SetSessionUncompleted(sid)
+
+	case message.ResponseCodeMoreBlocks:
+		handler.logger.Debug("peer responding us. keep session open", "sid", sid)
+		handler.peerSet.UpdateSessionLastActivity(sid)
+
+	case message.ResponseCodeNoMoreBlocks:
+		handler.logger.Debug("peer sent all blocks. close session", "sid", sid)
+		handler.peerSet.SetSessionCompleted(sid) // TODO: test me
+		handler.updateBlockchain()
+
+	case message.ResponseCodeSynced:
+		handler.logger.Debug("peer informed us we are synced. close session", "sid", sid)
+		handler.peerSet.SetSessionCompleted(sid) // TODO: test me
+		handler.moveConsensusToNewHeight()
+	}
+}

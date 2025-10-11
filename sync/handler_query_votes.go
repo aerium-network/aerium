@@ -1,0 +1,34 @@
+package sync
+
+import (
+	"github.com/aerium-network/aerium/sync/bundle"
+	"github.com/aerium-network/aerium/sync/bundle/message"
+	"github.com/aerium-network/aerium/sync/peerset/peer"
+)
+
+type queryVoteHandler struct {
+	*synchronizer
+}
+
+func newQueryVoteHandler(sync *synchronizer) messageHandler {
+	return &queryVoteHandler{
+		sync,
+	}
+}
+
+func (handler *queryVoteHandler) ParseMessage(m message.Message, _ peer.ID) {
+	msg := m.(*message.QueryVoteMessage)
+	handler.logger.Trace("parsing QueryVote message", "msg", msg)
+
+	v := handler.consMgr.HandleQueryVote(msg.Height, msg.Round)
+	if v != nil {
+		response := message.NewVoteMessage(v)
+		handler.broadcast(response)
+	}
+}
+
+func (*queryVoteHandler) PrepareBundle(m message.Message) *bundle.Bundle {
+	bdl := bundle.NewBundle(m)
+
+	return bdl
+}

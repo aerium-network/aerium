@@ -1,0 +1,45 @@
+package zmq
+
+import (
+	"github.com/aerium-network/aerium/types/block"
+	"github.com/aerium-network/aerium/util/logger"
+	"github.com/go-zeromq/zmq4"
+)
+
+type blockInfoPub struct {
+	basePub
+}
+
+func newBlockInfoPub(socket zmq4.Socket, logger *logger.SubLogger) Publisher {
+	return &blockInfoPub{
+		basePub: basePub{
+			topic:     TopicBlockInfo,
+			seqNo:     0,
+			zmqSocket: socket,
+			logger:    logger,
+		},
+	}
+}
+
+func (b *blockInfoPub) onNewBlock(blk *block.Block) {
+	rawMsg := b.makeTopicMsg(
+		blk.Header().ProposerAddress(),
+		blk.Header().UnixTime(),
+		uint16(len(blk.Transactions())),
+		blk.Height(),
+	)
+
+	message := zmq4.NewMsg(rawMsg)
+
+	if err := b.zmqSocket.Send(message); err != nil {
+		b.logger.Error("zmq publish message error", "err", err, "publisher", b.TopicName())
+
+		return
+	}
+
+	b.logger.Debug("ZMQ published the message successfully",
+		"publisher", b.TopicName(),
+		"block_height", blk.Height())
+
+	b.seqNo++
+}

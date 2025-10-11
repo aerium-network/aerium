@@ -1,0 +1,105 @@
+{
+  "openrpc": "1.2.1",
+  "info": {
+    "title": "Aerium OpenRPC",
+    "version": "1.2.1"
+  },
+  "methods": [
+{{- $firstMethod := true -}}
+{{- range .Files -}}
+  {{- range .Services -}}{{- $ServiceName := .SnakeName -}}
+    {{ range .Methods }}
+      {{- if not $firstMethod -}},{{- end -}}
+      {{- $firstMethod = false -}}
+    {
+      "name": "{{ .SnakeName }}",
+      "description": "{{ .Description | nobr }}",
+      "tags": [{ "name": "{{ $ServiceName}}"}],
+      "paramStructure": "by-name",
+      "params": [
+{{- with getMessage .RequestLongType -}}
+  {{- $firstParam := true -}}
+  {{ range .Fields }}
+    {{- if not $firstParam -}},{{- end -}}
+    {{- $firstParam = false -}}
+        {
+          "name": "{{ .SnakeName }}",
+          "description": "{{ .Description | nobr }}",
+          "schema": {{ template "renderFieldSchema" . }}
+        }
+  {{- end -}}
+{{- end -}}
+      ],
+      "result": {
+        "name": "fields",
+        "schema": {
+          "type": "object",
+{{- with getMessage .ResponseLongType -}}
+          "required": [
+          {{- $firstField := true -}}
+          {{- range .Fields -}}
+            {{- if not $firstField -}},{{- end -}}
+            {{- $firstField = false -}}
+            "{{ .SnakeName }}"
+          {{- end -}} ],
+          "properties": {
+  {{- $firstField := true -}}
+  {{- range .Fields -}}
+              {{- if not $firstField -}},{{- end -}}
+              {{- $firstField = false -}}
+              "{{ .SnakeName }}": {{ template "renderFieldSchema" . -}}
+  {{- end -}}
+{{- end -}}
+            }
+          }
+        }
+      }
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+  ]
+}
+
+{{/* --- Helpers --- */}}
+
+{{ define "renderFieldSchema" }}
+{{- if .IsMap -}}
+{
+  "type": "object"
+}
+{{- else if .IsRepeated -}}
+{
+  "type": "array",
+  "items": {{ template "renderFieldItemSchema" . }}
+}
+{{- else -}}
+{{- template "renderFieldItemSchema" . -}}
+{{- end -}}
+{{- end -}}
+
+{{- define "renderFieldItemSchema" -}}
+{{- if or (eq .OpenRPCType "string") (eq .OpenRPCType "boolean") (eq .OpenRPCType "integer") (eq .OpenRPCType "number") -}}
+{ "type": "{{ .OpenRPCType }}" }
+{{- else -}}
+{
+  "type": "object",
+{{- with getMessage .LongType -}}
+  "required": [
+    {{- $firstField := true -}}
+    {{- range .Fields -}}
+      {{- if not $firstField -}},{{- end -}}
+      {{- $firstField = false -}}
+      "{{ .SnakeName }}"
+    {{- end -}} ],
+  "properties": {
+  {{- $first := true -}}
+  {{- range .Fields -}}
+    {{- if not $first -}},{{- end -}}
+    {{- $first = false -}}
+    "{{ .SnakeName }}": {{ template "renderFieldSchema" . }}
+  {{- end -}}
+{{- end -}}
+  }
+}
+{{- end -}}
+{{- end -}}

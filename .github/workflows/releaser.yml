@@ -1,0 +1,319 @@
+name: Releaser
+permissions:
+  # https://github.com/softprops/action-gh-release?tab=readme-ov-file#permissions
+  contents: write
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+
+  ########################################
+  build-cli:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt install zip
+
+      - name: Install Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.25.1"
+
+      - name: Create release files
+        run: bash ./.github/releasers/releaser_cli.sh
+
+      - name: Calculate sha256sum
+        run: sha256sum aerium-*.zip aerium-*tar.gz > checksum-cli.txt
+
+      - name: Upload checksum artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: checksum-cli
+          path: checksum-cli.txt
+
+      - name: Publish
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            aerium-*.zip
+            aerium-*.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  ########################################
+  build-gui-linux:
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      matrix:
+        name: [linux-amd64, linux-arm64]
+        include:
+          - name: linux-amd64
+            runner: ubuntu-24.04
+          - name: linux-arm64
+            runner: ubuntu-24.04-arm
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt install libgtk-3-dev libcairo2-dev libglib2.0-dev libfuse2 pkg-config dpkg dpkg-dev
+
+      - name: Install Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.25.1"
+
+      - name: Create release files
+        run: bash ./.github/releasers/releaser_gui_linux.sh
+
+      - name: Calculate sha256sum
+        run: sha256sum aerium-gui*.tar.gz aerium-gui*.AppImage > checksum-${{ matrix.name }}.txt
+
+      - name: Upload checksum artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: checksum-${{ matrix.name }}
+          path: checksum-${{ matrix.name }}.txt
+
+      - name: Publish
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            aerium-gui*.tar.gz
+            aerium-gui*.AppImage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  ########################################
+  build-gui-macos:
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      matrix:
+        name: [macos-amd64, macos-arm64]
+        include:
+          - name: macos-amd64
+            runner: macos-13
+            lib_home: /usr/local
+          - name: macos-arm64
+            runner: macos-14
+            lib_home: /opt/homebrew
+
+    env:
+      LIB_HOME: ${{ matrix.lib_home }}
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Dependencies
+        run: brew install gtk+3 librsvg create-dmg coreutils gdk-pixbuf glib-networking pkg-config
+
+      - name: Install Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.25.1"
+
+      - name: Create release files
+        run: bash ./.github/releasers/releaser_gui_macos.sh
+
+      - name: Calculate sha256sum
+        run: sha256sum aerium-*.dmg aerium-*.tar.gz > checksum-${{ matrix.name }}.txt
+
+      - name: Upload checksum artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: checksum-${{ matrix.name }}
+          path: checksum-${{ matrix.name }}.txt
+
+      - name: Publish
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            aerium-*.dmg
+            aerium-*.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  ########################################
+  build-gui-windows:
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      matrix:
+        name: [windows_amd64]
+        include:
+          - name: windows_amd64
+            runner: windows-2022 # windows-2025 is not supported for Inno Setup 6
+
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: git
+            make
+            p7zip
+            glib2-devel
+            mingw-w64-x86_64-go
+            mingw-w64-x86_64-gtk3
+            mingw-w64-x86_64-glib2
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-pkg-config
+
+      - name: Get Version
+        id: get_version
+        run: |
+          VERSION="$(echo `git -C . describe --abbrev=0 --tags` | sed 's/^.//')"
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Build Binaries
+        run: bash ./.github/releasers/releaser_gui_windows_build.sh
+
+#      - name: Sign Aerium Daemon
+#        uses: ./.github/actions/windows-signing
+#        with:
+#            signpath-api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+#            signpath-signing-policy-slug: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+#            artifact-name: aerium-daemon
+#
+#      - name: Sign Aerium Wallet
+#        uses: ./.github/actions/windows-signing
+#        with:
+#            signpath-api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+#            signpath-signing-policy-slug: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+#            artifact-name: aerium-wallet
+#
+#      - name: Sign Aerium Shell
+#        uses: ./.github/actions/windows-signing
+#        with:
+#            signpath-api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+#            signpath-signing-policy-slug: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+#            artifact-name: aerium-shell
+#
+#      - name: Sign Aerium GUI
+#        uses: ./.github/actions/windows-signing
+#        with:
+#            signpath-api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+#            signpath-signing-policy-slug: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+#            artifact-name: aerium-gui
+
+      - name: Build Installer
+        run: bash ./.github/releasers/releaser_gui_windows_installer.sh
+
+#      - name: Sign Installer
+#        uses: ./.github/actions/windows-signing
+#        with:
+#            signpath-api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+#            signpath-signing-policy-slug: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+#            artifact-name: aerium-gui_${{ steps.get_version.outputs.VERSION }}_${{ matrix.name }}_installer
+
+      - name: Move Installer to Root
+        run: mv ./build/signed/aerium-gui_*_installer.exe .
+
+      - name: Calculate sha256sum
+        run: sha256sum aerium-gui_*.zip aerium-gui_*_installer.exe > checksum-${{ matrix.name }}.txt
+
+      - name: Upload checksum artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: checksum-${{ matrix.name }}
+          path: checksum-${{ matrix.name }}.txt
+
+      - name: Publish
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            aerium-gui_*.zip
+            aerium-gui_*_installer.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  ########################################
+  checksums:
+    needs:
+      [
+        build-cli,
+        build-gui-linux,
+        build-gui-macos,
+        build-gui-windows,
+      ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download checksum artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: checksums
+
+      - name: Combine checksums
+        run: |
+          cat checksums/*/*.txt > SHA256SUMS
+          cat SHA256SUMS
+
+      - name: Upload SHA256SUMS as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sha256sums
+          path: SHA256SUMS
+
+      - name: Publish
+        uses: softprops/action-gh-release@v2
+        with:
+          files: SHA256SUMS
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  ########################################
+  cosign:
+    needs: [checksums]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download SHA256SUMS artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: sha256sums
+
+      - uses: sigstore/cosign-installer@v3
+
+      - name: Sign Checksum
+        run: cosign sign-blob --yes --key env://COSIGN_PRIVATE_KEY SHA256SUMS > SHA256SUMS.sig
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+
+      - name: Publish
+        uses: softprops/action-gh-release@v2
+        with:
+          files: SHA256SUMS.sig
+
+  ########################################
+  downloader:
+    needs: [cosign]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Create Downloader file
+        run: |
+          VERSION="$(echo `git -C . describe --abbrev=0 --tags` | sed 's/^.//')" # "v1.2.3" -> "1.2.3"
+          echo ${VERSION}
+          sed -i "s/__VERSION__/${VERSION}/g" .github/releasers/aerium_downloader.sh
+
+      - name: Publish
+        uses: softprops/action-gh-release@v2
+        with:
+          files: .github/releasers/aerium_downloader.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

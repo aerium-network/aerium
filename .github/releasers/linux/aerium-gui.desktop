@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=aerium-gui
+Comment=Aerium blockchain node
+Exec=aerium-gui
+Icon=aerium
+Type=Application
+Categories=Network;

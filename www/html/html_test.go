@@ -1,0 +1,103 @@
+package html
+
+import (
+	"context"
+	"fmt"
+	"net/http"
+	"net/http/httptest"
+	"testing"
+
+	"github.com/aerium-network/aerium/consensus/manager"
+	"github.com/aerium-network/aerium/crypto/bls"
+	"github.com/aerium-network/aerium/network"
+	"github.com/aerium-network/aerium/state"
+	"github.com/aerium-network/aerium/sync"
+	"github.com/aerium-network/aerium/util"
+	"github.com/aerium-network/aerium/util/testsuite"
+	"github.com/aerium-network/aerium/wallet"
+	"github.com/aerium-network/aerium/www/grpc"
+	"github.com/aerium-network/aerium/www/zmq"
+	"github.com/stretchr/testify/assert"
+)
+
+type testData struct {
+	*testsuite.TestSuite
+
+	mockState   *state.MockState
+	mockSync    *sync.MockSync
+	mockConsMgr manager.Manager
+	gRPCServer  *grpc.Server
+	httpServer  *Server
+}
+
+func (td *testData) StopServers() {
+	td.httpServer.StopServer()
+	td.gRPCServer.StopServer()
+}
+
+func setup(t *testing.T) *testData {
+	t.Helper()
+
+	ts := testsuite.NewTestSuite(t)
+
+	// Resetting http handlers in golang for unit testing:
+	// https://stackoverflow.com/questions/40786526/resetting-http-handlers-in-golang-for-unit-testing
+	//
+	http.DefaultServeMux = new(http.ServeMux)
+
+	valKeys := []*bls.ValidatorKey{ts.RandValKey(), ts.RandValKey()}
+	mockState := state.MockingState(ts)
+	mockSync := sync.MockingSync(ts)
+	mockNet := network.MockingNetwork(ts, ts.RandPeerID())
+	mockConsMgr, _ := manager.MockingManager(ts, mockState, valKeys)
+
+	mockConsMgr.MoveToNewHeight()
+
+	grpcConf := &grpc.Config{
+		Enable: true,
+		Listen: "[::]:0",
+	}
+	httpConf := &Config{
+		Enable: true,
+		Listen: "[::]:0",
+	}
+
+	walletMgrConf := &wallet.Config{
+		WalletsDir: util.TempDirPath(),
+		ChainType:  mockState.Genesis().ChainType(),
+	}
+
+	zmqPublishers := []zmq.Publisher{
+		zmq.MockingPublisher("zmq_address", "zmq_topic", 100),
+	}
+
+	gRPCServer := grpc.NewServer(context.Background(), grpcConf,
+		mockState, mockSync, mockNet, mockConsMgr,
+		wallet.NewWalletManager(walletMgrConf), zmqPublishers,
+	)
+	assert.NoError(t, gRPCServer.StartServer())
+
+	httpServer := NewServer(context.Background(), httpConf, false)
+	assert.NoError(t, httpServer.StartServer(gRPCServer.Address()))
+
+	return &testData{
+		TestSuite:   ts,
+		mockState:   mockState,
+		mockSync:    mockSync,
+		mockConsMgr: mockConsMgr,
+		gRPCServer:  gRPCServer,
+		httpServer:  httpServer,
+	}
+}
+
+func TestRootHandler(t *testing.T) {
+	td := setup(t)
+
+	w := httptest.NewRecorder()
+	r := new(http.Request)
+	td.httpServer.RootHandler(w, r)
+	assert.Equal(t, 200, w.Code)
+	fmt.Println(w.Body)
+
+	td.StopServers()
+}

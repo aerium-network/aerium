@@ -1,0 +1,62 @@
+package sync
+
+import (
+	"time"
+
+	"github.com/aerium-network/aerium/sync/firewall"
+	"github.com/aerium-network/aerium/sync/peerset/peer/service"
+	"github.com/aerium-network/aerium/util"
+	"github.com/aerium-network/aerium/version"
+)
+
+type Config struct {
+	Moniker           string           `toml:"moniker"`
+	SessionTimeoutStr string           `toml:"session_timeout"`
+	Firewall          *firewall.Config `toml:"firewall"`
+
+	// Private configs
+	MaxSessions         int              `toml:"-"`
+	BlockPerSession     uint32           `toml:"-"`
+	BlockPerMessage     uint32           `toml:"-"`
+	PruneWindow         uint32           `toml:"-"`
+	LatestSupportingVer version.Version  `toml:"-"`
+	Services            service.Services `toml:"-"`
+}
+
+func DefaultConfig() *Config {
+	return &Config{
+		SessionTimeoutStr: "10s",
+		Services:          service.New(service.PrunedNode),
+		MaxSessions:       8,
+		BlockPerSession:   720,
+		BlockPerMessage:   60,
+		PruneWindow:       86_400, // Default retention blocks in prune mode
+		Firewall:          firewall.DefaultConfig(),
+		LatestSupportingVer: version.Version{
+			Major: 0,
+			Minor: 1,
+			Patch: 0,
+		},
+	}
+}
+
+// BasicCheck performs basic checks on the configuration.
+func (conf *Config) BasicCheck() error {
+	_, err := time.ParseDuration(conf.SessionTimeoutStr)
+	if err != nil {
+		return err
+	}
+
+	return conf.Firewall.BasicCheck()
+}
+
+func (conf *Config) CacheSize() int {
+	return util.LogScale(
+		int(conf.BlockPerMessage * conf.BlockPerSession))
+}
+
+func (conf *Config) SessionTimeout() time.Duration {
+	timeout, _ := time.ParseDuration(conf.SessionTimeoutStr)
+
+	return timeout
+}

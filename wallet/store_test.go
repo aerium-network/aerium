@@ -1,0 +1,95 @@
+package wallet
+
+import (
+	"testing"
+
+	"github.com/aerium-network/aerium/types/amount"
+	"github.com/aerium-network/aerium/util"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+//nolint:dupword // duplicated seed phrase words
+var testMnemonic = "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon cactus"
+
+func TestSupportedWallets(t *testing.T) {
+	// password is: "password"
+	// Tests that old wallets (versions 1, 2, 3) are upgraded to the latest version (now Version 1)
+	tests := []struct {
+		walletPath   string
+		addressCount int
+	}{
+		{"./testdata/wallet_version_1", 5},
+	}
+
+	for _, tt := range tests {
+		data, err := util.ReadFile(tt.walletPath)
+		require.NoError(t, err)
+
+		tempPath := util.TempFilePath()
+		err = util.WriteFile(tempPath, data)
+		require.NoError(t, err)
+
+		wlt, err := Open(tempPath, true)
+		require.NoError(t, err)
+
+		// TODO: use public method to check version, like Wallet.Info()
+		assert.Equal(t, VersionLatest, wlt.store.Version)
+		assert.Equal(t, tt.addressCount, wlt.AddressCount())
+
+		mnemonic, err := wlt.Mnemonic("password")
+		require.NoError(t, err)
+		assert.Equal(t, testMnemonic, mnemonic)
+	}
+}
+
+func TestUnsupportedWallet(t *testing.T) {
+	_, err := Open("./testdata/unsupported_wallet", true)
+	require.ErrorIs(t, err, UnsupportedVersionError{
+		WalletVersion:    2,
+		SupportedVersion: VersionLatest,
+	})
+}
+
+func TestUpgradeWallet(t *testing.T) {
+	password := "password"
+
+	t.Run("Upgrade Wallet From Version 1", func(t *testing.T) {
+		// In this upgrade, some addresses may not have a public key.
+		// This test ensures that after the upgrade, all addresses have a public key.
+		data, err := util.ReadFile("./testdata/wallet_version_1")
+		require.NoError(t, err)
+
+		tempPath := util.TempFilePath()
+		err = util.WriteFile(tempPath, data)
+		require.NoError(t, err)
+
+		wlt, err := Open(tempPath, true)
+		require.NoError(t, err)
+
+		assert.Equal(t, VersionLatest, wlt.Version())
+
+		for _, info := range wlt.AddressInfos() {
+			assert.NotEmpty(t, info.PublicKey)
+		}
+
+		err = wlt.UpdatePassword(password, password)
+		require.NoError(t, err)
+		assert.Equal(t, "ARGON2ID-AES_256_CTR-MACV1", wlt.store.Vault.Encrypter.Method)
+		assert.Equal(t, uint32(48), wlt.store.Vault.Encrypter.Params.GetUint32("keylen"))
+
+		addrInfo, err := wlt.NewEd25519AccountAddress("", password)
+		require.NoError(t, err)
+		assert.Equal(t, "ae1rnk393e0ax68472nxn3zgt4vap0mvvsn89y20rn", addrInfo.Address)
+
+		mnemonic, err := wlt.Mnemonic(password)
+		require.NoError(t, err)
+		assert.Equal(t, "ARGON2ID-AES_256_CTR-MACV1", wlt.store.Vault.Encrypter.Method)
+		assert.Equal(t, testMnemonic, mnemonic)
+
+		defaultFeeActual := wlt.Info().DefaultFee
+		defaultFeeExpected, _ := amount.FromString("0.01")
+		require.NoError(t, err)
+		assert.Equal(t, defaultFeeExpected, defaultFeeActual)
+	})
+}

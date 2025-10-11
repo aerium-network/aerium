@@ -1,0 +1,123 @@
+package main
+
+import (
+	"fmt"
+	"os"
+	"path/filepath"
+
+	"github.com/aerium-network/aerium/cmd"
+	"github.com/aerium-network/aerium/store"
+	"github.com/aerium-network/aerium/util/logger"
+	"github.com/gofrs/flock"
+	"github.com/spf13/cobra"
+)
+
+func buildPruneCmd(parentCmd *cobra.Command) {
+	pruneCmd := &cobra.Command{
+		Use:   "prune",
+		Short: "prune old blocks and transactions from client",
+		Long: "The prune command optimizes blockchain storage by removing outdated blocks and transactions, " +
+			"freeing up disk space and enhancing client performance.",
+	}
+	parentCmd.AddCommand(pruneCmd)
+
+	workingDirOpt := addWorkingDirOption(pruneCmd)
+
+	pruneCmd.Run = func(_ *cobra.Command, _ []string) {
+		workingDir, _ := filepath.Abs(*workingDirOpt)
+		// change working directory
+		err := os.Chdir(workingDir)
+		cmd.FatalErrorCheck(err)
+
+		// Define the lock file path
+		lockFilePath := filepath.Join(workingDir, ".aerium.lock")
+		fileLock := flock.New(lockFilePath)
+
+		locked, err := fileLock.TryLock()
+		cmd.FatalErrorCheck(err)
+
+		if !locked {
+			cmd.PrintWarnMsgf("Could not lock '%s', another instance is running?", lockFilePath)
+
+			return
+		}
+
+		conf, _, err := cmd.MakeConfig(workingDir)
+		cmd.FatalErrorCheck(err)
+
+		// Disable logger
+		conf.Logger.Targets = []string{}
+		logger.InitGlobalLogger(conf.Logger)
+
+		cmd.PrintLine()
+		cmd.PrintWarnMsgf("This command removes all the blocks and transactions up to %d days ago "+
+			"and converts the node to prune mode.", conf.Store.RetentionDays)
+		cmd.PrintLine()
+		confirmed := cmd.PromptConfirm("Do you want to continue")
+		if !confirmed {
+			return
+		}
+		cmd.PrintLine()
+
+		store, err := store.NewStore(conf.Store)
+		cmd.FatalErrorCheck(err)
+
+		prunedCount := uint32(0)
+		skippedCount := uint32(0)
+		totalCount := uint32(0)
+		canceled := false
+		closed := make(chan bool, 1)
+
+		cmd.TrapSignal(func() {
+			canceled = true
+			<-closed
+		})
+
+		err = store.Prune(func(pruned bool, pruningHeight uint32) bool {
+			if pruned {
+				prunedCount++
+			} else {
+				skippedCount++
+			}
+
+			if totalCount == 0 {
+				totalCount = pruningHeight
+			}
+
+			pruningProgressBar(prunedCount, skippedCount, totalCount)
+
+			return canceled
+		})
+		cmd.PrintLine()
+		cmd.FatalErrorCheck(err)
+
+		if canceled {
+			cmd.PrintLine()
+			cmd.PrintInfoMsgf("❌ The operation canceled.")
+			cmd.PrintLine()
+		} else if prunedCount == 0 {
+			cmd.PrintLine()
+			cmd.PrintInfoMsgf("⚠️ Your node is not passed the retention_days set in config or it's already a pruned node.")
+			cmd.PrintLine()
+			cmd.PrintInfoMsgf("Make sure you try to prune a node after retention_days specified in config.toml")
+		} else {
+			cmd.PrintLine()
+			cmd.PrintInfoMsgf("✅ Your node successfully pruned and changed to prune mode.")
+			cmd.PrintLine()
+			cmd.PrintInfoMsgf("You can start the node by running this command:")
+			cmd.PrintInfoMsgf("./aerium-daemon start -w %v", workingDir)
+		}
+
+		store.Close()
+		_ = fileLock.Unlock()
+
+		closed <- true
+	}
+}
+
+func pruningProgressBar(prunedCount, skippedCount, totalCount uint32) {
+	bar := cmd.TerminalProgressBar(int64(totalCount), 30)
+	bar.Describe(fmt.Sprintf("Pruned: %d | Skipped: %d", prunedCount, skippedCount))
+	err := bar.Add(int(prunedCount + skippedCount))
+	cmd.FatalErrorCheck(err)
+}

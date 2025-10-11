@@ -1,0 +1,39 @@
+{
+    "genesis_time": "2025-10-15T00:00:00Z",
+    "params": {
+        "block_version": 1,
+        "block_interval_in_second": 10,
+        "committee_size": 51,
+        "block_reward": 1000000000,
+        "transaction_to_live_interval": 8640,
+        "bond_interval": 360,
+        "unbond_interval": 181440,
+        "sortition_interval": 17,
+        "minimum_stake": 1000000000,
+        "maximum_stake": 1000000000000
+    },
+    "accounts": [
+        {
+            "address": "000000000000000000000000000000000000000000",
+            "balance": 4500000000000000000
+        },
+        {
+            "address": "tae1rj2wrxa0jvxzmcxg8a6y5tkpkmfmx988mh6xa52",
+            "balance": 4500000000000000000
+        }
+    ],
+    "validators": [
+      {
+        "public_key": "tpublic1p3hd2uf0c2tycgqlmds8gksd844s99dxunqxf62q3suvv8f35fufs5y0vcjakpgm7gclj7y63snenjrkl3fw2dezs4mjxs5hgv0f24k2zc3aksjnhpyk83le8n7ycg90umez5fy3al7wqjacja0pjs7f3dy99e4zr"
+      },
+      {
+        "public_key": "tpublic1pn8qul5knw9scuk30fgz8hkkxclxmpxxl7earvmh7k0pvqatz4upsyvrsf3ej0dmsvt4c6j0xgrx05qtjuxv8rsmuvxrh6cksrpnkue8yduu2q9fdp7ze9zhulwnufynjj8tsz9nzp756tld65j8lezsfq5u4ysvw"
+      },
+      {
+        "public_key": "tpublic1pskav63wwwxlyd5m0z52etq2xpz2tk8r08dw009n07xezjgs72d42eqzm5qux8cc824qk65gsd55hup4c9lkjz4h4qljac6rsgdz36xdmq75kpz53ux5r6qhle877cwj8jzu0tmzydfl7tk63y6gjsevkgyy4lg9c"
+      },
+      {
+        "public_key": "tpublic1pjz6ky6f77uzr90g75h7m8pgdgzedh6yddzy69xkuc83k3hzsxnr5uxyjawywc7vljtgzdt5mu2a26xggg6gdeuvgvhz3ut46t7r3mg88dj6rume5a6fmz2mjnzwxs5w7dcteu7mcphk3rs8vdqpzmsqcnyjlwklu"
+      }
+    ]
+}

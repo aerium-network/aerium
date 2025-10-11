@@ -1,0 +1,27 @@
+{
+  "name": "aerium-jsonrpc",
+  "version": "{{ VERSION }}",
+  "description": "JavaScript client for interacting with the Aerium blockchain via JSON-RPC",
+  "author": "Aerium Development Team",
+  "license": "MIT",
+  "homepage": "https://aerium.network",
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aerium-network/aerium.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aerium-network/aerium/issues"
+  },
+  "keywords": [
+    "aerium",
+    "blockchain",
+    "json-rpc"
+  ],
+  "dependencies": {
+    "@open-rpc/client-js": "1.8.1",
+    "@open-rpc/meta-schema": "1.14.9",
+    "@open-rpc/schema-utils-js": "2.1.2",
+    "lodash": "^4.17.15"
+  }
+}

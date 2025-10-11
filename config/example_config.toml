@@ -1,0 +1,273 @@
+### This configuration file specifies configurations for running a Aerium node.
+
+# `node` contains configuration options for the Aerium node.
+[node]
+
+  # `reward_addresses` specifies the addresses for collecting rewards.
+  # If empty, reward addresses will be obtained from the wallet.
+  # If it has only one address, it is used for all validators.
+  # Otherwise, the number of reward addresses should be the same as the number of validators.
+  reward_addresses = []
+
+# `store` contains configuration options for the store module, which manages storage and retrieval of blockchain data.
+[store]
+
+  # `path` specifies the directory where blockchain data will be stored.
+  # Default is 'data'.
+  path = 'data'
+
+  # `retention_days` this parameter indicates the number of days for which the node should keep or retain the blocks
+  # before pruning them. It is only applicable if the node is in Prune Mode.
+  # Default is `10` days.
+  retention_days = 10
+
+# `network` contains configuration options for the network module, which manages communication between nodes.
+[network]
+
+  # `network_key` specifies the private key filename to use for node authentication and encryption in the p2p protocol.
+  # Default is `'network_key'`.
+  network_key = 'network_key'
+
+  # `public_addr` is the address that is public and accessible to other nodes.
+  public_addr = ''
+
+  # `listen_addrs` specifies the addresses and ports where the node will listen for incoming connections from other nodes.
+  listen_addrs = []
+
+  # `bootstrap_addrs` is a list of peer addresses needed for peer discovery.
+  # These addresses are used by the Aerium node to discover and connect to other peers on the network.
+  bootstrap_addrs = []
+
+  # `max_connections` is the maximum number of connections that the Aerium node maintains.
+  # Default is `64`.
+  max_connections = 64
+
+  # `enable_udp` indicates whether the UDP transport protocol should be enabled or not.
+  # Enabling UDP can improve the network connectivity of the node, but it might also lead to many packet losses.
+  # Default is `false`.
+  enable_udp = false
+
+  # `enable_nat_service` provides a service to other peers for determining their reachability status.
+  # Default is `false`.
+  enable_nat_service = false
+
+  # `enable_upnp` will attempt to open a port in your network's firewall using UPnP.
+  # Default is `false`.
+  enable_upnp = false
+
+  # `enable_relay` indicates whether relay service should be enabled or not.
+  # Relay service is a transport protocol that routes traffic between two peers over a third-party “relay” peer.
+  # Default is `true`.
+  enable_relay = true
+
+  # `enable_relay_service` indicates whether relay service should be enabled or not.
+  # Relay service is a transport protocol that enables peers to discover each other on the peer-to-peer network.
+  # Default is `false`.
+  enable_relay_service = false
+
+  # `enable_mdns` indicates whether MDNS should be enabled or not.
+  # MDNS is a protocol to discover local peers quickly and efficiently.
+  # Default is `false`.
+  enable_mdns = false
+
+  # `enable_metrics` provides the network metrics for the Prometheus software.
+  # Default is `false`.
+  enable_metrics = false
+
+  # `force_private_network` forces the connection to nodes within a private network.
+  # A private network is a computer network that uses private addresses.
+  # Read more about private networks here: https://en.wikipedia.org/wiki/Private_network
+  # Default is `false`.
+  force_private_network = false
+
+# `sync` contains configuration of sync module.
+[sync]
+
+  # `moniker` is a custom human-readable name for this node.
+  moniker = ''
+
+  # `session_timeout` is a timeout for a download session to remain open.
+  # When a block download request is sent, this timer starts. If there is no activity from the target Node,
+  # the session will be closed after the timeout and try to get the block from another peer.
+  # Default is `'10s'`.
+  session_timeout = '10s'
+
+  # `sync.firewall` contains configuration options for the sync firewall.
+  [sync.firewall]
+    # `banned_nets` contains the list of IPs and subnets that should be banned.
+    # Any incoming and outgoing connections to banned addresses will be terminated.
+    banned_nets = []
+
+    # `rate_limit` contains the rate limit configurations for network topics.
+    # The rate limit specifies the number of messages per second that are allowed.
+    # If set to zero, it allows all requests without any limit.
+    [sync.firewall.rate_limit]
+
+      # `block_topic` specifies the rate limit for the block topic.
+      block_topic = 1
+
+      # `transaction_topic` specifies the rate limit for the transaction topic.
+      transaction_topic = 5
+
+      # `consensus_topic` specifies the rate limit for the consensus topic.
+      consensus_topic = 0
+
+# `tx_pool` contains configuration options for the transaction pool module.
+[tx_pool]
+
+  # `max_size` indicates the maximum number of unconfirmed transactions inside the pool.
+  # Default is `1000`.
+  max_size = 1000
+
+  # `tx_pool.fee` contains configuration to calculate the transaction fee.
+  [tx_pool.fee]
+
+    # The `fixed_fee` is a constant fee in AUM that applies to each transaction, regardless of its size or type.
+    # Default is `0.01` AUM.
+    fixed_fee = 0.01
+
+    # The `daily_limit` is the number of bytes an account can send each day without paying a fee.
+    # The `daily_limit` is part of the consumptional fee model.
+    # Default is `360` bytes.
+    daily_limit = 360
+
+    # The `unit_price` defines the fee per byte in AUM.
+    # The `unit_price` is part of the consumptional fee model.
+    # If it is zero, the consumptional fee will be ignored.
+    # Default is `0.0` AUM.
+    unit_price = 0.0
+
+# `logger` contains configuration options for the logger.
+[logger]
+  # `colorful` indicates whether log can be colorful or not.
+  # Default is `true`.
+  colorful = true
+
+  # `max_backups` is the maximum number of old log files to retain.
+  # Default is `0`.
+  max_backups = 0
+
+  # `rotate_log_after_days` is the maximum number of days to retain old log files.
+  # Default is `1`.
+  rotate_log_after_days = 1
+
+  # `compress` determines if the rotated log files should be compressed.
+  # Default is `true`.
+  compress = true
+
+  # `targets` determines where the logs will be shown, saved, or sent.
+  # Default is `['console', 'file']`.
+  targets = ['console', 'file']
+
+  # `logger.levels` contains the level of logger per module.
+  # Available log levels are:
+  #   'trace', 'debug', 'info', 'warn', and 'error'.
+  [logger.levels]
+    _consensus = 'warn'
+    _firewall = 'warn'
+    _grpc = 'info'
+    _html = 'info'
+    _http = 'info'
+    _jsonrpc = 'info'
+    _network = 'error'
+    _pool = 'error'
+    _state = 'info'
+    _sync = 'error'
+    _zmq = 'info'
+    default = 'info'
+
+# `grpc` contains configuration for the gRPC server.
+[grpc]
+
+  # `enable` indicates whether the gRPC service should be enabled.
+  # Default is `true`.
+  enable = true
+
+  # `enable_wallet` indicates whether the Wallet service should be enabled.
+  # Default is `false`.
+  enable_wallet = false
+
+  # `listen` is the address the gRPC server will listen on for incoming connections.
+  listen = '127.0.0.1:50051'
+
+  # `basic_auth` is the Basic Auth credential used to enhance gRPC security.
+  basic_auth = ''
+
+# `jsonrpc` contains configuration for the JSON-RPC server.
+[jsonrpc]
+
+  # `enable` indicates whether the JSON-RPC service should be enabled.
+  # Default is `false`.
+  enable = false
+
+  # `listen` is the address the JSON-RPC server will listen on for incoming connections.
+  listen = '127.0.0.1:8545'
+
+  # `origins` specifies the allowed CORS origins for the JSON-RPC server.
+  # This controls which domains can make requests to the JSON-RPC API from a browser.
+  # Only the specified origins will be allowed. If not set or left empty, CORS is disabled by default.
+  # Example: origins = ["wallet.aerium.app"]
+  origins = []
+
+# `http` contains configuration for the HTTP-API server.
+[http]
+
+  # `enable` indicates whether the HTTP-API should be enabled.
+  # Default is `false`.
+  enable = false
+
+  # `listen` is the address the HTTP-API server will listen on for incoming connections.
+  listen = '127.0.0.1:8080'
+
+  # `base_path` sets the URL prefix for all HTTP-API endpoints.
+  base_path = '/http'
+
+  # `enable_cors` indicates whether Cross-Origin Resource Sharing (CORS)
+  # should be enabled.
+  # Default is `false`.
+  enable_cors = false
+
+# `html` contains configuration for the HTML server.
+# HTML server is mostly used for debugging and testing purposes.
+[html]
+
+  # `enable` indicates whether HTML service should be enabled or not.
+  # Default is `false`.
+  enable = false
+
+  # `listen` is the address to listen for incoming connections for HTML server.
+  listen = '127.0.0.1:80'
+
+  # `enable_pprof` Enables Golang's pprof debugger for profiling CPU, memory, and goroutines,
+  # providing key performance insights. Be cautious as it exposes sensitive
+  # data, so enable only in secure environments with restricted access.
+  enable_pprof = false
+
+# ZeroMQ configuration.
+[zeromq]
+
+  # `zmqpubblockinfo` specifies the address for publishing block info notifications.
+  # Example: 'tcp://127.0.0.1:28332'
+  # Default is '', meaning the topic is disabled
+  zmqpubblockinfo = ''
+
+  # `zmqpubtxinfo` specifies the address for publishing transaction info notifications.
+  # Example: 'tcp://127.0.0.1:28332'
+  # Default is '', meaning the topic is disabled
+  zmqpubtxinfo = ''
+
+  # `zmqpubrawblock` specifies the address for publishing raw block notifications.
+  # Example: 'tcp://127.0.0.1:28332'
+  # Default is '', meaning the topic is disabled
+  zmqpubrawblock = ''
+
+  # `zmqpubrawtx` specifies the address for publishing raw transaction notifications.
+  # Example: 'tcp://127.0.0.1:28332'
+  # Default is '', meaning the topic is disabled
+  zmqpubrawtx = ''
+
+  # `zmqpubhwm` defines the High Watermark (HWM) for ZeroMQ message pipes.
+  # This parameter determines the maximum number of messages ZeroMQ can buffer before blocking the publishing of further messages.
+  # The watermark is applied uniformly to all active topics.
+  # Default is 1000
+  zmqpubhwm = 1000

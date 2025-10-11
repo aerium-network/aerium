@@ -1,0 +1,26 @@
+package committee
+
+import (
+	"github.com/aerium-network/aerium/crypto"
+	"github.com/aerium-network/aerium/types/protocol"
+	"github.com/aerium-network/aerium/types/validator"
+)
+
+type Reader interface {
+	Validators() []*validator.Validator
+	Committers() []int32
+	Contains(addr crypto.Address) bool
+	Proposer(round int16) *validator.Validator
+	IsProposer(addr crypto.Address, round int16) bool
+	ProtocolVersions() map[protocol.Version]float64
+	SupportProtocolVersion(version protocol.Version) bool
+	Size() int
+	TotalPower() int64
+	String() string
+}
+
+type Committee interface {
+	Reader
+
+	Update(lastRound int16, joined []*validator.Validator)
+}

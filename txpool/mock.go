@@ -1,0 +1,97 @@
+package txpool
+
+import (
+	"slices"
+
+	"github.com/aerium-network/aerium/crypto/hash"
+	"github.com/aerium-network/aerium/sandbox"
+	"github.com/aerium-network/aerium/types/amount"
+	"github.com/aerium-network/aerium/types/block"
+	"github.com/aerium-network/aerium/types/tx"
+	"github.com/aerium-network/aerium/types/tx/payload"
+)
+
+var _ TxPool = &MockTxPool{}
+
+// MockTxPool is a testing mock.
+type MockTxPool struct {
+	Txs         []*tx.Tx
+	AppendError error
+}
+
+func MockingTxPool() *MockTxPool {
+	return &MockTxPool{
+		Txs: make([]*tx.Tx, 0),
+	}
+}
+func (*MockTxPool) SetNewSandboxAndRecheck(_ sandbox.Sandbox) {}
+func (m *MockTxPool) PendingTx(txID tx.ID) *tx.Tx {
+	for _, t := range m.Txs {
+		if t.ID() == txID {
+			return t
+		}
+	}
+
+	return nil
+}
+
+func (m *MockTxPool) QueryTx(txID tx.ID) *tx.Tx {
+	return m.PendingTx(txID)
+}
+
+func (m *MockTxPool) HasTx(txID tx.ID) bool {
+	for _, t := range m.Txs {
+		if t.ID() == txID {
+			return true
+		}
+	}
+
+	return false
+}
+
+func (m *MockTxPool) Size() int {
+	return len(m.Txs)
+}
+
+func (*MockTxPool) String() string {
+	return ""
+}
+
+func (m *MockTxPool) AppendTx(trx *tx.Tx) error {
+	m.Txs = append(m.Txs, trx)
+
+	return m.AppendError
+}
+
+func (m *MockTxPool) AppendTxAndBroadcast(trx *tx.Tx) error {
+	m.Txs = append(m.Txs, trx)
+
+	return m.AppendError
+}
+
+func (m *MockTxPool) RemoveTx(id hash.Hash) {
+	for i, trx := range m.Txs {
+		if trx.ID() == id {
+			m.Txs = slices.Delete(m.Txs, i, i+1)
+
+			return
+		}
+	}
+}
+
+func (*MockTxPool) HandleCommittedBlock(_ *block.Block) {}
+
+func (m *MockTxPool) PrepareBlockTransactions() block.Txs {
+	txs := make([]*tx.Tx, m.Size())
+	copy(txs, m.Txs)
+
+	return txs
+}
+
+func (*MockTxPool) EstimatedFee(_ amount.Amount, _ payload.Type) amount.Amount {
+	return amount.Amount(0.1e9)
+}
+
+func (m *MockTxPool) AllPendingTxs() []*tx.Tx {
+	return make([]*tx.Tx, m.Size())
+}

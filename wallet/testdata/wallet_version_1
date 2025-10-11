@@ -1,0 +1,70 @@
+{
+    "version": 1,
+    "uuid": "462cc5e5-fe47-432b-b9a5-c2a1dfa6e881",
+    "created_at": "2025-10-11T08:43:45Z",
+    "network": 0,
+    "crc": 3203300546,
+    "vault": {
+      "type": 1,
+      "coin_type": 19933,
+      "default_fee": 10000000,
+      "addresses": {
+        "ae1pamqhjfrqkkka77etllql6xx4tyxhfav5vf3gtd": {
+          "address": "ae1pamqhjfrqkkka77etllql6xx4tyxhfav5vf3gtd",
+          "public_key": "public1p4fzg6fq789j5ekuzn2estfu2asmurzqtd8cu2yp9rkqsp4qhx7nmkxww5dz4kvc4q9e92j4c74el6z38pwwy5y93ygwkn6cgrnuh3ktf6y8dqy07t7yvcvwusfdah5cfawamp9yp0p0yshtql8wa8xexsv6e8hsy",
+          "label": "Imported Validator Address",
+          "path": "m/65535'/19933'/1'/0'"
+        },
+        "ae1pmw96ksrcthms5860gp67xe55aks9rw2ujpx2j9": {
+          "address": "ae1pmw96ksrcthms5860gp67xe55aks9rw2ujpx2j9",
+          "public_key": "public1p4qgn2q0qy6tctc9cvfmpswaltu39zmk7nflw5t9ttnzq3mvn2fwk9aa29mcsu8dr3kw8af9mx23rvzwsxk637nhul99xsv0edq0yqw0ed6c0s82fx0y9ylpw6xm6fcet74a5xpg0hza3decumgswyjzhpyxya0u7",
+          "label": "Validator Address",
+          "path": "m/12381'/19933'/1'/0"
+        },
+        "ae1rex4yps0chj9lsax9n8m0vpt59a2jecxv8k0g8y": {
+          "address": "ae1rex4yps0chj9lsax9n8m0vpt59a2jecxv8k0g8y",
+          "public_key": "public1r3h02edzf3gykms40gmdhtd4pgqd3p0yrdteq4nqsxpj24u9yrn3sm2jytd",
+          "label": "Ed25519 Account Address",
+          "path": "m/44'/19933'/3'/0'"
+        },
+        "ae1z0v7jum3clvcfeurxg92vt8uwx002ev9jxtyk3p": {
+          "address": "ae1z0v7jum3clvcfeurxg92vt8uwx002ev9jxtyk3p",
+          "public_key": "public1p5zez649ee9f9jkmvt7uqan08n2mzpqd4kl96eqe6yzelr6jksq5tkrv0cp66nay0gkremf4a9nqeczapue82kc8e7yrm5zdqvqkfg9wnwpycl7m86jkt8w59j3xl0xfw39h29f9dwg8l744jxefr0pkmcyeuk68z",
+          "label": "BLS Account Address",
+          "path": "m/12381'/19933'/2'/0"
+        },
+        "ae1zamqhjfrqkkka77etllql6xx4tyxhfav53zp4us": {
+          "address": "ae1zamqhjfrqkkka77etllql6xx4tyxhfav53zp4us",
+          "public_key": "public1p4fzg6fq789j5ekuzn2estfu2asmurzqtd8cu2yp9rkqsp4qhx7nmkxww5dz4kvc4q9e92j4c74el6z38pwwy5y93ygwkn6cgrnuh3ktf6y8dqy07t7yvcvwusfdah5cfawamp9yp0p0yshtql8wa8xexsv6e8hsy",
+          "label": "Imported BLS Account Address",
+          "path": "m/65535'/19933'/2'/0'"
+        }
+      },
+      "encrypter": {
+        "method": "ARGON2ID-AES_256_CTR-MACV1",
+        "params": {
+          "iterations": "3",
+          "keylen": "48",
+          "memory": "65536",
+          "parallelism": "4"
+        }
+      },
+      "key_store": "bCPmXVj+K3vHKhDT/DMKRMkCJ1SgKrxpOEVJ0bMWMuIQ7+4korQnxWxcKDlqpYutsfI61Q5DewyxmJdh0ZnzgLORGkHDpQEAESUFHJmIzGBrt8xMHGpkyPQgrH3fxthXTswFHiklcy64ocKznS6cYia1cUK/e+FA+f8vDqTPzv3NbjAqplayfAqpBIg10Bq3ANrvq4Oko348UhMpWVT1FmiKNA+0g5q4Vh9d7PtgvOEhBOJyfh/Cdz1cyINeXEWMfcpqzoDQIsYgDo8BkI3wKwtZtm09UmBowiJbi5B5mp3577Vg",
+      "purposes": {
+        "purpose_bls": {
+          "xpub_account": "xpublic1pqdwnqqyqm4xspqqpqqqgqgqsqydgrt9tfgm36mkl4hh6g43hpmvh9atmw6enprf5d5zcmzfj0cqxpzhw099gm7pyv653ceq9p942q9kktzkrc7c20ausea45g3wvvyx3n7gra2k9uxkze6p4nquvp86at59yu2kc0cwq8mvw6ttjkd94wt6am0xrgswgprqym0wnuvhmp6qy0jq0gv34qptcm6cwjzmtn3578cse90mcj",
+          "xpub_validator": "xpublic1pqdwnqqyqm4xspqqzqqqgqgp0wsgngnjwzajnv8at0dnctw5thxqet3dd0258jgs5fsfr64q06uqxpg26cwp4yqqv7grx5qy4wxd2mmhxtud8v68wjk68hca06a3r4zvw8pm687c9vt6zdnnu48jrputatvvn7py926lu63yveny8ukz5jdzl9cj4vkq87fmqfckrz5k8c5me5hrpj3wk6ywne3gm876jxdu6rhcp9j0w6",
+          "next_account_index": 1,
+          "next_validator_index": 1
+        },
+        "purpose_bip44": {
+          "next_ed25519_index": 1
+        }
+      }
+    },
+    "history": {
+      "transactions": null,
+      "activities": null,
+      "pendings": null
+    }
+  }

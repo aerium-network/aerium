@@ -1,0 +1,26 @@
+{
+    "genesis_time": "2024-01-24T20:24:00Z",
+    "params": {
+        "block_version": 1,
+        "block_interval_in_second": 10,
+        "committee_size": 51,
+        "block_reward": 1000000000,
+        "transaction_to_live_interval": 8640,
+        "bond_interval": 360,
+        "unbond_interval": 181440,
+        "sortition_interval": 17,
+        "minimum_stake": 1000000000,
+        "maximum_stake": 1000000000000
+    },
+    "accounts": [
+        {
+            "address": "000000000000000000000000000000000000000000",
+            "balance": 21000000000000000
+        }
+    ],
+    "validators": [
+      {
+        "public_key": "public1ps0g69jlesjjs02czwjly5hfxaqwtf46y2lswu6nk70yax592wwall3jl4xlnlkrwnys74kzcjgff7qgnf5su52acl007emzwrcmtukqrkee63pfxap7jlp8698g3f57ume8vlp2tv3gqc50275mhn39vjvnvwg2s"
+      }
+    ]
+}

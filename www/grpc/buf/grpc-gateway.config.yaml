@@ -1,0 +1,144 @@
+type: google.api.Service
+config_version: 3
+
+http:
+  rules:
+    # Blockchain APIs
+    - selector: aerium.Blockchain.GetBlock
+      get: "/aerium/blockchain/get_block"
+
+    - selector: aerium.Blockchain.GetBlockHash
+      get: "/aerium/blockchain/get_block_hash"
+
+    - selector: aerium.Blockchain.GetBlockHeight
+      get: "/aerium/blockchain/get_block_height"
+
+    - selector: aerium.Blockchain.GetAccount
+      get: "/aerium/blockchain/get_account"
+
+    - selector: aerium.Blockchain.GetValidator
+      get: "/aerium/blockchain/get_validator"
+
+    - selector: aerium.Blockchain.GetValidatorByNumber
+      get: "/aerium/blockchain/get_validator_by_number"
+
+    - selector: aerium.Blockchain.GetBlockchainInfo
+      get: "/aerium/blockchain/get_blockchain_info"
+
+    - selector: aerium.Blockchain.GetConsensusInfo
+      get: "/aerium/blockchain/get_consensus_info"
+
+    - selector: aerium.Blockchain.GetPublicKey
+      get: "/aerium/blockchain/get_public_key"
+
+    - selector: aerium.Blockchain.GetTxPoolContent
+      get: "/aerium/blockchain/get_txpool_content"
+
+    # Transaction APIs
+    - selector: aerium.Transaction.GetTransaction
+      get: "/aerium/transaction/get_transaction"
+
+    - selector: aerium.Transaction.BroadcastTransaction
+      post: "/aerium/transaction/broadcast_transaction"
+      body: "*"
+
+    - selector: aerium.Transaction.CalculateFee
+      post: "/aerium/transaction/calculate_fee"
+      body: "*"
+
+    - selector: aerium.Transaction.GetRawTransferTransaction
+      post: "/aerium/transaction/get_raw_transfer_transaction"
+      body: "*"
+
+    - selector: aerium.Transaction.GetRawBondTransaction
+      post: "/aerium/transaction/get_raw_bond_transaction"
+      body: "*"
+
+    - selector: aerium.Transaction.GetRawUnbondTransaction
+      post: "/aerium/transaction/get_raw_unbond_transaction"
+      body: "*"
+
+    - selector: aerium.Transaction.GetRawWithdrawTransaction
+      post: "/aerium/transaction/get_raw_withdraw_transaction"
+      body: "*"
+
+    - selector: aerium.Transaction.DecodeRawTransaction
+      post: "/aerium/transaction/decode_raw_transaction"
+      body: "*"
+
+    - selector: aerium.Transaction.GetRawBatchTransferTransaction
+      post: "/aerium/transaction/get_raw_batch_transfer_transaction"
+      body: "*"
+
+    # Network APIs
+    - selector: aerium.Network.GetNetworkInfo
+      get: "/aerium/network/get_network_info"
+
+    - selector: aerium.Network.GetNodeInfo
+      get: "/aerium/network/get_node_info"
+
+    # Wallet APIs
+    - selector: aerium.Wallet.GetValidatorAddress
+      get: "/aerium/wallet/get_validator_address"
+
+    - selector: aerium.Wallet.CreateWallet
+      get: "/aerium/wallet/create_wallet"
+
+    - selector: aerium.Wallet.RestoreWallet
+      get: "/aerium/wallet/restore_wallet"
+
+    - selector: aerium.Wallet.LoadWallet
+      get: "/aerium/wallet/load_wallet"
+
+    - selector: aerium.Wallet.UnloadWallet
+      get: "/aerium/wallet/unload_wallet"
+
+    - selector: aerium.Wallet.SignRawTransaction
+      get: "/aerium/wallet/sign_raw_transaction"
+
+    - selector: aerium.Wallet.GetNewAddress
+      get: "/aerium/wallet/get_new_address"
+
+    - selector: aerium.Wallet.GetTotalBalance
+      get: "/aerium/wallet/get_total_balance"
+
+    - selector: aerium.Wallet.SignMessage
+      get: "/aerium/wallet/sign_message"
+
+    - selector: aerium.Wallet.GetTotalStake
+      get: "/aerium/wallet/get_total_stake"
+
+    - selector: aerium.Wallet.GetAddressInfo
+      get: "/aerium/wallet/get_address_info"
+
+    - selector: aerium.Wallet.GetAddressHistory
+      get: "/aerium/wallet/get_address_history"
+
+    - selector: aerium.Wallet.SetAddressLabel
+      patch: "/aerium/wallet/set_address_label"
+
+    - selector: aerium.Wallet.ListWallet
+      get: "/aerium/wallet/list_wallet"
+
+    - selector: aerium.Wallet.GetWalletInfo
+      get: "/aerium/wallet/get_wallet_info"
+
+    - selector: aerium.Wallet.ListAddress
+      get: "/aerium/wallet/list_address"
+
+    # Util APIs
+    - selector: aerium.Utils.SignMessageWithPrivateKey
+      post: "/aerium/Utils/sign_message_with_private_key"
+      body: "*"
+
+    - selector: aerium.Utils.VerifyMessage
+      post: "/aerium/Utils/verify_message"
+      body: "*"
+
+    - selector: aerium.Utils.PublicKeyAggregation
+      post: "/aerium/Utils/public_key_aggregation"
+      body: "*"
+
+    - selector: aerium.Utils.SignatureAggregation
+      post: "/aerium/Utils/signature_aggregation"
+      body: "*"
