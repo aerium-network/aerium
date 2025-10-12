@@ -1,6 +1,8 @@
 package vault
 
 import (
+	"context"
+	"errors"
 	"fmt"
 	"strings"
 	"testing"
@@ -477,4 +479,144 @@ func TestNeuter(t *testing.T) {
 
 	err = td.vault.Neuter().UpdatePassword("any", "any")
 	assert.ErrorIs(t, err, ErrNeutered)
+}
+
+// TestAddressRecovery tests the address recovery functionality.
+// The first 8 BLS account addresses for the test mnemonic are:
+// ae1z0v7jum3clvcfeurxg92vt8uwx002ev9jxtyk3p (index 0)
+// ae1z5q8m2a5fe4wdwvzr2zf7w3c7lu6yas4ynf6sfu (index 1)
+// ae1zkcv2d3kywlag93y4zf4p453p22mc8xvyca3h39 (index 2)
+// ae1z2pqqrh2slw9aqj34uf8yrnuk39dttht29dpl4u (index 3)
+// ae1z2ylnhcujfeg3cpa923q54zhjugz6mv7xkgvun4 (index 4)
+// ae1zzpa29tnf85ukg3pstgdgh4dnhv2fgtaufwc34c (index 5)
+// ae1z2yqtjugl8q3fpqnkp4256f947559gm7p9jk0xe (index 6)
+// ae1z7sv9x0kqyms7vzc5z9rdzlgyh6egmpw4mfhe9a (index 7)
+//
+// The first 8 Ed25519 account addresses for the test mnemonic are:
+// ae1rex4yps0chj9lsax9n8m0vpt59a2jecxv8k0g8y (index 0)
+// ae1rnk393e0ax68472nxn3zgt4vap0mvvsn89y20rn (index 1)
+// ae1rsn6hp05ud04vz5rung0dva4mtzdr3kjumv25hy (index 2)
+// ae1rqzqlkelnlmefz0mfmyr4gk2a236686vr7c7a0z (index 3)
+// ae1ruvwcyxdz5nlmehlhw6du6pw2xjls5lq56tu8re (index 4)
+// ae1rxfnz6nvrj57m4lqny4qh5mgtlkagsj05rpzr9k (index 5)
+// ae1rnhtvss0m7sdt4zh4r892xswczgwcyzjxms4kcd (index 6)
+// ae1rnf2dha4cgl95er9mlvhe39ql6204qd6grme8lv (index 7)
+//
+// The test uses a mock hasActivity function to simulate blockchain activity checks.
+func TestAddressRecovery(t *testing.T) {
+	//nolint:dupword // has duplicated words
+	testMnemonic := "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon cactus"
+
+	t.Run("recover addresses from a fresh wallet without any active addresses", func(t *testing.T) {
+		vault, err := CreateVaultFromMnemonic(testMnemonic, 19933) // Mainnet
+		assert.NoError(t, err)
+
+		// Mock hasActivity to return false for all addresses (no active addresses)
+		hasActivity := func(_ string) (bool, error) {
+			return false, nil
+		}
+
+		err = vault.RecoverAddresses(context.Background(), "", hasActivity)
+		assert.NoError(t, err)
+
+		// Should have 1 Ed25519 address (the first one)
+		addresses := vault.AllAccountAddresses()
+		assert.Len(t, addresses, 1)
+		assert.Equal(t, "ae1rex4yps0chj9lsax9n8m0vpt59a2jecxv8k0g8y", addresses[0].Address)
+	})
+
+	t.Run("recover addresses with one gap at the beginning", func(t *testing.T) {
+		vault, err := CreateVaultFromMnemonic(testMnemonic, 19933) // Mainnet
+		assert.NoError(t, err)
+
+		// Mock hasActivity to return true only for the first call (address at index 0)
+		hasActivity := func(addr string) (bool, error) {
+			return addr == "ae1rnk393e0ax68472nxn3zgt4vap0mvvsn89y20rn" ||
+				addr == "ae1z5q8m2a5fe4wdwvzr2zf7w3c7lu6yas4ynf6sfu", nil
+		}
+
+		err = vault.RecoverAddresses(context.Background(), "", hasActivity)
+		assert.NoError(t, err)
+
+		// Should have 4 addresses
+		addresses := vault.AllAccountAddresses()
+		assert.Len(t, addresses, 4)
+		assert.Equal(t, "ae1rex4yps0chj9lsax9n8m0vpt59a2jecxv8k0g8y", addresses[0].Address)
+		assert.Equal(t, "ae1rnk393e0ax68472nxn3zgt4vap0mvvsn89y20rn", addresses[1].Address)
+		assert.Equal(t, "ae1z0v7jum3clvcfeurxg92vt8uwx002ev9jxtyk3p", addresses[2].Address)
+		assert.Equal(t, "ae1z5q8m2a5fe4wdwvzr2zf7w3c7lu6yas4ynf6sfu", addresses[3].Address)
+	})
+
+	t.Run("recover addresses with gaps in the middle of the address list", func(t *testing.T) {
+		vault, err := CreateVaultFromMnemonic(testMnemonic, 19933) // Mainnet
+		assert.NoError(t, err)
+
+		hasActivity := func(addr string) (bool, error) {
+			return addr == "ae1rex4yps0chj9lsax9n8m0vpt59a2jecxv8k0g8y" ||
+				addr == "ae1rnk393e0ax68472nxn3zgt4vap0mvvsn89y20rn" ||
+				addr == "ae1rqzqlkelnlmefz0mfmyr4gk2a236686vr7c7a0z" ||
+				addr == "ae1z0v7jum3clvcfeurxg92vt8uwx002ev9jxtyk3p" ||
+				addr == "ae1z2pqqrh2slw9aqj34uf8yrnuk39dttht29dpl4u", nil
+		}
+
+		err = vault.RecoverAddresses(context.Background(), "", hasActivity)
+		assert.NoError(t, err)
+
+		addresses := vault.AllAccountAddresses()
+		assert.Len(t, addresses, 8)
+
+		assert.Equal(t, "ae1rex4yps0chj9lsax9n8m0vpt59a2jecxv8k0g8y", addresses[0].Address)
+		assert.Equal(t, "ae1rnk393e0ax68472nxn3zgt4vap0mvvsn89y20rn", addresses[1].Address)
+		assert.Equal(t, "ae1rsn6hp05ud04vz5rung0dva4mtzdr3kjumv25hy", addresses[2].Address)
+		assert.Equal(t, "ae1rqzqlkelnlmefz0mfmyr4gk2a236686vr7c7a0z", addresses[3].Address)
+		assert.Equal(t, "ae1z0v7jum3clvcfeurxg92vt8uwx002ev9jxtyk3p", addresses[4].Address)
+		assert.Equal(t, "ae1z5q8m2a5fe4wdwvzr2zf7w3c7lu6yas4ynf6sfu", addresses[5].Address)
+		assert.Equal(t, "ae1zkcv2d3kywlag93y4zf4p453p22mc8xvyca3h39", addresses[6].Address)
+		assert.Equal(t, "ae1z2pqqrh2slw9aqj34uf8yrnuk39dttht29dpl4u", addresses[7].Address)
+	})
+
+	t.Run("error handling", func(t *testing.T) {
+		vault, err := CreateVaultFromMnemonic(testMnemonic, 19933) // Mainnet
+		assert.NoError(t, err)
+
+		// Mock hasActivity to return an error
+		hasActivity := func(_ string) (bool, error) {
+			return false, errors.New("blockchain connection error")
+		}
+
+		err = vault.RecoverAddresses(context.Background(), "", hasActivity)
+		assert.Error(t, err)
+		assert.Contains(t, err.Error(), "blockchain connection error")
+	})
+
+	t.Run("cancel recovery with context cancel signal", func(t *testing.T) {
+		vault, err := CreateVaultFromMnemonic(testMnemonic, 21888) // Mainnet
+		assert.NoError(t, err)
+
+		// Create a cancellable context
+		ctx, cancel := context.WithCancel(context.Background())
+
+		// Counter to track how many times hasActivity is called
+		callCount := 0
+
+		// Mock hasActivity to cancel context after a few calls
+		hasActivity := func(_ string) (bool, error) {
+			callCount++
+			// Cancel the context after 3 calls to simulate interruption during recovery
+			if callCount >= 3 {
+				cancel()
+			}
+
+			return false, nil
+		}
+
+		err = vault.RecoverAddresses(ctx, "", hasActivity)
+		assert.Error(t, err)
+		assert.Equal(t, context.Canceled, err)
+
+		// Recovery should have been interrupted, so we should have only the first Ed25519 address
+		// or possibly none if cancelled early enough
+		addresses := vault.AllAccountAddresses()
+		assert.LessOrEqual(t, len(addresses), 1)
+	})
 }
