@@ -740,7 +740,7 @@ func (*Vault) deriveEd25519PrivateKey(mnemonicSeed []byte, path []uint32) (*ed25
 // automatic recovery will stop at the gap.
 // In such cases, manual address creation is required to recover additional addresses.
 func (v *Vault) RecoverAddresses(ctx context.Context, password string,
-	hasActivity func(addrs string) (bool, error),
+	hasActivity func(addr string) (bool, error),
 ) error {
 	err := v.recoverBLSAccountAddresses(ctx, hasActivity)
 	if err != nil {
@@ -751,7 +751,7 @@ func (v *Vault) RecoverAddresses(ctx context.Context, password string,
 }
 
 // recoverBLSAccountAddresses recovers BLS account addresses.
-func (v *Vault) recoverBLSAccountAddresses(ctx context.Context, hasActivity func(addrs string) (bool, error)) error {
+func (v *Vault) recoverBLSAccountAddresses(ctx context.Context, hasActivity func(addr string) (bool, error)) error {
 	ext, err := blshdkeychain.NewKeyFromString(v.Purposes.PurposeBLS.XPubAccount)
 	if err != nil {
 		return err
@@ -806,7 +806,7 @@ func (v *Vault) recoverBLSAccountAddresses(ctx context.Context, hasActivity func
 
 // recoverEd25519AccountAddresses recovers Ed25519 account addresses.
 func (v *Vault) recoverEd25519AccountAddresses(ctx context.Context, password string,
-	hasActivity func(addrs string) (bool, error),
+	hasActivity func(addr string) (bool, error),
 ) error {
 	seed, err := v.MnemonicSeed(password)
 	if err != nil {
