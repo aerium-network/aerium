@@ -120,6 +120,7 @@ func Create(walletPath, mnemonic, password string, chain genesis.ChainType,
 		Network:   chain,
 		Vault:     nil,
 	}
+	// For recovery addresses we need online mode, so set offline to false
 	wallet, err := newWallet(walletPath, store, false, opts)
 	if err != nil {
 		return nil, err
