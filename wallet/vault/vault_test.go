@@ -919,19 +919,17 @@ func TestPrivateKeyDerivation(t *testing.T) {
 		seed, err := vault.MnemonicSeed("")
 		assert.NoError(t, err)
 
-		// Invalid path that will cause derivation to fail
-		// Using extremely large index that exceeds limits
-		invalidPath := []uint32{
+		// Test that max uint32 is actually a valid hardened key index in BIP32 derivation
+		// 0xFFFFFFFF is equivalent to index 2147483647 hardened (0x7FFFFFFF + 0x80000000)
+		validPath := []uint32{
 			_H(PurposeBLS12381),
 			_H(19933),
 			_H(uint32(crypto.AddressTypeBLSAccount)),
-			0xFFFFFFFF, // Max uint32, likely to cause issues
+			0xFFFFFFFF, // Max uint32 is actually valid in BIP32 derivation
 		}
 
-		_, err = vault.deriveBLSPrivateKey(seed, invalidPath)
-		// May or may not error depending on implementation, but tests the path
-		// The important part is exercising this code path
-		_ = err
+		_, err = vault.deriveBLSPrivateKey(seed, validPath)
+		assert.NoError(t, err, "Derivation with max uint32 index should succeed")
 	})
 
 	t.Run("derive Ed25519 private key successfully", func(t *testing.T) {
@@ -985,18 +983,17 @@ func TestPrivateKeyDerivation(t *testing.T) {
 		seed, err := vault.MnemonicSeed("")
 		assert.NoError(t, err)
 
-		// Invalid path that will cause derivation to fail
-		// Using extremely large index
-		invalidPath := []uint32{
+		// Test that max uint32 is actually a valid hardened key index in BIP32 derivation
+		// Even with an Ed25519 path, 0xFFFFFFFF is valid
+		validPath := []uint32{
 			_H(PurposeBIP44),
 			_H(19933),
 			_H(uint32(crypto.AddressTypeEd25519Account)),
-			_H(0xFFFFFFFF), // Max uint32, likely to cause issues
+			0xFFFFFFFF, // Max uint32 is actually valid in BIP32 derivation
 		}
 
-		_, err = vault.deriveEd25519PrivateKey(seed, invalidPath)
-		// May or may not error depending on implementation
-		_ = err
+		_, err = vault.deriveEd25519PrivateKey(seed, validPath)
+		assert.NoError(t, err, "Derivation with max uint32 index should succeed")
 	})
 
 	t.Run("derive multiple BLS private keys", func(t *testing.T) {
