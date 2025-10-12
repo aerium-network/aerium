@@ -36,7 +36,7 @@ func setup(t *testing.T) *testData {
 	ts := testsuite.NewTestSuite(t)
 
 	mnemonic, _ := GenerateMnemonic(128)
-	vault, err := CreateVaultFromMnemonic(mnemonic, 21888)
+	vault, err := CreateVaultFromMnemonic(mnemonic, 19933) // Mainnet
 	assert.NoError(t, err)
 
 	key, _ := hdkeychain.NewKeyFromString(vault.Purposes.PurposeBLS.XPubAccount)
@@ -110,14 +110,14 @@ func TestSortAddressInfo(t *testing.T) {
 	infos := td.vault.AddressInfos()
 
 	// Ed25519 Keys
-	assert.Equal(t, "m/44'/21888'/3'/0'", infos[0].Path)
+	assert.Equal(t, "m/44'/19933'/3'/0'", infos[0].Path)
 	// BLS Keys
-	assert.Equal(t, "m/12381'/21888'/1'/0", infos[1].Path)
-	assert.Equal(t, "m/12381'/21888'/2'/0", infos[2].Path)
+	assert.Equal(t, "m/12381'/19933'/1'/0", infos[1].Path)
+	assert.Equal(t, "m/12381'/19933'/2'/0", infos[2].Path)
 	// Imported Keys
-	assert.Equal(t, "m/65535'/21888'/1'/0'", infos[3].Path)
-	assert.Equal(t, "m/65535'/21888'/2'/0'", infos[4].Path)
-	assert.Equal(t, "m/65535'/21888'/3'/1'", infos[5].Path)
+	assert.Equal(t, "m/65535'/19933'/1'/0'", infos[3].Path)
+	assert.Equal(t, "m/65535'/19933'/2'/0'", infos[4].Path)
+	assert.Equal(t, "m/65535'/19933'/3'/1'", infos[5].Path)
 }
 
 func TestAllAccountAddresses(t *testing.T) {
@@ -160,8 +160,8 @@ func TestSortAllValidatorAddresses(t *testing.T) {
 
 	validatorAddrs := td.vault.AllValidatorAddresses()
 
-	assert.Equal(t, "m/12381'/21888'/1'/0", validatorAddrs[0].Path)
-	assert.Equal(t, "m/65535'/21888'/1'/0'", validatorAddrs[len(validatorAddrs)-1].Path)
+	assert.Equal(t, "m/12381'/19933'/1'/0", validatorAddrs[0].Path)
+	assert.Equal(t, "m/65535'/19933'/1'/0'", validatorAddrs[len(validatorAddrs)-1].Path)
 }
 
 func TestAddressFromPath(t *testing.T) {
@@ -195,7 +195,7 @@ func TestNewValidatorAddress(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotEmpty(t, addressInfo.Address)
 	assert.NotEmpty(t, addressInfo.PublicKey)
-	assert.Contains(t, addressInfo.Path, "m/12381'/21888'/1'")
+	assert.Contains(t, addressInfo.Path, "m/12381'/19933'/1'")
 	assert.Equal(t, label, addressInfo.Label)
 
 	pub, _ := bls.PublicKeyFromString(addressInfo.PublicKey)
@@ -210,7 +210,7 @@ func TestNewBLSAccountAddress(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotEmpty(t, addressInfo.Address)
 	assert.NotEmpty(t, addressInfo.PublicKey)
-	assert.Contains(t, addressInfo.Path, "m/12381'/21888'/2'")
+	assert.Contains(t, addressInfo.Path, "m/12381'/19933'/2'")
 	assert.Equal(t, label, addressInfo.Label)
 
 	pub, _ := bls.PublicKeyFromString(addressInfo.PublicKey)
@@ -224,7 +224,7 @@ func TestNewE225519AccountAddress(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotEmpty(t, addressInfo.Address)
 	assert.NotEmpty(t, addressInfo.PublicKey)
-	assert.Equal(t, "m/44'/21888'/3'/1'", addressInfo.Path)
+	assert.Equal(t, "m/44'/19933'/3'/1'", addressInfo.Path)
 
 	pub, _ := ed25519.PublicKeyFromString(addressInfo.PublicKey)
 	assert.Equal(t, pub.AccountAddress().String(), addressInfo.Address)
@@ -234,12 +234,12 @@ func TestRecover(t *testing.T) {
 	td := setup(t)
 
 	t.Run("Invalid mnemonic", func(t *testing.T) {
-		_, err := CreateVaultFromMnemonic("invalid mnemonic phrase seed", 21888)
+		_, err := CreateVaultFromMnemonic("invalid mnemonic phrase seed", 19933)
 		assert.Error(t, err)
 	})
 
 	t.Run("Ok", func(t *testing.T) {
-		recovered, err := CreateVaultFromMnemonic(td.mnemonic, 21888)
+		recovered, err := CreateVaultFromMnemonic(td.mnemonic, 19933)
 		assert.NoError(t, err)
 
 		// Recover addresses
@@ -326,8 +326,8 @@ func TestImportBLSPrivateKey(t *testing.T) {
 		assert.Equal(t, prv.PublicKeyNative().String(), valAddrInfo.PublicKey)
 		assert.Equal(t, prv.PublicKeyNative().String(), accAddrInfo.PublicKey)
 
-		assert.Equal(t, "m/65535'/21888'/1'/2'", valAddrInfo.Path)
-		assert.Equal(t, "m/65535'/21888'/2'/2'", accAddrInfo.Path)
+		assert.Equal(t, "m/65535'/19933'/1'/2'", valAddrInfo.Path)
+		assert.Equal(t, "m/65535'/19933'/2'/2'", accAddrInfo.Path)
 	})
 
 	t.Run("Reimporting private key", func(t *testing.T) {
@@ -356,7 +356,7 @@ func TestImportEd25519PrivateKey(t *testing.T) {
 		assert.True(t, td.vault.Contains(accAddr))
 		assert.Equal(t, accAddr, accAddrInfo.Address)
 		assert.Equal(t, prv.PublicKeyNative().String(), accAddrInfo.PublicKey)
-		assert.Equal(t, "m/65535'/21888'/3'/2'", accAddrInfo.Path)
+		assert.Equal(t, "m/65535'/19933'/3'/2'", accAddrInfo.Path)
 	})
 
 	t.Run("Reimporting private key", func(t *testing.T) {
@@ -590,7 +590,7 @@ func TestAddressRecovery(t *testing.T) {
 	})
 
 	t.Run("cancel recovery with context cancel signal", func(t *testing.T) {
-		vault, err := CreateVaultFromMnemonic(testMnemonic, 21888) // Mainnet
+		vault, err := CreateVaultFromMnemonic(testMnemonic, 19933) // Mainnet
 		assert.NoError(t, err)
 
 		// Create a cancellable context
