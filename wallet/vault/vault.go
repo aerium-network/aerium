@@ -757,19 +757,20 @@ func (v *Vault) recoverBLSAccountAddresses(ctx context.Context, hasActivity func
 		return err
 	}
 
-	recoveredCount := 0 // Starting from zero; doesn't recover the first address
-	inactiveCount := 1
-	currentIndex := uint32(0)
-	info, err := v.deriveBLSAccountAddressAt(ext, currentIndex, "")
-	if err != nil {
-		return err
-	}
-
-	for {
+	lastActiveIndex := -1
+	inactiveCount := 0
+	for currentIndex := uint32(0); ; currentIndex++ {
 		select {
 		case <-ctx.Done():
 			return ctx.Err()
 		default:
+		}
+
+		info, err := v.deriveBLSAccountAddressAt(ext, currentIndex, "")
+		if err != nil {
+			// This can happen if we try to derive past the key limit.
+			// We can break here as we've likely scanned far enough.
+			break
 		}
 
 		isActive, err := hasActivity(info.Address)
@@ -778,25 +779,26 @@ func (v *Vault) recoverBLSAccountAddresses(ctx context.Context, hasActivity func
 		}
 
 		if isActive {
-			recoveredCount += inactiveCount
-			inactiveCount = 1
+			lastActiveIndex = int(currentIndex)
+			inactiveCount = 0
 		} else {
 			inactiveCount++
-			if inactiveCount > AddressGapLimit {
+			if inactiveCount >= AddressGapLimit {
 				break
 			}
 		}
-
-		currentIndex++
-		info, err = v.deriveBLSAccountAddressAt(ext, currentIndex, "")
-		if err != nil {
-			return err
-		}
 	}
 
+	if lastActiveIndex == -1 {
+		return nil
+	}
+
+	recoveredCount := lastActiveIndex + 1
 	// Recover all addresses up to the total number of recovered addresses.
 	for i := uint32(0); i < uint32(recoveredCount); i++ {
-		_, _ = v.NewBLSAccountAddress(fmt.Sprintf("BLS Account Address %d", i))
+		if _, err := v.NewBLSAccountAddress(fmt.Sprintf("BLS Account Address %d", i)); err != nil {
+			return err
+		}
 	}
 
 	return nil
@@ -816,19 +818,18 @@ func (v *Vault) recoverEd25519AccountAddresses(ctx context.Context, password str
 		return err
 	}
 
-	recoveredCount := 1 // Starting from 1; recover the first address
+	lastActiveIndex := -1
 	inactiveCount := 0
-	currentIndex := uint32(0)
-	info, err := v.deriveEd25519AccountAddressAt(masterKey, currentIndex, "")
-	if err != nil {
-		return err
-	}
-
-	for {
+	for currentIndex := uint32(0); ; currentIndex++ {
 		select {
 		case <-ctx.Done():
 			return ctx.Err()
 		default:
+		}
+
+		info, err := v.deriveEd25519AccountAddressAt(masterKey, currentIndex, "")
+		if err != nil {
+			return err
 		}
 
 		isActive, err := hasActivity(info.Address)
@@ -837,25 +838,26 @@ func (v *Vault) recoverEd25519AccountAddresses(ctx context.Context, password str
 		}
 
 		if isActive {
-			recoveredCount += inactiveCount
-			inactiveCount = 1
+			lastActiveIndex = int(currentIndex)
+			inactiveCount = 0
 		} else {
 			inactiveCount++
-			if inactiveCount > AddressGapLimit {
+			if inactiveCount >= AddressGapLimit {
 				break
 			}
 		}
+	}
 
-		currentIndex++
-		info, err = v.deriveEd25519AccountAddressAt(masterKey, currentIndex, "")
-		if err != nil {
-			return err
-		}
+	recoveredCount := 1 // Always recover at least the first address.
+	if lastActiveIndex > -1 {
+		recoveredCount = lastActiveIndex + 1
 	}
 
 	// Recover all addresses up to the total number of recovered addresses.
 	for i := uint32(0); i < uint32(recoveredCount); i++ {
-		_, _ = v.NewEd25519AccountAddress(fmt.Sprintf("Ed25519 Account Address %d", i), password)
+		if _, err := v.NewEd25519AccountAddress(fmt.Sprintf("Ed25519 Account Address %d", i), password); err != nil {
+			return err
+		}
 	}
 
 	return nil
