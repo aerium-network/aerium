@@ -76,6 +76,9 @@ func buildRecoverCmd(parentCmd *cobra.Command) {
 		cmd.PrintInfoMsgf("Saving wallet...")
 		err = wlt.Save()
 		cmd.FatalErrorCheck(err)
+
+		cmd.PrintLine()
+		cmd.PrintInfoMsgf("Wallet successfully recovered and saved at: %s", wlt.Path())
 	}
 }
 
