@@ -67,7 +67,7 @@ func buildRecoverCmd(parentCmd *cobra.Command) {
 				cmd.PrintWarnMsgf("Recovery aborted")
 			} else {
 				cmd.PrintLine()
-				cmd.PrintWarnMsgf("Recovery addresses failed: %v", err)
+				cmd.PrintWarnMsgf("Address recovery failed: %v", err)
 			}
 		}
 
