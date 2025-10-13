@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"errors"
-	"os"
 	"os/signal"
 	"syscall"
 
@@ -40,14 +39,8 @@ func buildRecoverCmd(parentCmd *cobra.Command) {
 		wlt, err := wallet.Create(*pathOpt, mnemonic, *passOpt, chainType)
 		cmd.FatalErrorCheck(err)
 
-		ctx, cancel := context.WithCancel(context.Background())
-		sigChan := make(chan os.Signal, 1)
-		signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM)
-
-		go func() {
-			<-sigChan
-			cancel()
-		}()
+		ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+		defer stop()
 
 		cmd.PrintInfoMsgf("Recovering wallet addresses (Ctrl+C to abort)...")
 		cmd.PrintLine()
