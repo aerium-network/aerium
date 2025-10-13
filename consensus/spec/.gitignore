@@ -2,7 +2,5 @@
 *.out
 *.toolbox
 states
-*.tex
 *.dvi
-*.aux
 *.log

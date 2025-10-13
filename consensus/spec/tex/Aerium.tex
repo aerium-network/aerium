@@ -1,0 +1,511 @@
+\documentclass[11pt,a4paper,twoside]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{abstract}
+
+% Journal-style geometry with wider margins
+\geometry{
+    a4paper,
+    left=1.5in,
+    right=1.5in,
+    top=1.25in,
+    bottom=1.25in,
+    headsep=0.25in,
+    footskip=0.5in,
+    headheight=14pt
+}
+
+% Configure hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=blue,
+}
+
+% Header and footer styling
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\textit{Aerium Consensus Protocol}}
+\fancyhead[LO]{\textit{Formal Specification}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Title page style
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+% Section title formatting
+\titleformat{\section}
+    {\centering\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+    {\centering\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% Abstract styling
+\renewcommand{\abstractnamefont}{\normalfont\large\bfseries\centering}
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape}
+
+\title{\vspace{-1cm}
+    \textbf{\LARGE Aerium Consensus Protocol}\\[0.5cm]
+    \Large Formal Mathematical Specification
+    \vspace{-0.5cm}
+}
+\author{
+    \textbf{Aerium Team}\\[0.3cm]
+    \small \url{https://aerium.network}\\[0.2cm]
+    \small Protocol Implementation: \\
+    \small \url{https://github.com/aerium-network/aerium/tree/main/consensus}
+}
+\date{\today}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{invariant}{Invariant}[section]
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document presents the formal mathematical specification of the Aerium consensus protocol, extracted from the TLA+ specification. The protocol is designed to achieve Byzantine fault-tolerant consensus in distributed systems with up to $F$ faulty nodes among $N$ total nodes.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{System Parameters}
+
+\subsection{Constants}
+\begin{align}
+N &: \text{Total number of nodes in the network} \\
+F &: \text{Maximum number of faulty nodes} \\
+\text{FaultyNodes} &\subseteq \{0, 1, \ldots, N-1\}
+\end{align}
+
+\subsection{Threshold Values}
+\begin{definition}[Quorum Thresholds]
+The protocol uses the following threshold values:
+\begin{align}
+3F + 1 &: \text{Absolute majority (super-quorum)} \\
+2F + 1 &: \text{Quorum (standard majority)} \\
+F + 1 &: \text{Minority threshold}
+\end{align}
+\end{definition}
+
+\subsection{System Assumptions}
+\begin{invariant}[Network Size]
+The number of nodes must be sufficient to tolerate $F$ faults:
+\begin{equation}
+N \geq 3F + 1
+\end{equation}
+\end{invariant}
+
+\begin{invariant}[Faulty Node Constraint]
+The cardinality of faulty nodes cannot exceed the maximum allowed:
+\begin{equation}
+|\text{FaultyNodes}| \leq F
+\end{equation}
+\end{invariant}
+
+\section{Proposer Selection}
+
+\begin{definition}[Proposer Function]
+The proposer for a given round is determined by:
+\begin{equation}
+\text{IsProposer}(i) \iff \text{round}_i \bmod N = i
+\end{equation}
+where $i$ is the node index and $\text{round}_i$ is the current round of node $i$.
+\end{definition}
+
+\section{Message Predicates}
+
+\subsection{PRECOMMIT Vote Predicates}
+
+\begin{definition}[Absolute PRECOMMIT Majority]
+A node has received absolute majority of PRECOMMIT votes:
+\begin{align}
+\text{HasPreCommitAbsolute}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``PRECOMMIT''} \notag \\
+& \land \text{msg.round} = \text{round}_i\big\}\big| \geq 3F + 1
+\end{align}
+\end{definition}
+
+\begin{definition}[PRECOMMIT Quorum]
+A node has received quorum of PRECOMMIT votes:
+\begin{align}
+\text{HasPreCommitQuorum}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``PRECOMMIT''} \notag \\
+& \land \text{msg.round} = \text{round}_i\big\}\big| \geq 2F + 1
+\end{align}
+\end{definition}
+
+\subsection{Change-Proposer (CP) Pre-Vote Predicates}
+
+\begin{definition}[CP Pre-Vote Quorum]
+A node has received quorum of CP:PRE-VOTE messages:
+\begin{align}
+\text{CPHasPreVotesQuorum}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``CP:PRE-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \notag \\
+& \land \text{msg.cp\_round} = \text{cp\_round}_i\big\}\big| \geq 2F + 1
+\end{align}
+\end{definition}
+
+\begin{definition}[CP Pre-Vote Quorum for Yes]
+A node has received quorum of CP:PRE-VOTE messages with value 1 (yes):
+\begin{align}
+\text{CPHasPreVotesQuorumForYes}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``CP:PRE-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \notag \\
+& \land \text{msg.cp\_round} = \text{cp\_round}_i \notag \\
+& \land \text{msg.cp\_val} = 1\big\}\big| \geq 2F + 1
+\end{align}
+\end{definition}
+
+\begin{definition}[CP Pre-Vote Quorum for No]
+A node has received quorum of CP:PRE-VOTE messages with value 0 (no):
+\begin{align}
+\text{CPHasPreVotesQuorumForNo}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``CP:PRE-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \notag \\
+& \land \text{msg.cp\_round} = \text{cp\_round}_i \notag \\
+& \land \text{msg.cp\_val} = 0\big\}\big| \geq 2F + 1
+\end{align}
+\end{definition}
+
+\begin{definition}[CP Pre-Vote Minority for Yes]
+A node has received minority threshold of CP:PRE-VOTE messages with value 1:
+\begin{align}
+\text{CPHasPreVotesMinorityForYes}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``CP:PRE-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \notag \\
+& \land \text{msg.cp\_round} = \text{cp\_round}_i \notag \\
+& \land \text{msg.cp\_val} = 1\big\}\big| \geq F + 1
+\end{align}
+\end{definition}
+
+\begin{definition}[CP Pre-Vote Split Decision]
+A node has received both yes and no CP:PRE-VOTE messages:
+\begin{align}
+\text{CPHasPreVotesForYesAndNo}(i) \iff {} & \big|\big\{\text{msg} \in \text{logs}_i : \text{msg.type} = \text{``CP:PRE-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \land \text{msg.cp\_round} = \text{cp\_round}_i \notag \\
+& \land \text{msg.cp\_val} = 0\big\}\big| \geq 1 \notag \\
+\land {} & \big|\big\{\text{msg} \in \text{logs}_i : \text{msg.type} = \text{``CP:PRE-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \land \text{msg.cp\_round} = \text{cp\_round}_i \notag \\
+& \land \text{msg.cp\_val} = 1\big\}\big| \geq 1
+\end{align}
+\end{definition}
+
+\subsection{Change-Proposer (CP) Main-Vote Predicates}
+
+\begin{definition}[CP Main-Vote in Previous Round (No)]
+A node has received at least one CP:MAIN-VOTE with value 0 in previous CP round:
+\begin{align}
+\text{CPHasOneMainVotesNoInPrvRound}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``CP:MAIN-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \notag \\
+& \land \text{msg.cp\_round} = \text{cp\_round}_i - 1 \notag \\
+& \land \text{msg.cp\_val} = 0\big\}\big| > 0
+\end{align}
+\end{definition}
+
+\begin{definition}[CP Main-Vote in Previous Round (Yes)]
+A node has received at least one CP:MAIN-VOTE with value 1 in previous CP round:
+\begin{align}
+\text{CPHasOneMainVotesYesInPrvRound}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``CP:MAIN-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \notag \\
+& \land \text{msg.cp\_round} = \text{cp\_round}_i - 1 \notag \\
+& \land \text{msg.cp\_val} = 1\big\}\big| > 0
+\end{align}
+\end{definition}
+
+\begin{definition}[CP All Main-Votes Abstain in Previous Round]
+A node has received quorum of CP:MAIN-VOTE messages with value 2 (abstain) in previous CP round:
+\begin{align}
+\text{CPAllMainVotesAbstainInPrvRound}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``CP:MAIN-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \notag \\
+& \land \text{msg.cp\_round} = \text{cp\_round}_i - 1 \notag \\
+& \land \text{msg.cp\_val} = 2\big\}\big| \geq 2F + 1
+\end{align}
+\end{definition}
+
+\begin{definition}[CP Main-Vote Quorum]
+A node has received quorum of CP:MAIN-VOTE messages:
+\begin{align}
+\text{CPHasMainVotesQuorum}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``CP:MAIN-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \notag \\
+& \land \text{msg.cp\_round} = \text{cp\_round}_i\big\}\big| \geq 2F + 1
+\end{align}
+\end{definition}
+
+\begin{definition}[CP Main-Vote Quorum for Yes]
+A node has received quorum of CP:MAIN-VOTE messages with value 1:
+\begin{align}
+\text{CPHasMainVotesQuorumForYes}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``CP:MAIN-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \notag \\
+& \land \text{msg.cp\_round} = \text{cp\_round}_i \notag \\
+& \land \text{msg.cp\_val} = 1\big\}\big| \geq 2F + 1
+\end{align}
+\end{definition}
+
+\begin{definition}[CP Main-Vote Quorum for Abstain]
+A node has received quorum of CP:MAIN-VOTE messages with value 2 (abstain):
+\begin{align}
+\text{CPHasMainVotesQuorumForAbstain}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``CP:MAIN-VOTE''} \notag \\
+& \land \text{msg.round} = \text{round}_i \notag \\
+& \land \text{msg.cp\_round} = \text{cp\_round}_i \notag \\
+& \land \text{msg.cp\_val} = 2\big\}\big| \geq 2F + 1
+\end{align}
+\end{definition}
+
+\subsection{CP Decide Predicates}
+
+\begin{definition}[CP Decide Vote for Yes]
+A node has received at least one CP:DECIDED message with value 1:
+\begin{align}
+\text{CPHasDecideVotesForYes}(i) \iff \big|\big\{\text{msg} \in \text{logs}_i : {} & \text{msg.type} = \text{``CP:DECIDED''} \notag \\
+& \land \text{msg.round} = \text{round}_i \notag \\
+& \land \text{msg.cp\_val} = 1\big\}\big| > 0
+\end{align}
+\end{definition}
+
+\section{State Transitions}
+
+\subsection{Propose Phase}
+\begin{definition}[Propose Transition]
+A non-faulty node in the propose state transitions to precommit state:
+\begin{equation}
+\text{Propose}(i) : \text{state}_i = \text{``propose''} \Rightarrow \text{state}'_i = \text{``precommit''}
+\end{equation}
+If the node is the proposer, it broadcasts a PROPOSAL message.
+\end{definition}
+
+\subsection{Precommit Phase}
+\begin{definition}[Precommit Transition]
+A non-faulty node in precommit state that has received a proposal sends PRECOMMIT vote:
+\begin{equation}
+\text{PreCommit}(i) : \text{state}_i = \text{``precommit''} \land \text{HasProposal}(i) \Rightarrow \text{send PRECOMMIT}
+\end{equation}
+\end{definition}
+
+\subsection{Commit Conditions}
+
+\begin{definition}[Absolute Commit]
+A node commits immediately upon receiving $3F+1$ PRECOMMIT votes:
+\begin{equation}
+\text{AbsoluteCommit}(i) : \text{HasPreCommitAbsolute}(i) \Rightarrow \text{state}'_i = \text{``commit''}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Quorum Commit]
+After the change-proposer phase decides, a node commits upon receiving $2F+1$ PRECOMMIT votes:
+\begin{align}
+\text{QuorumCommit}(i) : {} & \text{state}_i = \text{``precommit''} \land \text{decided}_i = \text{TRUE} \notag \\
+& \land \text{HasPreCommitQuorum}(i) \Rightarrow \text{state}'_i = \text{``commit''}
+\end{align}
+\end{definition}
+
+\begin{definition}[Commit and Announce]
+A node in commit state broadcasts ANNOUNCEMENT:
+\begin{equation}
+\text{Commit}(i) : \text{state}_i = \text{``commit''} \Rightarrow \text{send ANNOUNCEMENT}
+\end{equation}
+\end{definition}
+
+\subsection{Timeout Transition}
+\begin{definition}[Timeout]
+A node transitions to change-proposer phase on timeout:
+\begin{equation}
+\text{Timeout}(i) : \text{state}_i = \text{``precommit''} \land \text{decided}_i = \text{FALSE} \Rightarrow \text{state}'_i = \text{``cp:pre-vote''}
+\end{equation}
+\end{definition}
+
+\section{Change-Proposer Protocol}
+
+\subsection{CP Pre-Vote Phase}
+
+\begin{definition}[CP Pre-Vote Initial Round]
+For the initial CP round ($\text{cp\_round} = 0$), a node votes based on its PRECOMMIT status:
+\begin{equation}
+\text{CPPreVote}(i, \text{cp\_round} = 0) :
+\begin{cases}
+\text{vote 1 (yes)} & \text{if } \neg\text{HasPrecommited}(i) \\[0.3em]
+\text{vote 0 (no)} & \text{if HasPreCommitQuorum}(i) \\[0.3em]
+\text{vote 1 (yes)} & \text{otherwise}
+\end{cases}
+\end{equation}
+The decision requires:
+\begin{align}
+\big|\big\{\text{msg} : {} & \text{msg.type} = \text{``PRECOMMIT''} \notag \\
+& \lor (\text{msg.type} = \text{``CP:PRE-VOTE''} \land \text{msg.cp\_round} = 0)\big\}\big| \geq 2F + 1
+\end{align}
+\end{definition}
+
+\begin{definition}[CP Pre-Vote Subsequent Rounds]
+For subsequent CP rounds ($\text{cp\_round} > 0$), a node votes based on previous main-votes:
+\begin{equation}
+\text{CPPreVote}(i, \text{cp\_round} > 0) :
+\begin{cases}
+\text{vote 0 (no)} & \text{if CPHasOneMainVotesNoInPrvRound}(i) \\[0.3em]
+\text{vote 1 (yes)} & \text{if CPHasOneMainVotesYesInPrvRound}(i) \\[0.3em]
+\text{vote 0 (no)} & \text{if CPAllMainVotesAbstainInPrvRound}(i)
+\end{cases}
+\end{equation}
+Note: The protocol is biased toward 0 when all previous votes abstained.
+\end{definition}
+
+\subsection{CP Main-Vote Phase}
+
+\begin{definition}[CP Main-Vote Decision]
+A node transitions from cp:main-vote based on received pre-votes:
+\begin{align}
+\text{CPMainVote}(i) &: \text{CPHasPreVotesQuorum}(i) \Rightarrow \notag \\[0.3em]
+&\begin{cases}
+\text{decided}_i \gets \text{TRUE}, \text{state}'_i \gets \text{``precommit''} & \\
+\quad \text{if CPHasPreVotesQuorumForNo}(i) \\[0.5em]
+\text{send MAIN-VOTE}(1), \text{state}'_i \gets \text{``cp:decide''} & \\
+\quad \text{if CPHasPreVotesQuorumForYes}(i) \\[0.5em]
+\text{send MAIN-VOTE}(2), \text{state}'_i \gets \text{``cp:decide''} & \\
+\quad \text{if CPHasPreVotesForYesAndNo}(i)
+\end{cases}
+\end{align}
+\end{definition}
+
+\subsection{CP Decide Phase}
+
+\begin{definition}[CP Decide Transition]
+A node in cp:decide state transitions based on main-votes:
+\begin{align}
+\text{CPDecide}(i) &: \text{CPHasMainVotesQuorum}(i) \Rightarrow \notag \\[0.3em]
+&\begin{cases}
+\text{send DECIDED}(1), \text{round}'_i \gets \text{round}_i + 1, & \\
+\quad \text{state}'_i \gets \text{``propose''} & \\
+\quad \text{if CPHasMainVotesQuorumForYes}(i) \\[0.5em]
+\text{cp\_round}'_i \gets \text{cp\_round}_i + 1, & \\
+\quad \text{state}'_i \gets \text{``cp:pre-vote''} & \\
+\quad \text{if CPHasMainVotesQuorumForAbstain}(i)
+\end{cases}
+\end{align}
+\end{definition}
+
+\subsection{CP Strong Termination}
+
+\begin{definition}[Strong Termination Condition]
+Nodes can terminate the CP phase early under specific conditions:
+\begin{align}
+\text{CPStrongTerminate}(i) &: \notag \\[0.3em]
+&\begin{cases}
+\text{state}'_i \gets \text{``precommit''}, \text{decided}_i \gets \text{TRUE} & \\
+\quad \text{if } \text{cp\_round}_i = \text{MaxCPRound} & \\
+\quad \land \text{HasPreCommitQuorum}(i) \\[0.5em]
+\text{round}'_i \gets \text{round}_i + 1, \text{cp\_round}'_i \gets 0, & \\
+\quad \text{state}'_i \gets \text{``propose''} & \\
+\quad \text{if CPHasDecideVotesForYes}(i)
+\end{cases}
+\end{align}
+\end{definition}
+
+\section{Safety and Liveness Properties}
+
+\subsection{Committed State}
+
+\begin{definition}[Committed Proposal]
+A proposal is committed when a quorum of nodes announce the same proposal:
+\begin{align}
+\text{IsCommitted} \iff \exists S \subseteq \{\text{msg} \in \text{network} : {} & \text{msg.type} = \text{``ANNOUNCEMENT''}\} : \notag \\
+& |S| \geq 2F + 1 \notag \\
+& \land \forall \text{msg}_1, \text{msg}_2 \in S : \text{msg}_1.\text{round} = \text{msg}_2.\text{round}
+\end{align}
+\end{definition}
+
+\subsection{Success Property}
+
+\begin{theorem}[Eventual Success]
+All non-faulty nodes eventually commit:
+\begin{equation}
+\Diamond \text{IsCommitted}
+\end{equation}
+where $\Diamond$ denotes the temporal operator "eventually".
+\end{theorem}
+
+\section{Type Invariants}
+
+\begin{invariant}[State Type Correctness]
+For all nodes $i \in \{0, 1, \ldots, N-1\}$:
+\begin{align}
+\text{state}_i.\text{name} &\in \{\text{``propose''}, \text{``precommit''}, \text{``commit'',} \notag \\
+& \quad \text{``cp:pre-vote''}, \text{``cp:main-vote''}, \text{``cp:decide''}\} \\
+\text{state}_i.\text{decided} &\in \{\text{TRUE}, \text{FALSE}\} \\
+0 \leq \text{state}_i.\text{round} &\leq \text{MaxRound} \\
+0 \leq \text{state}_i.\text{cp\_round} &\leq \text{MaxCPRound}
+\end{align}
+\end{invariant}
+
+\begin{invariant}[Message Type Correctness]
+For all messages $\text{msg} \in \text{network}$:
+\begin{align}
+\text{msg.type} &\in \{\text{``PROPOSAL''}, \text{``PRECOMMIT''}, \text{``CP:PRE-VOTE'',} \notag \\
+& \quad \text{``CP:MAIN-VOTE''}, \text{``CP:DECIDED''}, \text{``ANNOUNCEMENT''}\} \\
+\text{msg.index} &\in \{0, 1, \ldots, N-1\} \\
+0 \leq \text{msg.round} &\leq \text{MaxRound} \\
+0 \leq \text{msg.cp\_round} &\leq \text{MaxCPRound}
+\end{align}
+\end{invariant}
+
+\begin{invariant}[Commit Correctness]
+If a node is in commit state, then:
+\begin{align}
+\text{state}_i.\text{name} = \text{``commit''} \Rightarrow {} & \big|\big\{\text{msg} : \text{msg.type} = \text{``PRECOMMIT''} \notag \\
+& \land \text{msg.round} = \text{round}_i\big\}\big| \geq 2F + 1 \notag \\
+& \land \big|\big\{\text{msg} : \text{msg.type} = \text{``PROPOSAL''} \notag \\
+& \land \text{msg.round} = \text{round}_i\big\}\big| = 1 \notag \\
+& \land \forall \text{msg}_1, \text{msg}_2 \in \{\text{msg} : \text{msg.type} = \text{``ANNOUNCEMENT''}\} : \notag \\
+& \quad \text{msg}_1.\text{round} = \text{msg}_2.\text{round}
+\end{align}
+\end{invariant}
+
+\begin{invariant}[New Round Correctness]
+If a node enters a new round (beyond round 0), then the previous round must have received CP:DECIDED votes and no ANNOUNCEMENT:
+\begin{align}
+\text{state}_i.\text{name} = \text{``propose''} \land \text{round}_i > 0 \Rightarrow {} & \big|\big\{\text{msg} : \text{msg.type} = \text{``CP:DECIDED''} \notag \\
+& \land \text{msg.round} = \text{round}_i - 1 \notag \\
+& \land \text{msg.cp\_val} = 1\big\}\big| > 0 \notag \\
+& \land \big|\big\{\text{msg} : \text{msg.type} = \text{``ANNOUNCEMENT''} \notag \\
+& \land \text{msg.round} = \text{round}_i - 1\big\}\big| = 0
+\end{align}
+\end{invariant}
+
+\section{Protocol Summary}
+
+The Aerium consensus protocol operates in phases:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Propose Phase}: The designated proposer broadcasts a proposal.
+\item \textbf{Precommit Phase}: Nodes that receive the proposal send PRECOMMIT votes.
+\item \textbf{Commit Decision}:
+    \begin{itemize}
+    \item If a node receives $3F+1$ PRECOMMIT votes, it commits immediately (absolute commit).
+    \item If a node receives $2F+1$ PRECOMMIT votes after CP decides, it commits (quorum commit).
+    \end{itemize}
+\item \textbf{Timeout \& Change-Proposer}: If a node times out without committing:
+    \begin{enumerate}
+    \item \textbf{CP Pre-Vote}: Nodes vote yes/no based on their local state.
+    \item \textbf{CP Main-Vote}: Based on pre-votes, nodes send main-votes (yes/no/abstain).
+    \item \textbf{CP Decide}: Based on main-votes:
+        \begin{itemize}
+        \item If quorum votes yes: move to next round with new proposer.
+        \item If quorum abstains: repeat CP phase with next CP round.
+        \item Strong termination allows early exit under specific conditions.
+        \end{itemize}
+    \end{enumerate}
+\end{enumerate}
+
+\section{Conclusion}
+
+The Aerium consensus protocol provides Byzantine fault-tolerant consensus with a change-proposer mechanism that ensures liveness even in the presence of faulty proposers. The protocol guarantees safety through quorum-based voting and achieves liveness through the change-proposer sub-protocol with strong termination conditions.
+
+\end{document}
