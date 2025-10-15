@@ -276,31 +276,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   ########################################
-  cosign:
-    needs: [checksums]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download SHA256SUMS artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: sha256sums
-
-      - uses: sigstore/cosign-installer@v3
-
-      - name: Sign Checksum
-        run: cosign sign-blob --yes --key env://COSIGN_PRIVATE_KEY SHA256SUMS > SHA256SUMS.sig
-        env:
-          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
-          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
-
-      - name: Publish
-        uses: softprops/action-gh-release@v2
-        with:
-          files: SHA256SUMS.sig
-
-  ########################################
   downloader:
-    needs: [cosign]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
