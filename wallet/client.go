@@ -158,16 +158,3 @@ func (c *grpcClient) getTransaction(txID tx.ID) (*aerium.GetTransactionResponse,
 
 	return res, nil
 }
-
-func (c *grpcClient) getPublicKeyByAddress(ctx context.Context, addr string) (string, error) {
-	if err := c.connect(); err != nil {
-		return "", err
-	}
-
-	res, err := c.blockchainClient.GetPublicKey(ctx, &aerium.GetPublicKeyRequest{Address: addr})
-	if err != nil {
-		return "", err
-	}
-
-	return res.PublicKey, nil
-}
