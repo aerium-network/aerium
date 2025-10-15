@@ -3,7 +3,7 @@
 set -e
 
 ROOT_DIR="$(pwd)"
-VERSION="$(echo `git -C ${ROOT_DIR} describe --abbrev=0 --tags` | sed 's/^.//')"
+VERSION="$(echo `git -C "${ROOT_DIR}" describe --abbrev=0 --tags` | sed 's/^.//')"
 BUILD_DIR="${ROOT_DIR}/build"
 PACKAGE_NAME="aerium-gui_${VERSION}"
 PACKAGE_DIR="${ROOT_DIR}/${PACKAGE_NAME}"
@@ -29,6 +29,9 @@ cp ${BUILD_DIR}/unsigned/aerium-gui.exe     ${PACKAGE_DIR}/aerium-gui/aerium-gui
 # Create archive
 7z a ${ROOT_DIR}/${FILE_NAME}.zip ${PACKAGE_DIR}
 
+# Windows path for installer output directory
+OUTPUT_DIR_WIN="$(cygpath -w "${BUILD_DIR}/unsigned")"
+
 # Create installer
 cat << EOF > ${ROOT_DIR}/inno.iss
 [Setup]
@@ -43,6 +46,8 @@ SetupIconFile=.github/releasers/aerium.ico
 LicenseFile=LICENSE
 Uninstallable=yes
 UninstallDisplayIcon={app}\\aerium-gui\\aerium-gui.exe
+OutputDir="${OUTPUT_DIR_WIN}"
+OutputBaseFilename=${FILE_NAME}_installer
 
 [Files]
 Source:"${PACKAGE_NAME}/*"; DestDir:"{app}"; Flags: recursesubdirs
@@ -56,9 +61,11 @@ Filename:"{app}\\aerium-gui\\aerium-gui.exe"; Description:"Launch Aerium"; Flags
 EOF
 
 # Build installer
-INNO_PATH="/c/Program Files (x86)/Inno Setup 6"
-INNO_DIR=$(cygpath -w -s '${INNO_PATH}')
-"${INNO_DIR}/ISCC.exe" "${ROOT_DIR}/inno.iss"
-mv "Output/mysetup.exe" "${BUILD_DIR}/unsigned/${FILE_NAME}_installer.exe"
+INNO_PATH='/c/Program Files (x86)/Inno Setup 6'
+INNO_EXE="$(cygpath -w "${INNO_PATH}/ISCC.exe")"
+ISS_WIN_PATH="$(cygpath -w "${ROOT_DIR}/inno.iss")"
+
+"${INNO_EXE}" "${ISS_WIN_PATH}"
 
 echo "🎉 Build complete! Package: ${BUILD_DIR}/unsigned/${FILE_NAME}_installer.exe"
+
