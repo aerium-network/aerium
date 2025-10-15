@@ -221,7 +221,7 @@ jobs:
 #            artifact-name: aerium-gui_${{ steps.get_version.outputs.VERSION }}_${{ matrix.name }}_installer
 
       - name: Move Installer to Root
-        run: mv ./build/signed/aerium-gui_*_installer.exe .
+        run: mv ./build/unsigned/aerium-gui_*_installer.exe .
 
       - name: Calculate sha256sum
         run: sha256sum aerium-gui_*.zip aerium-gui_*_installer.exe > checksum-${{ matrix.name }}.txt
