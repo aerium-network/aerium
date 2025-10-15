@@ -2,7 +2,9 @@
 *.out
 *.toolbox
 states
-*.tex
 *.dvi
-*.aux
 *.log
+*.aux
+*.fdb_latexmk
+*.fls
+*.toc
