@@ -3,6 +3,7 @@ package cmd
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -291,76 +292,29 @@ func TrapSignal(cleanupFunc func()) {
 	}()
 }
 
-func CreateNode(numValidators int, chain genesis.ChainType, workingDir string,
-	mnemonic string, walletPassword string,
+func CreateNode(ctx context.Context, numValidators int, chain genesis.ChainType, workingDir string,
+	mnemonic string, walletPassword string, recoveryEventFunc func(addr string),
 ) ([]string, string, error) {
-	// To make process faster, we update the password after creating the addresses
 	walletPath := AeriumDefaultWalletPath(workingDir)
 	wlt, err := wallet.Create(walletPath, mnemonic, "", chain)
 	if err != nil {
 		return nil, "", err
 	}
 
-	validatorAddrs := []string{}
-	for i := 0; i < numValidators; i++ {
-		addressInfo, err := wlt.NewValidatorAddress(fmt.Sprintf("Validator address %v", i+1))
-		if err != nil {
-			return nil, "", err
-		}
-		validatorAddrs = append(validatorAddrs, addressInfo.Address)
-	}
-
-	addressInfo, err := wlt.NewEd25519AccountAddress(
-		"Reward address", "")
+	validatorAddrs, err := createValidatorAddresses(wlt, numValidators)
 	if err != nil {
 		return nil, "", err
 	}
-	rewardAddr := addressInfo.Address
 
-	confPath := AeriumConfigPath(workingDir)
-	genPath := AeriumGenesisPath(workingDir)
+	rewardAddr, err := createRewardAddress(wlt)
+	if err != nil {
+		return nil, "", err
+	}
 
-	switch chain {
-	case genesis.Mainnet:
-		genDoc := genesis.MainnetGenesis()
-		if err := genDoc.Validate(); err != nil {
-			return nil, "", err
-		}
+	handleRecovery(ctx, wlt, walletPassword, recoveryEventFunc)
 
-		if err := genDoc.SaveToFile(genPath); err != nil {
-			return nil, "", err
-		}
-		err := config.SaveMainnetConfig(confPath)
-		if err != nil {
-			return nil, "", err
-		}
-	case genesis.Testnet:
-		genDoc := genesis.TestnetGenesis()
-		if err := genDoc.Validate(); err != nil {
-			return nil, "", err
-		}
-
-		if err := genDoc.SaveToFile(genPath); err != nil {
-			return nil, "", err
-		}
-		conf := config.DefaultConfigTestnet()
-		if err := conf.Save(confPath); err != nil {
-			return nil, "", err
-		}
-
-	case genesis.Localnet:
-		if numValidators < 4 {
-			return nil, "", errors.New("LocalNeed needs at least 4 validators")
-		}
-		genDoc := makeLocalGenesis(*wlt)
-		if err := genDoc.SaveToFile(genPath); err != nil {
-			return nil, "", err
-		}
-
-		conf := config.DefaultConfigLocalnet()
-		if err := conf.Save(confPath); err != nil {
-			return nil, "", err
-		}
+	if err := createGenesisAndConfig(chain, numValidators, *wlt, workingDir); err != nil {
+		return nil, "", err
 	}
 
 	if err := wlt.UpdatePassword("", walletPassword); err != nil {
@@ -372,6 +326,94 @@ func CreateNode(numValidators int, chain genesis.ChainType, workingDir string,
 	}
 
 	return validatorAddrs, rewardAddr, nil
+}
+
+func createValidatorAddresses(wlt *wallet.Wallet, numValidators int) ([]string, error) {
+	validatorAddrs := []string{}
+	for i := 0; i < numValidators; i++ {
+		addressInfo, err := wlt.NewValidatorAddress(fmt.Sprintf("Validator address %v", i+1))
+		if err != nil {
+			return nil, err
+		}
+		validatorAddrs = append(validatorAddrs, addressInfo.Address)
+	}
+
+	return validatorAddrs, nil
+}
+
+func createRewardAddress(wlt *wallet.Wallet) (string, error) {
+	addressInfo, err := wlt.NewEd25519AccountAddress(
+		"Reward address", "")
+	if err != nil {
+		return "", err
+	}
+
+	return addressInfo.Address, nil
+}
+
+func handleRecovery(ctx context.Context, wlt *wallet.Wallet,
+	walletPassword string, recoveryEventFunc func(addr string),
+) {
+	if recoveryEventFunc != nil {
+		err := wlt.RecoveryAddresses(ctx, walletPassword, recoveryEventFunc)
+		if err != nil {
+			if ctx.Err() != nil || errors.Is(err, context.Canceled) {
+				PrintWarnMsgf("Recovery aborted")
+			} else {
+				PrintWarnMsgf("Recovery addresses failed: %v", err)
+			}
+		}
+	}
+}
+
+func createGenesisAndConfig(chain genesis.ChainType, numValidators int, wlt wallet.Wallet, workingDir string) error {
+	confPath := AeriumConfigPath(workingDir)
+	genPath := AeriumGenesisPath(workingDir)
+
+	switch chain {
+	case genesis.Mainnet:
+		genDoc := genesis.MainnetGenesis()
+		if err := genDoc.Validate(); err != nil {
+			return err
+		}
+
+		if err := genDoc.SaveToFile(genPath); err != nil {
+			return err
+		}
+		err := config.SaveMainnetConfig(confPath)
+		if err != nil {
+			return err
+		}
+	case genesis.Testnet:
+		genDoc := genesis.TestnetGenesis()
+		if err := genDoc.Validate(); err != nil {
+			return err
+		}
+
+		if err := genDoc.SaveToFile(genPath); err != nil {
+			return err
+		}
+		conf := config.DefaultConfigTestnet()
+		if err := conf.Save(confPath); err != nil {
+			return err
+		}
+
+	case genesis.Localnet:
+		if numValidators < 4 {
+			return errors.New("LocalNeed needs at least 4 validators")
+		}
+		genDoc := makeLocalGenesis(wlt)
+		if err := genDoc.SaveToFile(genPath); err != nil {
+			return err
+		}
+
+		conf := config.DefaultConfigLocalnet()
+		if err := conf.Save(confPath); err != nil {
+			return err
+		}
+	}
+
+	return nil
 }
 
 // StartNode starts the node from the given working directory.
