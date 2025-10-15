@@ -56,9 +56,13 @@ Filename:"{app}\\aerium-gui\\aerium-gui.exe"; Description:"Launch Aerium"; Flags
 EOF
 
 # Build installer
-INNO_PATH="/c/Program Files (x86)/Inno Setup 6"
-INNO_DIR=$(cygpath -w -s '${INNO_PATH}')
-"${INNO_DIR}/ISCC.exe" "${ROOT_DIR}/inno.iss"
-mv "Output/mysetup.exe" "${BUILD_DIR}/unsigned/${FILE_NAME}_installer.exe"
+INNO_PATH='/c/Program Files (x86)/Inno Setup 6'
+INNO_EXE="$(cygpath -w "${INNO_PATH}/ISCC.exe")"
+ISS_WIN_PATH="$(cygpath -w "${ROOT_DIR}/inno.iss")"
+
+"${INNO_EXE}" "${ISS_WIN_PATH}"
+
+# Note: default output is 'Output/setup.exe' unless OutputBaseFilename is set
+mv 'Output/setup.exe' "${BUILD_DIR}/unsigned/${FILE_NAME}_installer.exe"
 
 echo "🎉 Build complete! Package: ${BUILD_DIR}/unsigned/${FILE_NAME}_installer.exe"
