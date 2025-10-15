@@ -1,6 +1,11 @@
 package main
 
 import (
+	"context"
+	"errors"
+	"os/signal"
+	"syscall"
+
 	"github.com/aerium-network/aerium/cmd"
 	"github.com/aerium-network/aerium/genesis"
 	"github.com/aerium-network/aerium/wallet"
@@ -34,6 +39,34 @@ func buildRecoverCmd(parentCmd *cobra.Command) {
 		wlt, err := wallet.Create(*pathOpt, mnemonic, *passOpt, chainType)
 		cmd.FatalErrorCheck(err)
 
+		ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+		defer stop()
+
+		cmd.PrintInfoMsgf("Recovering wallet addresses (Ctrl+C to abort)...")
+		cmd.PrintLine()
+
+		index := 0
+		err = wlt.RecoveryAddresses(ctx, *passOpt, func(addr string) {
+			cmd.PrintInfoMsgf("%d. %s", index+1, addr)
+			index++
+		})
+
+		// Check if context was cancelled
+		wasInterrupted := ctx.Err() != nil
+
+		if err != nil {
+			if wasInterrupted || errors.Is(err, context.Canceled) {
+				cmd.PrintLine()
+				cmd.PrintWarnMsgf("Recovery aborted")
+			} else {
+				cmd.PrintLine()
+				cmd.PrintWarnMsgf("Address recovery failed: %v", err)
+			}
+		}
+
+		// Always save the wallet before exiting
+		cmd.PrintLine()
+		cmd.PrintInfoMsgf("Saving wallet...")
 		err = wlt.Save()
 		cmd.FatalErrorCheck(err)
 
