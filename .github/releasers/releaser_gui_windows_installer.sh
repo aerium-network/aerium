@@ -3,7 +3,7 @@
 set -e
 
 ROOT_DIR="$(pwd)"
-VERSION="$(echo `git -C ${ROOT_DIR} describe --abbrev=0 --tags` | sed 's/^.//')"
+VERSION="$(echo `git -C "${ROOT_DIR}" describe --abbrev=0 --tags` | sed 's/^.//')"
 BUILD_DIR="${ROOT_DIR}/build"
 PACKAGE_NAME="aerium-gui_${VERSION}"
 PACKAGE_DIR="${ROOT_DIR}/${PACKAGE_NAME}"
@@ -43,6 +43,8 @@ SetupIconFile=.github/releasers/aerium.ico
 LicenseFile=LICENSE
 Uninstallable=yes
 UninstallDisplayIcon={app}\\aerium-gui\\aerium-gui.exe
+OutputDir="${OUTPUT_DIR_WIN}"
+OutputBaseFilename=${FILE_NAME}_installer
 
 [Files]
 Source:"${PACKAGE_NAME}/*"; DestDir:"{app}"; Flags: recursesubdirs
@@ -62,7 +64,5 @@ ISS_WIN_PATH="$(cygpath -w "${ROOT_DIR}/inno.iss")"
 
 "${INNO_EXE}" "${ISS_WIN_PATH}"
 
-# Note: default output is 'Output/setup.exe' unless OutputBaseFilename is set
-mv 'Output/setup.exe' "${BUILD_DIR}/unsigned/${FILE_NAME}_installer.exe"
-
 echo "🎉 Build complete! Package: ${BUILD_DIR}/unsigned/${FILE_NAME}_installer.exe"
+
