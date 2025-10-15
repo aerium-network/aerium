@@ -29,6 +29,9 @@ cp ${BUILD_DIR}/unsigned/aerium-gui.exe     ${PACKAGE_DIR}/aerium-gui/aerium-gui
 # Create archive
 7z a ${ROOT_DIR}/${FILE_NAME}.zip ${PACKAGE_DIR}
 
+# Windows path for installer output directory
+OUTPUT_DIR_WIN="$(cygpath -w "${BUILD_DIR}/unsigned")"
+
 # Create installer
 cat << EOF > ${ROOT_DIR}/inno.iss
 [Setup]
