@@ -116,11 +116,16 @@ func (s *streamService) SendTo(msg []byte, pid lp2peer.ID) (lp2pnetwork.Stream, 
 		// and then close the stream.
 		buf := make([]byte, 1)
 		_, err := stream.Read(buf)
-		if err != nil && errors.Is(err, io.EOF) {
-			s.logger.Debug("stream read returned an error, closing", "to", pid, "err", err)
+		if err != nil {
+			if errors.Is(err, io.EOF) {
+				s.logger.Debug("stream closed by remote", "to", pid)
+			} else {
+				s.logger.Warn("stream read returned an error, closing", "to", pid, "err", err)
+			}
 		} else {
-			s.logger.Debug("stream closed by remote or timed out, closing", "to", pid)
+			s.logger.Warn("unexpected data received on stream, closing", "to", pid)
 		}
+
 		_ = stream.Close()
 	}()
 
