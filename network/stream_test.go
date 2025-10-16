@@ -7,6 +7,8 @@ import (
 
 	"github.com/aerium-network/aerium/util"
 	"github.com/aerium-network/aerium/util/testsuite"
+	lp2phost "github.com/libp2p/go-libp2p/core/host"
+	lp2peer "github.com/libp2p/go-libp2p/core/peer"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -43,25 +45,26 @@ func TestCloseStream(t *testing.T) {
 
 	// streamClosed check if a stream is fully closed for both ends
 	streamClosed := func(networkA, networkB *network, streamID string) bool {
-		connsAtoB := networkA.host.Network().ConnsToPeer(networkB.SelfID())
-		streamsAtoB := connsAtoB[0].GetStreams()
-
-		hasStream := false
-		for _, s := range streamsAtoB {
-			if s.ID() == streamID {
-				hasStream = true
+		hasStreamOnPeer := func(h lp2phost.Host, peerID lp2peer.ID) bool {
+			conns := h.Network().ConnsToPeer(peerID)
+			for _, conn := range conns {
+				for _, s := range conn.GetStreams() {
+					if s.ID() == streamID {
+						return true
+					}
+				}
 			}
+			return false
 		}
 
-		connsBtoA := networkB.host.Network().ConnsToPeer(networkA.SelfID())
-		streamsBtoA := connsBtoA[0].GetStreams()
-		for _, s := range streamsBtoA {
-			if s.ID() == streamID {
-				hasStream = true
-			}
+		if hasStreamOnPeer(networkA.host, networkB.SelfID()) {
+			return false
+		}
+		if hasStreamOnPeer(networkB.host, networkA.SelfID()) {
+			return false
 		}
 
-		return !hasStream
+		return true
 	}
 
 	t.Run("Normal Case", func(t *testing.T) {
