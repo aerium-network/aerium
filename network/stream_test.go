@@ -160,5 +160,4 @@ func TestCloseStream(t *testing.T) {
 		// Should get an error since networkB can't handle the stream
 		assert.Error(t, err)
 	})
-
 }
