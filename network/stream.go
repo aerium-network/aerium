@@ -2,6 +2,7 @@ package network
 
 import (
 	"context"
+	"errors"
 	"io"
 	"time"
 
@@ -50,7 +51,12 @@ func (s *streamService) handleStream(stream lp2pnetwork.Stream) {
 	// Set a deadline for both reading and writing to ensure
 	// the stream will eventually be closed.
 	// In rare cases, the read or write channel may get stuck.
-	_ = stream.SetDeadline(time.Now().Add(s.timeout))
+	if err := stream.SetDeadline(time.Now().Add(s.timeout)); err != nil {
+		s.logger.Warn("failed to set stream deadline", "err", err, "from", stream.Conn().RemotePeer())
+		_ = stream.Reset()
+
+		return
+	}
 
 	from := stream.Conn().RemotePeer()
 
@@ -110,7 +116,7 @@ func (s *streamService) SendTo(msg []byte, pid lp2peer.ID) (lp2pnetwork.Stream, 
 		// and then close the stream.
 		buf := make([]byte, 1)
 		_, err := stream.Read(buf)
-		if err != nil && err != io.EOF {
+		if err != nil && errors.Is(err, io.EOF) {
 			s.logger.Debug("stream read returned an error, closing", "to", pid, "err", err)
 		} else {
 			s.logger.Debug("stream closed by remote or timed out, closing", "to", pid)
