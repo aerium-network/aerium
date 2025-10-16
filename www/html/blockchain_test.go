@@ -24,8 +24,9 @@ func TestBlockchainInfo(t *testing.T) {
 	assert.Equal(t, 200, w.Code)
 	assert.Contains(t, w.Body.String(), "10")
 	// Check for the new text
-    assert.Contains(t, w.Body.String(), "Total Validators")
-    assert.Contains(t, w.Body.String(), "Active Validators")
+	// Verify that the labels are followed by numeric values
+	assert.Regexp(t, `Total Validators.*\d+`, w.Body.String())
+	assert.Regexp(t, `Active Validators.*\d+`, w.Body.String())
 
 	td.StopServers()
 }
