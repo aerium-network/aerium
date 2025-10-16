@@ -47,8 +47,8 @@ func (*streamService) Stop() {}
 
 func (s *streamService) handleStream(stream lp2pnetwork.Stream) {
 	// Set a deadline for both reading and writing to ensure
-	// this stream will eventually be closed.
-	// In very rare cases, the read or write channel may get stuck.
+	// the stream will eventually be closed.
+	// In rare cases, the read or write channel may get stuck.
 	_ = stream.SetDeadline(time.Now().Add(s.timeout))
 
 	from := stream.Conn().RemotePeer()
