@@ -2,6 +2,7 @@ package network
 
 import (
 	"context"
+	"io"
 	"time"
 
 	"github.com/aerium-network/aerium/util"
@@ -104,25 +105,17 @@ func (s *streamService) SendTo(msg []byte, pid lp2peer.ID) (lp2pnetwork.Stream, 
 	// We need to close the stream once it is read by the receiver.
 	// If, for any reason, the receiver doesn't close the stream, we need to close it after a timeout.
 	go func() {
-		timer := time.NewTimer(s.timeout)
-		closed := make(chan bool)
-
-		go func() {
-			// We need only one byte to read the EOF.
-			buf := make([]byte, 1)
-			_, _ = stream.Read(buf)
-			closed <- true
-		}()
-
-		select {
-		case <-timer.C:
-			s.logger.Warn("stream timeout", "to", pid)
-			_ = stream.Close()
-
-		case <-closed:
-			s.logger.Debug("stream closed", "to", pid)
-			_ = stream.Close()
+		// The deadline is already set on the stream, so stream.Read will not block forever.
+		// We wait for the read to complete (with data, EOF, or timeout error)
+		// and then close the stream.
+		buf := make([]byte, 1)
+		_, err := stream.Read(buf)
+		if err != nil && err != io.EOF {
+			s.logger.Debug("stream read returned an error, closing", "to", pid, "err", err)
+		} else {
+			s.logger.Debug("stream closed by remote or timed out, closing", "to", pid)
 		}
+		_ = stream.Close()
 	}()
 
 	return stream, nil
