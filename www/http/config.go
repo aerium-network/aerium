@@ -6,10 +6,11 @@ import (
 )
 
 type Config struct {
-	Enable     bool   `toml:"enable"`
-	Listen     string `toml:"listen"`
-	BasePath   string `toml:"base_path"`
-	EnableCORS bool   `toml:"enable_cors"`
+	Enable     bool     `toml:"enable"`
+	Listen     string   `toml:"listen"`
+	BasePath   string   `toml:"base_path"`
+	EnableCORS bool     `toml:"enable_cors"`
+	Origins    []string `toml:"origins"`
 }
 
 func DefaultConfig() *Config {

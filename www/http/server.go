@@ -126,8 +126,8 @@ func (s *Server) StartServer(grpcAddr string) error {
 		Handler:           httpMux,
 	}
 
-	if s.config.EnableCORS {
-		gwServer.Handler = allowCORS(gwServer.Handler)
+	if s.config.EnableCORS || len(s.config.Origins) > 0 {
+		gwServer.Handler = s.allowCORS(gwServer.Handler)
 	}
 
 	listener, err := util.NetworkListen(s.ctx, "tcp", s.config.Listen)
@@ -185,11 +185,25 @@ func preflightHandler(w http.ResponseWriter) {
 	w.Header().Set("Access-Control-Allow-Methods", strings.Join(methods, ","))
 }
 
-// allowCORS allows Cross Origin Resource Sharing from any origin.
+// allowCORS allows Cross Origin Resource Sharing from configured origins
+// or any origin if CORS is enabled or origins is empty.
 // Don't do this without consideration in production systems.
-func allowCORS(handler http.Handler) http.Handler {
+func (s *Server) allowCORS(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if origin := r.Header.Get("Origin"); origin != "" {
+			if len(s.config.Origins) > 0 {
+				// Create a map for O(1) lookups
+				origins := make(map[string]struct{}, len(s.config.Origins))
+				for _, o := range s.config.Origins {
+					origins[o] = struct{}{}
+				}
+				_, hasWildcard := origins["*"]
+				_, hasOrigin := origins[origin]
+				if !hasWildcard && !hasOrigin {
+					// CORS origin not found and wildcard not allowed, return immediately
+					return
+				}
+			}
 			w.Header().Set("Access-Control-Allow-Origin", origin)
 			if r.Method == http.MethodOptions && r.Header.Get("Access-Control-Request-Method") != "" {
 				preflightHandler(w)
