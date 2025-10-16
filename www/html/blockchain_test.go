@@ -23,6 +23,9 @@ func TestBlockchainInfo(t *testing.T) {
 
 	assert.Equal(t, 200, w.Code)
 	assert.Contains(t, w.Body.String(), "10")
+	// Check for the new text
+    assert.Contains(t, w.Body.String(), "Total Validators")
+    assert.Contains(t, w.Body.String(), "Active Validators")
 
 	td.StopServers()
 }
