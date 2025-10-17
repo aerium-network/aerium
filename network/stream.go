@@ -2,6 +2,8 @@ package network
 
 import (
 	"context"
+	"errors"
+	"io"
 	"time"
 
 	"github.com/aerium-network/aerium/util"
@@ -46,6 +48,16 @@ func (*streamService) Start() {}
 func (*streamService) Stop() {}
 
 func (s *streamService) handleStream(stream lp2pnetwork.Stream) {
+	// Set a deadline for both reading and writing to ensure
+	// the stream will eventually be closed.
+	// In rare cases, the read or write channel may get stuck.
+	if err := stream.SetDeadline(time.Now().Add(s.timeout)); err != nil {
+		s.logger.Warn("failed to set stream deadline", "err", err, "from", stream.Conn().RemotePeer())
+		_ = stream.Reset()
+
+		return
+	}
+
 	from := stream.Conn().RemotePeer()
 
 	s.logger.Debug("receiving stream", "from", from)
@@ -72,7 +84,7 @@ func (s *streamService) SendTo(msg []byte, pid lp2peer.ID) (lp2pnetwork.Stream, 
 	}
 
 	// To prevent a broken stream from being open forever.
-	ctxWithTimeout, cancel := context.WithTimeout(s.ctx, 5*time.Second)
+	ctxWithTimeout, cancel := context.WithTimeout(s.ctx, s.timeout)
 	defer cancel()
 
 	// Attempt to open a new stream to the peer, assuming there's already a direct connection.
@@ -81,6 +93,8 @@ func (s *streamService) SendTo(msg []byte, pid lp2peer.ID) (lp2pnetwork.Stream, 
 	if err != nil {
 		return nil, LibP2PError{Err: err}
 	}
+
+	_ = stream.SetDeadline(time.Now().Add(s.timeout))
 
 	_, err = stream.Write(msg)
 	if err != nil {
@@ -97,25 +111,22 @@ func (s *streamService) SendTo(msg []byte, pid lp2peer.ID) (lp2pnetwork.Stream, 
 	// We need to close the stream once it is read by the receiver.
 	// If, for any reason, the receiver doesn't close the stream, we need to close it after a timeout.
 	go func() {
-		timer := time.NewTimer(s.timeout)
-		closed := make(chan bool)
-
-		go func() {
-			// We need only one byte to read the EOF.
-			buf := make([]byte, 1)
-			_, _ = stream.Read(buf)
-			closed <- true
-		}()
-
-		select {
-		case <-timer.C:
-			s.logger.Warn("stream timeout", "to", pid)
-			_ = stream.Close()
-
-		case <-closed:
-			s.logger.Debug("stream closed", "to", pid)
-			_ = stream.Close()
+		// The deadline is already set on the stream, so stream.Read will not block forever.
+		// We wait for the read to complete (with data, EOF, or timeout error)
+		// and then close the stream.
+		buf := make([]byte, 1)
+		_, err := stream.Read(buf)
+		if err != nil {
+			if errors.Is(err, io.EOF) {
+				s.logger.Debug("stream closed by remote", "to", pid)
+			} else {
+				s.logger.Warn("stream read returned an error, closing", "to", pid, "err", err)
+			}
+		} else {
+			s.logger.Warn("unexpected data received on stream, closing", "to", pid)
 		}
+
+		_ = stream.Close()
 	}()
 
 	return stream, nil
