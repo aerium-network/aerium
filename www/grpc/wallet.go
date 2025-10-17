@@ -267,7 +267,7 @@ func (s *walletServer) GetWalletInfo(_ context.Context,
 		Encrypted:  info.Encrypted,
 		Uuid:       info.UUID,
 		CreatedAt:  info.CreatedAt.Unix(),
-        DefaultFee: info.DefaultFee.ToNanoAUM(),
+		DefaultFee: info.DefaultFee.ToNanoAUM(),
 	}, nil
 }
 

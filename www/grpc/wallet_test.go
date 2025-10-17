@@ -288,33 +288,34 @@ func TestGetTotalBalance(t *testing.T) {
 }
 
 func TestGetWalletInfo_DefaultFee(t *testing.T) {
-    conf := testConfig()
-    conf.EnableWallet = true
+	conf := testConfig()
+	conf.EnableWallet = true
 
-    td := setup(t, conf)
-    conn, client := td.walletClient(t)
+	td := setup(t, conf)
+	conn, client := td.walletClient(t)
+	defer func() {
+		assert.Nil(t, conn.Close(), "Error closing connection")
+		td.StopServer()
+	}()
 
-    walletName := "default_wallet"
+	walletName := "default_wallet"
 
-    // load the default wallet first
-    _, err := client.LoadWallet(context.Background(), &aerium.LoadWalletRequest{
-        WalletName: walletName,
-    })
-    require.NoError(t, err)
+	// load the default wallet first
+	_, err := client.LoadWallet(context.Background(), &aerium.LoadWalletRequest{
+		WalletName: walletName,
+	})
+	require.NoError(t, err)
 
-    // fetch wallet info and verify default_fee is exposed
-    res, err := client.GetWalletInfo(context.Background(), &aerium.GetWalletInfoRequest{
-        WalletName: walletName,
-    })
-    require.NoError(t, err)
-    require.NotNil(t, res)
+	// fetch wallet info and verify default_fee is exposed
+	res, err := client.GetWalletInfo(context.Background(), &aerium.GetWalletInfoRequest{
+		WalletName: walletName,
+	})
+	require.NoError(t, err)
+	require.NotNil(t, res)
 
-    assert.Equal(t, walletName, res.WalletName)
-    // Default fee should be the vault default (0.01 AUM => 10_000_000 NanoAUM)
-    assert.EqualValues(t, int64(10_000_000), res.DefaultFee)
-
-    assert.Nil(t, conn.Close(), "Error closing connection")
-    td.StopServer()
+	assert.Equal(t, walletName, res.WalletName)
+	// Default fee should be the vault default (0.01 AUM => 10_000_000 NanoPAC)
+	assert.EqualValues(t, int64(10_000_000), res.DefaultFee)
 }
 
 func TestGetNewAddress(t *testing.T) {
