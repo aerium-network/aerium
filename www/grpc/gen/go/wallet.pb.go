@@ -1782,7 +1782,7 @@ type GetWalletInfoResponse struct {
 	Uuid string `protobuf:"bytes,5,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	// Unix timestamp of wallet creation.
 	CreatedAt int64 `protobuf:"varint,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// The default fee configured for this wallet in NanoAUM.
+	// The default fee configured for this wallet in NanoPAC.
 	DefaultFee    int64 `protobuf:"varint,7,opt,name=default_fee,json=defaultFee,proto3" json:"default_fee,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
