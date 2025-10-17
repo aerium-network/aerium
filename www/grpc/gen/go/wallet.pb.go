@@ -1781,7 +1781,9 @@ type GetWalletInfoResponse struct {
 	// A unique identifier of the wallet.
 	Uuid string `protobuf:"bytes,5,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	// Unix timestamp of wallet creation.
-	CreatedAt     int64 `protobuf:"varint,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+    CreatedAt     int64 `protobuf:"varint,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+    // The default fee configured for this wallet in NanoAUM.
+    DefaultFee    int64 `protobuf:"varint,7,opt,name=default_fee,json=defaultFee,proto3" json:"default_fee,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1856,6 +1858,13 @@ func (x *GetWalletInfoResponse) GetCreatedAt() int64 {
 		return x.CreatedAt
 	}
 	return 0
+}
+
+func (x *GetWalletInfoResponse) GetDefaultFee() int64 {
+    if x != nil {
+        return x.DefaultFee
+    }
+    return 0
 }
 
 // Request message for listing wallet addresses.
