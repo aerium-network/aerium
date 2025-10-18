@@ -4,7 +4,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
  * <pre>
- * Network service provides RPCs for retrieving information about the network.
+ * The Network service provides RPCs for retrieving information about the network.
  * </pre>
  */
 @javax.annotation.Generated(
@@ -141,14 +141,14 @@ public final class NetworkGrpc {
 
   /**
    * <pre>
-   * Network service provides RPCs for retrieving information about the network.
+   * The Network service provides RPCs for retrieving information about the network.
    * </pre>
    */
   public interface AsyncService {
 
     /**
      * <pre>
-     * GetNetworkInfo retrieves information about the overall network.
+     * Retrieves information about the overall network.
      * </pre>
      */
     default void getNetworkInfo(aerium.NetworkOuterClass.GetNetworkInfoRequest request,
@@ -158,7 +158,7 @@ public final class NetworkGrpc {
 
     /**
      * <pre>
-     * GetNodeInfo retrieves information about a specific node in the network.
+     * Retrieves information about a specific node in the network.
      * </pre>
      */
     default void getNodeInfo(aerium.NetworkOuterClass.GetNodeInfoRequest request,
@@ -170,7 +170,7 @@ public final class NetworkGrpc {
   /**
    * Base class for the server implementation of the service Network.
    * <pre>
-   * Network service provides RPCs for retrieving information about the network.
+   * The Network service provides RPCs for retrieving information about the network.
    * </pre>
    */
   public static abstract class NetworkImplBase
@@ -184,7 +184,7 @@ public final class NetworkGrpc {
   /**
    * A stub to allow clients to do asynchronous rpc calls to service Network.
    * <pre>
-   * Network service provides RPCs for retrieving information about the network.
+   * The Network service provides RPCs for retrieving information about the network.
    * </pre>
    */
   public static final class NetworkStub
@@ -202,7 +202,7 @@ public final class NetworkGrpc {
 
     /**
      * <pre>
-     * GetNetworkInfo retrieves information about the overall network.
+     * Retrieves information about the overall network.
      * </pre>
      */
     public void getNetworkInfo(aerium.NetworkOuterClass.GetNetworkInfoRequest request,
@@ -213,7 +213,7 @@ public final class NetworkGrpc {
 
     /**
      * <pre>
-     * GetNodeInfo retrieves information about a specific node in the network.
+     * Retrieves information about a specific node in the network.
      * </pre>
      */
     public void getNodeInfo(aerium.NetworkOuterClass.GetNodeInfoRequest request,
@@ -226,7 +226,7 @@ public final class NetworkGrpc {
   /**
    * A stub to allow clients to do synchronous rpc calls to service Network.
    * <pre>
-   * Network service provides RPCs for retrieving information about the network.
+   * The Network service provides RPCs for retrieving information about the network.
    * </pre>
    */
   public static final class NetworkBlockingV2Stub
@@ -244,7 +244,7 @@ public final class NetworkGrpc {
 
     /**
      * <pre>
-     * GetNetworkInfo retrieves information about the overall network.
+     * Retrieves information about the overall network.
      * </pre>
      */
     public aerium.NetworkOuterClass.GetNetworkInfoResponse getNetworkInfo(aerium.NetworkOuterClass.GetNetworkInfoRequest request) {
@@ -254,7 +254,7 @@ public final class NetworkGrpc {
 
     /**
      * <pre>
-     * GetNodeInfo retrieves information about a specific node in the network.
+     * Retrieves information about a specific node in the network.
      * </pre>
      */
     public aerium.NetworkOuterClass.GetNodeInfoResponse getNodeInfo(aerium.NetworkOuterClass.GetNodeInfoRequest request) {
@@ -266,7 +266,7 @@ public final class NetworkGrpc {
   /**
    * A stub to allow clients to do limited synchronous rpc calls to service Network.
    * <pre>
-   * Network service provides RPCs for retrieving information about the network.
+   * The Network service provides RPCs for retrieving information about the network.
    * </pre>
    */
   public static final class NetworkBlockingStub
@@ -284,7 +284,7 @@ public final class NetworkGrpc {
 
     /**
      * <pre>
-     * GetNetworkInfo retrieves information about the overall network.
+     * Retrieves information about the overall network.
      * </pre>
      */
     public aerium.NetworkOuterClass.GetNetworkInfoResponse getNetworkInfo(aerium.NetworkOuterClass.GetNetworkInfoRequest request) {
@@ -294,7 +294,7 @@ public final class NetworkGrpc {
 
     /**
      * <pre>
-     * GetNodeInfo retrieves information about a specific node in the network.
+     * Retrieves information about a specific node in the network.
      * </pre>
      */
     public aerium.NetworkOuterClass.GetNodeInfoResponse getNodeInfo(aerium.NetworkOuterClass.GetNodeInfoRequest request) {
@@ -306,7 +306,7 @@ public final class NetworkGrpc {
   /**
    * A stub to allow clients to do ListenableFuture-style rpc calls to service Network.
    * <pre>
-   * Network service provides RPCs for retrieving information about the network.
+   * The Network service provides RPCs for retrieving information about the network.
    * </pre>
    */
   public static final class NetworkFutureStub
@@ -324,7 +324,7 @@ public final class NetworkGrpc {
 
     /**
      * <pre>
-     * GetNetworkInfo retrieves information about the overall network.
+     * Retrieves information about the overall network.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.NetworkOuterClass.GetNetworkInfoResponse> getNetworkInfo(
@@ -335,7 +335,7 @@ public final class NetworkGrpc {
 
     /**
      * <pre>
-     * GetNodeInfo retrieves information about a specific node in the network.
+     * Retrieves information about a specific node in the network.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.NetworkOuterClass.GetNodeInfoResponse> getNodeInfo(

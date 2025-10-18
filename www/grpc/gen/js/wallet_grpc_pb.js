@@ -357,9 +357,9 @@ function deserialize_aerium_UnloadWalletResponse(buffer_arg) {
 }
 
 
-// Wallet service provides RPC methods for wallet management operations.
+// The Wallet service provides RPC methods for wallet management operations.
 var WalletService = exports.WalletService = {
-  // CreateWallet creates a new wallet with the specified parameters.
+  // Creates a new wallet with the specified parameters.
 createWallet: {
     path: '/aerium.Wallet/CreateWallet',
     requestStream: false,
@@ -371,7 +371,7 @@ createWallet: {
     responseSerialize: serialize_aerium_CreateWalletResponse,
     responseDeserialize: deserialize_aerium_CreateWalletResponse,
   },
-  // RestoreWallet restores an existing wallet with the given mnemonic.
+  // Restores an existing wallet with the given mnemonic.
 restoreWallet: {
     path: '/aerium.Wallet/RestoreWallet',
     requestStream: false,
@@ -383,7 +383,7 @@ restoreWallet: {
     responseSerialize: serialize_aerium_RestoreWalletResponse,
     responseDeserialize: deserialize_aerium_RestoreWalletResponse,
   },
-  // LoadWallet loads an existing wallet with the given name.
+  // Loads an existing wallet with the given name.
 loadWallet: {
     path: '/aerium.Wallet/LoadWallet',
     requestStream: false,
@@ -395,7 +395,7 @@ loadWallet: {
     responseSerialize: serialize_aerium_LoadWalletResponse,
     responseDeserialize: deserialize_aerium_LoadWalletResponse,
   },
-  // UnloadWallet unloads a currently loaded wallet with the specified name.
+  // Unloads a currently loaded wallet with the specified name.
 unloadWallet: {
     path: '/aerium.Wallet/UnloadWallet',
     requestStream: false,
@@ -407,7 +407,7 @@ unloadWallet: {
     responseSerialize: serialize_aerium_UnloadWalletResponse,
     responseDeserialize: deserialize_aerium_UnloadWalletResponse,
   },
-  // GetTotalBalance returns the total available balance of the wallet.
+  // Returns the total available balance of the wallet.
 getTotalBalance: {
     path: '/aerium.Wallet/GetTotalBalance',
     requestStream: false,
@@ -419,7 +419,7 @@ getTotalBalance: {
     responseSerialize: serialize_aerium_GetTotalBalanceResponse,
     responseDeserialize: deserialize_aerium_GetTotalBalanceResponse,
   },
-  // SignRawTransaction signs a raw transaction for a specified wallet.
+  // Signs a raw transaction for a specified wallet.
 signRawTransaction: {
     path: '/aerium.Wallet/SignRawTransaction',
     requestStream: false,
@@ -431,7 +431,7 @@ signRawTransaction: {
     responseSerialize: serialize_aerium_SignRawTransactionResponse,
     responseDeserialize: deserialize_aerium_SignRawTransactionResponse,
   },
-  // GetValidatorAddress retrieves the validator address associated with a public key.
+  // Retrieves the validator address associated with a public key.
 getValidatorAddress: {
     path: '/aerium.Wallet/GetValidatorAddress',
     requestStream: false,
@@ -443,7 +443,7 @@ getValidatorAddress: {
     responseSerialize: serialize_aerium_GetValidatorAddressResponse,
     responseDeserialize: deserialize_aerium_GetValidatorAddressResponse,
   },
-  // GetNewAddress generates a new address for the specified wallet.
+  // Generates a new address for the specified wallet.
 getNewAddress: {
     path: '/aerium.Wallet/GetNewAddress',
     requestStream: false,
@@ -455,7 +455,7 @@ getNewAddress: {
     responseSerialize: serialize_aerium_GetNewAddressResponse,
     responseDeserialize: deserialize_aerium_GetNewAddressResponse,
   },
-  // GetAddressHistory retrieves the transaction history of an address.
+  // Retrieves the transaction history of an address.
 getAddressHistory: {
     path: '/aerium.Wallet/GetAddressHistory',
     requestStream: false,
@@ -467,7 +467,7 @@ getAddressHistory: {
     responseSerialize: serialize_aerium_GetAddressHistoryResponse,
     responseDeserialize: deserialize_aerium_GetAddressHistoryResponse,
   },
-  // SignMessage signs an arbitrary message using a wallet's private key.
+  // Signs an arbitrary message using a wallet's private key.
 signMessage: {
     path: '/aerium.Wallet/SignMessage',
     requestStream: false,
@@ -479,7 +479,7 @@ signMessage: {
     responseSerialize: serialize_aerium_SignMessageResponse,
     responseDeserialize: deserialize_aerium_SignMessageResponse,
   },
-  // GetTotalStake returns the total stake amount in the wallet.
+  // Returns the total stake amount in the wallet.
 getTotalStake: {
     path: '/aerium.Wallet/GetTotalStake',
     requestStream: false,
@@ -491,7 +491,7 @@ getTotalStake: {
     responseSerialize: serialize_aerium_GetTotalStakeResponse,
     responseDeserialize: deserialize_aerium_GetTotalStakeResponse,
   },
-  // GetAddressInfo returns detailed information about a specific address.
+  // Returns detailed information about a specific address.
 getAddressInfo: {
     path: '/aerium.Wallet/GetAddressInfo',
     requestStream: false,
@@ -503,7 +503,7 @@ getAddressInfo: {
     responseSerialize: serialize_aerium_GetAddressInfoResponse,
     responseDeserialize: deserialize_aerium_GetAddressInfoResponse,
   },
-  // SetAddressLabel sets or updates the label for a given address.
+  // Sets or updates the label for a given address.
 setAddressLabel: {
     path: '/aerium.Wallet/SetAddressLabel',
     requestStream: false,
@@ -515,7 +515,7 @@ setAddressLabel: {
     responseSerialize: serialize_aerium_SetAddressLabelResponse,
     responseDeserialize: deserialize_aerium_SetAddressLabelResponse,
   },
-  // ListWallet returns list of all available wallets.
+  // Returns a list of all available wallets.
 listWallet: {
     path: '/aerium.Wallet/ListWallet',
     requestStream: false,
@@ -527,7 +527,7 @@ listWallet: {
     responseSerialize: serialize_aerium_ListWalletResponse,
     responseDeserialize: deserialize_aerium_ListWalletResponse,
   },
-  // GetWalletInfo returns detailed information about a specific wallet.
+  // Returns detailed information about a specific wallet.
 getWalletInfo: {
     path: '/aerium.Wallet/GetWalletInfo',
     requestStream: false,
@@ -539,7 +539,7 @@ getWalletInfo: {
     responseSerialize: serialize_aerium_GetWalletInfoResponse,
     responseDeserialize: deserialize_aerium_GetWalletInfoResponse,
   },
-  // ListAddress returns all addresses in the specified wallet.
+  // Returns all addresses in the specified wallet.
 listAddress: {
     path: '/aerium.Wallet/ListAddress',
     requestStream: false,

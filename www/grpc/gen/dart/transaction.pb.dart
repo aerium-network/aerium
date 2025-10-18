@@ -88,7 +88,7 @@ class GetTransactionRequest extends $pb.GeneratedMessage {
   void clearVerbosity() => $_clearField(2);
 }
 
-/// Response message contains details of a transaction.
+/// Response message containing details of a transaction.
 class GetTransactionResponse extends $pb.GeneratedMessage {
   factory GetTransactionResponse({
     $core.int? blockHeight,
@@ -172,7 +172,7 @@ class GetTransactionResponse extends $pb.GeneratedMessage {
   TransactionInfo ensureTransaction() => $_ensure(2);
 }
 
-/// Request message for calculating transaction fee.
+/// Request message for calculating a transaction fee.
 class CalculateFeeRequest extends $pb.GeneratedMessage {
   factory CalculateFeeRequest({
     $fixnum.Int64? amount,
@@ -254,7 +254,7 @@ class CalculateFeeRequest extends $pb.GeneratedMessage {
   void clearFixedAmount() => $_clearField(3);
 }
 
-/// Response message contains the calculated transaction fee.
+/// Response message containing the calculated transaction fee.
 class CalculateFeeResponse extends $pb.GeneratedMessage {
   factory CalculateFeeResponse({
     $fixnum.Int64? amount,
@@ -362,7 +362,7 @@ class BroadcastTransactionRequest extends $pb.GeneratedMessage {
   static BroadcastTransactionRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<BroadcastTransactionRequest>(create);
   static BroadcastTransactionRequest? _defaultInstance;
 
-  /// The signed raw transaction data to be broadcasted.
+  /// The signed raw transaction data to be broadcast.
   @$pb.TagNumber(1)
   $core.String get signedRawTransaction => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -373,7 +373,7 @@ class BroadcastTransactionRequest extends $pb.GeneratedMessage {
   void clearSignedRawTransaction() => $_clearField(1);
 }
 
-/// Response message contains the ID of the broadcasted transaction.
+/// Response message containing the ID of the broadcasted transaction.
 class BroadcastTransactionResponse extends $pb.GeneratedMessage {
   factory BroadcastTransactionResponse({
     $core.String? id,
@@ -984,7 +984,7 @@ class GetRawBatchTransferTransactionRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearSender() => $_clearField(2);
 
-  /// The recipients list of receiver with amount, min 2 recipients.
+  /// The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
   @$pb.TagNumber(3)
   $pb.PbList<Recipient> get recipients => $_getList(2);
 
@@ -1009,7 +1009,7 @@ class GetRawBatchTransferTransactionRequest extends $pb.GeneratedMessage {
   void clearMemo() => $_clearField(5);
 }
 
-/// Response message contains raw transaction data.
+/// Response message containing raw transaction data.
 class GetRawTransactionResponse extends $pb.GeneratedMessage {
   factory GetRawTransactionResponse({
     $core.String? rawTransaction,
@@ -1512,12 +1512,12 @@ class PayloadBatchTransfer extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearSender() => $_clearField(1);
 
-  /// The recipients of list receiver with amount.
+  /// The list of recipients, each with a receiver and amount.
   @$pb.TagNumber(2)
   $pb.PbList<Recipient> get recipients => $_getList(1);
 }
 
-/// Recipient is receiver with amount.
+/// Recipient is a receiver with an amount.
 class Recipient extends $pb.GeneratedMessage {
   factory Recipient({
     $core.String? receiver,
@@ -1883,7 +1883,7 @@ class TransactionInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(34)
   PayloadWithdraw ensureWithdraw() => $_ensure(14);
 
-  /// Batch Transfer transaction payload.
+  /// Batch transfer transaction payload.
   @$pb.TagNumber(35)
   PayloadBatchTransfer get batchTransfer => $_getN(15);
   @$pb.TagNumber(35)
@@ -1948,7 +1948,7 @@ class DecodeRawTransactionRequest extends $pb.GeneratedMessage {
   void clearRawTransaction() => $_clearField(1);
 }
 
-/// Response message contains the decoded transaction.
+/// Response message containing the decoded transaction.
 class DecodeRawTransactionResponse extends $pb.GeneratedMessage {
   factory DecodeRawTransactionResponse({
     TransactionInfo? transaction,
@@ -2002,44 +2002,44 @@ class DecodeRawTransactionResponse extends $pb.GeneratedMessage {
   TransactionInfo ensureTransaction() => $_ensure(0);
 }
 
-/// Transaction service defines various RPC methods for interacting with transactions.
+/// The Transaction service defines RPC methods for interacting with transactions.
 class TransactionApi {
   $pb.RpcClient _client;
   TransactionApi(this._client);
 
-  /// GetTransaction retrieves transaction details based on the provided request parameters.
+  /// Retrieves transaction details based on the provided request parameters.
   $async.Future<GetTransactionResponse> getTransaction($pb.ClientContext? ctx, GetTransactionRequest request) =>
     _client.invoke<GetTransactionResponse>(ctx, 'Transaction', 'GetTransaction', request, GetTransactionResponse())
   ;
-  /// CalculateFee calculates the transaction fee based on the specified amount and payload type.
+  /// Calculates the transaction fee based on the specified amount and payload type.
   $async.Future<CalculateFeeResponse> calculateFee($pb.ClientContext? ctx, CalculateFeeRequest request) =>
     _client.invoke<CalculateFeeResponse>(ctx, 'Transaction', 'CalculateFee', request, CalculateFeeResponse())
   ;
-  /// BroadcastTransaction broadcasts a signed transaction to the network.
+  /// Broadcasts a signed transaction to the network.
   $async.Future<BroadcastTransactionResponse> broadcastTransaction($pb.ClientContext? ctx, BroadcastTransactionRequest request) =>
     _client.invoke<BroadcastTransactionResponse>(ctx, 'Transaction', 'BroadcastTransaction', request, BroadcastTransactionResponse())
   ;
-  /// GetRawTransferTransaction retrieves raw details of a transfer transaction.
+  /// Retrieves raw details of a transfer transaction.
   $async.Future<GetRawTransactionResponse> getRawTransferTransaction($pb.ClientContext? ctx, GetRawTransferTransactionRequest request) =>
     _client.invoke<GetRawTransactionResponse>(ctx, 'Transaction', 'GetRawTransferTransaction', request, GetRawTransactionResponse())
   ;
-  /// GetRawBondTransaction retrieves raw details of a bond transaction.
+  /// Retrieves raw details of a bond transaction.
   $async.Future<GetRawTransactionResponse> getRawBondTransaction($pb.ClientContext? ctx, GetRawBondTransactionRequest request) =>
     _client.invoke<GetRawTransactionResponse>(ctx, 'Transaction', 'GetRawBondTransaction', request, GetRawTransactionResponse())
   ;
-  /// GetRawUnbondTransaction retrieves raw details of an unbond transaction.
+  /// Retrieves raw details of an unbond transaction.
   $async.Future<GetRawTransactionResponse> getRawUnbondTransaction($pb.ClientContext? ctx, GetRawUnbondTransactionRequest request) =>
     _client.invoke<GetRawTransactionResponse>(ctx, 'Transaction', 'GetRawUnbondTransaction', request, GetRawTransactionResponse())
   ;
-  /// GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.
+  /// Retrieves raw details of a withdraw transaction.
   $async.Future<GetRawTransactionResponse> getRawWithdrawTransaction($pb.ClientContext? ctx, GetRawWithdrawTransactionRequest request) =>
     _client.invoke<GetRawTransactionResponse>(ctx, 'Transaction', 'GetRawWithdrawTransaction', request, GetRawTransactionResponse())
   ;
-  /// GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.
+  /// Retrieves raw details of a batch transfer transaction.
   $async.Future<GetRawTransactionResponse> getRawBatchTransferTransaction($pb.ClientContext? ctx, GetRawBatchTransferTransactionRequest request) =>
     _client.invoke<GetRawTransactionResponse>(ctx, 'Transaction', 'GetRawBatchTransferTransaction', request, GetRawTransactionResponse())
   ;
-  /// DecodeRawTransaction accepts raw transaction and returns decoded transaction.
+  /// Decodes a raw transaction and returns the decoded transaction.
   $async.Future<DecodeRawTransactionResponse> decodeRawTransaction($pb.ClientContext? ctx, DecodeRawTransactionRequest request) =>
     _client.invoke<DecodeRawTransactionResponse>(ctx, 'Transaction', 'DecodeRawTransaction', request, DecodeRawTransactionResponse())
   ;

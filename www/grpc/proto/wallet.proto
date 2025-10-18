@@ -4,68 +4,66 @@ package aerium;
 option go_package = "github.com/aerium-network/aerium/www/grpc/aerium";
 option java_package = "aerium";
 
-// Wallet service provides RPC methods for wallet management operations.
+// The Wallet service provides RPC methods for wallet management operations.
 service Wallet {
-  // CreateWallet creates a new wallet with the specified parameters.
+  // Creates a new wallet with the specified parameters.
   rpc CreateWallet(CreateWalletRequest) returns (CreateWalletResponse);
 
-  // RestoreWallet restores an existing wallet with the given mnemonic.
+  // Restores an existing wallet with the given mnemonic.
   rpc RestoreWallet(RestoreWalletRequest) returns (RestoreWalletResponse);
 
-  // LoadWallet loads an existing wallet with the given name.
+  // Loads an existing wallet with the given name.
   rpc LoadWallet(LoadWalletRequest) returns (LoadWalletResponse);
 
-  // UnloadWallet unloads a currently loaded wallet with the specified name.
+  // Unloads a currently loaded wallet with the specified name.
   rpc UnloadWallet(UnloadWalletRequest) returns (UnloadWalletResponse);
 
-  // GetTotalBalance returns the total available balance of the wallet.
+  // Returns the total available balance of the wallet.
   rpc GetTotalBalance(GetTotalBalanceRequest) returns (GetTotalBalanceResponse);
 
-  // SignRawTransaction signs a raw transaction for a specified wallet.
+  // Signs a raw transaction for a specified wallet.
   rpc SignRawTransaction(SignRawTransactionRequest) returns (SignRawTransactionResponse);
 
-  // GetValidatorAddress retrieves the validator address associated with a public key.
+  // Retrieves the validator address associated with a public key.
   rpc GetValidatorAddress(GetValidatorAddressRequest) returns (GetValidatorAddressResponse);
 
-  // GetNewAddress generates a new address for the specified wallet.
+  // Generates a new address for the specified wallet.
   rpc GetNewAddress(GetNewAddressRequest) returns (GetNewAddressResponse);
 
-  // GetAddressHistory retrieves the transaction history of an address.
+  // Retrieves the transaction history of an address.
   rpc GetAddressHistory(GetAddressHistoryRequest) returns (GetAddressHistoryResponse);
 
-  // SignMessage signs an arbitrary message using a wallet's private key.
+  // Signs an arbitrary message using a wallet's private key.
   rpc SignMessage(SignMessageRequest) returns (SignMessageResponse);
 
-  // GetTotalStake returns the total stake amount in the wallet.
+  // Returns the total stake amount in the wallet.
   rpc GetTotalStake(GetTotalStakeRequest) returns (GetTotalStakeResponse);
 
-  // GetAddressInfo returns detailed information about a specific address.
+  // Returns detailed information about a specific address.
   rpc GetAddressInfo(GetAddressInfoRequest) returns (GetAddressInfoResponse);
 
-  // SetAddressLabel sets or updates the label for a given address.
+  // Sets or updates the label for a given address.
   rpc SetAddressLabel(SetAddressLabelRequest) returns (SetAddressLabelResponse);
 
-  // ListWallet returns list of all available wallets.
+  // Returns a list of all available wallets.
   rpc ListWallet(ListWalletRequest) returns (ListWalletResponse);
 
-  // GetWalletInfo returns detailed information about a specific wallet.
+  // Returns detailed information about a specific wallet.
   rpc GetWalletInfo(GetWalletInfoRequest) returns (GetWalletInfoResponse);
 
-  // ListAddress returns all addresses in the specified wallet.
+  // Returns all addresses in the specified wallet.
   rpc ListAddress(ListAddressRequest) returns (ListAddressResponse);
 }
 
 // AddressType defines different types of blockchain addresses.
 enum AddressType {
-  // Treasury address type.
-  // Should not be used to generate new addresses.
+  // Treasury address type. Should not be used to generate new addresses.
   ADDRESS_TYPE_TREASURY = 0;
   // Validator address type used for validator nodes.
   ADDRESS_TYPE_VALIDATOR = 1;
   // Account address type with BLS signature scheme.
   ADDRESS_TYPE_BLS_ACCOUNT = 2;
-  // Account address type with Ed25519 signature scheme.
-  // Note: Generating a new Ed25519 address requires the wallet password.
+  // Account address type with Ed25519 signature scheme. Note: Generating a new Ed25519 address requires the wallet password.
   ADDRESS_TYPE_ED25519_ACCOUNT = 3;
 }
 
@@ -103,7 +101,7 @@ message GetAddressHistoryRequest {
   string address = 2;
 }
 
-// Response message contains address transaction history.
+// Response message containing address transaction history.
 message GetAddressHistoryResponse {
   // List of all historical transactions associated with the address.
   repeated HistoryInfo history_info = 1;
@@ -111,19 +109,19 @@ message GetAddressHistoryResponse {
 
 // Request message for generating a new wallet address.
 message GetNewAddressRequest {
-  // The name of the wallet to generate a new address.
+  // The name of the wallet to generate a new address for.
   string wallet_name = 1;
   // The type of address to generate.
   AddressType address_type = 2;
   // A label for the new address.
   string label = 3;
-  // Password for the new address. It's required when address_type is Ed25519 type.
+  // Password for the new address. Required when address_type is Ed25519.
   string password = 4;
 }
 
-// Response message contains newly generated address information.
+// Response message containing newly generated address information.
 message GetNewAddressResponse {
-  // The name of the wallet where address was generated.
+  // The name of the wallet where the address was generated.
   string wallet_name = 1;
   // Detailed information about the new address.
   AddressInfo address_info = 2;
@@ -153,7 +151,7 @@ message CreateWalletRequest {
   string password = 4;
 }
 
-// Response message contains wallet recovery mnemonic (seed phrase).
+// Response message containing wallet recovery mnemonic (seed phrase).
 message CreateWalletResponse {
   // The mnemonic (seed phrase) for wallet recovery.
   string mnemonic = 2;
@@ -205,7 +203,7 @@ message SignRawTransactionRequest {
   string password = 3;
 }
 
-// Response message contains the transaction ID and signed raw transaction.
+// Response message containing the transaction ID and signed raw transaction.
 message SignRawTransactionResponse {
   // The ID of the signed transaction.
   string transaction_id = 1;
@@ -215,11 +213,11 @@ message SignRawTransactionResponse {
 
 // Request message for obtaining the total available balance of a wallet.
 message GetTotalBalanceRequest {
-  // The name of the wallet to get the total balance.
+  // The name of the wallet to get the total balance for.
   string wallet_name = 1;
 }
 
-// Response message contains the total available balance of the wallet.
+// Response message containing the total available balance of the wallet.
 message GetTotalBalanceResponse {
   // The name of the queried wallet.
   string wallet_name = 1;
@@ -239,7 +237,7 @@ message SignMessageRequest {
   string message = 4;
 }
 
-// Response message contains message signature.
+// Response message containing the message signature.
 message SignMessageResponse {
   // The signature in hexadecimal format.
   string signature = 1;
@@ -247,11 +245,11 @@ message SignMessageResponse {
 
 // Request message for obtaining the total stake of a wallet.
 message GetTotalStakeRequest {
-  // The name of the wallet to get the total stake.
+  // The name of the wallet to get the total stake for.
   string wallet_name = 1;
 }
 
-// Response message contains the total stake of the wallet.
+// Response message containing the total stake of the wallet.
 message GetTotalStakeResponse {
   // The name of the queried wallet.
   string wallet_name = 1;
@@ -267,7 +265,7 @@ message GetAddressInfoRequest {
   string address = 2;
 }
 
-// Response message contains address details.
+// Response message containing address details.
 message GetAddressInfoResponse {
   // The name of the wallet containing the address.
   string wallet_name = 1;
@@ -281,7 +279,7 @@ message GetAddressInfoResponse {
   string path = 5;
 }
 
-// Request message for setting address label.
+// Request message for setting an address label.
 message SetAddressLabelRequest {
   // The name of the wallet containing the address.
   string wallet_name = 1;
@@ -299,7 +297,7 @@ message SetAddressLabelResponse {}
 // Request message for listing all wallets.
 message ListWalletRequest {}
 
-// Response message contains wallet names.
+// Response message containing wallet names.
 message ListWalletResponse {
   // Array of wallet names.
   repeated string wallets = 1;
@@ -311,7 +309,7 @@ message GetWalletInfoRequest {
   string wallet_name = 1;
 }
 
-// Response message contains wallet details.
+// Response message containing wallet details.
 message GetWalletInfoResponse {
   // The name of the wallet to query.
   string wallet_name = 1;
@@ -321,7 +319,7 @@ message GetWalletInfoResponse {
   string network = 3;
   // Indicates if the wallet is encrypted.
   bool encrypted = 4;
-  // A unique identifier of the wallet.
+  // A unique identifier for the wallet.
   string uuid = 5;
   // Unix timestamp of wallet creation.
   int64 created_at = 6;
@@ -333,10 +331,10 @@ message ListAddressRequest {
   string wallet_name = 1;
 }
 
-// Response message contains wallet addresses.
+// Response message containing wallet addresses.
 message ListAddressResponse {
   // The name of the queried wallet.
   string wallet_name = 1;
-  // ist of all addresses in the wallet with their details.
+  // List of all addresses in the wallet with their details.
   repeated AddressInfo data = 2;
 }

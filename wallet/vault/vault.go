@@ -31,9 +31,9 @@ import (
 //
 // Explanation:
 //
-//   `m` Denotes the master node (or root) of the tree
-//   `'` Apostrophe in the path indicates that BIP32 hardened derivation is used.
-//   `/` Separates the tree into depths, thus i / j signifies that j is a child of i
+//   `m` denotes the master node (or root) of the tree.
+//   `'` (apostrophe) in the path indicates that BIP32 hardened derivation is used.
+//   `/` separates the tree into depths; i / j signifies that j is a child of i.
 //
 // Path Components:
 //

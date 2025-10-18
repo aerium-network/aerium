@@ -83,7 +83,7 @@ class SignMessageWithPrivateKeyRequest extends $pb.GeneratedMessage {
   void clearMessage() => $_clearField(2);
 }
 
-/// Response message contains the signature generated from the message.
+/// Response message containing the signature generated from the message.
 class SignMessageWithPrivateKeyResponse extends $pb.GeneratedMessage {
   factory SignMessageWithPrivateKeyResponse({
     $core.String? signature,
@@ -217,7 +217,7 @@ class VerifyMessageRequest extends $pb.GeneratedMessage {
   void clearPublicKey() => $_clearField(3);
 }
 
-/// Response message contains the verification result.
+/// Response message containing the verification result.
 class VerifyMessageResponse extends $pb.GeneratedMessage {
   factory VerifyMessageResponse({
     $core.bool? isValid,
@@ -258,7 +258,7 @@ class VerifyMessageResponse extends $pb.GeneratedMessage {
   static VerifyMessageResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<VerifyMessageResponse>(create);
   static VerifyMessageResponse? _defaultInstance;
 
-  /// Boolean indicating whether the signature is valid for the given message and public key.
+  /// Indicates whether the signature is valid for the given message and public key.
   @$pb.TagNumber(1)
   $core.bool get isValid => $_getBF(0);
   @$pb.TagNumber(1)
@@ -315,7 +315,7 @@ class PublicKeyAggregationRequest extends $pb.GeneratedMessage {
   $pb.PbList<$core.String> get publicKeys => $_getList(0);
 }
 
-/// Response message contains the aggregated BLS public key result.
+/// Response message containing the aggregated BLS public key result.
 class PublicKeyAggregationResponse extends $pb.GeneratedMessage {
   factory PublicKeyAggregationResponse({
     $core.String? publicKey,
@@ -428,7 +428,7 @@ class SignatureAggregationRequest extends $pb.GeneratedMessage {
   $pb.PbList<$core.String> get signatures => $_getList(0);
 }
 
-/// Response message contains the aggregated BLS signature.
+/// Response message containing the aggregated BLS signature.
 class SignatureAggregationResponse extends $pb.GeneratedMessage {
   factory SignatureAggregationResponse({
     $core.String? signature,
@@ -480,25 +480,24 @@ class SignatureAggregationResponse extends $pb.GeneratedMessage {
   void clearSignature() => $_clearField(1);
 }
 
-/// Utils service defines RPC methods for utility functions such as message
-/// signing, verification, and etc.
+/// The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
 class UtilsApi {
   $pb.RpcClient _client;
   UtilsApi(this._client);
 
-  /// SignMessageWithPrivateKey signs a message with the provided private key.
+  /// Signs a message with the provided private key.
   $async.Future<SignMessageWithPrivateKeyResponse> signMessageWithPrivateKey($pb.ClientContext? ctx, SignMessageWithPrivateKeyRequest request) =>
     _client.invoke<SignMessageWithPrivateKeyResponse>(ctx, 'Utils', 'SignMessageWithPrivateKey', request, SignMessageWithPrivateKeyResponse())
   ;
-  /// VerifyMessage verifies a signature against the public key and message.
+  /// Verifies a signature against the public key and message.
   $async.Future<VerifyMessageResponse> verifyMessage($pb.ClientContext? ctx, VerifyMessageRequest request) =>
     _client.invoke<VerifyMessageResponse>(ctx, 'Utils', 'VerifyMessage', request, VerifyMessageResponse())
   ;
-  /// PublicKeyAggregation aggregates multiple BLS public keys into a single key.
+  /// Aggregates multiple BLS public keys into a single key.
   $async.Future<PublicKeyAggregationResponse> publicKeyAggregation($pb.ClientContext? ctx, PublicKeyAggregationRequest request) =>
     _client.invoke<PublicKeyAggregationResponse>(ctx, 'Utils', 'PublicKeyAggregation', request, PublicKeyAggregationResponse())
   ;
-  /// SignatureAggregation aggregates multiple BLS signatures into a single signature.
+  /// Aggregates multiple BLS signatures into a single signature.
   $async.Future<SignatureAggregationResponse> signatureAggregation($pb.ClientContext? ctx, SignatureAggregationRequest request) =>
     _client.invoke<SignatureAggregationResponse>(ctx, 'Utils', 'SignatureAggregation', request, SignatureAggregationResponse())
   ;

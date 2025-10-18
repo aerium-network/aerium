@@ -16,7 +16,7 @@ import (
 )
 
 // grpcClient is a gRPC client that randomly establishes a connection to a gRPC server.
-// It is used to get information such as account balance or transaction data from the server.
+// It is used to retrieve information such as account balances or transaction data from the server.
 type grpcClient struct {
 	ctx               context.Context
 	servers           []string
@@ -62,7 +62,7 @@ func (c *grpcClient) connect() error {
 		blockchainClient := aerium.NewBlockchainClient(conn)
 		transactionClient := aerium.NewTransactionClient(conn)
 
-		// Check if client is responding
+		// Check if the client is responding
 		_, err = blockchainClient.GetBlockchainInfo(c.ctx,
 			&aerium.GetBlockchainInfoRequest{})
 		if err != nil {
@@ -141,7 +141,7 @@ func (c *grpcClient) sendTx(trx *tx.Tx) (tx.ID, error) {
 	return hash.FromString(res.Id)
 }
 
-// TODO: check the return value type.
+// TODO: Check the return value type.
 func (c *grpcClient) getTransaction(txID tx.ID) (*aerium.GetTransactionResponse, error) {
 	if err := c.connect(); err != nil {
 		return nil, err

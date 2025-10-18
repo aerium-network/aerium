@@ -6,8 +6,7 @@ import utils_pb2 as utils__pb2
 
 
 class UtilsStub(object):
-    """Utils service defines RPC methods for utility functions such as message
-    signing, verification, and etc.
+    """The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
     """
 
     def __init__(self, channel):
@@ -39,33 +38,32 @@ class UtilsStub(object):
 
 
 class UtilsServicer(object):
-    """Utils service defines RPC methods for utility functions such as message
-    signing, verification, and etc.
+    """The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
     """
 
     def SignMessageWithPrivateKey(self, request, context):
-        """SignMessageWithPrivateKey signs a message with the provided private key.
+        """Signs a message with the provided private key.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def VerifyMessage(self, request, context):
-        """VerifyMessage verifies a signature against the public key and message.
+        """Verifies a signature against the public key and message.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def PublicKeyAggregation(self, request, context):
-        """PublicKeyAggregation aggregates multiple BLS public keys into a single key.
+        """Aggregates multiple BLS public keys into a single key.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def SignatureAggregation(self, request, context):
-        """SignatureAggregation aggregates multiple BLS signatures into a single signature.
+        """Aggregates multiple BLS signatures into a single signature.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -103,8 +101,7 @@ def add_UtilsServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Utils(object):
-    """Utils service defines RPC methods for utility functions such as message
-    signing, verification, and etc.
+    """The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
     """
 
     @staticmethod

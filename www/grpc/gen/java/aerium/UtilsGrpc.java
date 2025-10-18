@@ -4,8 +4,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
  * <pre>
- * Utils service defines RPC methods for utility functions such as message
- * signing, verification, and etc.
+ * The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
  * </pre>
  */
 @javax.annotation.Generated(
@@ -204,15 +203,14 @@ public final class UtilsGrpc {
 
   /**
    * <pre>
-   * Utils service defines RPC methods for utility functions such as message
-   * signing, verification, and etc.
+   * The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
    * </pre>
    */
   public interface AsyncService {
 
     /**
      * <pre>
-     * SignMessageWithPrivateKey signs a message with the provided private key.
+     * Signs a message with the provided private key.
      * </pre>
      */
     default void signMessageWithPrivateKey(aerium.UtilsOuterClass.SignMessageWithPrivateKeyRequest request,
@@ -222,7 +220,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * VerifyMessage verifies a signature against the public key and message.
+     * Verifies a signature against the public key and message.
      * </pre>
      */
     default void verifyMessage(aerium.UtilsOuterClass.VerifyMessageRequest request,
@@ -232,7 +230,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * PublicKeyAggregation aggregates multiple BLS public keys into a single key.
+     * Aggregates multiple BLS public keys into a single key.
      * </pre>
      */
     default void publicKeyAggregation(aerium.UtilsOuterClass.PublicKeyAggregationRequest request,
@@ -242,7 +240,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * SignatureAggregation aggregates multiple BLS signatures into a single signature.
+     * Aggregates multiple BLS signatures into a single signature.
      * </pre>
      */
     default void signatureAggregation(aerium.UtilsOuterClass.SignatureAggregationRequest request,
@@ -254,8 +252,7 @@ public final class UtilsGrpc {
   /**
    * Base class for the server implementation of the service Utils.
    * <pre>
-   * Utils service defines RPC methods for utility functions such as message
-   * signing, verification, and etc.
+   * The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
    * </pre>
    */
   public static abstract class UtilsImplBase
@@ -269,8 +266,7 @@ public final class UtilsGrpc {
   /**
    * A stub to allow clients to do asynchronous rpc calls to service Utils.
    * <pre>
-   * Utils service defines RPC methods for utility functions such as message
-   * signing, verification, and etc.
+   * The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
    * </pre>
    */
   public static final class UtilsStub
@@ -288,7 +284,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * SignMessageWithPrivateKey signs a message with the provided private key.
+     * Signs a message with the provided private key.
      * </pre>
      */
     public void signMessageWithPrivateKey(aerium.UtilsOuterClass.SignMessageWithPrivateKeyRequest request,
@@ -299,7 +295,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * VerifyMessage verifies a signature against the public key and message.
+     * Verifies a signature against the public key and message.
      * </pre>
      */
     public void verifyMessage(aerium.UtilsOuterClass.VerifyMessageRequest request,
@@ -310,7 +306,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * PublicKeyAggregation aggregates multiple BLS public keys into a single key.
+     * Aggregates multiple BLS public keys into a single key.
      * </pre>
      */
     public void publicKeyAggregation(aerium.UtilsOuterClass.PublicKeyAggregationRequest request,
@@ -321,7 +317,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * SignatureAggregation aggregates multiple BLS signatures into a single signature.
+     * Aggregates multiple BLS signatures into a single signature.
      * </pre>
      */
     public void signatureAggregation(aerium.UtilsOuterClass.SignatureAggregationRequest request,
@@ -334,8 +330,7 @@ public final class UtilsGrpc {
   /**
    * A stub to allow clients to do synchronous rpc calls to service Utils.
    * <pre>
-   * Utils service defines RPC methods for utility functions such as message
-   * signing, verification, and etc.
+   * The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
    * </pre>
    */
   public static final class UtilsBlockingV2Stub
@@ -353,7 +348,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * SignMessageWithPrivateKey signs a message with the provided private key.
+     * Signs a message with the provided private key.
      * </pre>
      */
     public aerium.UtilsOuterClass.SignMessageWithPrivateKeyResponse signMessageWithPrivateKey(aerium.UtilsOuterClass.SignMessageWithPrivateKeyRequest request) {
@@ -363,7 +358,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * VerifyMessage verifies a signature against the public key and message.
+     * Verifies a signature against the public key and message.
      * </pre>
      */
     public aerium.UtilsOuterClass.VerifyMessageResponse verifyMessage(aerium.UtilsOuterClass.VerifyMessageRequest request) {
@@ -373,7 +368,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * PublicKeyAggregation aggregates multiple BLS public keys into a single key.
+     * Aggregates multiple BLS public keys into a single key.
      * </pre>
      */
     public aerium.UtilsOuterClass.PublicKeyAggregationResponse publicKeyAggregation(aerium.UtilsOuterClass.PublicKeyAggregationRequest request) {
@@ -383,7 +378,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * SignatureAggregation aggregates multiple BLS signatures into a single signature.
+     * Aggregates multiple BLS signatures into a single signature.
      * </pre>
      */
     public aerium.UtilsOuterClass.SignatureAggregationResponse signatureAggregation(aerium.UtilsOuterClass.SignatureAggregationRequest request) {
@@ -395,8 +390,7 @@ public final class UtilsGrpc {
   /**
    * A stub to allow clients to do limited synchronous rpc calls to service Utils.
    * <pre>
-   * Utils service defines RPC methods for utility functions such as message
-   * signing, verification, and etc.
+   * The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
    * </pre>
    */
   public static final class UtilsBlockingStub
@@ -414,7 +408,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * SignMessageWithPrivateKey signs a message with the provided private key.
+     * Signs a message with the provided private key.
      * </pre>
      */
     public aerium.UtilsOuterClass.SignMessageWithPrivateKeyResponse signMessageWithPrivateKey(aerium.UtilsOuterClass.SignMessageWithPrivateKeyRequest request) {
@@ -424,7 +418,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * VerifyMessage verifies a signature against the public key and message.
+     * Verifies a signature against the public key and message.
      * </pre>
      */
     public aerium.UtilsOuterClass.VerifyMessageResponse verifyMessage(aerium.UtilsOuterClass.VerifyMessageRequest request) {
@@ -434,7 +428,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * PublicKeyAggregation aggregates multiple BLS public keys into a single key.
+     * Aggregates multiple BLS public keys into a single key.
      * </pre>
      */
     public aerium.UtilsOuterClass.PublicKeyAggregationResponse publicKeyAggregation(aerium.UtilsOuterClass.PublicKeyAggregationRequest request) {
@@ -444,7 +438,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * SignatureAggregation aggregates multiple BLS signatures into a single signature.
+     * Aggregates multiple BLS signatures into a single signature.
      * </pre>
      */
     public aerium.UtilsOuterClass.SignatureAggregationResponse signatureAggregation(aerium.UtilsOuterClass.SignatureAggregationRequest request) {
@@ -456,8 +450,7 @@ public final class UtilsGrpc {
   /**
    * A stub to allow clients to do ListenableFuture-style rpc calls to service Utils.
    * <pre>
-   * Utils service defines RPC methods for utility functions such as message
-   * signing, verification, and etc.
+   * The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
    * </pre>
    */
   public static final class UtilsFutureStub
@@ -475,7 +468,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * SignMessageWithPrivateKey signs a message with the provided private key.
+     * Signs a message with the provided private key.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.UtilsOuterClass.SignMessageWithPrivateKeyResponse> signMessageWithPrivateKey(
@@ -486,7 +479,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * VerifyMessage verifies a signature against the public key and message.
+     * Verifies a signature against the public key and message.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.UtilsOuterClass.VerifyMessageResponse> verifyMessage(
@@ -497,7 +490,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * PublicKeyAggregation aggregates multiple BLS public keys into a single key.
+     * Aggregates multiple BLS public keys into a single key.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.UtilsOuterClass.PublicKeyAggregationResponse> publicKeyAggregation(
@@ -508,7 +501,7 @@ public final class UtilsGrpc {
 
     /**
      * <pre>
-     * SignatureAggregation aggregates multiple BLS signatures into a single signature.
+     * Aggregates multiple BLS signatures into a single signature.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.UtilsOuterClass.SignatureAggregationResponse> signatureAggregation(

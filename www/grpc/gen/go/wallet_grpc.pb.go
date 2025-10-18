@@ -41,39 +41,39 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// Wallet service provides RPC methods for wallet management operations.
+// The Wallet service provides RPC methods for wallet management operations.
 type WalletClient interface {
-	// CreateWallet creates a new wallet with the specified parameters.
+	// Creates a new wallet with the specified parameters.
 	CreateWallet(ctx context.Context, in *CreateWalletRequest, opts ...grpc.CallOption) (*CreateWalletResponse, error)
-	// RestoreWallet restores an existing wallet with the given mnemonic.
+	// Restores an existing wallet with the given mnemonic.
 	RestoreWallet(ctx context.Context, in *RestoreWalletRequest, opts ...grpc.CallOption) (*RestoreWalletResponse, error)
-	// LoadWallet loads an existing wallet with the given name.
+	// Loads an existing wallet with the given name.
 	LoadWallet(ctx context.Context, in *LoadWalletRequest, opts ...grpc.CallOption) (*LoadWalletResponse, error)
-	// UnloadWallet unloads a currently loaded wallet with the specified name.
+	// Unloads a currently loaded wallet with the specified name.
 	UnloadWallet(ctx context.Context, in *UnloadWalletRequest, opts ...grpc.CallOption) (*UnloadWalletResponse, error)
-	// GetTotalBalance returns the total available balance of the wallet.
+	// Returns the total available balance of the wallet.
 	GetTotalBalance(ctx context.Context, in *GetTotalBalanceRequest, opts ...grpc.CallOption) (*GetTotalBalanceResponse, error)
-	// SignRawTransaction signs a raw transaction for a specified wallet.
+	// Signs a raw transaction for a specified wallet.
 	SignRawTransaction(ctx context.Context, in *SignRawTransactionRequest, opts ...grpc.CallOption) (*SignRawTransactionResponse, error)
-	// GetValidatorAddress retrieves the validator address associated with a public key.
+	// Retrieves the validator address associated with a public key.
 	GetValidatorAddress(ctx context.Context, in *GetValidatorAddressRequest, opts ...grpc.CallOption) (*GetValidatorAddressResponse, error)
-	// GetNewAddress generates a new address for the specified wallet.
+	// Generates a new address for the specified wallet.
 	GetNewAddress(ctx context.Context, in *GetNewAddressRequest, opts ...grpc.CallOption) (*GetNewAddressResponse, error)
-	// GetAddressHistory retrieves the transaction history of an address.
+	// Retrieves the transaction history of an address.
 	GetAddressHistory(ctx context.Context, in *GetAddressHistoryRequest, opts ...grpc.CallOption) (*GetAddressHistoryResponse, error)
-	// SignMessage signs an arbitrary message using a wallet's private key.
+	// Signs an arbitrary message using a wallet's private key.
 	SignMessage(ctx context.Context, in *SignMessageRequest, opts ...grpc.CallOption) (*SignMessageResponse, error)
-	// GetTotalStake returns the total stake amount in the wallet.
+	// Returns the total stake amount in the wallet.
 	GetTotalStake(ctx context.Context, in *GetTotalStakeRequest, opts ...grpc.CallOption) (*GetTotalStakeResponse, error)
-	// GetAddressInfo returns detailed information about a specific address.
+	// Returns detailed information about a specific address.
 	GetAddressInfo(ctx context.Context, in *GetAddressInfoRequest, opts ...grpc.CallOption) (*GetAddressInfoResponse, error)
-	// SetAddressLabel sets or updates the label for a given address.
+	// Sets or updates the label for a given address.
 	SetAddressLabel(ctx context.Context, in *SetAddressLabelRequest, opts ...grpc.CallOption) (*SetAddressLabelResponse, error)
-	// ListWallet returns list of all available wallets.
+	// Returns a list of all available wallets.
 	ListWallet(ctx context.Context, in *ListWalletRequest, opts ...grpc.CallOption) (*ListWalletResponse, error)
-	// GetWalletInfo returns detailed information about a specific wallet.
+	// Returns detailed information about a specific wallet.
 	GetWalletInfo(ctx context.Context, in *GetWalletInfoRequest, opts ...grpc.CallOption) (*GetWalletInfoResponse, error)
-	// ListAddress returns all addresses in the specified wallet.
+	// Returns all addresses in the specified wallet.
 	ListAddress(ctx context.Context, in *ListAddressRequest, opts ...grpc.CallOption) (*ListAddressResponse, error)
 }
 
@@ -249,39 +249,39 @@ func (c *walletClient) ListAddress(ctx context.Context, in *ListAddressRequest, 
 // All implementations should embed UnimplementedWalletServer
 // for forward compatibility.
 //
-// Wallet service provides RPC methods for wallet management operations.
+// The Wallet service provides RPC methods for wallet management operations.
 type WalletServer interface {
-	// CreateWallet creates a new wallet with the specified parameters.
+	// Creates a new wallet with the specified parameters.
 	CreateWallet(context.Context, *CreateWalletRequest) (*CreateWalletResponse, error)
-	// RestoreWallet restores an existing wallet with the given mnemonic.
+	// Restores an existing wallet with the given mnemonic.
 	RestoreWallet(context.Context, *RestoreWalletRequest) (*RestoreWalletResponse, error)
-	// LoadWallet loads an existing wallet with the given name.
+	// Loads an existing wallet with the given name.
 	LoadWallet(context.Context, *LoadWalletRequest) (*LoadWalletResponse, error)
-	// UnloadWallet unloads a currently loaded wallet with the specified name.
+	// Unloads a currently loaded wallet with the specified name.
 	UnloadWallet(context.Context, *UnloadWalletRequest) (*UnloadWalletResponse, error)
-	// GetTotalBalance returns the total available balance of the wallet.
+	// Returns the total available balance of the wallet.
 	GetTotalBalance(context.Context, *GetTotalBalanceRequest) (*GetTotalBalanceResponse, error)
-	// SignRawTransaction signs a raw transaction for a specified wallet.
+	// Signs a raw transaction for a specified wallet.
 	SignRawTransaction(context.Context, *SignRawTransactionRequest) (*SignRawTransactionResponse, error)
-	// GetValidatorAddress retrieves the validator address associated with a public key.
+	// Retrieves the validator address associated with a public key.
 	GetValidatorAddress(context.Context, *GetValidatorAddressRequest) (*GetValidatorAddressResponse, error)
-	// GetNewAddress generates a new address for the specified wallet.
+	// Generates a new address for the specified wallet.
 	GetNewAddress(context.Context, *GetNewAddressRequest) (*GetNewAddressResponse, error)
-	// GetAddressHistory retrieves the transaction history of an address.
+	// Retrieves the transaction history of an address.
 	GetAddressHistory(context.Context, *GetAddressHistoryRequest) (*GetAddressHistoryResponse, error)
-	// SignMessage signs an arbitrary message using a wallet's private key.
+	// Signs an arbitrary message using a wallet's private key.
 	SignMessage(context.Context, *SignMessageRequest) (*SignMessageResponse, error)
-	// GetTotalStake returns the total stake amount in the wallet.
+	// Returns the total stake amount in the wallet.
 	GetTotalStake(context.Context, *GetTotalStakeRequest) (*GetTotalStakeResponse, error)
-	// GetAddressInfo returns detailed information about a specific address.
+	// Returns detailed information about a specific address.
 	GetAddressInfo(context.Context, *GetAddressInfoRequest) (*GetAddressInfoResponse, error)
-	// SetAddressLabel sets or updates the label for a given address.
+	// Sets or updates the label for a given address.
 	SetAddressLabel(context.Context, *SetAddressLabelRequest) (*SetAddressLabelResponse, error)
-	// ListWallet returns list of all available wallets.
+	// Returns a list of all available wallets.
 	ListWallet(context.Context, *ListWalletRequest) (*ListWalletResponse, error)
-	// GetWalletInfo returns detailed information about a specific wallet.
+	// Returns detailed information about a specific wallet.
 	GetWalletInfo(context.Context, *GetWalletInfoRequest) (*GetWalletInfoResponse, error)
-	// ListAddress returns all addresses in the specified wallet.
+	// Returns all addresses in the specified wallet.
 	ListAddress(context.Context, *ListAddressRequest) (*ListAddressResponse, error)
 }
 

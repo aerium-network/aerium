@@ -21,15 +21,15 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Direction represents the connection direction between peers.
+// The Direction enum represents the connection direction between peers.
 type Direction int32
 
 const (
 	// Unknown direction (default value).
 	Direction_DIRECTION_UNKNOWN Direction = 0
-	// Inbound connection - peer connected to us.
+	// Inbound connection: peer connected to us.
 	Direction_DIRECTION_INBOUND Direction = 1
-	// Outbound connection - we connected to peer.
+	// Outbound connection: we connected to the peer.
 	Direction_DIRECTION_OUTBOUND Direction = 2
 )
 
@@ -120,7 +120,7 @@ func (x *GetNetworkInfoRequest) GetOnlyConnected() bool {
 	return false
 }
 
-// Response message contains information about the overall network.
+// Response message containing information about the overall network.
 type GetNetworkInfoResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Name of the network.
@@ -193,7 +193,7 @@ func (x *GetNetworkInfoResponse) GetMetricInfo() *MetricInfo {
 	return nil
 }
 
-// Request message for retrieving information of the node.
+// Request message for retrieving information about the node.
 type GetNodeInfoRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -230,10 +230,10 @@ func (*GetNodeInfoRequest) Descriptor() ([]byte, []int) {
 	return file_network_proto_rawDescGZIP(), []int{2}
 }
 
-// Response message contains information about a specific node in the network.
+// Response message containing information about a specific node in the network.
 type GetNodeInfoResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Moniker or Human-readable name identifying this node in the network.
+	// Moniker or human-readable name identifying this node in the network.
 	Moniker string `protobuf:"bytes,1,opt,name=moniker,proto3" json:"moniker,omitempty"`
 	// Version and agent details of the node.
 	Agent string `protobuf:"bytes,2,opt,name=agent,proto3" json:"agent,omitempty"`
@@ -391,8 +391,7 @@ type ZMQPublisherInfo struct {
 	Topic string `protobuf:"bytes,1,opt,name=topic,proto3" json:"topic,omitempty"`
 	// The address of the publisher.
 	Address string `protobuf:"bytes,2,opt,name=address,proto3" json:"address,omitempty"`
-	// The high-water mark (HWM) for the publisher, indicating the
-	// maximum number of messages to queue before dropping older ones.
+	// The high-water mark (HWM) for the publisher, indicating the maximum number of messages to queue before dropping older ones.
 	Hwm           int32 `protobuf:"varint,3,opt,name=hwm,proto3" json:"hwm,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -454,11 +453,11 @@ type PeerInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Current status of the peer (e.g., connected, disconnected).
 	Status int32 `protobuf:"varint,1,opt,name=status,proto3" json:"status,omitempty"`
-	// Moniker or Human-Readable name of the peer.
+	// Moniker or human-readable name of the peer.
 	Moniker string `protobuf:"bytes,2,opt,name=moniker,proto3" json:"moniker,omitempty"`
 	// Version and agent details of the peer.
 	Agent string `protobuf:"bytes,3,opt,name=agent,proto3" json:"agent,omitempty"`
-	// Peer ID of the peer in P2P network.
+	// Peer ID of the peer in the P2P network.
 	PeerId string `protobuf:"bytes,4,opt,name=peer_id,json=peerId,proto3" json:"peer_id,omitempty"`
 	// List of consensus keys used by the peer.
 	ConsensusKeys []string `protobuf:"bytes,5,rep,name=consensus_keys,json=consensusKeys,proto3" json:"consensus_keys,omitempty"`
@@ -486,7 +485,7 @@ type PeerInfo struct {
 	CompletedSessions int32 `protobuf:"varint,16,opt,name=completed_sessions,json=completedSessions,proto3" json:"completed_sessions,omitempty"`
 	// Metrics related to peer activity.
 	MetricInfo *MetricInfo `protobuf:"bytes,17,opt,name=metric_info,json=metricInfo,proto3" json:"metric_info,omitempty"`
-	// Whether the hello message was sent from the outbound connection.
+	// Indicates whether the hello message was sent from the outbound connection.
 	OutboundHelloSent bool `protobuf:"varint,18,opt,name=outbound_hello_sent,json=outboundHelloSent,proto3" json:"outbound_hello_sent,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache

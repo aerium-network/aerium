@@ -4,33 +4,33 @@ package aerium;
 option go_package = "github.com/aerium-network/aerium/www/grpc/aerium";
 option java_package = "aerium";
 
-// Transaction service defines various RPC methods for interacting with transactions.
+// The Transaction service defines RPC methods for interacting with transactions.
 service Transaction {
-  // GetTransaction retrieves transaction details based on the provided request parameters.
+  // Retrieves transaction details based on the provided request parameters.
   rpc GetTransaction(GetTransactionRequest) returns (GetTransactionResponse);
 
-  // CalculateFee calculates the transaction fee based on the specified amount and payload type.
+  // Calculates the transaction fee based on the specified amount and payload type.
   rpc CalculateFee(CalculateFeeRequest) returns (CalculateFeeResponse);
 
-  // BroadcastTransaction broadcasts a signed transaction to the network.
+  // Broadcasts a signed transaction to the network.
   rpc BroadcastTransaction(BroadcastTransactionRequest) returns (BroadcastTransactionResponse);
 
-  // GetRawTransferTransaction retrieves raw details of a transfer transaction.
+  // Retrieves raw details of a transfer transaction.
   rpc GetRawTransferTransaction(GetRawTransferTransactionRequest) returns (GetRawTransactionResponse);
 
-  // GetRawBondTransaction retrieves raw details of a bond transaction.
+  // Retrieves raw details of a bond transaction.
   rpc GetRawBondTransaction(GetRawBondTransactionRequest) returns (GetRawTransactionResponse);
 
-  // GetRawUnbondTransaction retrieves raw details of an unbond transaction.
+  // Retrieves raw details of an unbond transaction.
   rpc GetRawUnbondTransaction(GetRawUnbondTransactionRequest) returns (GetRawTransactionResponse);
 
-  // GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.
+  // Retrieves raw details of a withdraw transaction.
   rpc GetRawWithdrawTransaction(GetRawWithdrawTransactionRequest) returns (GetRawTransactionResponse);
 
-  // GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.
+  // Retrieves raw details of a batch transfer transaction.
   rpc GetRawBatchTransferTransaction(GetRawBatchTransferTransactionRequest) returns (GetRawTransactionResponse);
 
-  // DecodeRawTransaction accepts raw transaction and returns decoded transaction.
+  // Decodes a raw transaction and returns the decoded transaction.
   rpc DecodeRawTransaction(DecodeRawTransactionRequest) returns (DecodeRawTransactionResponse);
 }
 
@@ -42,7 +42,7 @@ message GetTransactionRequest {
   TransactionVerbosity verbosity = 2;
 }
 
-// Response message contains details of a transaction.
+// Response message containing details of a transaction.
 message GetTransactionResponse {
   // The height of the block containing the transaction.
   uint32 block_height = 1;
@@ -52,7 +52,7 @@ message GetTransactionResponse {
   TransactionInfo transaction = 3;
 }
 
-// Request message for calculating transaction fee.
+// Request message for calculating a transaction fee.
 message CalculateFeeRequest {
   // The amount involved in the transaction, specified in NanoPAC.
   int64 amount = 1;
@@ -62,7 +62,7 @@ message CalculateFeeRequest {
   bool fixed_amount = 3;
 }
 
-// Response message contains the calculated transaction fee.
+// Response message containing the calculated transaction fee.
 message CalculateFeeResponse {
   // The calculated amount in NanoPAC.
   int64 amount = 1;
@@ -72,11 +72,11 @@ message CalculateFeeResponse {
 
 // Request message for broadcasting a signed transaction to the network.
 message BroadcastTransactionRequest {
-  // The signed raw transaction data to be broadcasted.
+  // The signed raw transaction data to be broadcast.
   string signed_raw_transaction = 1;
 }
 
-// Response message contains the ID of the broadcasted transaction.
+// Response message containing the ID of the broadcasted transaction.
 message BroadcastTransactionResponse {
   // The unique ID of the broadcasted transaction.
   string id = 1;
@@ -148,7 +148,7 @@ message GetRawBatchTransferTransactionRequest {
   uint32 lock_time = 1;
   // The sender's account address.
   string sender = 2;
-  // The recipients list of receiver with amount, min 2 recipients.
+  // The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
   repeated Recipient recipients = 3;
   // The transaction fee in NanoPAC. If not set, it is set to the estimated fee.
   int64 fee = 4;
@@ -156,7 +156,7 @@ message GetRawBatchTransferTransactionRequest {
   string memo = 5;
 }
 
-// Response message contains raw transaction data.
+// Response message containing raw transaction data.
 message GetRawTransactionResponse {
   // The raw transaction data in hexadecimal format.
   string raw_transaction = 1;
@@ -214,11 +214,11 @@ message PayloadWithdraw {
 message PayloadBatchTransfer {
   // The sender's address.
   string sender = 1;
-  // The recipients of list receiver with amount.
+  // The list of recipients, each with a receiver and amount.
   repeated Recipient recipients = 2;
 }
 
-// Recipient is receiver with amount.
+// Recipient is a receiver with an amount.
 message Recipient {
   // The receiver's address.
   string receiver = 1;
@@ -254,7 +254,7 @@ message TransactionInfo {
     PayloadUnbond unbond = 33;
     // Withdraw transaction payload.
     PayloadWithdraw withdraw = 34;
-    // Batch Transfer transaction payload.
+    // Batch transfer transaction payload.
     PayloadBatchTransfer batch_transfer = 35;
   }
   // A memo string for the transaction.
@@ -297,7 +297,7 @@ message DecodeRawTransactionRequest {
   string raw_transaction = 1;
 }
 
-// Response message contains the decoded transaction.
+// Response message containing the decoded transaction.
 message DecodeRawTransactionResponse {
   // The decoded transaction information.
   TransactionInfo transaction = 1;

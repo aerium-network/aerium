@@ -76,7 +76,7 @@ func (x *SignMessageWithPrivateKeyRequest) GetMessage() string {
 	return ""
 }
 
-// Response message contains the signature generated from the message.
+// Response message containing the signature generated from the message.
 type SignMessageWithPrivateKeyResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The resulting signature in hexadecimal format.
@@ -186,10 +186,10 @@ func (x *VerifyMessageRequest) GetPublicKey() string {
 	return ""
 }
 
-// Response message contains the verification result.
+// Response message containing the verification result.
 type VerifyMessageResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Boolean indicating whether the signature is valid for the given message and public key.
+	// Indicates whether the signature is valid for the given message and public key.
 	IsValid       bool `protobuf:"varint,1,opt,name=is_valid,json=isValid,proto3" json:"is_valid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -278,7 +278,7 @@ func (x *PublicKeyAggregationRequest) GetPublicKeys() []string {
 	return nil
 }
 
-// Response message contains the aggregated BLS public key result.
+// Response message containing the aggregated BLS public key result.
 type PublicKeyAggregationResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The aggregated BLS public key.
@@ -379,7 +379,7 @@ func (x *SignatureAggregationRequest) GetSignatures() []string {
 	return nil
 }
 
-// Response message contains the aggregated BLS signature.
+// Response message containing the aggregated BLS signature.
 type SignatureAggregationResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The aggregated BLS signature in hexadecimal format.

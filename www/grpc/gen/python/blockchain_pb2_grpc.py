@@ -6,7 +6,7 @@ import blockchain_pb2 as blockchain__pb2
 
 
 class BlockchainStub(object):
-    """Blockchain service defines RPC methods for interacting with the blockchain.
+    """The Blockchain service defines RPC methods for interacting with the blockchain.
     """
 
     def __init__(self, channel):
@@ -73,81 +73,81 @@ class BlockchainStub(object):
 
 
 class BlockchainServicer(object):
-    """Blockchain service defines RPC methods for interacting with the blockchain.
+    """The Blockchain service defines RPC methods for interacting with the blockchain.
     """
 
     def GetBlock(self, request, context):
-        """GetBlock retrieves information about a block based on the provided request parameters.
+        """Retrieves information about a block based on the provided request parameters.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetBlockHash(self, request, context):
-        """GetBlockHash retrieves the hash of a block at the specified height.
+        """Retrieves the hash of a block at the specified height.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetBlockHeight(self, request, context):
-        """GetBlockHeight retrieves the height of a block with the specified hash.
+        """Retrieves the height of a block with the specified hash.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetBlockchainInfo(self, request, context):
-        """GetBlockchainInfo retrieves general information about the blockchain.
+        """Retrieves general information about the blockchain.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetConsensusInfo(self, request, context):
-        """GetConsensusInfo retrieves information about the consensus instances.
+        """Retrieves information about consensus instances.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetAccount(self, request, context):
-        """GetAccount retrieves information about an account based on the provided address.
+        """Retrieves information about an account for the provided address.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetValidator(self, request, context):
-        """GetValidator retrieves information about a validator based on the provided address.
+        """Retrieves information about a validator for the provided address.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetValidatorByNumber(self, request, context):
-        """GetValidatorByNumber retrieves information about a validator based on the provided number.
+        """Retrieves information about a validator by its number.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetValidatorAddresses(self, request, context):
-        """GetValidatorAddresses retrieves a list of all validator addresses.
+        """Retrieves a list of all validator addresses.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetPublicKey(self, request, context):
-        """GetPublicKey retrieves the public key of an account based on the provided address.
+        """Retrieves the public key of an account for the provided address.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetTxPoolContent(self, request, context):
-        """GetTxPoolContent retrieves current transactions in the transaction pool.
+        """Retrieves current transactions in the transaction pool.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -220,7 +220,7 @@ def add_BlockchainServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Blockchain(object):
-    """Blockchain service defines RPC methods for interacting with the blockchain.
+    """The Blockchain service defines RPC methods for interacting with the blockchain.
     """
 
     @staticmethod

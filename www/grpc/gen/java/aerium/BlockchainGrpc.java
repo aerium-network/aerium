@@ -4,7 +4,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
  * <pre>
- * Blockchain service defines RPC methods for interacting with the blockchain.
+ * The Blockchain service defines RPC methods for interacting with the blockchain.
  * </pre>
  */
 @javax.annotation.Generated(
@@ -420,14 +420,14 @@ public final class BlockchainGrpc {
 
   /**
    * <pre>
-   * Blockchain service defines RPC methods for interacting with the blockchain.
+   * The Blockchain service defines RPC methods for interacting with the blockchain.
    * </pre>
    */
   public interface AsyncService {
 
     /**
      * <pre>
-     * GetBlock retrieves information about a block based on the provided request parameters.
+     * Retrieves information about a block based on the provided request parameters.
      * </pre>
      */
     default void getBlock(aerium.BlockchainOuterClass.GetBlockRequest request,
@@ -437,7 +437,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockHash retrieves the hash of a block at the specified height.
+     * Retrieves the hash of a block at the specified height.
      * </pre>
      */
     default void getBlockHash(aerium.BlockchainOuterClass.GetBlockHashRequest request,
@@ -447,7 +447,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockHeight retrieves the height of a block with the specified hash.
+     * Retrieves the height of a block with the specified hash.
      * </pre>
      */
     default void getBlockHeight(aerium.BlockchainOuterClass.GetBlockHeightRequest request,
@@ -457,7 +457,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockchainInfo retrieves general information about the blockchain.
+     * Retrieves general information about the blockchain.
      * </pre>
      */
     default void getBlockchainInfo(aerium.BlockchainOuterClass.GetBlockchainInfoRequest request,
@@ -467,7 +467,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetConsensusInfo retrieves information about the consensus instances.
+     * Retrieves information about consensus instances.
      * </pre>
      */
     default void getConsensusInfo(aerium.BlockchainOuterClass.GetConsensusInfoRequest request,
@@ -477,7 +477,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetAccount retrieves information about an account based on the provided address.
+     * Retrieves information about an account for the provided address.
      * </pre>
      */
     default void getAccount(aerium.BlockchainOuterClass.GetAccountRequest request,
@@ -487,7 +487,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidator retrieves information about a validator based on the provided address.
+     * Retrieves information about a validator for the provided address.
      * </pre>
      */
     default void getValidator(aerium.BlockchainOuterClass.GetValidatorRequest request,
@@ -497,7 +497,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidatorByNumber retrieves information about a validator based on the provided number.
+     * Retrieves information about a validator by its number.
      * </pre>
      */
     default void getValidatorByNumber(aerium.BlockchainOuterClass.GetValidatorByNumberRequest request,
@@ -507,7 +507,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidatorAddresses retrieves a list of all validator addresses.
+     * Retrieves a list of all validator addresses.
      * </pre>
      */
     default void getValidatorAddresses(aerium.BlockchainOuterClass.GetValidatorAddressesRequest request,
@@ -517,7 +517,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetPublicKey retrieves the public key of an account based on the provided address.
+     * Retrieves the public key of an account for the provided address.
      * </pre>
      */
     default void getPublicKey(aerium.BlockchainOuterClass.GetPublicKeyRequest request,
@@ -527,7 +527,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetTxPoolContent retrieves current transactions in the transaction pool.
+     * Retrieves current transactions in the transaction pool.
      * </pre>
      */
     default void getTxPoolContent(aerium.BlockchainOuterClass.GetTxPoolContentRequest request,
@@ -539,7 +539,7 @@ public final class BlockchainGrpc {
   /**
    * Base class for the server implementation of the service Blockchain.
    * <pre>
-   * Blockchain service defines RPC methods for interacting with the blockchain.
+   * The Blockchain service defines RPC methods for interacting with the blockchain.
    * </pre>
    */
   public static abstract class BlockchainImplBase
@@ -553,7 +553,7 @@ public final class BlockchainGrpc {
   /**
    * A stub to allow clients to do asynchronous rpc calls to service Blockchain.
    * <pre>
-   * Blockchain service defines RPC methods for interacting with the blockchain.
+   * The Blockchain service defines RPC methods for interacting with the blockchain.
    * </pre>
    */
   public static final class BlockchainStub
@@ -571,7 +571,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlock retrieves information about a block based on the provided request parameters.
+     * Retrieves information about a block based on the provided request parameters.
      * </pre>
      */
     public void getBlock(aerium.BlockchainOuterClass.GetBlockRequest request,
@@ -582,7 +582,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockHash retrieves the hash of a block at the specified height.
+     * Retrieves the hash of a block at the specified height.
      * </pre>
      */
     public void getBlockHash(aerium.BlockchainOuterClass.GetBlockHashRequest request,
@@ -593,7 +593,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockHeight retrieves the height of a block with the specified hash.
+     * Retrieves the height of a block with the specified hash.
      * </pre>
      */
     public void getBlockHeight(aerium.BlockchainOuterClass.GetBlockHeightRequest request,
@@ -604,7 +604,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockchainInfo retrieves general information about the blockchain.
+     * Retrieves general information about the blockchain.
      * </pre>
      */
     public void getBlockchainInfo(aerium.BlockchainOuterClass.GetBlockchainInfoRequest request,
@@ -615,7 +615,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetConsensusInfo retrieves information about the consensus instances.
+     * Retrieves information about consensus instances.
      * </pre>
      */
     public void getConsensusInfo(aerium.BlockchainOuterClass.GetConsensusInfoRequest request,
@@ -626,7 +626,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetAccount retrieves information about an account based on the provided address.
+     * Retrieves information about an account for the provided address.
      * </pre>
      */
     public void getAccount(aerium.BlockchainOuterClass.GetAccountRequest request,
@@ -637,7 +637,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidator retrieves information about a validator based on the provided address.
+     * Retrieves information about a validator for the provided address.
      * </pre>
      */
     public void getValidator(aerium.BlockchainOuterClass.GetValidatorRequest request,
@@ -648,7 +648,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidatorByNumber retrieves information about a validator based on the provided number.
+     * Retrieves information about a validator by its number.
      * </pre>
      */
     public void getValidatorByNumber(aerium.BlockchainOuterClass.GetValidatorByNumberRequest request,
@@ -659,7 +659,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidatorAddresses retrieves a list of all validator addresses.
+     * Retrieves a list of all validator addresses.
      * </pre>
      */
     public void getValidatorAddresses(aerium.BlockchainOuterClass.GetValidatorAddressesRequest request,
@@ -670,7 +670,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetPublicKey retrieves the public key of an account based on the provided address.
+     * Retrieves the public key of an account for the provided address.
      * </pre>
      */
     public void getPublicKey(aerium.BlockchainOuterClass.GetPublicKeyRequest request,
@@ -681,7 +681,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetTxPoolContent retrieves current transactions in the transaction pool.
+     * Retrieves current transactions in the transaction pool.
      * </pre>
      */
     public void getTxPoolContent(aerium.BlockchainOuterClass.GetTxPoolContentRequest request,
@@ -694,7 +694,7 @@ public final class BlockchainGrpc {
   /**
    * A stub to allow clients to do synchronous rpc calls to service Blockchain.
    * <pre>
-   * Blockchain service defines RPC methods for interacting with the blockchain.
+   * The Blockchain service defines RPC methods for interacting with the blockchain.
    * </pre>
    */
   public static final class BlockchainBlockingV2Stub
@@ -712,7 +712,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlock retrieves information about a block based on the provided request parameters.
+     * Retrieves information about a block based on the provided request parameters.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetBlockResponse getBlock(aerium.BlockchainOuterClass.GetBlockRequest request) {
@@ -722,7 +722,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockHash retrieves the hash of a block at the specified height.
+     * Retrieves the hash of a block at the specified height.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetBlockHashResponse getBlockHash(aerium.BlockchainOuterClass.GetBlockHashRequest request) {
@@ -732,7 +732,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockHeight retrieves the height of a block with the specified hash.
+     * Retrieves the height of a block with the specified hash.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetBlockHeightResponse getBlockHeight(aerium.BlockchainOuterClass.GetBlockHeightRequest request) {
@@ -742,7 +742,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockchainInfo retrieves general information about the blockchain.
+     * Retrieves general information about the blockchain.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetBlockchainInfoResponse getBlockchainInfo(aerium.BlockchainOuterClass.GetBlockchainInfoRequest request) {
@@ -752,7 +752,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetConsensusInfo retrieves information about the consensus instances.
+     * Retrieves information about consensus instances.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetConsensusInfoResponse getConsensusInfo(aerium.BlockchainOuterClass.GetConsensusInfoRequest request) {
@@ -762,7 +762,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetAccount retrieves information about an account based on the provided address.
+     * Retrieves information about an account for the provided address.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetAccountResponse getAccount(aerium.BlockchainOuterClass.GetAccountRequest request) {
@@ -772,7 +772,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidator retrieves information about a validator based on the provided address.
+     * Retrieves information about a validator for the provided address.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetValidatorResponse getValidator(aerium.BlockchainOuterClass.GetValidatorRequest request) {
@@ -782,7 +782,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidatorByNumber retrieves information about a validator based on the provided number.
+     * Retrieves information about a validator by its number.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetValidatorResponse getValidatorByNumber(aerium.BlockchainOuterClass.GetValidatorByNumberRequest request) {
@@ -792,7 +792,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidatorAddresses retrieves a list of all validator addresses.
+     * Retrieves a list of all validator addresses.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetValidatorAddressesResponse getValidatorAddresses(aerium.BlockchainOuterClass.GetValidatorAddressesRequest request) {
@@ -802,7 +802,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetPublicKey retrieves the public key of an account based on the provided address.
+     * Retrieves the public key of an account for the provided address.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetPublicKeyResponse getPublicKey(aerium.BlockchainOuterClass.GetPublicKeyRequest request) {
@@ -812,7 +812,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetTxPoolContent retrieves current transactions in the transaction pool.
+     * Retrieves current transactions in the transaction pool.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetTxPoolContentResponse getTxPoolContent(aerium.BlockchainOuterClass.GetTxPoolContentRequest request) {
@@ -824,7 +824,7 @@ public final class BlockchainGrpc {
   /**
    * A stub to allow clients to do limited synchronous rpc calls to service Blockchain.
    * <pre>
-   * Blockchain service defines RPC methods for interacting with the blockchain.
+   * The Blockchain service defines RPC methods for interacting with the blockchain.
    * </pre>
    */
   public static final class BlockchainBlockingStub
@@ -842,7 +842,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlock retrieves information about a block based on the provided request parameters.
+     * Retrieves information about a block based on the provided request parameters.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetBlockResponse getBlock(aerium.BlockchainOuterClass.GetBlockRequest request) {
@@ -852,7 +852,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockHash retrieves the hash of a block at the specified height.
+     * Retrieves the hash of a block at the specified height.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetBlockHashResponse getBlockHash(aerium.BlockchainOuterClass.GetBlockHashRequest request) {
@@ -862,7 +862,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockHeight retrieves the height of a block with the specified hash.
+     * Retrieves the height of a block with the specified hash.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetBlockHeightResponse getBlockHeight(aerium.BlockchainOuterClass.GetBlockHeightRequest request) {
@@ -872,7 +872,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockchainInfo retrieves general information about the blockchain.
+     * Retrieves general information about the blockchain.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetBlockchainInfoResponse getBlockchainInfo(aerium.BlockchainOuterClass.GetBlockchainInfoRequest request) {
@@ -882,7 +882,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetConsensusInfo retrieves information about the consensus instances.
+     * Retrieves information about consensus instances.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetConsensusInfoResponse getConsensusInfo(aerium.BlockchainOuterClass.GetConsensusInfoRequest request) {
@@ -892,7 +892,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetAccount retrieves information about an account based on the provided address.
+     * Retrieves information about an account for the provided address.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetAccountResponse getAccount(aerium.BlockchainOuterClass.GetAccountRequest request) {
@@ -902,7 +902,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidator retrieves information about a validator based on the provided address.
+     * Retrieves information about a validator for the provided address.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetValidatorResponse getValidator(aerium.BlockchainOuterClass.GetValidatorRequest request) {
@@ -912,7 +912,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidatorByNumber retrieves information about a validator based on the provided number.
+     * Retrieves information about a validator by its number.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetValidatorResponse getValidatorByNumber(aerium.BlockchainOuterClass.GetValidatorByNumberRequest request) {
@@ -922,7 +922,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidatorAddresses retrieves a list of all validator addresses.
+     * Retrieves a list of all validator addresses.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetValidatorAddressesResponse getValidatorAddresses(aerium.BlockchainOuterClass.GetValidatorAddressesRequest request) {
@@ -932,7 +932,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetPublicKey retrieves the public key of an account based on the provided address.
+     * Retrieves the public key of an account for the provided address.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetPublicKeyResponse getPublicKey(aerium.BlockchainOuterClass.GetPublicKeyRequest request) {
@@ -942,7 +942,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetTxPoolContent retrieves current transactions in the transaction pool.
+     * Retrieves current transactions in the transaction pool.
      * </pre>
      */
     public aerium.BlockchainOuterClass.GetTxPoolContentResponse getTxPoolContent(aerium.BlockchainOuterClass.GetTxPoolContentRequest request) {
@@ -954,7 +954,7 @@ public final class BlockchainGrpc {
   /**
    * A stub to allow clients to do ListenableFuture-style rpc calls to service Blockchain.
    * <pre>
-   * Blockchain service defines RPC methods for interacting with the blockchain.
+   * The Blockchain service defines RPC methods for interacting with the blockchain.
    * </pre>
    */
   public static final class BlockchainFutureStub
@@ -972,7 +972,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlock retrieves information about a block based on the provided request parameters.
+     * Retrieves information about a block based on the provided request parameters.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.BlockchainOuterClass.GetBlockResponse> getBlock(
@@ -983,7 +983,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockHash retrieves the hash of a block at the specified height.
+     * Retrieves the hash of a block at the specified height.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.BlockchainOuterClass.GetBlockHashResponse> getBlockHash(
@@ -994,7 +994,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockHeight retrieves the height of a block with the specified hash.
+     * Retrieves the height of a block with the specified hash.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.BlockchainOuterClass.GetBlockHeightResponse> getBlockHeight(
@@ -1005,7 +1005,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetBlockchainInfo retrieves general information about the blockchain.
+     * Retrieves general information about the blockchain.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.BlockchainOuterClass.GetBlockchainInfoResponse> getBlockchainInfo(
@@ -1016,7 +1016,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetConsensusInfo retrieves information about the consensus instances.
+     * Retrieves information about consensus instances.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.BlockchainOuterClass.GetConsensusInfoResponse> getConsensusInfo(
@@ -1027,7 +1027,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetAccount retrieves information about an account based on the provided address.
+     * Retrieves information about an account for the provided address.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.BlockchainOuterClass.GetAccountResponse> getAccount(
@@ -1038,7 +1038,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidator retrieves information about a validator based on the provided address.
+     * Retrieves information about a validator for the provided address.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.BlockchainOuterClass.GetValidatorResponse> getValidator(
@@ -1049,7 +1049,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidatorByNumber retrieves information about a validator based on the provided number.
+     * Retrieves information about a validator by its number.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.BlockchainOuterClass.GetValidatorResponse> getValidatorByNumber(
@@ -1060,7 +1060,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetValidatorAddresses retrieves a list of all validator addresses.
+     * Retrieves a list of all validator addresses.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.BlockchainOuterClass.GetValidatorAddressesResponse> getValidatorAddresses(
@@ -1071,7 +1071,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetPublicKey retrieves the public key of an account based on the provided address.
+     * Retrieves the public key of an account for the provided address.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.BlockchainOuterClass.GetPublicKeyResponse> getPublicKey(
@@ -1082,7 +1082,7 @@ public final class BlockchainGrpc {
 
     /**
      * <pre>
-     * GetTxPoolContent retrieves current transactions in the transaction pool.
+     * Retrieves current transactions in the transaction pool.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.BlockchainOuterClass.GetTxPoolContentResponse> getTxPoolContent(

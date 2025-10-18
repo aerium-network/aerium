@@ -36,8 +36,7 @@ public final class WalletOuterClass {
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
-     * Treasury address type.
-     * Should not be used to generate new addresses.
+     * Treasury address type. Should not be used to generate new addresses.
      * </pre>
      *
      * <code>ADDRESS_TYPE_TREASURY = 0;</code>
@@ -61,8 +60,7 @@ public final class WalletOuterClass {
     ADDRESS_TYPE_BLS_ACCOUNT(2),
     /**
      * <pre>
-     * Account address type with Ed25519 signature scheme.
-     * Note: Generating a new Ed25519 address requires the wallet password.
+     * Account address type with Ed25519 signature scheme. Note: Generating a new Ed25519 address requires the wallet password.
      * </pre>
      *
      * <code>ADDRESS_TYPE_ED25519_ACCOUNT = 3;</code>
@@ -82,8 +80,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Treasury address type.
-     * Should not be used to generate new addresses.
+     * Treasury address type. Should not be used to generate new addresses.
      * </pre>
      *
      * <code>ADDRESS_TYPE_TREASURY = 0;</code>
@@ -107,8 +104,7 @@ public final class WalletOuterClass {
     public static final int ADDRESS_TYPE_BLS_ACCOUNT_VALUE = 2;
     /**
      * <pre>
-     * Account address type with Ed25519 signature scheme.
-     * Note: Generating a new Ed25519 address requires the wallet password.
+     * Account address type with Ed25519 signature scheme. Note: Generating a new Ed25519 address requires the wallet password.
      * </pre>
      *
      * <code>ADDRESS_TYPE_ED25519_ACCOUNT = 3;</code>
@@ -3201,7 +3197,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Response message contains address transaction history.
+   * Response message containing address transaction history.
    * </pre>
    *
    * Protobuf type {@code aerium.GetAddressHistoryResponse}
@@ -3463,7 +3459,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Response message contains address transaction history.
+     * Response message containing address transaction history.
      * </pre>
      *
      * Protobuf type {@code aerium.GetAddressHistoryResponse}
@@ -4017,7 +4013,7 @@ public final class WalletOuterClass {
 
     /**
      * <pre>
-     * The name of the wallet to generate a new address.
+     * The name of the wallet to generate a new address for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -4026,7 +4022,7 @@ public final class WalletOuterClass {
     java.lang.String getWalletName();
     /**
      * <pre>
-     * The name of the wallet to generate a new address.
+     * The name of the wallet to generate a new address for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -4076,7 +4072,7 @@ public final class WalletOuterClass {
 
     /**
      * <pre>
-     * Password for the new address. It's required when address_type is Ed25519 type.
+     * Password for the new address. Required when address_type is Ed25519.
      * </pre>
      *
      * <code>string password = 4 [json_name = "password"];</code>
@@ -4085,7 +4081,7 @@ public final class WalletOuterClass {
     java.lang.String getPassword();
     /**
      * <pre>
-     * Password for the new address. It's required when address_type is Ed25519 type.
+     * Password for the new address. Required when address_type is Ed25519.
      * </pre>
      *
      * <code>string password = 4 [json_name = "password"];</code>
@@ -4144,7 +4140,7 @@ public final class WalletOuterClass {
     private volatile java.lang.Object walletName_ = "";
     /**
      * <pre>
-     * The name of the wallet to generate a new address.
+     * The name of the wallet to generate a new address for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -4165,7 +4161,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * The name of the wallet to generate a new address.
+     * The name of the wallet to generate a new address for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -4264,7 +4260,7 @@ public final class WalletOuterClass {
     private volatile java.lang.Object password_ = "";
     /**
      * <pre>
-     * Password for the new address. It's required when address_type is Ed25519 type.
+     * Password for the new address. Required when address_type is Ed25519.
      * </pre>
      *
      * <code>string password = 4 [json_name = "password"];</code>
@@ -4285,7 +4281,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Password for the new address. It's required when address_type is Ed25519 type.
+     * Password for the new address. Required when address_type is Ed25519.
      * </pre>
      *
      * <code>string password = 4 [json_name = "password"];</code>
@@ -4677,7 +4673,7 @@ public final class WalletOuterClass {
       private java.lang.Object walletName_ = "";
       /**
        * <pre>
-       * The name of the wallet to generate a new address.
+       * The name of the wallet to generate a new address for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -4697,7 +4693,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to generate a new address.
+       * The name of the wallet to generate a new address for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -4718,7 +4714,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to generate a new address.
+       * The name of the wallet to generate a new address for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -4735,7 +4731,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to generate a new address.
+       * The name of the wallet to generate a new address for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -4749,7 +4745,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to generate a new address.
+       * The name of the wallet to generate a new address for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -4934,7 +4930,7 @@ public final class WalletOuterClass {
       private java.lang.Object password_ = "";
       /**
        * <pre>
-       * Password for the new address. It's required when address_type is Ed25519 type.
+       * Password for the new address. Required when address_type is Ed25519.
        * </pre>
        *
        * <code>string password = 4 [json_name = "password"];</code>
@@ -4954,7 +4950,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * Password for the new address. It's required when address_type is Ed25519 type.
+       * Password for the new address. Required when address_type is Ed25519.
        * </pre>
        *
        * <code>string password = 4 [json_name = "password"];</code>
@@ -4975,7 +4971,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * Password for the new address. It's required when address_type is Ed25519 type.
+       * Password for the new address. Required when address_type is Ed25519.
        * </pre>
        *
        * <code>string password = 4 [json_name = "password"];</code>
@@ -4992,7 +4988,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * Password for the new address. It's required when address_type is Ed25519 type.
+       * Password for the new address. Required when address_type is Ed25519.
        * </pre>
        *
        * <code>string password = 4 [json_name = "password"];</code>
@@ -5006,7 +5002,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * Password for the new address. It's required when address_type is Ed25519 type.
+       * Password for the new address. Required when address_type is Ed25519.
        * </pre>
        *
        * <code>string password = 4 [json_name = "password"];</code>
@@ -5080,7 +5076,7 @@ public final class WalletOuterClass {
 
     /**
      * <pre>
-     * The name of the wallet where address was generated.
+     * The name of the wallet where the address was generated.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -5089,7 +5085,7 @@ public final class WalletOuterClass {
     java.lang.String getWalletName();
     /**
      * <pre>
-     * The name of the wallet where address was generated.
+     * The name of the wallet where the address was generated.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -5127,7 +5123,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Response message contains newly generated address information.
+   * Response message containing newly generated address information.
    * </pre>
    *
    * Protobuf type {@code aerium.GetNewAddressResponse}
@@ -5173,7 +5169,7 @@ public final class WalletOuterClass {
     private volatile java.lang.Object walletName_ = "";
     /**
      * <pre>
-     * The name of the wallet where address was generated.
+     * The name of the wallet where the address was generated.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -5194,7 +5190,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * The name of the wallet where address was generated.
+     * The name of the wallet where the address was generated.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -5427,7 +5423,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Response message contains newly generated address information.
+     * Response message containing newly generated address information.
      * </pre>
      *
      * Protobuf type {@code aerium.GetNewAddressResponse}
@@ -5599,7 +5595,7 @@ public final class WalletOuterClass {
       private java.lang.Object walletName_ = "";
       /**
        * <pre>
-       * The name of the wallet where address was generated.
+       * The name of the wallet where the address was generated.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -5619,7 +5615,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet where address was generated.
+       * The name of the wallet where the address was generated.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -5640,7 +5636,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet where address was generated.
+       * The name of the wallet where the address was generated.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -5657,7 +5653,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet where address was generated.
+       * The name of the wallet where the address was generated.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -5671,7 +5667,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet where address was generated.
+       * The name of the wallet where the address was generated.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -8136,7 +8132,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Response message contains wallet recovery mnemonic (seed phrase).
+   * Response message containing wallet recovery mnemonic (seed phrase).
    * </pre>
    *
    * Protobuf type {@code aerium.CreateWalletResponse}
@@ -8381,7 +8377,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Response message contains wallet recovery mnemonic (seed phrase).
+     * Response message containing wallet recovery mnemonic (seed phrase).
      * </pre>
      *
      * Protobuf type {@code aerium.CreateWalletResponse}
@@ -12956,7 +12952,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Response message contains the transaction ID and signed raw transaction.
+   * Response message containing the transaction ID and signed raw transaction.
    * </pre>
    *
    * Protobuf type {@code aerium.SignRawTransactionResponse}
@@ -13259,7 +13255,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Response message contains the transaction ID and signed raw transaction.
+     * Response message containing the transaction ID and signed raw transaction.
      * </pre>
      *
      * Protobuf type {@code aerium.SignRawTransactionResponse}
@@ -13654,7 +13650,7 @@ public final class WalletOuterClass {
 
     /**
      * <pre>
-     * The name of the wallet to get the total balance.
+     * The name of the wallet to get the total balance for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -13663,7 +13659,7 @@ public final class WalletOuterClass {
     java.lang.String getWalletName();
     /**
      * <pre>
-     * The name of the wallet to get the total balance.
+     * The name of the wallet to get the total balance for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -13719,7 +13715,7 @@ public final class WalletOuterClass {
     private volatile java.lang.Object walletName_ = "";
     /**
      * <pre>
-     * The name of the wallet to get the total balance.
+     * The name of the wallet to get the total balance for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -13740,7 +13736,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * The name of the wallet to get the total balance.
+     * The name of the wallet to get the total balance for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -14062,7 +14058,7 @@ public final class WalletOuterClass {
       private java.lang.Object walletName_ = "";
       /**
        * <pre>
-       * The name of the wallet to get the total balance.
+       * The name of the wallet to get the total balance for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -14082,7 +14078,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to get the total balance.
+       * The name of the wallet to get the total balance for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -14103,7 +14099,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to get the total balance.
+       * The name of the wallet to get the total balance for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -14120,7 +14116,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to get the total balance.
+       * The name of the wallet to get the total balance for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -14134,7 +14130,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to get the total balance.
+       * The name of the wallet to get the total balance for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -14238,7 +14234,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Response message contains the total available balance of the wallet.
+   * Response message containing the total available balance of the wallet.
    * </pre>
    *
    * Protobuf type {@code aerium.GetTotalBalanceResponse}
@@ -14510,7 +14506,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Response message contains the total available balance of the wallet.
+     * Response message containing the total available balance of the wallet.
      * </pre>
      *
      * Protobuf type {@code aerium.GetTotalBalanceResponse}
@@ -15981,7 +15977,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Response message contains message signature.
+   * Response message containing the message signature.
    * </pre>
    *
    * Protobuf type {@code aerium.SignMessageResponse}
@@ -16226,7 +16222,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Response message contains message signature.
+     * Response message containing the message signature.
      * </pre>
      *
      * Protobuf type {@code aerium.SignMessageResponse}
@@ -16515,7 +16511,7 @@ public final class WalletOuterClass {
 
     /**
      * <pre>
-     * The name of the wallet to get the total stake.
+     * The name of the wallet to get the total stake for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -16524,7 +16520,7 @@ public final class WalletOuterClass {
     java.lang.String getWalletName();
     /**
      * <pre>
-     * The name of the wallet to get the total stake.
+     * The name of the wallet to get the total stake for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -16580,7 +16576,7 @@ public final class WalletOuterClass {
     private volatile java.lang.Object walletName_ = "";
     /**
      * <pre>
-     * The name of the wallet to get the total stake.
+     * The name of the wallet to get the total stake for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -16601,7 +16597,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * The name of the wallet to get the total stake.
+     * The name of the wallet to get the total stake for.
      * </pre>
      *
      * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -16923,7 +16919,7 @@ public final class WalletOuterClass {
       private java.lang.Object walletName_ = "";
       /**
        * <pre>
-       * The name of the wallet to get the total stake.
+       * The name of the wallet to get the total stake for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -16943,7 +16939,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to get the total stake.
+       * The name of the wallet to get the total stake for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -16964,7 +16960,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to get the total stake.
+       * The name of the wallet to get the total stake for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -16981,7 +16977,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to get the total stake.
+       * The name of the wallet to get the total stake for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -16995,7 +16991,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * The name of the wallet to get the total stake.
+       * The name of the wallet to get the total stake for.
        * </pre>
        *
        * <code>string wallet_name = 1 [json_name = "walletName"];</code>
@@ -17099,7 +17095,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Response message contains the total stake of the wallet.
+   * Response message containing the total stake of the wallet.
    * </pre>
    *
    * Protobuf type {@code aerium.GetTotalStakeResponse}
@@ -17371,7 +17367,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Response message contains the total stake of the wallet.
+     * Response message containing the total stake of the wallet.
      * </pre>
      *
      * Protobuf type {@code aerium.GetTotalStakeResponse}
@@ -18554,7 +18550,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Response message contains address details.
+   * Response message containing address details.
    * </pre>
    *
    * Protobuf type {@code aerium.GetAddressInfoResponse}
@@ -19031,7 +19027,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Response message contains address details.
+     * Response message containing address details.
      * </pre>
      *
      * Protobuf type {@code aerium.GetAddressInfoResponse}
@@ -19824,7 +19820,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Request message for setting address label.
+   * Request message for setting an address label.
    * </pre>
    *
    * Protobuf type {@code aerium.SetAddressLabelRequest}
@@ -20243,7 +20239,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Request message for setting address label.
+     * Request message for setting an address label.
      * </pre>
      *
      * Protobuf type {@code aerium.SetAddressLabelRequest}
@@ -21617,7 +21613,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Response message contains wallet names.
+   * Response message containing wallet names.
    * </pre>
    *
    * Protobuf type {@code aerium.ListWalletResponse}
@@ -21876,7 +21872,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Response message contains wallet names.
+     * Response message containing wallet names.
      * </pre>
      *
      * Protobuf type {@code aerium.ListWalletResponse}
@@ -22842,7 +22838,7 @@ public final class WalletOuterClass {
 
     /**
      * <pre>
-     * A unique identifier of the wallet.
+     * A unique identifier for the wallet.
      * </pre>
      *
      * <code>string uuid = 5 [json_name = "uuid"];</code>
@@ -22851,7 +22847,7 @@ public final class WalletOuterClass {
     java.lang.String getUuid();
     /**
      * <pre>
-     * A unique identifier of the wallet.
+     * A unique identifier for the wallet.
      * </pre>
      *
      * <code>string uuid = 5 [json_name = "uuid"];</code>
@@ -22872,7 +22868,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Response message contains wallet details.
+   * Response message containing wallet details.
    * </pre>
    *
    * Protobuf type {@code aerium.GetWalletInfoResponse}
@@ -23043,7 +23039,7 @@ public final class WalletOuterClass {
     private volatile java.lang.Object uuid_ = "";
     /**
      * <pre>
-     * A unique identifier of the wallet.
+     * A unique identifier for the wallet.
      * </pre>
      *
      * <code>string uuid = 5 [json_name = "uuid"];</code>
@@ -23064,7 +23060,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * A unique identifier of the wallet.
+     * A unique identifier for the wallet.
      * </pre>
      *
      * <code>string uuid = 5 [json_name = "uuid"];</code>
@@ -23314,7 +23310,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Response message contains wallet details.
+     * Response message containing wallet details.
      * </pre>
      *
      * Protobuf type {@code aerium.GetWalletInfoResponse}
@@ -23793,7 +23789,7 @@ public final class WalletOuterClass {
       private java.lang.Object uuid_ = "";
       /**
        * <pre>
-       * A unique identifier of the wallet.
+       * A unique identifier for the wallet.
        * </pre>
        *
        * <code>string uuid = 5 [json_name = "uuid"];</code>
@@ -23813,7 +23809,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * A unique identifier of the wallet.
+       * A unique identifier for the wallet.
        * </pre>
        *
        * <code>string uuid = 5 [json_name = "uuid"];</code>
@@ -23834,7 +23830,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * A unique identifier of the wallet.
+       * A unique identifier for the wallet.
        * </pre>
        *
        * <code>string uuid = 5 [json_name = "uuid"];</code>
@@ -23851,7 +23847,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * A unique identifier of the wallet.
+       * A unique identifier for the wallet.
        * </pre>
        *
        * <code>string uuid = 5 [json_name = "uuid"];</code>
@@ -23865,7 +23861,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * A unique identifier of the wallet.
+       * A unique identifier for the wallet.
        * </pre>
        *
        * <code>string uuid = 5 [json_name = "uuid"];</code>
@@ -24557,7 +24553,7 @@ public final class WalletOuterClass {
 
     /**
      * <pre>
-     * ist of all addresses in the wallet with their details.
+     * List of all addresses in the wallet with their details.
      * </pre>
      *
      * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -24566,7 +24562,7 @@ public final class WalletOuterClass {
         getDataList();
     /**
      * <pre>
-     * ist of all addresses in the wallet with their details.
+     * List of all addresses in the wallet with their details.
      * </pre>
      *
      * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -24574,7 +24570,7 @@ public final class WalletOuterClass {
     aerium.WalletOuterClass.AddressInfo getData(int index);
     /**
      * <pre>
-     * ist of all addresses in the wallet with their details.
+     * List of all addresses in the wallet with their details.
      * </pre>
      *
      * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -24582,7 +24578,7 @@ public final class WalletOuterClass {
     int getDataCount();
     /**
      * <pre>
-     * ist of all addresses in the wallet with their details.
+     * List of all addresses in the wallet with their details.
      * </pre>
      *
      * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -24591,7 +24587,7 @@ public final class WalletOuterClass {
         getDataOrBuilderList();
     /**
      * <pre>
-     * ist of all addresses in the wallet with their details.
+     * List of all addresses in the wallet with their details.
      * </pre>
      *
      * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -24601,7 +24597,7 @@ public final class WalletOuterClass {
   }
   /**
    * <pre>
-   * Response message contains wallet addresses.
+   * Response message containing wallet addresses.
    * </pre>
    *
    * Protobuf type {@code aerium.ListAddressResponse}
@@ -24694,7 +24690,7 @@ public final class WalletOuterClass {
     private java.util.List<aerium.WalletOuterClass.AddressInfo> data_;
     /**
      * <pre>
-     * ist of all addresses in the wallet with their details.
+     * List of all addresses in the wallet with their details.
      * </pre>
      *
      * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -24705,7 +24701,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * ist of all addresses in the wallet with their details.
+     * List of all addresses in the wallet with their details.
      * </pre>
      *
      * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -24717,7 +24713,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * ist of all addresses in the wallet with their details.
+     * List of all addresses in the wallet with their details.
      * </pre>
      *
      * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -24728,7 +24724,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * ist of all addresses in the wallet with their details.
+     * List of all addresses in the wallet with their details.
      * </pre>
      *
      * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -24739,7 +24735,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * ist of all addresses in the wallet with their details.
+     * List of all addresses in the wallet with their details.
      * </pre>
      *
      * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -24921,7 +24917,7 @@ public final class WalletOuterClass {
     }
     /**
      * <pre>
-     * Response message contains wallet addresses.
+     * Response message containing wallet addresses.
      * </pre>
      *
      * Protobuf type {@code aerium.ListAddressResponse}
@@ -25226,7 +25222,7 @@ public final class WalletOuterClass {
 
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25240,7 +25236,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25254,7 +25250,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25268,7 +25264,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25289,7 +25285,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25307,7 +25303,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25327,7 +25323,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25348,7 +25344,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25366,7 +25362,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25384,7 +25380,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25403,7 +25399,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25420,7 +25416,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25437,7 +25433,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25448,7 +25444,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25462,7 +25458,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25477,7 +25473,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25488,7 +25484,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>
@@ -25500,7 +25496,7 @@ public final class WalletOuterClass {
       }
       /**
        * <pre>
-       * ist of all addresses in the wallet with their details.
+       * List of all addresses in the wallet with their details.
        * </pre>
        *
        * <code>repeated .aerium.AddressInfo data = 2 [json_name = "data"];</code>

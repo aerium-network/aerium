@@ -25,15 +25,13 @@ const (
 type AddressType int32
 
 const (
-	// Treasury address type.
-	// Should not be used to generate new addresses.
+	// Treasury address type. Should not be used to generate new addresses.
 	AddressType_ADDRESS_TYPE_TREASURY AddressType = 0
 	// Validator address type used for validator nodes.
 	AddressType_ADDRESS_TYPE_VALIDATOR AddressType = 1
 	// Account address type with BLS signature scheme.
 	AddressType_ADDRESS_TYPE_BLS_ACCOUNT AddressType = 2
-	// Account address type with Ed25519 signature scheme.
-	// Note: Generating a new Ed25519 address requires the wallet password.
+	// Account address type with Ed25519 signature scheme. Note: Generating a new Ed25519 address requires the wallet password.
 	AddressType_ADDRESS_TYPE_ED25519_ACCOUNT AddressType = 3
 )
 
@@ -290,7 +288,7 @@ func (x *GetAddressHistoryRequest) GetAddress() string {
 	return ""
 }
 
-// Response message contains address transaction history.
+// Response message containing address transaction history.
 type GetAddressHistoryResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// List of all historical transactions associated with the address.
@@ -339,13 +337,13 @@ func (x *GetAddressHistoryResponse) GetHistoryInfo() []*HistoryInfo {
 // Request message for generating a new wallet address.
 type GetNewAddressRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// The name of the wallet to generate a new address.
+	// The name of the wallet to generate a new address for.
 	WalletName string `protobuf:"bytes,1,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
 	// The type of address to generate.
 	AddressType AddressType `protobuf:"varint,2,opt,name=address_type,json=addressType,proto3,enum=aerium.AddressType" json:"address_type,omitempty"`
 	// A label for the new address.
 	Label string `protobuf:"bytes,3,opt,name=label,proto3" json:"label,omitempty"`
-	// Password for the new address. It's required when address_type is Ed25519 type.
+	// Password for the new address. Required when address_type is Ed25519.
 	Password      string `protobuf:"bytes,4,opt,name=password,proto3" json:"password,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -409,10 +407,10 @@ func (x *GetNewAddressRequest) GetPassword() string {
 	return ""
 }
 
-// Response message contains newly generated address information.
+// Response message containing newly generated address information.
 type GetNewAddressResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// The name of the wallet where address was generated.
+	// The name of the wallet where the address was generated.
 	WalletName string `protobuf:"bytes,1,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
 	// Detailed information about the new address.
 	AddressInfo   *AddressInfo `protobuf:"bytes,2,opt,name=address_info,json=addressInfo,proto3" json:"address_info,omitempty"`
@@ -629,7 +627,7 @@ func (x *CreateWalletRequest) GetPassword() string {
 	return ""
 }
 
-// Response message contains wallet recovery mnemonic (seed phrase).
+// Response message containing wallet recovery mnemonic (seed phrase).
 type CreateWalletResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The mnemonic (seed phrase) for wallet recovery.
@@ -1015,7 +1013,7 @@ func (x *SignRawTransactionRequest) GetPassword() string {
 	return ""
 }
 
-// Response message contains the transaction ID and signed raw transaction.
+// Response message containing the transaction ID and signed raw transaction.
 type SignRawTransactionResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The ID of the signed transaction.
@@ -1073,7 +1071,7 @@ func (x *SignRawTransactionResponse) GetSignedRawTransaction() string {
 // Request message for obtaining the total available balance of a wallet.
 type GetTotalBalanceRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// The name of the wallet to get the total balance.
+	// The name of the wallet to get the total balance for.
 	WalletName    string `protobuf:"bytes,1,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1116,7 +1114,7 @@ func (x *GetTotalBalanceRequest) GetWalletName() string {
 	return ""
 }
 
-// Response message contains the total available balance of the wallet.
+// Response message containing the total available balance of the wallet.
 type GetTotalBalanceResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The name of the queried wallet.
@@ -1244,7 +1242,7 @@ func (x *SignMessageRequest) GetMessage() string {
 	return ""
 }
 
-// Response message contains message signature.
+// Response message containing the message signature.
 type SignMessageResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The signature in hexadecimal format.
@@ -1293,7 +1291,7 @@ func (x *SignMessageResponse) GetSignature() string {
 // Request message for obtaining the total stake of a wallet.
 type GetTotalStakeRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// The name of the wallet to get the total stake.
+	// The name of the wallet to get the total stake for.
 	WalletName    string `protobuf:"bytes,1,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1336,7 +1334,7 @@ func (x *GetTotalStakeRequest) GetWalletName() string {
 	return ""
 }
 
-// Response message contains the total stake of the wallet.
+// Response message containing the total stake of the wallet.
 type GetTotalStakeResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The name of the queried wallet.
@@ -1446,7 +1444,7 @@ func (x *GetAddressInfoRequest) GetAddress() string {
 	return ""
 }
 
-// Response message contains address details.
+// Response message containing address details.
 type GetAddressInfoResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The name of the wallet containing the address.
@@ -1528,7 +1526,7 @@ func (x *GetAddressInfoResponse) GetPath() string {
 	return ""
 }
 
-// Request message for setting address label.
+// Request message for setting an address label.
 type SetAddressLabelRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The name of the wallet containing the address.
@@ -1675,7 +1673,7 @@ func (*ListWalletRequest) Descriptor() ([]byte, []int) {
 	return file_wallet_proto_rawDescGZIP(), []int{28}
 }
 
-// Response message contains wallet names.
+// Response message containing wallet names.
 type ListWalletResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Array of wallet names.
@@ -1767,7 +1765,7 @@ func (x *GetWalletInfoRequest) GetWalletName() string {
 	return ""
 }
 
-// Response message contains wallet details.
+// Response message containing wallet details.
 type GetWalletInfoResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The name of the wallet to query.
@@ -1778,7 +1776,7 @@ type GetWalletInfoResponse struct {
 	Network string `protobuf:"bytes,3,opt,name=network,proto3" json:"network,omitempty"`
 	// Indicates if the wallet is encrypted.
 	Encrypted bool `protobuf:"varint,4,opt,name=encrypted,proto3" json:"encrypted,omitempty"`
-	// A unique identifier of the wallet.
+	// A unique identifier for the wallet.
 	Uuid string `protobuf:"bytes,5,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	// Unix timestamp of wallet creation.
 	CreatedAt     int64 `protobuf:"varint,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
@@ -1904,12 +1902,12 @@ func (x *ListAddressRequest) GetWalletName() string {
 	return ""
 }
 
-// Response message contains wallet addresses.
+// Response message containing wallet addresses.
 type ListAddressResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The name of the queried wallet.
 	WalletName string `protobuf:"bytes,1,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
-	// ist of all addresses in the wallet with their details.
+	// List of all addresses in the wallet with their details.
 	Data          []*AddressInfo `protobuf:"bytes,2,rep,name=data,proto3" json:"data,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

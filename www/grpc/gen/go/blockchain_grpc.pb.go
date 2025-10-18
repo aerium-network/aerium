@@ -36,29 +36,29 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// Blockchain service defines RPC methods for interacting with the blockchain.
+// The Blockchain service defines RPC methods for interacting with the blockchain.
 type BlockchainClient interface {
-	// GetBlock retrieves information about a block based on the provided request parameters.
+	// Retrieves information about a block based on the provided request parameters.
 	GetBlock(ctx context.Context, in *GetBlockRequest, opts ...grpc.CallOption) (*GetBlockResponse, error)
-	// GetBlockHash retrieves the hash of a block at the specified height.
+	// Retrieves the hash of a block at the specified height.
 	GetBlockHash(ctx context.Context, in *GetBlockHashRequest, opts ...grpc.CallOption) (*GetBlockHashResponse, error)
-	// GetBlockHeight retrieves the height of a block with the specified hash.
+	// Retrieves the height of a block with the specified hash.
 	GetBlockHeight(ctx context.Context, in *GetBlockHeightRequest, opts ...grpc.CallOption) (*GetBlockHeightResponse, error)
-	// GetBlockchainInfo retrieves general information about the blockchain.
+	// Retrieves general information about the blockchain.
 	GetBlockchainInfo(ctx context.Context, in *GetBlockchainInfoRequest, opts ...grpc.CallOption) (*GetBlockchainInfoResponse, error)
-	// GetConsensusInfo retrieves information about the consensus instances.
+	// Retrieves information about consensus instances.
 	GetConsensusInfo(ctx context.Context, in *GetConsensusInfoRequest, opts ...grpc.CallOption) (*GetConsensusInfoResponse, error)
-	// GetAccount retrieves information about an account based on the provided address.
+	// Retrieves information about an account for the provided address.
 	GetAccount(ctx context.Context, in *GetAccountRequest, opts ...grpc.CallOption) (*GetAccountResponse, error)
-	// GetValidator retrieves information about a validator based on the provided address.
+	// Retrieves information about a validator for the provided address.
 	GetValidator(ctx context.Context, in *GetValidatorRequest, opts ...grpc.CallOption) (*GetValidatorResponse, error)
-	// GetValidatorByNumber retrieves information about a validator based on the provided number.
+	// Retrieves information about a validator by its number.
 	GetValidatorByNumber(ctx context.Context, in *GetValidatorByNumberRequest, opts ...grpc.CallOption) (*GetValidatorResponse, error)
-	// GetValidatorAddresses retrieves a list of all validator addresses.
+	// Retrieves a list of all validator addresses.
 	GetValidatorAddresses(ctx context.Context, in *GetValidatorAddressesRequest, opts ...grpc.CallOption) (*GetValidatorAddressesResponse, error)
-	// GetPublicKey retrieves the public key of an account based on the provided address.
+	// Retrieves the public key of an account for the provided address.
 	GetPublicKey(ctx context.Context, in *GetPublicKeyRequest, opts ...grpc.CallOption) (*GetPublicKeyResponse, error)
-	// GetTxPoolContent retrieves current transactions in the transaction pool.
+	// Retrieves current transactions in the transaction pool.
 	GetTxPoolContent(ctx context.Context, in *GetTxPoolContentRequest, opts ...grpc.CallOption) (*GetTxPoolContentResponse, error)
 }
 
@@ -184,29 +184,29 @@ func (c *blockchainClient) GetTxPoolContent(ctx context.Context, in *GetTxPoolCo
 // All implementations should embed UnimplementedBlockchainServer
 // for forward compatibility.
 //
-// Blockchain service defines RPC methods for interacting with the blockchain.
+// The Blockchain service defines RPC methods for interacting with the blockchain.
 type BlockchainServer interface {
-	// GetBlock retrieves information about a block based on the provided request parameters.
+	// Retrieves information about a block based on the provided request parameters.
 	GetBlock(context.Context, *GetBlockRequest) (*GetBlockResponse, error)
-	// GetBlockHash retrieves the hash of a block at the specified height.
+	// Retrieves the hash of a block at the specified height.
 	GetBlockHash(context.Context, *GetBlockHashRequest) (*GetBlockHashResponse, error)
-	// GetBlockHeight retrieves the height of a block with the specified hash.
+	// Retrieves the height of a block with the specified hash.
 	GetBlockHeight(context.Context, *GetBlockHeightRequest) (*GetBlockHeightResponse, error)
-	// GetBlockchainInfo retrieves general information about the blockchain.
+	// Retrieves general information about the blockchain.
 	GetBlockchainInfo(context.Context, *GetBlockchainInfoRequest) (*GetBlockchainInfoResponse, error)
-	// GetConsensusInfo retrieves information about the consensus instances.
+	// Retrieves information about consensus instances.
 	GetConsensusInfo(context.Context, *GetConsensusInfoRequest) (*GetConsensusInfoResponse, error)
-	// GetAccount retrieves information about an account based on the provided address.
+	// Retrieves information about an account for the provided address.
 	GetAccount(context.Context, *GetAccountRequest) (*GetAccountResponse, error)
-	// GetValidator retrieves information about a validator based on the provided address.
+	// Retrieves information about a validator for the provided address.
 	GetValidator(context.Context, *GetValidatorRequest) (*GetValidatorResponse, error)
-	// GetValidatorByNumber retrieves information about a validator based on the provided number.
+	// Retrieves information about a validator by its number.
 	GetValidatorByNumber(context.Context, *GetValidatorByNumberRequest) (*GetValidatorResponse, error)
-	// GetValidatorAddresses retrieves a list of all validator addresses.
+	// Retrieves a list of all validator addresses.
 	GetValidatorAddresses(context.Context, *GetValidatorAddressesRequest) (*GetValidatorAddressesResponse, error)
-	// GetPublicKey retrieves the public key of an account based on the provided address.
+	// Retrieves the public key of an account for the provided address.
 	GetPublicKey(context.Context, *GetPublicKeyRequest) (*GetPublicKeyResponse, error)
-	// GetTxPoolContent retrieves current transactions in the transaction pool.
+	// Retrieves current transactions in the transaction pool.
 	GetTxPoolContent(context.Context, *GetTxPoolContentRequest) (*GetTxPoolContentResponse, error)
 }
 

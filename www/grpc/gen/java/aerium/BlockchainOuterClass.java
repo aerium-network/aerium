@@ -214,7 +214,7 @@ public final class BlockchainOuterClass {
     VOTE_TYPE_PRECOMMIT(2),
     /**
      * <pre>
-     * Change-proposer:pre-vote vote type.
+     * Change-proposer pre-vote type.
      * </pre>
      *
      * <code>VOTE_TYPE_CP_PRE_VOTE = 3;</code>
@@ -222,7 +222,7 @@ public final class BlockchainOuterClass {
     VOTE_TYPE_CP_PRE_VOTE(3),
     /**
      * <pre>
-     * Change-proposer:main-vote vote type.
+     * Change-proposer main-vote type.
      * </pre>
      *
      * <code>VOTE_TYPE_CP_MAIN_VOTE = 4;</code>
@@ -230,7 +230,7 @@ public final class BlockchainOuterClass {
     VOTE_TYPE_CP_MAIN_VOTE(4),
     /**
      * <pre>
-     * Change-proposer:decided vote type.
+     * Change-proposer decided vote type.
      * </pre>
      *
      * <code>VOTE_TYPE_CP_DECIDED = 5;</code>
@@ -274,7 +274,7 @@ public final class BlockchainOuterClass {
     public static final int VOTE_TYPE_PRECOMMIT_VALUE = 2;
     /**
      * <pre>
-     * Change-proposer:pre-vote vote type.
+     * Change-proposer pre-vote type.
      * </pre>
      *
      * <code>VOTE_TYPE_CP_PRE_VOTE = 3;</code>
@@ -282,7 +282,7 @@ public final class BlockchainOuterClass {
     public static final int VOTE_TYPE_CP_PRE_VOTE_VALUE = 3;
     /**
      * <pre>
-     * Change-proposer:main-vote vote type.
+     * Change-proposer main-vote type.
      * </pre>
      *
      * <code>VOTE_TYPE_CP_MAIN_VOTE = 4;</code>
@@ -290,7 +290,7 @@ public final class BlockchainOuterClass {
     public static final int VOTE_TYPE_CP_MAIN_VOTE_VALUE = 4;
     /**
      * <pre>
-     * Change-proposer:decided vote type.
+     * Change-proposer decided vote type.
      * </pre>
      *
      * <code>VOTE_TYPE_CP_DECIDED = 5;</code>
@@ -971,7 +971,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Response message contains account information.
+   * Response message containing account information.
    * </pre>
    *
    * Protobuf type {@code aerium.GetAccountResponse}
@@ -1213,7 +1213,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Response message contains account information.
+     * Response message containing account information.
      * </pre>
      *
      * Protobuf type {@code aerium.GetAccountResponse}
@@ -1986,7 +1986,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Response message contains list of validator addresses.
+   * Response message containing a list of validator addresses.
    * </pre>
    *
    * Protobuf type {@code aerium.GetValidatorAddressesResponse}
@@ -2245,7 +2245,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Response message contains list of validator addresses.
+     * Response message containing a list of validator addresses.
      * </pre>
      *
      * Protobuf type {@code aerium.GetValidatorAddressesResponse}
@@ -3640,7 +3640,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Response message contains validator information.
+   * Response message containing validator information.
    * </pre>
    *
    * Protobuf type {@code aerium.GetValidatorResponse}
@@ -3882,7 +3882,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Response message contains validator information.
+     * Response message containing validator information.
      * </pre>
      *
      * Protobuf type {@code aerium.GetValidatorResponse}
@@ -4271,7 +4271,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Request message for retrieving public key by address.
+   * Request message for retrieving a public key by address.
    * </pre>
    *
    * Protobuf type {@code aerium.GetPublicKeyRequest}
@@ -4516,7 +4516,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Request message for retrieving public key by address.
+     * Request message for retrieving a public key by address.
      * </pre>
      *
      * Protobuf type {@code aerium.GetPublicKeyRequest}
@@ -4825,7 +4825,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Response message contains public key information.
+   * Response message containing public key information.
    * </pre>
    *
    * Protobuf type {@code aerium.GetPublicKeyResponse}
@@ -5070,7 +5070,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Response message contains public key information.
+     * Response message containing public key information.
      * </pre>
      *
      * Protobuf type {@code aerium.GetPublicKeyResponse}
@@ -5388,7 +5388,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Request message for retrieving block information based on height and verbosity level.
+   * Request message for retrieving block information by height and verbosity level.
    * </pre>
    *
    * Protobuf type {@code aerium.GetBlockRequest}
@@ -5638,7 +5638,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Request message for retrieving block information based on height and verbosity level.
+     * Request message for retrieving block information by height and verbosity level.
      * </pre>
      *
      * Protobuf type {@code aerium.GetBlockRequest}
@@ -6076,8 +6076,7 @@ public final class BlockchainOuterClass {
 
     /**
      * <pre>
-     * List of transactions in the block, available when verbosity level is set to
-     * BLOCK_TRANSACTIONS.
+     * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
      * </pre>
      *
      * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -6086,8 +6085,7 @@ public final class BlockchainOuterClass {
         getTxsList();
     /**
      * <pre>
-     * List of transactions in the block, available when verbosity level is set to
-     * BLOCK_TRANSACTIONS.
+     * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
      * </pre>
      *
      * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -6095,8 +6093,7 @@ public final class BlockchainOuterClass {
     aerium.TransactionOuterClass.TransactionInfo getTxs(int index);
     /**
      * <pre>
-     * List of transactions in the block, available when verbosity level is set to
-     * BLOCK_TRANSACTIONS.
+     * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
      * </pre>
      *
      * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -6104,8 +6101,7 @@ public final class BlockchainOuterClass {
     int getTxsCount();
     /**
      * <pre>
-     * List of transactions in the block, available when verbosity level is set to
-     * BLOCK_TRANSACTIONS.
+     * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
      * </pre>
      *
      * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -6114,8 +6110,7 @@ public final class BlockchainOuterClass {
         getTxsOrBuilderList();
     /**
      * <pre>
-     * List of transactions in the block, available when verbosity level is set to
-     * BLOCK_TRANSACTIONS.
+     * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
      * </pre>
      *
      * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -6125,7 +6120,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Response message contains block information.
+   * Response message containing block information.
    * </pre>
    *
    * Protobuf type {@code aerium.GetBlockResponse}
@@ -6373,8 +6368,7 @@ public final class BlockchainOuterClass {
     private java.util.List<aerium.TransactionOuterClass.TransactionInfo> txs_;
     /**
      * <pre>
-     * List of transactions in the block, available when verbosity level is set to
-     * BLOCK_TRANSACTIONS.
+     * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
      * </pre>
      *
      * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -6385,8 +6379,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * List of transactions in the block, available when verbosity level is set to
-     * BLOCK_TRANSACTIONS.
+     * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
      * </pre>
      *
      * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -6398,8 +6391,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * List of transactions in the block, available when verbosity level is set to
-     * BLOCK_TRANSACTIONS.
+     * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
      * </pre>
      *
      * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -6410,8 +6402,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * List of transactions in the block, available when verbosity level is set to
-     * BLOCK_TRANSACTIONS.
+     * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
      * </pre>
      *
      * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -6422,8 +6413,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * List of transactions in the block, available when verbosity level is set to
-     * BLOCK_TRANSACTIONS.
+     * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
      * </pre>
      *
      * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -6669,7 +6659,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Response message contains block information.
+     * Response message containing block information.
      * </pre>
      *
      * Protobuf type {@code aerium.GetBlockResponse}
@@ -7558,8 +7548,7 @@ public final class BlockchainOuterClass {
 
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7573,8 +7562,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7588,8 +7576,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7603,8 +7590,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7625,8 +7611,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7644,8 +7629,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7665,8 +7649,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7687,8 +7670,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7706,8 +7688,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7725,8 +7706,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7745,8 +7725,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7763,8 +7742,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7781,8 +7759,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7793,8 +7770,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7808,8 +7784,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7824,8 +7799,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7836,8 +7810,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7849,8 +7822,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * List of transactions in the block, available when verbosity level is set to
-       * BLOCK_TRANSACTIONS.
+       * List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
        * </pre>
        *
        * <code>repeated .aerium.TransactionInfo txs = 7 [json_name = "txs"];</code>
@@ -7941,7 +7913,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Request message for retrieving block hash by height.
+   * Request message for retrieving a block hash by height.
    * </pre>
    *
    * Protobuf type {@code aerium.GetBlockHashRequest}
@@ -8154,7 +8126,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Request message for retrieving block hash by height.
+     * Request message for retrieving a block hash by height.
      * </pre>
      *
      * Protobuf type {@code aerium.GetBlockHashRequest}
@@ -8413,7 +8385,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Response message contains block hash.
+   * Response message containing a block hash.
    * </pre>
    *
    * Protobuf type {@code aerium.GetBlockHashResponse}
@@ -8658,7 +8630,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Response message contains block hash.
+     * Response message containing a block hash.
      * </pre>
      *
      * Protobuf type {@code aerium.GetBlockHashResponse}
@@ -8967,7 +8939,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Request message for retrieving block height by hash.
+   * Request message for retrieving a block height by hash.
    * </pre>
    *
    * Protobuf type {@code aerium.GetBlockHeightRequest}
@@ -9212,7 +9184,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Request message for retrieving block height by hash.
+     * Request message for retrieving a block height by hash.
      * </pre>
      *
      * Protobuf type {@code aerium.GetBlockHeightRequest}
@@ -9511,7 +9483,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Response message contains block height.
+   * Response message containing a block height.
    * </pre>
    *
    * Protobuf type {@code aerium.GetBlockHeightResponse}
@@ -9724,7 +9696,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Response message contains block height.
+     * Response message containing a block height.
      * </pre>
      *
      * Protobuf type {@code aerium.GetBlockHeightResponse}
@@ -10450,7 +10422,7 @@ public final class BlockchainOuterClass {
 
     /**
      * <pre>
-     * If the blocks are subject to pruning.
+     * Indicates if blocks are subject to pruning.
      * </pre>
      *
      * <code>bool is_pruned = 8 [json_name = "isPruned"];</code>
@@ -10460,7 +10432,7 @@ public final class BlockchainOuterClass {
 
     /**
      * <pre>
-     * Lowest-height block stored (only present if pruning is enabled)
+     * The lowest-height block stored (only present if pruning is enabled).
      * </pre>
      *
      * <code>uint32 pruning_height = 9 [json_name = "pruningHeight"];</code>
@@ -10470,7 +10442,7 @@ public final class BlockchainOuterClass {
 
     /**
      * <pre>
-     * Timestamp of the last block in Unix format
+     * Timestamp of the last block in Unix format.
      * </pre>
      *
      * <code>int64 last_block_time = 10 [json_name = "lastBlockTime"];</code>
@@ -10532,7 +10504,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Response message contains general blockchain information.
+   * Response message containing general blockchain information.
    * </pre>
    *
    * Protobuf type {@code aerium.GetBlockchainInfoResponse}
@@ -10787,7 +10759,7 @@ public final class BlockchainOuterClass {
     private boolean isPruned_ = false;
     /**
      * <pre>
-     * If the blocks are subject to pruning.
+     * Indicates if blocks are subject to pruning.
      * </pre>
      *
      * <code>bool is_pruned = 8 [json_name = "isPruned"];</code>
@@ -10802,7 +10774,7 @@ public final class BlockchainOuterClass {
     private int pruningHeight_ = 0;
     /**
      * <pre>
-     * Lowest-height block stored (only present if pruning is enabled)
+     * The lowest-height block stored (only present if pruning is enabled).
      * </pre>
      *
      * <code>uint32 pruning_height = 9 [json_name = "pruningHeight"];</code>
@@ -10817,7 +10789,7 @@ public final class BlockchainOuterClass {
     private long lastBlockTime_ = 0L;
     /**
      * <pre>
-     * Timestamp of the last block in Unix format
+     * Timestamp of the last block in Unix format.
      * </pre>
      *
      * <code>int64 last_block_time = 10 [json_name = "lastBlockTime"];</code>
@@ -11217,7 +11189,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Response message contains general blockchain information.
+     * Response message containing general blockchain information.
      * </pre>
      *
      * Protobuf type {@code aerium.GetBlockchainInfoResponse}
@@ -12234,7 +12206,7 @@ public final class BlockchainOuterClass {
       private boolean isPruned_ ;
       /**
        * <pre>
-       * If the blocks are subject to pruning.
+       * Indicates if blocks are subject to pruning.
        * </pre>
        *
        * <code>bool is_pruned = 8 [json_name = "isPruned"];</code>
@@ -12246,7 +12218,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * If the blocks are subject to pruning.
+       * Indicates if blocks are subject to pruning.
        * </pre>
        *
        * <code>bool is_pruned = 8 [json_name = "isPruned"];</code>
@@ -12262,7 +12234,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * If the blocks are subject to pruning.
+       * Indicates if blocks are subject to pruning.
        * </pre>
        *
        * <code>bool is_pruned = 8 [json_name = "isPruned"];</code>
@@ -12278,7 +12250,7 @@ public final class BlockchainOuterClass {
       private int pruningHeight_ ;
       /**
        * <pre>
-       * Lowest-height block stored (only present if pruning is enabled)
+       * The lowest-height block stored (only present if pruning is enabled).
        * </pre>
        *
        * <code>uint32 pruning_height = 9 [json_name = "pruningHeight"];</code>
@@ -12290,7 +12262,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * Lowest-height block stored (only present if pruning is enabled)
+       * The lowest-height block stored (only present if pruning is enabled).
        * </pre>
        *
        * <code>uint32 pruning_height = 9 [json_name = "pruningHeight"];</code>
@@ -12306,7 +12278,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * Lowest-height block stored (only present if pruning is enabled)
+       * The lowest-height block stored (only present if pruning is enabled).
        * </pre>
        *
        * <code>uint32 pruning_height = 9 [json_name = "pruningHeight"];</code>
@@ -12322,7 +12294,7 @@ public final class BlockchainOuterClass {
       private long lastBlockTime_ ;
       /**
        * <pre>
-       * Timestamp of the last block in Unix format
+       * Timestamp of the last block in Unix format.
        * </pre>
        *
        * <code>int64 last_block_time = 10 [json_name = "lastBlockTime"];</code>
@@ -12334,7 +12306,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * Timestamp of the last block in Unix format
+       * Timestamp of the last block in Unix format.
        * </pre>
        *
        * <code>int64 last_block_time = 10 [json_name = "lastBlockTime"];</code>
@@ -12350,7 +12322,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * Timestamp of the last block in Unix format
+       * Timestamp of the last block in Unix format.
        * </pre>
        *
        * <code>int64 last_block_time = 10 [json_name = "lastBlockTime"];</code>
@@ -12936,7 +12908,7 @@ public final class BlockchainOuterClass {
 
     /**
      * <pre>
-     * The proposal of the consensus info.
+     * The proposal information for consensus.
      * </pre>
      *
      * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -12945,7 +12917,7 @@ public final class BlockchainOuterClass {
     boolean hasProposal();
     /**
      * <pre>
-     * The proposal of the consensus info.
+     * The proposal information for consensus.
      * </pre>
      *
      * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -12954,7 +12926,7 @@ public final class BlockchainOuterClass {
     aerium.BlockchainOuterClass.ProposalInfo getProposal();
     /**
      * <pre>
-     * The proposal of the consensus info.
+     * The proposal information for consensus.
      * </pre>
      *
      * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13007,7 +12979,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Response message contains consensus information.
+   * Response message containing consensus information.
    * </pre>
    *
    * Protobuf type {@code aerium.GetConsensusInfoResponse}
@@ -13052,7 +13024,7 @@ public final class BlockchainOuterClass {
     private aerium.BlockchainOuterClass.ProposalInfo proposal_;
     /**
      * <pre>
-     * The proposal of the consensus info.
+     * The proposal information for consensus.
      * </pre>
      *
      * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13064,7 +13036,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * The proposal of the consensus info.
+     * The proposal information for consensus.
      * </pre>
      *
      * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13076,7 +13048,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * The proposal of the consensus info.
+     * The proposal information for consensus.
      * </pre>
      *
      * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13324,7 +13296,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Response message contains consensus information.
+     * Response message containing consensus information.
      * </pre>
      *
      * Protobuf type {@code aerium.GetConsensusInfoResponse}
@@ -13544,7 +13516,7 @@ public final class BlockchainOuterClass {
           aerium.BlockchainOuterClass.ProposalInfo, aerium.BlockchainOuterClass.ProposalInfo.Builder, aerium.BlockchainOuterClass.ProposalInfoOrBuilder> proposalBuilder_;
       /**
        * <pre>
-       * The proposal of the consensus info.
+       * The proposal information for consensus.
        * </pre>
        *
        * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13555,7 +13527,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * The proposal of the consensus info.
+       * The proposal information for consensus.
        * </pre>
        *
        * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13570,7 +13542,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * The proposal of the consensus info.
+       * The proposal information for consensus.
        * </pre>
        *
        * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13590,7 +13562,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * The proposal of the consensus info.
+       * The proposal information for consensus.
        * </pre>
        *
        * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13608,7 +13580,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * The proposal of the consensus info.
+       * The proposal information for consensus.
        * </pre>
        *
        * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13633,7 +13605,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * The proposal of the consensus info.
+       * The proposal information for consensus.
        * </pre>
        *
        * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13650,7 +13622,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * The proposal of the consensus info.
+       * The proposal information for consensus.
        * </pre>
        *
        * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13662,7 +13634,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * The proposal of the consensus info.
+       * The proposal information for consensus.
        * </pre>
        *
        * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -13677,7 +13649,7 @@ public final class BlockchainOuterClass {
       }
       /**
        * <pre>
-       * The proposal of the consensus info.
+       * The proposal information for consensus.
        * </pre>
        *
        * <code>.aerium.ProposalInfo proposal = 1 [json_name = "proposal"];</code>
@@ -14620,7 +14592,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Response message contains transactions in the transaction pool.
+   * Response message containing transactions in the transaction pool.
    * </pre>
    *
    * Protobuf type {@code aerium.GetTxPoolContentResponse}
@@ -14882,7 +14854,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Response message contains transactions in the transaction pool.
+     * Response message containing transactions in the transaction pool.
      * </pre>
      *
      * Protobuf type {@code aerium.GetTxPoolContentResponse}
@@ -15586,7 +15558,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Message contains information about a validator.
+   * Message containing information about a validator.
    * </pre>
    *
    * Protobuf type {@code aerium.ValidatorInfo}
@@ -16190,7 +16162,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Message contains information about a validator.
+     * Message containing information about a validator.
      * </pre>
      *
      * Protobuf type {@code aerium.ValidatorInfo}
@@ -17269,7 +17241,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Message contains information about an account.
+   * Message containing information about an account.
    * </pre>
    *
    * Protobuf type {@code aerium.AccountInfo}
@@ -17683,7 +17655,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Message contains information about an account.
+     * Message containing information about an account.
      * </pre>
      *
      * Protobuf type {@code aerium.AccountInfo}
@@ -18386,7 +18358,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Message contains information about the header of a block.
+   * Message containing information about the header of a block.
    * </pre>
    *
    * Protobuf type {@code aerium.BlockHeaderInfo}
@@ -18831,7 +18803,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Message contains information about the header of a block.
+     * Message containing information about the header of a block.
      * </pre>
      *
      * Protobuf type {@code aerium.BlockHeaderInfo}
@@ -19602,7 +19574,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Message contains information about a certificate.
+   * Message containing information about a certificate.
    * </pre>
    *
    * Protobuf type {@code aerium.CertificateInfo}
@@ -20072,7 +20044,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Message contains information about a certificate.
+     * Message containing information about a certificate.
      * </pre>
      *
      * Protobuf type {@code aerium.CertificateInfo}
@@ -20900,7 +20872,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Message contains information about a vote.
+   * Message containing information about a vote.
    * </pre>
    *
    * Protobuf type {@code aerium.VoteInfo}
@@ -21318,7 +21290,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Message contains information about a vote.
+     * Message containing information about a vote.
      * </pre>
      *
      * Protobuf type {@code aerium.VoteInfo}
@@ -22060,7 +22032,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Message contains information about a consensus instance.
+   * Message containing information about a consensus instance.
    * </pre>
    *
    * Protobuf type {@code aerium.ConsensusInfo}
@@ -22459,7 +22431,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Message contains information about a consensus instance.
+     * Message containing information about a consensus instance.
      * </pre>
      *
      * Protobuf type {@code aerium.ConsensusInfo}
@@ -23347,7 +23319,7 @@ public final class BlockchainOuterClass {
   }
   /**
    * <pre>
-   * Message contains information about a proposal.
+   * Message containing information about a proposal.
    * </pre>
    *
    * Protobuf type {@code aerium.ProposalInfo}
@@ -23702,7 +23674,7 @@ public final class BlockchainOuterClass {
     }
     /**
      * <pre>
-     * Message contains information about a proposal.
+     * Message containing information about a proposal.
      * </pre>
      *
      * Protobuf type {@code aerium.ProposalInfo}

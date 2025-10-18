@@ -11,7 +11,7 @@ pub struct GetTransactionRequest {
     #[prost(enumeration="TransactionVerbosity", tag="2")]
     pub verbosity: i32,
 }
-/// Response message contains details of a transaction.
+/// Response message containing details of a transaction.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetTransactionResponse {
@@ -25,7 +25,7 @@ pub struct GetTransactionResponse {
     #[prost(message, optional, tag="3")]
     pub transaction: ::core::option::Option<TransactionInfo>,
 }
-/// Request message for calculating transaction fee.
+/// Request message for calculating a transaction fee.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct CalculateFeeRequest {
@@ -39,7 +39,7 @@ pub struct CalculateFeeRequest {
     #[prost(bool, tag="3")]
     pub fixed_amount: bool,
 }
-/// Response message contains the calculated transaction fee.
+/// Response message containing the calculated transaction fee.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct CalculateFeeResponse {
@@ -54,11 +54,11 @@ pub struct CalculateFeeResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BroadcastTransactionRequest {
-    /// The signed raw transaction data to be broadcasted.
+    /// The signed raw transaction data to be broadcast.
     #[prost(string, tag="1")]
     pub signed_raw_transaction: ::prost::alloc::string::String,
 }
-/// Response message contains the ID of the broadcasted transaction.
+/// Response message containing the ID of the broadcasted transaction.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BroadcastTransactionResponse {
@@ -162,7 +162,7 @@ pub struct GetRawBatchTransferTransactionRequest {
     /// The sender's account address.
     #[prost(string, tag="2")]
     pub sender: ::prost::alloc::string::String,
-    /// The recipients list of receiver with amount, min 2 recipients.
+    /// The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
     #[prost(message, repeated, tag="3")]
     pub recipients: ::prost::alloc::vec::Vec<Recipient>,
     /// The transaction fee in NanoPAC. If not set, it is set to the estimated fee.
@@ -172,7 +172,7 @@ pub struct GetRawBatchTransferTransactionRequest {
     #[prost(string, tag="5")]
     pub memo: ::prost::alloc::string::String,
 }
-/// Response message contains raw transaction data.
+/// Response message containing raw transaction data.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetRawTransactionResponse {
@@ -254,11 +254,11 @@ pub struct PayloadBatchTransfer {
     /// The sender's address.
     #[prost(string, tag="1")]
     pub sender: ::prost::alloc::string::String,
-    /// The recipients of list receiver with amount.
+    /// The list of recipients, each with a receiver and amount.
     #[prost(message, repeated, tag="2")]
     pub recipients: ::prost::alloc::vec::Vec<Recipient>,
 }
-/// Recipient is receiver with amount.
+/// Recipient is a receiver with an amount.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Recipient {
@@ -328,7 +328,7 @@ pub mod transaction_info {
         /// Withdraw transaction payload.
         #[prost(message, tag="34")]
         Withdraw(super::PayloadWithdraw),
-        /// Batch Transfer transaction payload.
+        /// Batch transfer transaction payload.
         #[prost(message, tag="35")]
         BatchTransfer(super::PayloadBatchTransfer),
     }
@@ -341,7 +341,7 @@ pub struct DecodeRawTransactionRequest {
     #[prost(string, tag="1")]
     pub raw_transaction: ::prost::alloc::string::String,
 }
-/// Response message contains the decoded transaction.
+/// Response message containing the decoded transaction.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DecodeRawTransactionResponse {
@@ -435,7 +435,7 @@ pub struct GetAccountRequest {
     #[prost(string, tag="1")]
     pub address: ::prost::alloc::string::String,
 }
-/// Response message contains account information.
+/// Response message containing account information.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetAccountResponse {
@@ -448,7 +448,7 @@ pub struct GetAccountResponse {
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct GetValidatorAddressesRequest {
 }
-/// Response message contains list of validator addresses.
+/// Response message containing a list of validator addresses.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetValidatorAddressesResponse {
@@ -472,7 +472,7 @@ pub struct GetValidatorByNumberRequest {
     #[prost(int32, tag="1")]
     pub number: i32,
 }
-/// Response message contains validator information.
+/// Response message containing validator information.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetValidatorResponse {
@@ -480,7 +480,7 @@ pub struct GetValidatorResponse {
     #[prost(message, optional, tag="1")]
     pub validator: ::core::option::Option<ValidatorInfo>,
 }
-/// Request message for retrieving public key by address.
+/// Request message for retrieving a public key by address.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetPublicKeyRequest {
@@ -488,7 +488,7 @@ pub struct GetPublicKeyRequest {
     #[prost(string, tag="1")]
     pub address: ::prost::alloc::string::String,
 }
-/// Response message contains public key information.
+/// Response message containing public key information.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetPublicKeyResponse {
@@ -496,7 +496,7 @@ pub struct GetPublicKeyResponse {
     #[prost(string, tag="1")]
     pub public_key: ::prost::alloc::string::String,
 }
-/// Request message for retrieving block information based on height and verbosity level.
+/// Request message for retrieving block information by height and verbosity level.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct GetBlockRequest {
@@ -507,7 +507,7 @@ pub struct GetBlockRequest {
     #[prost(enumeration="BlockVerbosity", tag="2")]
     pub verbosity: i32,
 }
-/// Response message contains block information.
+/// Response message containing block information.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetBlockResponse {
@@ -529,12 +529,11 @@ pub struct GetBlockResponse {
     /// Certificate information of the previous block.
     #[prost(message, optional, tag="6")]
     pub prev_cert: ::core::option::Option<CertificateInfo>,
-    /// List of transactions in the block, available when verbosity level is set to
-    /// BLOCK_TRANSACTIONS.
+    /// List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
     #[prost(message, repeated, tag="7")]
     pub txs: ::prost::alloc::vec::Vec<TransactionInfo>,
 }
-/// Request message for retrieving block hash by height.
+/// Request message for retrieving a block hash by height.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct GetBlockHashRequest {
@@ -542,7 +541,7 @@ pub struct GetBlockHashRequest {
     #[prost(uint32, tag="1")]
     pub height: u32,
 }
-/// Response message contains block hash.
+/// Response message containing a block hash.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetBlockHashResponse {
@@ -550,7 +549,7 @@ pub struct GetBlockHashResponse {
     #[prost(string, tag="1")]
     pub hash: ::prost::alloc::string::String,
 }
-/// Request message for retrieving block height by hash.
+/// Request message for retrieving a block height by hash.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetBlockHeightRequest {
@@ -558,7 +557,7 @@ pub struct GetBlockHeightRequest {
     #[prost(string, tag="1")]
     pub hash: ::prost::alloc::string::String,
 }
-/// Response message contains block height.
+/// Response message containing a block height.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct GetBlockHeightResponse {
@@ -571,7 +570,7 @@ pub struct GetBlockHeightResponse {
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct GetBlockchainInfoRequest {
 }
-/// Response message contains general blockchain information.
+/// Response message containing general blockchain information.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetBlockchainInfoResponse {
@@ -599,13 +598,13 @@ pub struct GetBlockchainInfoResponse {
     /// List of committee validators.
     #[prost(message, repeated, tag="7")]
     pub committee_validators: ::prost::alloc::vec::Vec<ValidatorInfo>,
-    /// If the blocks are subject to pruning.
+    /// Indicates if blocks are subject to pruning.
     #[prost(bool, tag="8")]
     pub is_pruned: bool,
-    /// Lowest-height block stored (only present if pruning is enabled)
+    /// The lowest-height block stored (only present if pruning is enabled).
     #[prost(uint32, tag="9")]
     pub pruning_height: u32,
-    /// Timestamp of the last block in Unix format
+    /// Timestamp of the last block in Unix format.
     #[prost(int64, tag="10")]
     pub last_block_time: i64,
     /// Map of protocol versions and their percentages in the committee.
@@ -617,11 +616,11 @@ pub struct GetBlockchainInfoResponse {
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct GetConsensusInfoRequest {
 }
-/// Response message contains consensus information.
+/// Response message containing consensus information.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetConsensusInfoResponse {
-    /// The proposal of the consensus info.
+    /// The proposal information for consensus.
     #[prost(message, optional, tag="1")]
     pub proposal: ::core::option::Option<ProposalInfo>,
     /// List of consensus instances.
@@ -636,7 +635,7 @@ pub struct GetTxPoolContentRequest {
     #[prost(enumeration="PayloadType", tag="1")]
     pub payload_type: i32,
 }
-/// Response message contains transactions in the transaction pool.
+/// Response message containing transactions in the transaction pool.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetTxPoolContentResponse {
@@ -644,7 +643,7 @@ pub struct GetTxPoolContentResponse {
     #[prost(message, repeated, tag="1")]
     pub txs: ::prost::alloc::vec::Vec<TransactionInfo>,
 }
-/// Message contains information about a validator.
+/// Message containing information about a validator.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ValidatorInfo {
@@ -682,7 +681,7 @@ pub struct ValidatorInfo {
     #[prost(int32, tag="11")]
     pub protocol_version: i32,
 }
-/// Message contains information about an account.
+/// Message containing information about an account.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct AccountInfo {
@@ -702,7 +701,7 @@ pub struct AccountInfo {
     #[prost(string, tag="5")]
     pub address: ::prost::alloc::string::String,
 }
-/// Message contains information about the header of a block.
+/// Message containing information about the header of a block.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct BlockHeaderInfo {
@@ -722,7 +721,7 @@ pub struct BlockHeaderInfo {
     #[prost(string, tag="5")]
     pub proposer_address: ::prost::alloc::string::String,
 }
-/// Message contains information about a certificate.
+/// Message containing information about a certificate.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CertificateInfo {
@@ -742,7 +741,7 @@ pub struct CertificateInfo {
     #[prost(string, tag="5")]
     pub signature: ::prost::alloc::string::String,
 }
-/// Message contains information about a vote.
+/// Message containing information about a vote.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct VoteInfo {
@@ -765,7 +764,7 @@ pub struct VoteInfo {
     #[prost(int32, tag="6")]
     pub cp_value: i32,
 }
-/// Message contains information about a consensus instance.
+/// Message containing information about a consensus instance.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ConsensusInfo {
@@ -785,7 +784,7 @@ pub struct ConsensusInfo {
     #[prost(message, repeated, tag="5")]
     pub votes: ::prost::alloc::vec::Vec<VoteInfo>,
 }
-/// Message contains information about a proposal.
+/// Message containing information about a proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ProposalInfo {
@@ -845,11 +844,11 @@ pub enum VoteType {
     Prepare = 1,
     /// Precommit vote type.
     Precommit = 2,
-    /// Change-proposer:pre-vote vote type.
+    /// Change-proposer pre-vote type.
     CpPreVote = 3,
-    /// Change-proposer:main-vote vote type.
+    /// Change-proposer main-vote type.
     CpMainVote = 4,
-    /// Change-proposer:decided vote type.
+    /// Change-proposer decided vote type.
     CpDecided = 5,
 }
 impl VoteType {
@@ -888,7 +887,7 @@ pub struct GetNetworkInfoRequest {
     #[prost(bool, tag="1")]
     pub only_connected: bool,
 }
-/// Response message contains information about the overall network.
+/// Response message containing information about the overall network.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetNetworkInfoResponse {
@@ -905,16 +904,16 @@ pub struct GetNetworkInfoResponse {
     #[prost(message, optional, tag="4")]
     pub metric_info: ::core::option::Option<MetricInfo>,
 }
-/// Request message for retrieving information of the node.
+/// Request message for retrieving information about the node.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct GetNodeInfoRequest {
 }
-/// Response message contains information about a specific node in the network.
+/// Response message containing information about a specific node in the network.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetNodeInfoResponse {
-    /// Moniker or Human-readable name identifying this node in the network.
+    /// Moniker or human-readable name identifying this node in the network.
     #[prost(string, tag="1")]
     pub moniker: ::prost::alloc::string::String,
     /// Version and agent details of the node.
@@ -964,8 +963,7 @@ pub struct ZmqPublisherInfo {
     /// The address of the publisher.
     #[prost(string, tag="2")]
     pub address: ::prost::alloc::string::String,
-    /// The high-water mark (HWM) for the publisher, indicating the
-    /// maximum number of messages to queue before dropping older ones.
+    /// The high-water mark (HWM) for the publisher, indicating the maximum number of messages to queue before dropping older ones.
     #[prost(int32, tag="3")]
     pub hwm: i32,
 }
@@ -976,13 +974,13 @@ pub struct PeerInfo {
     /// Current status of the peer (e.g., connected, disconnected).
     #[prost(int32, tag="1")]
     pub status: i32,
-    /// Moniker or Human-Readable name of the peer.
+    /// Moniker or human-readable name of the peer.
     #[prost(string, tag="2")]
     pub moniker: ::prost::alloc::string::String,
     /// Version and agent details of the peer.
     #[prost(string, tag="3")]
     pub agent: ::prost::alloc::string::String,
-    /// Peer ID of the peer in P2P network.
+    /// Peer ID of the peer in the P2P network.
     #[prost(string, tag="4")]
     pub peer_id: ::prost::alloc::string::String,
     /// List of consensus keys used by the peer.
@@ -1024,7 +1022,7 @@ pub struct PeerInfo {
     /// Metrics related to peer activity.
     #[prost(message, optional, tag="17")]
     pub metric_info: ::core::option::Option<MetricInfo>,
-    /// Whether the hello message was sent from the outbound connection.
+    /// Indicates whether the hello message was sent from the outbound connection.
     #[prost(bool, tag="18")]
     pub outbound_hello_sent: bool,
 }
@@ -1073,15 +1071,15 @@ pub struct CounterInfo {
     #[prost(uint64, tag="2")]
     pub bundles: u64,
 }
-/// Direction represents the connection direction between peers.
+/// The Direction enum represents the connection direction between peers.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum Direction {
     /// Unknown direction (default value).
     Unknown = 0,
-    /// Inbound connection - peer connected to us.
+    /// Inbound connection: peer connected to us.
     Inbound = 1,
-    /// Outbound connection - we connected to peer.
+    /// Outbound connection: we connected to the peer.
     Outbound = 2,
 }
 impl Direction {
@@ -1117,7 +1115,7 @@ pub struct SignMessageWithPrivateKeyRequest {
     #[prost(string, tag="2")]
     pub message: ::prost::alloc::string::String,
 }
-/// Response message contains the signature generated from the message.
+/// Response message containing the signature generated from the message.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SignMessageWithPrivateKeyResponse {
@@ -1139,11 +1137,11 @@ pub struct VerifyMessageRequest {
     #[prost(string, tag="3")]
     pub public_key: ::prost::alloc::string::String,
 }
-/// Response message contains the verification result.
+/// Response message containing the verification result.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct VerifyMessageResponse {
-    /// Boolean indicating whether the signature is valid for the given message and public key.
+    /// Indicates whether the signature is valid for the given message and public key.
     #[prost(bool, tag="1")]
     pub is_valid: bool,
 }
@@ -1155,7 +1153,7 @@ pub struct PublicKeyAggregationRequest {
     #[prost(string, repeated, tag="1")]
     pub public_keys: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// Response message contains the aggregated BLS public key result.
+/// Response message containing the aggregated BLS public key result.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct PublicKeyAggregationResponse {
@@ -1174,7 +1172,7 @@ pub struct SignatureAggregationRequest {
     #[prost(string, repeated, tag="1")]
     pub signatures: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
-/// Response message contains the aggregated BLS signature.
+/// Response message containing the aggregated BLS signature.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SignatureAggregationResponse {
@@ -1230,7 +1228,7 @@ pub struct GetAddressHistoryRequest {
     #[prost(string, tag="2")]
     pub address: ::prost::alloc::string::String,
 }
-/// Response message contains address transaction history.
+/// Response message containing address transaction history.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetAddressHistoryResponse {
@@ -1242,7 +1240,7 @@ pub struct GetAddressHistoryResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetNewAddressRequest {
-    /// The name of the wallet to generate a new address.
+    /// The name of the wallet to generate a new address for.
     #[prost(string, tag="1")]
     pub wallet_name: ::prost::alloc::string::String,
     /// The type of address to generate.
@@ -1251,15 +1249,15 @@ pub struct GetNewAddressRequest {
     /// A label for the new address.
     #[prost(string, tag="3")]
     pub label: ::prost::alloc::string::String,
-    /// Password for the new address. It's required when address_type is Ed25519 type.
+    /// Password for the new address. Required when address_type is Ed25519.
     #[prost(string, tag="4")]
     pub password: ::prost::alloc::string::String,
 }
-/// Response message contains newly generated address information.
+/// Response message containing newly generated address information.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetNewAddressResponse {
-    /// The name of the wallet where address was generated.
+    /// The name of the wallet where the address was generated.
     #[prost(string, tag="1")]
     pub wallet_name: ::prost::alloc::string::String,
     /// Detailed information about the new address.
@@ -1299,7 +1297,7 @@ pub struct CreateWalletRequest {
     #[prost(string, tag="4")]
     pub password: ::prost::alloc::string::String,
 }
-/// Response message contains wallet recovery mnemonic (seed phrase).
+/// Response message containing wallet recovery mnemonic (seed phrase).
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CreateWalletResponse {
@@ -1369,7 +1367,7 @@ pub struct SignRawTransactionRequest {
     #[prost(string, tag="3")]
     pub password: ::prost::alloc::string::String,
 }
-/// Response message contains the transaction ID and signed raw transaction.
+/// Response message containing the transaction ID and signed raw transaction.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SignRawTransactionResponse {
@@ -1384,11 +1382,11 @@ pub struct SignRawTransactionResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetTotalBalanceRequest {
-    /// The name of the wallet to get the total balance.
+    /// The name of the wallet to get the total balance for.
     #[prost(string, tag="1")]
     pub wallet_name: ::prost::alloc::string::String,
 }
-/// Response message contains the total available balance of the wallet.
+/// Response message containing the total available balance of the wallet.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetTotalBalanceResponse {
@@ -1416,7 +1414,7 @@ pub struct SignMessageRequest {
     #[prost(string, tag="4")]
     pub message: ::prost::alloc::string::String,
 }
-/// Response message contains message signature.
+/// Response message containing the message signature.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SignMessageResponse {
@@ -1428,11 +1426,11 @@ pub struct SignMessageResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetTotalStakeRequest {
-    /// The name of the wallet to get the total stake.
+    /// The name of the wallet to get the total stake for.
     #[prost(string, tag="1")]
     pub wallet_name: ::prost::alloc::string::String,
 }
-/// Response message contains the total stake of the wallet.
+/// Response message containing the total stake of the wallet.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetTotalStakeResponse {
@@ -1454,7 +1452,7 @@ pub struct GetAddressInfoRequest {
     #[prost(string, tag="2")]
     pub address: ::prost::alloc::string::String,
 }
-/// Response message contains address details.
+/// Response message containing address details.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetAddressInfoResponse {
@@ -1474,7 +1472,7 @@ pub struct GetAddressInfoResponse {
     #[prost(string, tag="5")]
     pub path: ::prost::alloc::string::String,
 }
-/// Request message for setting address label.
+/// Request message for setting an address label.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SetAddressLabelRequest {
@@ -1501,7 +1499,7 @@ pub struct SetAddressLabelResponse {
 #[derive(Clone, Copy, PartialEq, ::prost::Message)]
 pub struct ListWalletRequest {
 }
-/// Response message contains wallet names.
+/// Response message containing wallet names.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListWalletResponse {
@@ -1517,7 +1515,7 @@ pub struct GetWalletInfoRequest {
     #[prost(string, tag="1")]
     pub wallet_name: ::prost::alloc::string::String,
 }
-/// Response message contains wallet details.
+/// Response message containing wallet details.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct GetWalletInfoResponse {
@@ -1533,7 +1531,7 @@ pub struct GetWalletInfoResponse {
     /// Indicates if the wallet is encrypted.
     #[prost(bool, tag="4")]
     pub encrypted: bool,
-    /// A unique identifier of the wallet.
+    /// A unique identifier for the wallet.
     #[prost(string, tag="5")]
     pub uuid: ::prost::alloc::string::String,
     /// Unix timestamp of wallet creation.
@@ -1548,14 +1546,14 @@ pub struct ListAddressRequest {
     #[prost(string, tag="1")]
     pub wallet_name: ::prost::alloc::string::String,
 }
-/// Response message contains wallet addresses.
+/// Response message containing wallet addresses.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ListAddressResponse {
     /// The name of the queried wallet.
     #[prost(string, tag="1")]
     pub wallet_name: ::prost::alloc::string::String,
-    /// ist of all addresses in the wallet with their details.
+    /// List of all addresses in the wallet with their details.
     #[prost(message, repeated, tag="2")]
     pub data: ::prost::alloc::vec::Vec<AddressInfo>,
 }
@@ -1563,15 +1561,13 @@ pub struct ListAddressResponse {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum AddressType {
-    /// Treasury address type.
-    /// Should not be used to generate new addresses.
+    /// Treasury address type. Should not be used to generate new addresses.
     Treasury = 0,
     /// Validator address type used for validator nodes.
     Validator = 1,
     /// Account address type with BLS signature scheme.
     BlsAccount = 2,
-    /// Account address type with Ed25519 signature scheme.
-    /// Note: Generating a new Ed25519 address requires the wallet password.
+    /// Account address type with Ed25519 signature scheme. Note: Generating a new Ed25519 address requires the wallet password.
     Ed25519Account = 3,
 }
 impl AddressType {

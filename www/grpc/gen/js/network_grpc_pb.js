@@ -49,9 +49,9 @@ function deserialize_aerium_GetNodeInfoResponse(buffer_arg) {
 }
 
 
-// Network service provides RPCs for retrieving information about the network.
+// The Network service provides RPCs for retrieving information about the network.
 var NetworkService = exports.NetworkService = {
-  // GetNetworkInfo retrieves information about the overall network.
+  // Retrieves information about the overall network.
 getNetworkInfo: {
     path: '/aerium.Network/GetNetworkInfo',
     requestStream: false,
@@ -63,7 +63,7 @@ getNetworkInfo: {
     responseSerialize: serialize_aerium_GetNetworkInfoResponse,
     responseDeserialize: deserialize_aerium_GetNetworkInfoResponse,
   },
-  // GetNodeInfo retrieves information about a specific node in the network.
+  // Retrieves information about a specific node in the network.
 getNodeInfo: {
     path: '/aerium.Network/GetNodeInfo',
     requestStream: false,

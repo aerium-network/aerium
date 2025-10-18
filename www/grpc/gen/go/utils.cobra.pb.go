@@ -16,7 +16,7 @@ func UtilsClientCommand(options ...client.Option) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("Utils"),
 		Short: "Utils service client",
-		Long:  "Utils service defines RPC methods for utility functions such as message\n signing, verification, and etc.",
+		Long:  "The Utils service defines RPC methods for utility functions such as message signing, verification, and more.",
 	}
 	cfg.BindFlags(cmd.PersistentFlags())
 	cmd.AddCommand(
@@ -34,7 +34,7 @@ func _UtilsSignMessageWithPrivateKeyCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("SignMessageWithPrivateKey"),
 		Short: "SignMessageWithPrivateKey RPC client",
-		Long:  "SignMessageWithPrivateKey signs a message with the provided private key.",
+		Long:  "Signs a message with the provided private key.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Utils"); err != nil {
@@ -77,7 +77,7 @@ func _UtilsVerifyMessageCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("VerifyMessage"),
 		Short: "VerifyMessage RPC client",
-		Long:  "VerifyMessage verifies a signature against the public key and message.",
+		Long:  "Verifies a signature against the public key and message.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Utils"); err != nil {
@@ -121,7 +121,7 @@ func _UtilsPublicKeyAggregationCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("PublicKeyAggregation"),
 		Short: "PublicKeyAggregation RPC client",
-		Long:  "PublicKeyAggregation aggregates multiple BLS public keys into a single key.",
+		Long:  "Aggregates multiple BLS public keys into a single key.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Utils"); err != nil {
@@ -163,7 +163,7 @@ func _UtilsSignatureAggregationCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("SignatureAggregation"),
 		Short: "SignatureAggregation RPC client",
-		Long:  "SignatureAggregation aggregates multiple BLS signatures into a single signature.",
+		Long:  "Aggregates multiple BLS signatures into a single signature.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Utils"); err != nil {

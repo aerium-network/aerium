@@ -13,13 +13,13 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-/// Direction represents the connection direction between peers.
+/// The Direction enum represents the connection direction between peers.
 class Direction extends $pb.ProtobufEnum {
   /// Unknown direction (default value).
   static const Direction DIRECTION_UNKNOWN = Direction._(0, _omitEnumNames ? '' : 'DIRECTION_UNKNOWN');
-  /// Inbound connection - peer connected to us.
+  /// Inbound connection: peer connected to us.
   static const Direction DIRECTION_INBOUND = Direction._(1, _omitEnumNames ? '' : 'DIRECTION_INBOUND');
-  /// Outbound connection - we connected to peer.
+  /// Outbound connection: we connected to the peer.
   static const Direction DIRECTION_OUTBOUND = Direction._(2, _omitEnumNames ? '' : 'DIRECTION_OUTBOUND');
 
   static const $core.List<Direction> values = <Direction> [

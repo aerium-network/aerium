@@ -194,7 +194,7 @@ func (x *GetTransactionRequest) GetVerbosity() TransactionVerbosity {
 	return TransactionVerbosity_TRANSACTION_VERBOSITY_DATA
 }
 
-// Response message contains details of a transaction.
+// Response message containing details of a transaction.
 type GetTransactionResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The height of the block containing the transaction.
@@ -258,7 +258,7 @@ func (x *GetTransactionResponse) GetTransaction() *TransactionInfo {
 	return nil
 }
 
-// Request message for calculating transaction fee.
+// Request message for calculating a transaction fee.
 type CalculateFeeRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The amount involved in the transaction, specified in NanoPAC.
@@ -322,7 +322,7 @@ func (x *CalculateFeeRequest) GetFixedAmount() bool {
 	return false
 }
 
-// Response message contains the calculated transaction fee.
+// Response message containing the calculated transaction fee.
 type CalculateFeeResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The calculated amount in NanoPAC.
@@ -380,7 +380,7 @@ func (x *CalculateFeeResponse) GetFee() int64 {
 // Request message for broadcasting a signed transaction to the network.
 type BroadcastTransactionRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// The signed raw transaction data to be broadcasted.
+	// The signed raw transaction data to be broadcast.
 	SignedRawTransaction string `protobuf:"bytes,1,opt,name=signed_raw_transaction,json=signedRawTransaction,proto3" json:"signed_raw_transaction,omitempty"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
@@ -423,7 +423,7 @@ func (x *BroadcastTransactionRequest) GetSignedRawTransaction() string {
 	return ""
 }
 
-// Response message contains the ID of the broadcasted transaction.
+// Response message containing the ID of the broadcasted transaction.
 type BroadcastTransactionResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The unique ID of the broadcasted transaction.
@@ -822,7 +822,7 @@ type GetRawBatchTransferTransactionRequest struct {
 	LockTime uint32 `protobuf:"varint,1,opt,name=lock_time,json=lockTime,proto3" json:"lock_time,omitempty"`
 	// The sender's account address.
 	Sender string `protobuf:"bytes,2,opt,name=sender,proto3" json:"sender,omitempty"`
-	// The recipients list of receiver with amount, min 2 recipients.
+	// The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
 	Recipients []*Recipient `protobuf:"bytes,3,rep,name=recipients,proto3" json:"recipients,omitempty"`
 	// The transaction fee in NanoPAC. If not set, it is set to the estimated fee.
 	Fee int64 `protobuf:"varint,4,opt,name=fee,proto3" json:"fee,omitempty"`
@@ -897,7 +897,7 @@ func (x *GetRawBatchTransferTransactionRequest) GetMemo() string {
 	return ""
 }
 
-// Response message contains raw transaction data.
+// Response message containing raw transaction data.
 type GetRawTransactionResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The raw transaction data in hexadecimal format.
@@ -1259,7 +1259,7 @@ type PayloadBatchTransfer struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The sender's address.
 	Sender string `protobuf:"bytes,1,opt,name=sender,proto3" json:"sender,omitempty"`
-	// The recipients of list receiver with amount.
+	// The list of recipients, each with a receiver and amount.
 	Recipients    []*Recipient `protobuf:"bytes,2,rep,name=recipients,proto3" json:"recipients,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1309,7 +1309,7 @@ func (x *PayloadBatchTransfer) GetRecipients() []*Recipient {
 	return nil
 }
 
-// Recipient is receiver with amount.
+// Recipient is a receiver with an amount.
 type Recipient struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The receiver's address.
@@ -1593,7 +1593,7 @@ type TransactionInfo_Withdraw struct {
 }
 
 type TransactionInfo_BatchTransfer struct {
-	// Batch Transfer transaction payload.
+	// Batch transfer transaction payload.
 	BatchTransfer *PayloadBatchTransfer `protobuf:"bytes,35,opt,name=batch_transfer,json=batchTransfer,proto3,oneof"`
 }
 
@@ -1655,7 +1655,7 @@ func (x *DecodeRawTransactionRequest) GetRawTransaction() string {
 	return ""
 }
 
-// Response message contains the decoded transaction.
+// Response message containing the decoded transaction.
 type DecodeRawTransactionResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The decoded transaction information.

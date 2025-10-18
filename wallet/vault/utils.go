@@ -6,8 +6,8 @@ import (
 	"golang.org/x/exp/constraints"
 )
 
-// GenerateMnemonic generates a new mnemonic (seed phrase) based on BIP-39
-// https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
+// GenerateMnemonic generates a new mnemonic (seed phrase) based on BIP-39.
+// See: https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
 func GenerateMnemonic(bitSize int) (string, error) {
 	entropy, err := bip39.NewEntropy(bitSize)
 	if err != nil {
@@ -19,7 +19,7 @@ func GenerateMnemonic(bitSize int) (string, error) {
 	return mnemonic, err
 }
 
-// CheckMnemonic validates a mnemonic (seed phrase) based on BIP-39.
+// CheckMnemonic validates a mnemonic (seed phrase) according to BIP-39.
 func CheckMnemonic(mnemonic string) error {
 	_, err := bip39.EntropyFromMnemonic(mnemonic)
 

@@ -159,9 +159,9 @@ function deserialize_aerium_GetTransactionResponse(buffer_arg) {
 }
 
 
-// Transaction service defines various RPC methods for interacting with transactions.
+// The Transaction service defines RPC methods for interacting with transactions.
 var TransactionService = exports.TransactionService = {
-  // GetTransaction retrieves transaction details based on the provided request parameters.
+  // Retrieves transaction details based on the provided request parameters.
 getTransaction: {
     path: '/aerium.Transaction/GetTransaction',
     requestStream: false,
@@ -173,7 +173,7 @@ getTransaction: {
     responseSerialize: serialize_aerium_GetTransactionResponse,
     responseDeserialize: deserialize_aerium_GetTransactionResponse,
   },
-  // CalculateFee calculates the transaction fee based on the specified amount and payload type.
+  // Calculates the transaction fee based on the specified amount and payload type.
 calculateFee: {
     path: '/aerium.Transaction/CalculateFee',
     requestStream: false,
@@ -185,7 +185,7 @@ calculateFee: {
     responseSerialize: serialize_aerium_CalculateFeeResponse,
     responseDeserialize: deserialize_aerium_CalculateFeeResponse,
   },
-  // BroadcastTransaction broadcasts a signed transaction to the network.
+  // Broadcasts a signed transaction to the network.
 broadcastTransaction: {
     path: '/aerium.Transaction/BroadcastTransaction',
     requestStream: false,
@@ -197,7 +197,7 @@ broadcastTransaction: {
     responseSerialize: serialize_aerium_BroadcastTransactionResponse,
     responseDeserialize: deserialize_aerium_BroadcastTransactionResponse,
   },
-  // GetRawTransferTransaction retrieves raw details of a transfer transaction.
+  // Retrieves raw details of a transfer transaction.
 getRawTransferTransaction: {
     path: '/aerium.Transaction/GetRawTransferTransaction',
     requestStream: false,
@@ -209,7 +209,7 @@ getRawTransferTransaction: {
     responseSerialize: serialize_aerium_GetRawTransactionResponse,
     responseDeserialize: deserialize_aerium_GetRawTransactionResponse,
   },
-  // GetRawBondTransaction retrieves raw details of a bond transaction.
+  // Retrieves raw details of a bond transaction.
 getRawBondTransaction: {
     path: '/aerium.Transaction/GetRawBondTransaction',
     requestStream: false,
@@ -221,7 +221,7 @@ getRawBondTransaction: {
     responseSerialize: serialize_aerium_GetRawTransactionResponse,
     responseDeserialize: deserialize_aerium_GetRawTransactionResponse,
   },
-  // GetRawUnbondTransaction retrieves raw details of an unbond transaction.
+  // Retrieves raw details of an unbond transaction.
 getRawUnbondTransaction: {
     path: '/aerium.Transaction/GetRawUnbondTransaction',
     requestStream: false,
@@ -233,7 +233,7 @@ getRawUnbondTransaction: {
     responseSerialize: serialize_aerium_GetRawTransactionResponse,
     responseDeserialize: deserialize_aerium_GetRawTransactionResponse,
   },
-  // GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.
+  // Retrieves raw details of a withdraw transaction.
 getRawWithdrawTransaction: {
     path: '/aerium.Transaction/GetRawWithdrawTransaction',
     requestStream: false,
@@ -245,7 +245,7 @@ getRawWithdrawTransaction: {
     responseSerialize: serialize_aerium_GetRawTransactionResponse,
     responseDeserialize: deserialize_aerium_GetRawTransactionResponse,
   },
-  // GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.
+  // Retrieves raw details of a batch transfer transaction.
 getRawBatchTransferTransaction: {
     path: '/aerium.Transaction/GetRawBatchTransferTransaction',
     requestStream: false,
@@ -257,7 +257,7 @@ getRawBatchTransferTransaction: {
     responseSerialize: serialize_aerium_GetRawTransactionResponse,
     responseDeserialize: deserialize_aerium_GetRawTransactionResponse,
   },
-  // DecodeRawTransaction accepts raw transaction and returns decoded transaction.
+  // Decodes a raw transaction and returns the decoded transaction.
 decodeRawTransaction: {
     path: '/aerium.Transaction/DecodeRawTransaction',
     requestStream: false,
