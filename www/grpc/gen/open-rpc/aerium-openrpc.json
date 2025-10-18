@@ -6,7 +6,7 @@
   },
   "methods": [{
       "name": "aerium.transaction.get_transaction",
-      "description": "GetTransaction retrieves transaction details based on the provided request parameters.",
+      "description": "Retrieves transaction details based on the provided request parameters.",
       "tags": [{ "name": "transaction"}],
       "paramStructure": "by-name",
       "params": [{
@@ -54,7 +54,7 @@
         }
       },{
       "name": "aerium.transaction.calculate_fee",
-      "description": "CalculateFee calculates the transaction fee based on the specified amount and payload type.",
+      "description": "Calculates the transaction fee based on the specified amount and payload type.",
       "tags": [{ "name": "transaction"}],
       "paramStructure": "by-name",
       "params": [{
@@ -79,12 +79,12 @@
         }
       },{
       "name": "aerium.transaction.broadcast_transaction",
-      "description": "BroadcastTransaction broadcasts a signed transaction to the network.",
+      "description": "Broadcasts a signed transaction to the network.",
       "tags": [{ "name": "transaction"}],
       "paramStructure": "by-name",
       "params": [{
           "name": "signed_raw_transaction",
-          "description": "The signed raw transaction data to be broadcasted.",
+          "description": "The signed raw transaction data to be broadcast.",
           "schema": { "type": "string" }
         }],
       "result": {
@@ -96,7 +96,7 @@
         }
       },{
       "name": "aerium.transaction.get_raw_transfer_transaction",
-      "description": "GetRawTransferTransaction retrieves raw details of a transfer transaction.",
+      "description": "Retrieves raw details of a transfer transaction.",
       "tags": [{ "name": "transaction"}],
       "paramStructure": "by-name",
       "params": [{
@@ -133,7 +133,7 @@
         }
       },{
       "name": "aerium.transaction.get_raw_bond_transaction",
-      "description": "GetRawBondTransaction retrieves raw details of a bond transaction.",
+      "description": "Retrieves raw details of a bond transaction.",
       "tags": [{ "name": "transaction"}],
       "paramStructure": "by-name",
       "params": [{
@@ -174,7 +174,7 @@
         }
       },{
       "name": "aerium.transaction.get_raw_unbond_transaction",
-      "description": "GetRawUnbondTransaction retrieves raw details of an unbond transaction.",
+      "description": "Retrieves raw details of an unbond transaction.",
       "tags": [{ "name": "transaction"}],
       "paramStructure": "by-name",
       "params": [{
@@ -199,7 +199,7 @@
         }
       },{
       "name": "aerium.transaction.get_raw_withdraw_transaction",
-      "description": "GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.",
+      "description": "Retrieves raw details of a withdraw transaction.",
       "tags": [{ "name": "transaction"}],
       "paramStructure": "by-name",
       "params": [{
@@ -236,7 +236,7 @@
         }
       },{
       "name": "aerium.transaction.get_raw_batch_transfer_transaction",
-      "description": "GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.",
+      "description": "Retrieves raw details of a batch transfer transaction.",
       "tags": [{ "name": "transaction"}],
       "paramStructure": "by-name",
       "params": [{
@@ -249,7 +249,7 @@
           "schema": { "type": "string" }
         },{
           "name": "recipients",
-          "description": "The recipients list of receiver with amount, min 2 recipients.",
+          "description": "The list of recipients, each with a receiver and amount. Minimum 2 recipients required.",
           "schema": {
   "type": "array",
   "items": {
@@ -275,7 +275,7 @@
         }
       },{
       "name": "aerium.transaction.decode_raw_transaction",
-      "description": "DecodeRawTransaction accepts raw transaction and returns decoded transaction.",
+      "description": "Decodes a raw transaction and returns the decoded transaction.",
       "tags": [{ "name": "transaction"}],
       "paramStructure": "by-name",
       "params": [{
@@ -319,7 +319,7 @@
         }
       },{
       "name": "aerium.blockchain.get_block",
-      "description": "GetBlock retrieves information about a block based on the provided request parameters.",
+      "description": "Retrieves information about a block based on the provided request parameters.",
       "tags": [{ "name": "blockchain"}],
       "paramStructure": "by-name",
       "params": [{
@@ -382,7 +382,7 @@
         }
       },{
       "name": "aerium.blockchain.get_block_hash",
-      "description": "GetBlockHash retrieves the hash of a block at the specified height.",
+      "description": "Retrieves the hash of a block at the specified height.",
       "tags": [{ "name": "blockchain"}],
       "paramStructure": "by-name",
       "params": [{
@@ -399,7 +399,7 @@
         }
       },{
       "name": "aerium.blockchain.get_block_height",
-      "description": "GetBlockHeight retrieves the height of a block with the specified hash.",
+      "description": "Retrieves the height of a block with the specified hash.",
       "tags": [{ "name": "blockchain"}],
       "paramStructure": "by-name",
       "params": [{
@@ -416,7 +416,7 @@
         }
       },{
       "name": "aerium.blockchain.get_blockchain_info",
-      "description": "GetBlockchainInfo retrieves general information about the blockchain.",
+      "description": "Retrieves general information about the blockchain.",
       "tags": [{ "name": "blockchain"}],
       "paramStructure": "by-name",
       "params": [],
@@ -437,7 +437,7 @@
         }
       },{
       "name": "aerium.blockchain.get_consensus_info",
-      "description": "GetConsensusInfo retrieves information about the consensus instances.",
+      "description": "Retrieves information about consensus instances.",
       "tags": [{ "name": "blockchain"}],
       "paramStructure": "by-name",
       "params": [],
@@ -465,7 +465,7 @@
         }
       },{
       "name": "aerium.blockchain.get_account",
-      "description": "GetAccount retrieves information about an account based on the provided address.",
+      "description": "Retrieves information about an account for the provided address.",
       "tags": [{ "name": "blockchain"}],
       "paramStructure": "by-name",
       "params": [{
@@ -485,7 +485,7 @@
         }
       },{
       "name": "aerium.blockchain.get_validator",
-      "description": "GetValidator retrieves information about a validator based on the provided address.",
+      "description": "Retrieves information about a validator for the provided address.",
       "tags": [{ "name": "blockchain"}],
       "paramStructure": "by-name",
       "params": [{
@@ -505,7 +505,7 @@
         }
       },{
       "name": "aerium.blockchain.get_validator_by_number",
-      "description": "GetValidatorByNumber retrieves information about a validator based on the provided number.",
+      "description": "Retrieves information about a validator by its number.",
       "tags": [{ "name": "blockchain"}],
       "paramStructure": "by-name",
       "params": [{
@@ -525,7 +525,7 @@
         }
       },{
       "name": "aerium.blockchain.get_validator_addresses",
-      "description": "GetValidatorAddresses retrieves a list of all validator addresses.",
+      "description": "Retrieves a list of all validator addresses.",
       "tags": [{ "name": "blockchain"}],
       "paramStructure": "by-name",
       "params": [],
@@ -541,7 +541,7 @@
         }
       },{
       "name": "aerium.blockchain.get_public_key",
-      "description": "GetPublicKey retrieves the public key of an account based on the provided address.",
+      "description": "Retrieves the public key of an account for the provided address.",
       "tags": [{ "name": "blockchain"}],
       "paramStructure": "by-name",
       "params": [{
@@ -558,7 +558,7 @@
         }
       },{
       "name": "aerium.blockchain.get_tx_pool_content",
-      "description": "GetTxPoolContent retrieves current transactions in the transaction pool.",
+      "description": "Retrieves current transactions in the transaction pool.",
       "tags": [{ "name": "blockchain"}],
       "paramStructure": "by-name",
       "params": [{
@@ -605,7 +605,7 @@
         }
       },{
       "name": "aerium.network.get_network_info",
-      "description": "GetNetworkInfo retrieves information about the overall network.",
+      "description": "Retrieves information about the overall network.",
       "tags": [{ "name": "network"}],
       "paramStructure": "by-name",
       "params": [{
@@ -669,7 +669,7 @@
         }
       },{
       "name": "aerium.network.get_node_info",
-      "description": "GetNodeInfo retrieves information about a specific node in the network.",
+      "description": "Retrieves information about a specific node in the network.",
       "tags": [{ "name": "network"}],
       "paramStructure": "by-name",
       "params": [],
@@ -697,7 +697,7 @@
         }
       },{
       "name": "aerium.utils.sign_message_with_private_key",
-      "description": "SignMessageWithPrivateKey signs a message with the provided private key.",
+      "description": "Signs a message with the provided private key.",
       "tags": [{ "name": "utils"}],
       "paramStructure": "by-name",
       "params": [{
@@ -718,7 +718,7 @@
         }
       },{
       "name": "aerium.utils.verify_message",
-      "description": "VerifyMessage verifies a signature against the public key and message.",
+      "description": "Verifies a signature against the public key and message.",
       "tags": [{ "name": "utils"}],
       "paramStructure": "by-name",
       "params": [{
@@ -743,7 +743,7 @@
         }
       },{
       "name": "aerium.utils.public_key_aggregation",
-      "description": "PublicKeyAggregation aggregates multiple BLS public keys into a single key.",
+      "description": "Aggregates multiple BLS public keys into a single key.",
       "tags": [{ "name": "utils"}],
       "paramStructure": "by-name",
       "params": [{
@@ -763,7 +763,7 @@
         }
       },{
       "name": "aerium.utils.signature_aggregation",
-      "description": "SignatureAggregation aggregates multiple BLS signatures into a single signature.",
+      "description": "Aggregates multiple BLS signatures into a single signature.",
       "tags": [{ "name": "utils"}],
       "paramStructure": "by-name",
       "params": [{
@@ -783,7 +783,7 @@
         }
       },{
       "name": "aerium.wallet.create_wallet",
-      "description": "CreateWallet creates a new wallet with the specified parameters.",
+      "description": "Creates a new wallet with the specified parameters.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
@@ -804,7 +804,7 @@
         }
       },{
       "name": "aerium.wallet.restore_wallet",
-      "description": "RestoreWallet restores an existing wallet with the given mnemonic.",
+      "description": "Restores an existing wallet with the given mnemonic.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
@@ -829,7 +829,7 @@
         }
       },{
       "name": "aerium.wallet.load_wallet",
-      "description": "LoadWallet loads an existing wallet with the given name.",
+      "description": "Loads an existing wallet with the given name.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
@@ -846,7 +846,7 @@
         }
       },{
       "name": "aerium.wallet.unload_wallet",
-      "description": "UnloadWallet unloads a currently loaded wallet with the specified name.",
+      "description": "Unloads a currently loaded wallet with the specified name.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
@@ -863,12 +863,12 @@
         }
       },{
       "name": "aerium.wallet.get_total_balance",
-      "description": "GetTotalBalance returns the total available balance of the wallet.",
+      "description": "Returns the total available balance of the wallet.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
           "name": "wallet_name",
-          "description": "The name of the wallet to get the total balance.",
+          "description": "The name of the wallet to get the total balance for.",
           "schema": { "type": "string" }
         }],
       "result": {
@@ -880,7 +880,7 @@
         }
       },{
       "name": "aerium.wallet.sign_raw_transaction",
-      "description": "SignRawTransaction signs a raw transaction for a specified wallet.",
+      "description": "Signs a raw transaction for a specified wallet.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
@@ -905,7 +905,7 @@
         }
       },{
       "name": "aerium.wallet.get_validator_address",
-      "description": "GetValidatorAddress retrieves the validator address associated with a public key.",
+      "description": "Retrieves the validator address associated with a public key.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
@@ -922,12 +922,12 @@
         }
       },{
       "name": "aerium.wallet.get_new_address",
-      "description": "GetNewAddress generates a new address for the specified wallet.",
+      "description": "Generates a new address for the specified wallet.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
           "name": "wallet_name",
-          "description": "The name of the wallet to generate a new address.",
+          "description": "The name of the wallet to generate a new address for.",
           "schema": { "type": "string" }
         },{
           "name": "address_type",
@@ -939,7 +939,7 @@
           "schema": { "type": "string" }
         },{
           "name": "password",
-          "description": "Password for the new address. It's required when address_type is Ed25519 type.",
+          "description": "Password for the new address. Required when address_type is Ed25519.",
           "schema": { "type": "string" }
         }],
       "result": {
@@ -954,7 +954,7 @@
         }
       },{
       "name": "aerium.wallet.get_address_history",
-      "description": "GetAddressHistory retrieves the transaction history of an address.",
+      "description": "Retrieves the transaction history of an address.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
@@ -981,7 +981,7 @@
         }
       },{
       "name": "aerium.wallet.sign_message",
-      "description": "SignMessage signs an arbitrary message using a wallet's private key.",
+      "description": "Signs an arbitrary message using a wallet's private key.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
@@ -1010,12 +1010,12 @@
         }
       },{
       "name": "aerium.wallet.get_total_stake",
-      "description": "GetTotalStake returns the total stake amount in the wallet.",
+      "description": "Returns the total stake amount in the wallet.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
           "name": "wallet_name",
-          "description": "The name of the wallet to get the total stake.",
+          "description": "The name of the wallet to get the total stake for.",
           "schema": { "type": "string" }
         }],
       "result": {
@@ -1027,7 +1027,7 @@
         }
       },{
       "name": "aerium.wallet.get_address_info",
-      "description": "GetAddressInfo returns detailed information about a specific address.",
+      "description": "Returns detailed information about a specific address.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
@@ -1048,7 +1048,7 @@
         }
       },{
       "name": "aerium.wallet.set_address_label",
-      "description": "SetAddressLabel sets or updates the label for a given address.",
+      "description": "Sets or updates the label for a given address.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
@@ -1077,7 +1077,7 @@
         }
       },{
       "name": "aerium.wallet.list_wallet",
-      "description": "ListWallet returns list of all available wallets.",
+      "description": "Returns a list of all available wallets.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [],
@@ -1093,7 +1093,7 @@
         }
       },{
       "name": "aerium.wallet.get_wallet_info",
-      "description": "GetWalletInfo returns detailed information about a specific wallet.",
+      "description": "Returns detailed information about a specific wallet.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{
@@ -1110,7 +1110,7 @@
         }
       },{
       "name": "aerium.wallet.list_address",
-      "description": "ListAddress returns all addresses in the specified wallet.",
+      "description": "Returns all addresses in the specified wallet.",
       "tags": [{ "name": "wallet"}],
       "paramStructure": "by-name",
       "params": [{

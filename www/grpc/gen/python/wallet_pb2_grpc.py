@@ -6,7 +6,7 @@ import wallet_pb2 as wallet__pb2
 
 
 class WalletStub(object):
-    """Wallet service provides RPC methods for wallet management operations.
+    """The Wallet service provides RPC methods for wallet management operations.
     """
 
     def __init__(self, channel):
@@ -98,116 +98,116 @@ class WalletStub(object):
 
 
 class WalletServicer(object):
-    """Wallet service provides RPC methods for wallet management operations.
+    """The Wallet service provides RPC methods for wallet management operations.
     """
 
     def CreateWallet(self, request, context):
-        """CreateWallet creates a new wallet with the specified parameters.
+        """Creates a new wallet with the specified parameters.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RestoreWallet(self, request, context):
-        """RestoreWallet restores an existing wallet with the given mnemonic.
+        """Restores an existing wallet with the given mnemonic.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def LoadWallet(self, request, context):
-        """LoadWallet loads an existing wallet with the given name.
+        """Loads an existing wallet with the given name.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UnloadWallet(self, request, context):
-        """UnloadWallet unloads a currently loaded wallet with the specified name.
+        """Unloads a currently loaded wallet with the specified name.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetTotalBalance(self, request, context):
-        """GetTotalBalance returns the total available balance of the wallet.
+        """Returns the total available balance of the wallet.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def SignRawTransaction(self, request, context):
-        """SignRawTransaction signs a raw transaction for a specified wallet.
+        """Signs a raw transaction for a specified wallet.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetValidatorAddress(self, request, context):
-        """GetValidatorAddress retrieves the validator address associated with a public key.
+        """Retrieves the validator address associated with a public key.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetNewAddress(self, request, context):
-        """GetNewAddress generates a new address for the specified wallet.
+        """Generates a new address for the specified wallet.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetAddressHistory(self, request, context):
-        """GetAddressHistory retrieves the transaction history of an address.
+        """Retrieves the transaction history of an address.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def SignMessage(self, request, context):
-        """SignMessage signs an arbitrary message using a wallet's private key.
+        """Signs an arbitrary message using a wallet's private key.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetTotalStake(self, request, context):
-        """GetTotalStake returns the total stake amount in the wallet.
+        """Returns the total stake amount in the wallet.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetAddressInfo(self, request, context):
-        """GetAddressInfo returns detailed information about a specific address.
+        """Returns detailed information about a specific address.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def SetAddressLabel(self, request, context):
-        """SetAddressLabel sets or updates the label for a given address.
+        """Sets or updates the label for a given address.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListWallet(self, request, context):
-        """ListWallet returns list of all available wallets.
+        """Returns a list of all available wallets.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetWalletInfo(self, request, context):
-        """GetWalletInfo returns detailed information about a specific wallet.
+        """Returns detailed information about a specific wallet.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListAddress(self, request, context):
-        """ListAddress returns all addresses in the specified wallet.
+        """Returns all addresses in the specified wallet.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -305,7 +305,7 @@ def add_WalletServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Wallet(object):
-    """Wallet service provides RPC methods for wallet management operations.
+    """The Wallet service provides RPC methods for wallet management operations.
     """
 
     @staticmethod

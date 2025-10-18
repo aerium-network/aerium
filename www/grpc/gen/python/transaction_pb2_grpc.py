@@ -6,7 +6,7 @@ import transaction_pb2 as transaction__pb2
 
 
 class TransactionStub(object):
-    """Transaction service defines various RPC methods for interacting with transactions.
+    """The Transaction service defines RPC methods for interacting with transactions.
     """
 
     def __init__(self, channel):
@@ -63,67 +63,67 @@ class TransactionStub(object):
 
 
 class TransactionServicer(object):
-    """Transaction service defines various RPC methods for interacting with transactions.
+    """The Transaction service defines RPC methods for interacting with transactions.
     """
 
     def GetTransaction(self, request, context):
-        """GetTransaction retrieves transaction details based on the provided request parameters.
+        """Retrieves transaction details based on the provided request parameters.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CalculateFee(self, request, context):
-        """CalculateFee calculates the transaction fee based on the specified amount and payload type.
+        """Calculates the transaction fee based on the specified amount and payload type.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def BroadcastTransaction(self, request, context):
-        """BroadcastTransaction broadcasts a signed transaction to the network.
+        """Broadcasts a signed transaction to the network.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetRawTransferTransaction(self, request, context):
-        """GetRawTransferTransaction retrieves raw details of a transfer transaction.
+        """Retrieves raw details of a transfer transaction.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetRawBondTransaction(self, request, context):
-        """GetRawBondTransaction retrieves raw details of a bond transaction.
+        """Retrieves raw details of a bond transaction.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetRawUnbondTransaction(self, request, context):
-        """GetRawUnbondTransaction retrieves raw details of an unbond transaction.
+        """Retrieves raw details of an unbond transaction.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetRawWithdrawTransaction(self, request, context):
-        """GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.
+        """Retrieves raw details of a withdraw transaction.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetRawBatchTransferTransaction(self, request, context):
-        """GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.
+        """Retrieves raw details of a batch transfer transaction.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DecodeRawTransaction(self, request, context):
-        """DecodeRawTransaction accepts raw transaction and returns decoded transaction.
+        """Decodes a raw transaction and returns the decoded transaction.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -186,7 +186,7 @@ def add_TransactionServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Transaction(object):
-    """Transaction service defines various RPC methods for interacting with transactions.
+    """The Transaction service defines RPC methods for interacting with transactions.
     """
 
     @staticmethod

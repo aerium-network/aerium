@@ -4,7 +4,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
  * <pre>
- * Wallet service provides RPC methods for wallet management operations.
+ * The Wallet service provides RPC methods for wallet management operations.
  * </pre>
  */
 @javax.annotation.Generated(
@@ -575,14 +575,14 @@ public final class WalletGrpc {
 
   /**
    * <pre>
-   * Wallet service provides RPC methods for wallet management operations.
+   * The Wallet service provides RPC methods for wallet management operations.
    * </pre>
    */
   public interface AsyncService {
 
     /**
      * <pre>
-     * CreateWallet creates a new wallet with the specified parameters.
+     * Creates a new wallet with the specified parameters.
      * </pre>
      */
     default void createWallet(aerium.WalletOuterClass.CreateWalletRequest request,
@@ -592,7 +592,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * RestoreWallet restores an existing wallet with the given mnemonic.
+     * Restores an existing wallet with the given mnemonic.
      * </pre>
      */
     default void restoreWallet(aerium.WalletOuterClass.RestoreWalletRequest request,
@@ -602,7 +602,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * LoadWallet loads an existing wallet with the given name.
+     * Loads an existing wallet with the given name.
      * </pre>
      */
     default void loadWallet(aerium.WalletOuterClass.LoadWalletRequest request,
@@ -612,7 +612,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * UnloadWallet unloads a currently loaded wallet with the specified name.
+     * Unloads a currently loaded wallet with the specified name.
      * </pre>
      */
     default void unloadWallet(aerium.WalletOuterClass.UnloadWalletRequest request,
@@ -622,7 +622,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetTotalBalance returns the total available balance of the wallet.
+     * Returns the total available balance of the wallet.
      * </pre>
      */
     default void getTotalBalance(aerium.WalletOuterClass.GetTotalBalanceRequest request,
@@ -632,7 +632,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SignRawTransaction signs a raw transaction for a specified wallet.
+     * Signs a raw transaction for a specified wallet.
      * </pre>
      */
     default void signRawTransaction(aerium.WalletOuterClass.SignRawTransactionRequest request,
@@ -642,7 +642,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetValidatorAddress retrieves the validator address associated with a public key.
+     * Retrieves the validator address associated with a public key.
      * </pre>
      */
     default void getValidatorAddress(aerium.WalletOuterClass.GetValidatorAddressRequest request,
@@ -652,7 +652,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetNewAddress generates a new address for the specified wallet.
+     * Generates a new address for the specified wallet.
      * </pre>
      */
     default void getNewAddress(aerium.WalletOuterClass.GetNewAddressRequest request,
@@ -662,7 +662,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetAddressHistory retrieves the transaction history of an address.
+     * Retrieves the transaction history of an address.
      * </pre>
      */
     default void getAddressHistory(aerium.WalletOuterClass.GetAddressHistoryRequest request,
@@ -672,7 +672,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SignMessage signs an arbitrary message using a wallet's private key.
+     * Signs an arbitrary message using a wallet's private key.
      * </pre>
      */
     default void signMessage(aerium.WalletOuterClass.SignMessageRequest request,
@@ -682,7 +682,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetTotalStake returns the total stake amount in the wallet.
+     * Returns the total stake amount in the wallet.
      * </pre>
      */
     default void getTotalStake(aerium.WalletOuterClass.GetTotalStakeRequest request,
@@ -692,7 +692,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetAddressInfo returns detailed information about a specific address.
+     * Returns detailed information about a specific address.
      * </pre>
      */
     default void getAddressInfo(aerium.WalletOuterClass.GetAddressInfoRequest request,
@@ -702,7 +702,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SetAddressLabel sets or updates the label for a given address.
+     * Sets or updates the label for a given address.
      * </pre>
      */
     default void setAddressLabel(aerium.WalletOuterClass.SetAddressLabelRequest request,
@@ -712,7 +712,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * ListWallet returns list of all available wallets.
+     * Returns a list of all available wallets.
      * </pre>
      */
     default void listWallet(aerium.WalletOuterClass.ListWalletRequest request,
@@ -722,7 +722,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetWalletInfo returns detailed information about a specific wallet.
+     * Returns detailed information about a specific wallet.
      * </pre>
      */
     default void getWalletInfo(aerium.WalletOuterClass.GetWalletInfoRequest request,
@@ -732,7 +732,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * ListAddress returns all addresses in the specified wallet.
+     * Returns all addresses in the specified wallet.
      * </pre>
      */
     default void listAddress(aerium.WalletOuterClass.ListAddressRequest request,
@@ -744,7 +744,7 @@ public final class WalletGrpc {
   /**
    * Base class for the server implementation of the service Wallet.
    * <pre>
-   * Wallet service provides RPC methods for wallet management operations.
+   * The Wallet service provides RPC methods for wallet management operations.
    * </pre>
    */
   public static abstract class WalletImplBase
@@ -758,7 +758,7 @@ public final class WalletGrpc {
   /**
    * A stub to allow clients to do asynchronous rpc calls to service Wallet.
    * <pre>
-   * Wallet service provides RPC methods for wallet management operations.
+   * The Wallet service provides RPC methods for wallet management operations.
    * </pre>
    */
   public static final class WalletStub
@@ -776,7 +776,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * CreateWallet creates a new wallet with the specified parameters.
+     * Creates a new wallet with the specified parameters.
      * </pre>
      */
     public void createWallet(aerium.WalletOuterClass.CreateWalletRequest request,
@@ -787,7 +787,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * RestoreWallet restores an existing wallet with the given mnemonic.
+     * Restores an existing wallet with the given mnemonic.
      * </pre>
      */
     public void restoreWallet(aerium.WalletOuterClass.RestoreWalletRequest request,
@@ -798,7 +798,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * LoadWallet loads an existing wallet with the given name.
+     * Loads an existing wallet with the given name.
      * </pre>
      */
     public void loadWallet(aerium.WalletOuterClass.LoadWalletRequest request,
@@ -809,7 +809,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * UnloadWallet unloads a currently loaded wallet with the specified name.
+     * Unloads a currently loaded wallet with the specified name.
      * </pre>
      */
     public void unloadWallet(aerium.WalletOuterClass.UnloadWalletRequest request,
@@ -820,7 +820,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetTotalBalance returns the total available balance of the wallet.
+     * Returns the total available balance of the wallet.
      * </pre>
      */
     public void getTotalBalance(aerium.WalletOuterClass.GetTotalBalanceRequest request,
@@ -831,7 +831,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SignRawTransaction signs a raw transaction for a specified wallet.
+     * Signs a raw transaction for a specified wallet.
      * </pre>
      */
     public void signRawTransaction(aerium.WalletOuterClass.SignRawTransactionRequest request,
@@ -842,7 +842,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetValidatorAddress retrieves the validator address associated with a public key.
+     * Retrieves the validator address associated with a public key.
      * </pre>
      */
     public void getValidatorAddress(aerium.WalletOuterClass.GetValidatorAddressRequest request,
@@ -853,7 +853,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetNewAddress generates a new address for the specified wallet.
+     * Generates a new address for the specified wallet.
      * </pre>
      */
     public void getNewAddress(aerium.WalletOuterClass.GetNewAddressRequest request,
@@ -864,7 +864,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetAddressHistory retrieves the transaction history of an address.
+     * Retrieves the transaction history of an address.
      * </pre>
      */
     public void getAddressHistory(aerium.WalletOuterClass.GetAddressHistoryRequest request,
@@ -875,7 +875,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SignMessage signs an arbitrary message using a wallet's private key.
+     * Signs an arbitrary message using a wallet's private key.
      * </pre>
      */
     public void signMessage(aerium.WalletOuterClass.SignMessageRequest request,
@@ -886,7 +886,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetTotalStake returns the total stake amount in the wallet.
+     * Returns the total stake amount in the wallet.
      * </pre>
      */
     public void getTotalStake(aerium.WalletOuterClass.GetTotalStakeRequest request,
@@ -897,7 +897,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetAddressInfo returns detailed information about a specific address.
+     * Returns detailed information about a specific address.
      * </pre>
      */
     public void getAddressInfo(aerium.WalletOuterClass.GetAddressInfoRequest request,
@@ -908,7 +908,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SetAddressLabel sets or updates the label for a given address.
+     * Sets or updates the label for a given address.
      * </pre>
      */
     public void setAddressLabel(aerium.WalletOuterClass.SetAddressLabelRequest request,
@@ -919,7 +919,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * ListWallet returns list of all available wallets.
+     * Returns a list of all available wallets.
      * </pre>
      */
     public void listWallet(aerium.WalletOuterClass.ListWalletRequest request,
@@ -930,7 +930,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetWalletInfo returns detailed information about a specific wallet.
+     * Returns detailed information about a specific wallet.
      * </pre>
      */
     public void getWalletInfo(aerium.WalletOuterClass.GetWalletInfoRequest request,
@@ -941,7 +941,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * ListAddress returns all addresses in the specified wallet.
+     * Returns all addresses in the specified wallet.
      * </pre>
      */
     public void listAddress(aerium.WalletOuterClass.ListAddressRequest request,
@@ -954,7 +954,7 @@ public final class WalletGrpc {
   /**
    * A stub to allow clients to do synchronous rpc calls to service Wallet.
    * <pre>
-   * Wallet service provides RPC methods for wallet management operations.
+   * The Wallet service provides RPC methods for wallet management operations.
    * </pre>
    */
   public static final class WalletBlockingV2Stub
@@ -972,7 +972,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * CreateWallet creates a new wallet with the specified parameters.
+     * Creates a new wallet with the specified parameters.
      * </pre>
      */
     public aerium.WalletOuterClass.CreateWalletResponse createWallet(aerium.WalletOuterClass.CreateWalletRequest request) {
@@ -982,7 +982,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * RestoreWallet restores an existing wallet with the given mnemonic.
+     * Restores an existing wallet with the given mnemonic.
      * </pre>
      */
     public aerium.WalletOuterClass.RestoreWalletResponse restoreWallet(aerium.WalletOuterClass.RestoreWalletRequest request) {
@@ -992,7 +992,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * LoadWallet loads an existing wallet with the given name.
+     * Loads an existing wallet with the given name.
      * </pre>
      */
     public aerium.WalletOuterClass.LoadWalletResponse loadWallet(aerium.WalletOuterClass.LoadWalletRequest request) {
@@ -1002,7 +1002,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * UnloadWallet unloads a currently loaded wallet with the specified name.
+     * Unloads a currently loaded wallet with the specified name.
      * </pre>
      */
     public aerium.WalletOuterClass.UnloadWalletResponse unloadWallet(aerium.WalletOuterClass.UnloadWalletRequest request) {
@@ -1012,7 +1012,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetTotalBalance returns the total available balance of the wallet.
+     * Returns the total available balance of the wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.GetTotalBalanceResponse getTotalBalance(aerium.WalletOuterClass.GetTotalBalanceRequest request) {
@@ -1022,7 +1022,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SignRawTransaction signs a raw transaction for a specified wallet.
+     * Signs a raw transaction for a specified wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.SignRawTransactionResponse signRawTransaction(aerium.WalletOuterClass.SignRawTransactionRequest request) {
@@ -1032,7 +1032,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetValidatorAddress retrieves the validator address associated with a public key.
+     * Retrieves the validator address associated with a public key.
      * </pre>
      */
     public aerium.WalletOuterClass.GetValidatorAddressResponse getValidatorAddress(aerium.WalletOuterClass.GetValidatorAddressRequest request) {
@@ -1042,7 +1042,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetNewAddress generates a new address for the specified wallet.
+     * Generates a new address for the specified wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.GetNewAddressResponse getNewAddress(aerium.WalletOuterClass.GetNewAddressRequest request) {
@@ -1052,7 +1052,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetAddressHistory retrieves the transaction history of an address.
+     * Retrieves the transaction history of an address.
      * </pre>
      */
     public aerium.WalletOuterClass.GetAddressHistoryResponse getAddressHistory(aerium.WalletOuterClass.GetAddressHistoryRequest request) {
@@ -1062,7 +1062,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SignMessage signs an arbitrary message using a wallet's private key.
+     * Signs an arbitrary message using a wallet's private key.
      * </pre>
      */
     public aerium.WalletOuterClass.SignMessageResponse signMessage(aerium.WalletOuterClass.SignMessageRequest request) {
@@ -1072,7 +1072,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetTotalStake returns the total stake amount in the wallet.
+     * Returns the total stake amount in the wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.GetTotalStakeResponse getTotalStake(aerium.WalletOuterClass.GetTotalStakeRequest request) {
@@ -1082,7 +1082,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetAddressInfo returns detailed information about a specific address.
+     * Returns detailed information about a specific address.
      * </pre>
      */
     public aerium.WalletOuterClass.GetAddressInfoResponse getAddressInfo(aerium.WalletOuterClass.GetAddressInfoRequest request) {
@@ -1092,7 +1092,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SetAddressLabel sets or updates the label for a given address.
+     * Sets or updates the label for a given address.
      * </pre>
      */
     public aerium.WalletOuterClass.SetAddressLabelResponse setAddressLabel(aerium.WalletOuterClass.SetAddressLabelRequest request) {
@@ -1102,7 +1102,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * ListWallet returns list of all available wallets.
+     * Returns a list of all available wallets.
      * </pre>
      */
     public aerium.WalletOuterClass.ListWalletResponse listWallet(aerium.WalletOuterClass.ListWalletRequest request) {
@@ -1112,7 +1112,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetWalletInfo returns detailed information about a specific wallet.
+     * Returns detailed information about a specific wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.GetWalletInfoResponse getWalletInfo(aerium.WalletOuterClass.GetWalletInfoRequest request) {
@@ -1122,7 +1122,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * ListAddress returns all addresses in the specified wallet.
+     * Returns all addresses in the specified wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.ListAddressResponse listAddress(aerium.WalletOuterClass.ListAddressRequest request) {
@@ -1134,7 +1134,7 @@ public final class WalletGrpc {
   /**
    * A stub to allow clients to do limited synchronous rpc calls to service Wallet.
    * <pre>
-   * Wallet service provides RPC methods for wallet management operations.
+   * The Wallet service provides RPC methods for wallet management operations.
    * </pre>
    */
   public static final class WalletBlockingStub
@@ -1152,7 +1152,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * CreateWallet creates a new wallet with the specified parameters.
+     * Creates a new wallet with the specified parameters.
      * </pre>
      */
     public aerium.WalletOuterClass.CreateWalletResponse createWallet(aerium.WalletOuterClass.CreateWalletRequest request) {
@@ -1162,7 +1162,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * RestoreWallet restores an existing wallet with the given mnemonic.
+     * Restores an existing wallet with the given mnemonic.
      * </pre>
      */
     public aerium.WalletOuterClass.RestoreWalletResponse restoreWallet(aerium.WalletOuterClass.RestoreWalletRequest request) {
@@ -1172,7 +1172,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * LoadWallet loads an existing wallet with the given name.
+     * Loads an existing wallet with the given name.
      * </pre>
      */
     public aerium.WalletOuterClass.LoadWalletResponse loadWallet(aerium.WalletOuterClass.LoadWalletRequest request) {
@@ -1182,7 +1182,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * UnloadWallet unloads a currently loaded wallet with the specified name.
+     * Unloads a currently loaded wallet with the specified name.
      * </pre>
      */
     public aerium.WalletOuterClass.UnloadWalletResponse unloadWallet(aerium.WalletOuterClass.UnloadWalletRequest request) {
@@ -1192,7 +1192,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetTotalBalance returns the total available balance of the wallet.
+     * Returns the total available balance of the wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.GetTotalBalanceResponse getTotalBalance(aerium.WalletOuterClass.GetTotalBalanceRequest request) {
@@ -1202,7 +1202,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SignRawTransaction signs a raw transaction for a specified wallet.
+     * Signs a raw transaction for a specified wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.SignRawTransactionResponse signRawTransaction(aerium.WalletOuterClass.SignRawTransactionRequest request) {
@@ -1212,7 +1212,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetValidatorAddress retrieves the validator address associated with a public key.
+     * Retrieves the validator address associated with a public key.
      * </pre>
      */
     public aerium.WalletOuterClass.GetValidatorAddressResponse getValidatorAddress(aerium.WalletOuterClass.GetValidatorAddressRequest request) {
@@ -1222,7 +1222,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetNewAddress generates a new address for the specified wallet.
+     * Generates a new address for the specified wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.GetNewAddressResponse getNewAddress(aerium.WalletOuterClass.GetNewAddressRequest request) {
@@ -1232,7 +1232,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetAddressHistory retrieves the transaction history of an address.
+     * Retrieves the transaction history of an address.
      * </pre>
      */
     public aerium.WalletOuterClass.GetAddressHistoryResponse getAddressHistory(aerium.WalletOuterClass.GetAddressHistoryRequest request) {
@@ -1242,7 +1242,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SignMessage signs an arbitrary message using a wallet's private key.
+     * Signs an arbitrary message using a wallet's private key.
      * </pre>
      */
     public aerium.WalletOuterClass.SignMessageResponse signMessage(aerium.WalletOuterClass.SignMessageRequest request) {
@@ -1252,7 +1252,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetTotalStake returns the total stake amount in the wallet.
+     * Returns the total stake amount in the wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.GetTotalStakeResponse getTotalStake(aerium.WalletOuterClass.GetTotalStakeRequest request) {
@@ -1262,7 +1262,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetAddressInfo returns detailed information about a specific address.
+     * Returns detailed information about a specific address.
      * </pre>
      */
     public aerium.WalletOuterClass.GetAddressInfoResponse getAddressInfo(aerium.WalletOuterClass.GetAddressInfoRequest request) {
@@ -1272,7 +1272,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SetAddressLabel sets or updates the label for a given address.
+     * Sets or updates the label for a given address.
      * </pre>
      */
     public aerium.WalletOuterClass.SetAddressLabelResponse setAddressLabel(aerium.WalletOuterClass.SetAddressLabelRequest request) {
@@ -1282,7 +1282,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * ListWallet returns list of all available wallets.
+     * Returns a list of all available wallets.
      * </pre>
      */
     public aerium.WalletOuterClass.ListWalletResponse listWallet(aerium.WalletOuterClass.ListWalletRequest request) {
@@ -1292,7 +1292,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetWalletInfo returns detailed information about a specific wallet.
+     * Returns detailed information about a specific wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.GetWalletInfoResponse getWalletInfo(aerium.WalletOuterClass.GetWalletInfoRequest request) {
@@ -1302,7 +1302,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * ListAddress returns all addresses in the specified wallet.
+     * Returns all addresses in the specified wallet.
      * </pre>
      */
     public aerium.WalletOuterClass.ListAddressResponse listAddress(aerium.WalletOuterClass.ListAddressRequest request) {
@@ -1314,7 +1314,7 @@ public final class WalletGrpc {
   /**
    * A stub to allow clients to do ListenableFuture-style rpc calls to service Wallet.
    * <pre>
-   * Wallet service provides RPC methods for wallet management operations.
+   * The Wallet service provides RPC methods for wallet management operations.
    * </pre>
    */
   public static final class WalletFutureStub
@@ -1332,7 +1332,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * CreateWallet creates a new wallet with the specified parameters.
+     * Creates a new wallet with the specified parameters.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.CreateWalletResponse> createWallet(
@@ -1343,7 +1343,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * RestoreWallet restores an existing wallet with the given mnemonic.
+     * Restores an existing wallet with the given mnemonic.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.RestoreWalletResponse> restoreWallet(
@@ -1354,7 +1354,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * LoadWallet loads an existing wallet with the given name.
+     * Loads an existing wallet with the given name.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.LoadWalletResponse> loadWallet(
@@ -1365,7 +1365,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * UnloadWallet unloads a currently loaded wallet with the specified name.
+     * Unloads a currently loaded wallet with the specified name.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.UnloadWalletResponse> unloadWallet(
@@ -1376,7 +1376,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetTotalBalance returns the total available balance of the wallet.
+     * Returns the total available balance of the wallet.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.GetTotalBalanceResponse> getTotalBalance(
@@ -1387,7 +1387,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SignRawTransaction signs a raw transaction for a specified wallet.
+     * Signs a raw transaction for a specified wallet.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.SignRawTransactionResponse> signRawTransaction(
@@ -1398,7 +1398,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetValidatorAddress retrieves the validator address associated with a public key.
+     * Retrieves the validator address associated with a public key.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.GetValidatorAddressResponse> getValidatorAddress(
@@ -1409,7 +1409,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetNewAddress generates a new address for the specified wallet.
+     * Generates a new address for the specified wallet.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.GetNewAddressResponse> getNewAddress(
@@ -1420,7 +1420,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetAddressHistory retrieves the transaction history of an address.
+     * Retrieves the transaction history of an address.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.GetAddressHistoryResponse> getAddressHistory(
@@ -1431,7 +1431,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SignMessage signs an arbitrary message using a wallet's private key.
+     * Signs an arbitrary message using a wallet's private key.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.SignMessageResponse> signMessage(
@@ -1442,7 +1442,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetTotalStake returns the total stake amount in the wallet.
+     * Returns the total stake amount in the wallet.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.GetTotalStakeResponse> getTotalStake(
@@ -1453,7 +1453,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetAddressInfo returns detailed information about a specific address.
+     * Returns detailed information about a specific address.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.GetAddressInfoResponse> getAddressInfo(
@@ -1464,7 +1464,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * SetAddressLabel sets or updates the label for a given address.
+     * Sets or updates the label for a given address.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.SetAddressLabelResponse> setAddressLabel(
@@ -1475,7 +1475,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * ListWallet returns list of all available wallets.
+     * Returns a list of all available wallets.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.ListWalletResponse> listWallet(
@@ -1486,7 +1486,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * GetWalletInfo returns detailed information about a specific wallet.
+     * Returns detailed information about a specific wallet.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.GetWalletInfoResponse> getWalletInfo(
@@ -1497,7 +1497,7 @@ public final class WalletGrpc {
 
     /**
      * <pre>
-     * ListAddress returns all addresses in the specified wallet.
+     * Returns all addresses in the specified wallet.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.WalletOuterClass.ListAddressResponse> listAddress(

@@ -297,7 +297,7 @@ class GetAddressHistoryRequest extends $pb.GeneratedMessage {
   void clearAddress() => $_clearField(2);
 }
 
-/// Response message contains address transaction history.
+/// Response message containing address transaction history.
 class GetAddressHistoryResponse extends $pb.GeneratedMessage {
   factory GetAddressHistoryResponse({
     $core.Iterable<HistoryInfo>? historyInfo,
@@ -399,7 +399,7 @@ class GetNewAddressRequest extends $pb.GeneratedMessage {
   static GetNewAddressRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetNewAddressRequest>(create);
   static GetNewAddressRequest? _defaultInstance;
 
-  /// The name of the wallet to generate a new address.
+  /// The name of the wallet to generate a new address for.
   @$pb.TagNumber(1)
   $core.String get walletName => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -429,7 +429,7 @@ class GetNewAddressRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearLabel() => $_clearField(3);
 
-  /// Password for the new address. It's required when address_type is Ed25519 type.
+  /// Password for the new address. Required when address_type is Ed25519.
   @$pb.TagNumber(4)
   $core.String get password => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -440,7 +440,7 @@ class GetNewAddressRequest extends $pb.GeneratedMessage {
   void clearPassword() => $_clearField(4);
 }
 
-/// Response message contains newly generated address information.
+/// Response message containing newly generated address information.
 class GetNewAddressResponse extends $pb.GeneratedMessage {
   factory GetNewAddressResponse({
     $core.String? walletName,
@@ -486,7 +486,7 @@ class GetNewAddressResponse extends $pb.GeneratedMessage {
   static GetNewAddressResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetNewAddressResponse>(create);
   static GetNewAddressResponse? _defaultInstance;
 
-  /// The name of the wallet where address was generated.
+  /// The name of the wallet where the address was generated.
   @$pb.TagNumber(1)
   $core.String get walletName => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -710,7 +710,7 @@ class CreateWalletRequest extends $pb.GeneratedMessage {
   void clearPassword() => $_clearField(4);
 }
 
-/// Response message contains wallet recovery mnemonic (seed phrase).
+/// Response message containing wallet recovery mnemonic (seed phrase).
 class CreateWalletResponse extends $pb.GeneratedMessage {
   factory CreateWalletResponse({
     $core.String? mnemonic,
@@ -1156,7 +1156,7 @@ class SignRawTransactionRequest extends $pb.GeneratedMessage {
   void clearPassword() => $_clearField(3);
 }
 
-/// Response message contains the transaction ID and signed raw transaction.
+/// Response message containing the transaction ID and signed raw transaction.
 class SignRawTransactionResponse extends $pb.GeneratedMessage {
   factory SignRawTransactionResponse({
     $core.String? transactionId,
@@ -1264,7 +1264,7 @@ class GetTotalBalanceRequest extends $pb.GeneratedMessage {
   static GetTotalBalanceRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetTotalBalanceRequest>(create);
   static GetTotalBalanceRequest? _defaultInstance;
 
-  /// The name of the wallet to get the total balance.
+  /// The name of the wallet to get the total balance for.
   @$pb.TagNumber(1)
   $core.String get walletName => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1275,7 +1275,7 @@ class GetTotalBalanceRequest extends $pb.GeneratedMessage {
   void clearWalletName() => $_clearField(1);
 }
 
-/// Response message contains the total available balance of the wallet.
+/// Response message containing the total available balance of the wallet.
 class GetTotalBalanceResponse extends $pb.GeneratedMessage {
   factory GetTotalBalanceResponse({
     $core.String? walletName,
@@ -1439,7 +1439,7 @@ class SignMessageRequest extends $pb.GeneratedMessage {
   void clearMessage() => $_clearField(4);
 }
 
-/// Response message contains message signature.
+/// Response message containing the message signature.
 class SignMessageResponse extends $pb.GeneratedMessage {
   factory SignMessageResponse({
     $core.String? signature,
@@ -1532,7 +1532,7 @@ class GetTotalStakeRequest extends $pb.GeneratedMessage {
   static GetTotalStakeRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetTotalStakeRequest>(create);
   static GetTotalStakeRequest? _defaultInstance;
 
-  /// The name of the wallet to get the total stake.
+  /// The name of the wallet to get the total stake for.
   @$pb.TagNumber(1)
   $core.String get walletName => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -1543,7 +1543,7 @@ class GetTotalStakeRequest extends $pb.GeneratedMessage {
   void clearWalletName() => $_clearField(1);
 }
 
-/// Response message contains the total stake of the wallet.
+/// Response message containing the total stake of the wallet.
 class GetTotalStakeResponse extends $pb.GeneratedMessage {
   factory GetTotalStakeResponse({
     $core.String? walletName,
@@ -1677,7 +1677,7 @@ class GetAddressInfoRequest extends $pb.GeneratedMessage {
   void clearAddress() => $_clearField(2);
 }
 
-/// Response message contains address details.
+/// Response message containing address details.
 class GetAddressInfoResponse extends $pb.GeneratedMessage {
   factory GetAddressInfoResponse({
     $core.String? walletName,
@@ -1789,7 +1789,7 @@ class GetAddressInfoResponse extends $pb.GeneratedMessage {
   void clearPath() => $_clearField(5);
 }
 
-/// Request message for setting address label.
+/// Request message for setting an address label.
 class SetAddressLabelRequest extends $pb.GeneratedMessage {
   factory SetAddressLabelRequest({
     $core.String? walletName,
@@ -1952,7 +1952,7 @@ class ListWalletRequest extends $pb.GeneratedMessage {
   static ListWalletRequest? _defaultInstance;
 }
 
-/// Response message contains wallet names.
+/// Response message containing wallet names.
 class ListWalletResponse extends $pb.GeneratedMessage {
   factory ListWalletResponse({
     $core.Iterable<$core.String>? wallets,
@@ -2050,7 +2050,7 @@ class GetWalletInfoRequest extends $pb.GeneratedMessage {
   void clearWalletName() => $_clearField(1);
 }
 
-/// Response message contains wallet details.
+/// Response message containing wallet details.
 class GetWalletInfoResponse extends $pb.GeneratedMessage {
   factory GetWalletInfoResponse({
     $core.String? walletName,
@@ -2156,7 +2156,7 @@ class GetWalletInfoResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearEncrypted() => $_clearField(4);
 
-  /// A unique identifier of the wallet.
+  /// A unique identifier for the wallet.
   @$pb.TagNumber(5)
   $core.String get uuid => $_getSZ(4);
   @$pb.TagNumber(5)
@@ -2229,7 +2229,7 @@ class ListAddressRequest extends $pb.GeneratedMessage {
   void clearWalletName() => $_clearField(1);
 }
 
-/// Response message contains wallet addresses.
+/// Response message containing wallet addresses.
 class ListAddressResponse extends $pb.GeneratedMessage {
   factory ListAddressResponse({
     $core.String? walletName,
@@ -2285,77 +2285,77 @@ class ListAddressResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearWalletName() => $_clearField(1);
 
-  /// ist of all addresses in the wallet with their details.
+  /// List of all addresses in the wallet with their details.
   @$pb.TagNumber(2)
   $pb.PbList<AddressInfo> get data => $_getList(1);
 }
 
-/// Wallet service provides RPC methods for wallet management operations.
+/// The Wallet service provides RPC methods for wallet management operations.
 class WalletApi {
   $pb.RpcClient _client;
   WalletApi(this._client);
 
-  /// CreateWallet creates a new wallet with the specified parameters.
+  /// Creates a new wallet with the specified parameters.
   $async.Future<CreateWalletResponse> createWallet($pb.ClientContext? ctx, CreateWalletRequest request) =>
     _client.invoke<CreateWalletResponse>(ctx, 'Wallet', 'CreateWallet', request, CreateWalletResponse())
   ;
-  /// RestoreWallet restores an existing wallet with the given mnemonic.
+  /// Restores an existing wallet with the given mnemonic.
   $async.Future<RestoreWalletResponse> restoreWallet($pb.ClientContext? ctx, RestoreWalletRequest request) =>
     _client.invoke<RestoreWalletResponse>(ctx, 'Wallet', 'RestoreWallet', request, RestoreWalletResponse())
   ;
-  /// LoadWallet loads an existing wallet with the given name.
+  /// Loads an existing wallet with the given name.
   $async.Future<LoadWalletResponse> loadWallet($pb.ClientContext? ctx, LoadWalletRequest request) =>
     _client.invoke<LoadWalletResponse>(ctx, 'Wallet', 'LoadWallet', request, LoadWalletResponse())
   ;
-  /// UnloadWallet unloads a currently loaded wallet with the specified name.
+  /// Unloads a currently loaded wallet with the specified name.
   $async.Future<UnloadWalletResponse> unloadWallet($pb.ClientContext? ctx, UnloadWalletRequest request) =>
     _client.invoke<UnloadWalletResponse>(ctx, 'Wallet', 'UnloadWallet', request, UnloadWalletResponse())
   ;
-  /// GetTotalBalance returns the total available balance of the wallet.
+  /// Returns the total available balance of the wallet.
   $async.Future<GetTotalBalanceResponse> getTotalBalance($pb.ClientContext? ctx, GetTotalBalanceRequest request) =>
     _client.invoke<GetTotalBalanceResponse>(ctx, 'Wallet', 'GetTotalBalance', request, GetTotalBalanceResponse())
   ;
-  /// SignRawTransaction signs a raw transaction for a specified wallet.
+  /// Signs a raw transaction for a specified wallet.
   $async.Future<SignRawTransactionResponse> signRawTransaction($pb.ClientContext? ctx, SignRawTransactionRequest request) =>
     _client.invoke<SignRawTransactionResponse>(ctx, 'Wallet', 'SignRawTransaction', request, SignRawTransactionResponse())
   ;
-  /// GetValidatorAddress retrieves the validator address associated with a public key.
+  /// Retrieves the validator address associated with a public key.
   $async.Future<GetValidatorAddressResponse> getValidatorAddress($pb.ClientContext? ctx, GetValidatorAddressRequest request) =>
     _client.invoke<GetValidatorAddressResponse>(ctx, 'Wallet', 'GetValidatorAddress', request, GetValidatorAddressResponse())
   ;
-  /// GetNewAddress generates a new address for the specified wallet.
+  /// Generates a new address for the specified wallet.
   $async.Future<GetNewAddressResponse> getNewAddress($pb.ClientContext? ctx, GetNewAddressRequest request) =>
     _client.invoke<GetNewAddressResponse>(ctx, 'Wallet', 'GetNewAddress', request, GetNewAddressResponse())
   ;
-  /// GetAddressHistory retrieves the transaction history of an address.
+  /// Retrieves the transaction history of an address.
   $async.Future<GetAddressHistoryResponse> getAddressHistory($pb.ClientContext? ctx, GetAddressHistoryRequest request) =>
     _client.invoke<GetAddressHistoryResponse>(ctx, 'Wallet', 'GetAddressHistory', request, GetAddressHistoryResponse())
   ;
-  /// SignMessage signs an arbitrary message using a wallet's private key.
+  /// Signs an arbitrary message using a wallet's private key.
   $async.Future<SignMessageResponse> signMessage($pb.ClientContext? ctx, SignMessageRequest request) =>
     _client.invoke<SignMessageResponse>(ctx, 'Wallet', 'SignMessage', request, SignMessageResponse())
   ;
-  /// GetTotalStake returns the total stake amount in the wallet.
+  /// Returns the total stake amount in the wallet.
   $async.Future<GetTotalStakeResponse> getTotalStake($pb.ClientContext? ctx, GetTotalStakeRequest request) =>
     _client.invoke<GetTotalStakeResponse>(ctx, 'Wallet', 'GetTotalStake', request, GetTotalStakeResponse())
   ;
-  /// GetAddressInfo returns detailed information about a specific address.
+  /// Returns detailed information about a specific address.
   $async.Future<GetAddressInfoResponse> getAddressInfo($pb.ClientContext? ctx, GetAddressInfoRequest request) =>
     _client.invoke<GetAddressInfoResponse>(ctx, 'Wallet', 'GetAddressInfo', request, GetAddressInfoResponse())
   ;
-  /// SetAddressLabel sets or updates the label for a given address.
+  /// Sets or updates the label for a given address.
   $async.Future<SetAddressLabelResponse> setAddressLabel($pb.ClientContext? ctx, SetAddressLabelRequest request) =>
     _client.invoke<SetAddressLabelResponse>(ctx, 'Wallet', 'SetAddressLabel', request, SetAddressLabelResponse())
   ;
-  /// ListWallet returns list of all available wallets.
+  /// Returns a list of all available wallets.
   $async.Future<ListWalletResponse> listWallet($pb.ClientContext? ctx, ListWalletRequest request) =>
     _client.invoke<ListWalletResponse>(ctx, 'Wallet', 'ListWallet', request, ListWalletResponse())
   ;
-  /// GetWalletInfo returns detailed information about a specific wallet.
+  /// Returns detailed information about a specific wallet.
   $async.Future<GetWalletInfoResponse> getWalletInfo($pb.ClientContext? ctx, GetWalletInfoRequest request) =>
     _client.invoke<GetWalletInfoResponse>(ctx, 'Wallet', 'GetWalletInfo', request, GetWalletInfoResponse())
   ;
-  /// ListAddress returns all addresses in the specified wallet.
+  /// Returns all addresses in the specified wallet.
   $async.Future<ListAddressResponse> listAddress($pb.ClientContext? ctx, ListAddressRequest request) =>
     _client.invoke<ListAddressResponse>(ctx, 'Wallet', 'ListAddress', request, ListAddressResponse())
   ;

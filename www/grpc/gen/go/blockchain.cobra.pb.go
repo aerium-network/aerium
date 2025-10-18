@@ -16,7 +16,7 @@ func BlockchainClientCommand(options ...client.Option) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("Blockchain"),
 		Short: "Blockchain service client",
-		Long:  "Blockchain service defines RPC methods for interacting with the blockchain.",
+		Long:  "The Blockchain service defines RPC methods for interacting with the blockchain.",
 	}
 	cfg.BindFlags(cmd.PersistentFlags())
 	cmd.AddCommand(
@@ -41,7 +41,7 @@ func _BlockchainGetBlockCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetBlock"),
 		Short: "GetBlock RPC client",
-		Long:  "GetBlock retrieves information about a block based on the provided request parameters.",
+		Long:  "Retrieves information about a block based on the provided request parameters.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Blockchain"); err != nil {
@@ -84,7 +84,7 @@ func _BlockchainGetBlockHashCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetBlockHash"),
 		Short: "GetBlockHash RPC client",
-		Long:  "GetBlockHash retrieves the hash of a block at the specified height.",
+		Long:  "Retrieves the hash of a block at the specified height.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Blockchain"); err != nil {
@@ -126,7 +126,7 @@ func _BlockchainGetBlockHeightCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetBlockHeight"),
 		Short: "GetBlockHeight RPC client",
-		Long:  "GetBlockHeight retrieves the height of a block with the specified hash.",
+		Long:  "Retrieves the height of a block with the specified hash.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Blockchain"); err != nil {
@@ -168,7 +168,7 @@ func _BlockchainGetBlockchainInfoCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetBlockchainInfo"),
 		Short: "GetBlockchainInfo RPC client",
-		Long:  "GetBlockchainInfo retrieves general information about the blockchain.",
+		Long:  "Retrieves general information about the blockchain.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Blockchain"); err != nil {
@@ -208,7 +208,7 @@ func _BlockchainGetConsensusInfoCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetConsensusInfo"),
 		Short: "GetConsensusInfo RPC client",
-		Long:  "GetConsensusInfo retrieves information about the consensus instances.",
+		Long:  "Retrieves information about consensus instances.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Blockchain"); err != nil {
@@ -248,7 +248,7 @@ func _BlockchainGetAccountCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetAccount"),
 		Short: "GetAccount RPC client",
-		Long:  "GetAccount retrieves information about an account based on the provided address.",
+		Long:  "Retrieves information about an account for the provided address.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Blockchain"); err != nil {
@@ -290,7 +290,7 @@ func _BlockchainGetValidatorCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetValidator"),
 		Short: "GetValidator RPC client",
-		Long:  "GetValidator retrieves information about a validator based on the provided address.",
+		Long:  "Retrieves information about a validator for the provided address.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Blockchain"); err != nil {
@@ -332,7 +332,7 @@ func _BlockchainGetValidatorByNumberCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetValidatorByNumber"),
 		Short: "GetValidatorByNumber RPC client",
-		Long:  "GetValidatorByNumber retrieves information about a validator based on the provided number.",
+		Long:  "Retrieves information about a validator by its number.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Blockchain"); err != nil {
@@ -374,7 +374,7 @@ func _BlockchainGetValidatorAddressesCommand(cfg *client.Config) *cobra.Command 
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetValidatorAddresses"),
 		Short: "GetValidatorAddresses RPC client",
-		Long:  "GetValidatorAddresses retrieves a list of all validator addresses.",
+		Long:  "Retrieves a list of all validator addresses.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Blockchain"); err != nil {
@@ -414,7 +414,7 @@ func _BlockchainGetPublicKeyCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetPublicKey"),
 		Short: "GetPublicKey RPC client",
-		Long:  "GetPublicKey retrieves the public key of an account based on the provided address.",
+		Long:  "Retrieves the public key of an account for the provided address.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Blockchain"); err != nil {
@@ -456,7 +456,7 @@ func _BlockchainGetTxPoolContentCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetTxPoolContent"),
 		Short: "GetTxPoolContent RPC client",
-		Long:  "GetTxPoolContent retrieves current transactions in the transaction pool.",
+		Long:  "Retrieves current transactions in the transaction pool.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Blockchain"); err != nil {

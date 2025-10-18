@@ -34,25 +34,25 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// Transaction service defines various RPC methods for interacting with transactions.
+// The Transaction service defines RPC methods for interacting with transactions.
 type TransactionClient interface {
-	// GetTransaction retrieves transaction details based on the provided request parameters.
+	// Retrieves transaction details based on the provided request parameters.
 	GetTransaction(ctx context.Context, in *GetTransactionRequest, opts ...grpc.CallOption) (*GetTransactionResponse, error)
-	// CalculateFee calculates the transaction fee based on the specified amount and payload type.
+	// Calculates the transaction fee based on the specified amount and payload type.
 	CalculateFee(ctx context.Context, in *CalculateFeeRequest, opts ...grpc.CallOption) (*CalculateFeeResponse, error)
-	// BroadcastTransaction broadcasts a signed transaction to the network.
+	// Broadcasts a signed transaction to the network.
 	BroadcastTransaction(ctx context.Context, in *BroadcastTransactionRequest, opts ...grpc.CallOption) (*BroadcastTransactionResponse, error)
-	// GetRawTransferTransaction retrieves raw details of a transfer transaction.
+	// Retrieves raw details of a transfer transaction.
 	GetRawTransferTransaction(ctx context.Context, in *GetRawTransferTransactionRequest, opts ...grpc.CallOption) (*GetRawTransactionResponse, error)
-	// GetRawBondTransaction retrieves raw details of a bond transaction.
+	// Retrieves raw details of a bond transaction.
 	GetRawBondTransaction(ctx context.Context, in *GetRawBondTransactionRequest, opts ...grpc.CallOption) (*GetRawTransactionResponse, error)
-	// GetRawUnbondTransaction retrieves raw details of an unbond transaction.
+	// Retrieves raw details of an unbond transaction.
 	GetRawUnbondTransaction(ctx context.Context, in *GetRawUnbondTransactionRequest, opts ...grpc.CallOption) (*GetRawTransactionResponse, error)
-	// GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.
+	// Retrieves raw details of a withdraw transaction.
 	GetRawWithdrawTransaction(ctx context.Context, in *GetRawWithdrawTransactionRequest, opts ...grpc.CallOption) (*GetRawTransactionResponse, error)
-	// GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.
+	// Retrieves raw details of a batch transfer transaction.
 	GetRawBatchTransferTransaction(ctx context.Context, in *GetRawBatchTransferTransactionRequest, opts ...grpc.CallOption) (*GetRawTransactionResponse, error)
-	// DecodeRawTransaction accepts raw transaction and returns decoded transaction.
+	// Decodes a raw transaction and returns the decoded transaction.
 	DecodeRawTransaction(ctx context.Context, in *DecodeRawTransactionRequest, opts ...grpc.CallOption) (*DecodeRawTransactionResponse, error)
 }
 
@@ -158,25 +158,25 @@ func (c *transactionClient) DecodeRawTransaction(ctx context.Context, in *Decode
 // All implementations should embed UnimplementedTransactionServer
 // for forward compatibility.
 //
-// Transaction service defines various RPC methods for interacting with transactions.
+// The Transaction service defines RPC methods for interacting with transactions.
 type TransactionServer interface {
-	// GetTransaction retrieves transaction details based on the provided request parameters.
+	// Retrieves transaction details based on the provided request parameters.
 	GetTransaction(context.Context, *GetTransactionRequest) (*GetTransactionResponse, error)
-	// CalculateFee calculates the transaction fee based on the specified amount and payload type.
+	// Calculates the transaction fee based on the specified amount and payload type.
 	CalculateFee(context.Context, *CalculateFeeRequest) (*CalculateFeeResponse, error)
-	// BroadcastTransaction broadcasts a signed transaction to the network.
+	// Broadcasts a signed transaction to the network.
 	BroadcastTransaction(context.Context, *BroadcastTransactionRequest) (*BroadcastTransactionResponse, error)
-	// GetRawTransferTransaction retrieves raw details of a transfer transaction.
+	// Retrieves raw details of a transfer transaction.
 	GetRawTransferTransaction(context.Context, *GetRawTransferTransactionRequest) (*GetRawTransactionResponse, error)
-	// GetRawBondTransaction retrieves raw details of a bond transaction.
+	// Retrieves raw details of a bond transaction.
 	GetRawBondTransaction(context.Context, *GetRawBondTransactionRequest) (*GetRawTransactionResponse, error)
-	// GetRawUnbondTransaction retrieves raw details of an unbond transaction.
+	// Retrieves raw details of an unbond transaction.
 	GetRawUnbondTransaction(context.Context, *GetRawUnbondTransactionRequest) (*GetRawTransactionResponse, error)
-	// GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.
+	// Retrieves raw details of a withdraw transaction.
 	GetRawWithdrawTransaction(context.Context, *GetRawWithdrawTransactionRequest) (*GetRawTransactionResponse, error)
-	// GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.
+	// Retrieves raw details of a batch transfer transaction.
 	GetRawBatchTransferTransaction(context.Context, *GetRawBatchTransferTransactionRequest) (*GetRawTransactionResponse, error)
-	// DecodeRawTransaction accepts raw transaction and returns decoded transaction.
+	// Decodes a raw transaction and returns the decoded transaction.
 	DecodeRawTransaction(context.Context, *DecodeRawTransactionRequest) (*DecodeRawTransactionResponse, error)
 }
 

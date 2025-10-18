@@ -1132,7 +1132,7 @@ public final class TransactionOuterClass {
   }
   /**
    * <pre>
-   * Response message contains details of a transaction.
+   * Response message containing details of a transaction.
    * </pre>
    *
    * Protobuf type {@code aerium.GetTransactionResponse}
@@ -1426,7 +1426,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * Response message contains details of a transaction.
+     * Response message containing details of a transaction.
      * </pre>
      *
      * Protobuf type {@code aerium.GetTransactionResponse}
@@ -1946,7 +1946,7 @@ public final class TransactionOuterClass {
   }
   /**
    * <pre>
-   * Request message for calculating transaction fee.
+   * Request message for calculating a transaction fee.
    * </pre>
    *
    * Protobuf type {@code aerium.CalculateFeeRequest}
@@ -2224,7 +2224,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * Request message for calculating transaction fee.
+     * Request message for calculating a transaction fee.
      * </pre>
      *
      * Protobuf type {@code aerium.CalculateFeeRequest}
@@ -2624,7 +2624,7 @@ public final class TransactionOuterClass {
   }
   /**
    * <pre>
-   * Response message contains the calculated transaction fee.
+   * Response message containing the calculated transaction fee.
    * </pre>
    *
    * Protobuf type {@code aerium.CalculateFeeResponse}
@@ -2865,7 +2865,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * Response message contains the calculated transaction fee.
+     * Response message containing the calculated transaction fee.
      * </pre>
      *
      * Protobuf type {@code aerium.CalculateFeeResponse}
@@ -3160,7 +3160,7 @@ public final class TransactionOuterClass {
 
     /**
      * <pre>
-     * The signed raw transaction data to be broadcasted.
+     * The signed raw transaction data to be broadcast.
      * </pre>
      *
      * <code>string signed_raw_transaction = 1 [json_name = "signedRawTransaction"];</code>
@@ -3169,7 +3169,7 @@ public final class TransactionOuterClass {
     java.lang.String getSignedRawTransaction();
     /**
      * <pre>
-     * The signed raw transaction data to be broadcasted.
+     * The signed raw transaction data to be broadcast.
      * </pre>
      *
      * <code>string signed_raw_transaction = 1 [json_name = "signedRawTransaction"];</code>
@@ -3225,7 +3225,7 @@ public final class TransactionOuterClass {
     private volatile java.lang.Object signedRawTransaction_ = "";
     /**
      * <pre>
-     * The signed raw transaction data to be broadcasted.
+     * The signed raw transaction data to be broadcast.
      * </pre>
      *
      * <code>string signed_raw_transaction = 1 [json_name = "signedRawTransaction"];</code>
@@ -3246,7 +3246,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * The signed raw transaction data to be broadcasted.
+     * The signed raw transaction data to be broadcast.
      * </pre>
      *
      * <code>string signed_raw_transaction = 1 [json_name = "signedRawTransaction"];</code>
@@ -3568,7 +3568,7 @@ public final class TransactionOuterClass {
       private java.lang.Object signedRawTransaction_ = "";
       /**
        * <pre>
-       * The signed raw transaction data to be broadcasted.
+       * The signed raw transaction data to be broadcast.
        * </pre>
        *
        * <code>string signed_raw_transaction = 1 [json_name = "signedRawTransaction"];</code>
@@ -3588,7 +3588,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The signed raw transaction data to be broadcasted.
+       * The signed raw transaction data to be broadcast.
        * </pre>
        *
        * <code>string signed_raw_transaction = 1 [json_name = "signedRawTransaction"];</code>
@@ -3609,7 +3609,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The signed raw transaction data to be broadcasted.
+       * The signed raw transaction data to be broadcast.
        * </pre>
        *
        * <code>string signed_raw_transaction = 1 [json_name = "signedRawTransaction"];</code>
@@ -3626,7 +3626,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The signed raw transaction data to be broadcasted.
+       * The signed raw transaction data to be broadcast.
        * </pre>
        *
        * <code>string signed_raw_transaction = 1 [json_name = "signedRawTransaction"];</code>
@@ -3640,7 +3640,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The signed raw transaction data to be broadcasted.
+       * The signed raw transaction data to be broadcast.
        * </pre>
        *
        * <code>string signed_raw_transaction = 1 [json_name = "signedRawTransaction"];</code>
@@ -3734,7 +3734,7 @@ public final class TransactionOuterClass {
   }
   /**
    * <pre>
-   * Response message contains the ID of the broadcasted transaction.
+   * Response message containing the ID of the broadcasted transaction.
    * </pre>
    *
    * Protobuf type {@code aerium.BroadcastTransactionResponse}
@@ -3979,7 +3979,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * Response message contains the ID of the broadcasted transaction.
+     * Response message containing the ID of the broadcasted transaction.
      * </pre>
      *
      * Protobuf type {@code aerium.BroadcastTransactionResponse}
@@ -8912,7 +8912,7 @@ public final class TransactionOuterClass {
 
     /**
      * <pre>
-     * The recipients list of receiver with amount, min 2 recipients.
+     * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -8921,7 +8921,7 @@ public final class TransactionOuterClass {
         getRecipientsList();
     /**
      * <pre>
-     * The recipients list of receiver with amount, min 2 recipients.
+     * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -8929,7 +8929,7 @@ public final class TransactionOuterClass {
     aerium.TransactionOuterClass.Recipient getRecipients(int index);
     /**
      * <pre>
-     * The recipients list of receiver with amount, min 2 recipients.
+     * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -8937,7 +8937,7 @@ public final class TransactionOuterClass {
     int getRecipientsCount();
     /**
      * <pre>
-     * The recipients list of receiver with amount, min 2 recipients.
+     * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -8946,7 +8946,7 @@ public final class TransactionOuterClass {
         getRecipientsOrBuilderList();
     /**
      * <pre>
-     * The recipients list of receiver with amount, min 2 recipients.
+     * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9095,7 +9095,7 @@ public final class TransactionOuterClass {
     private java.util.List<aerium.TransactionOuterClass.Recipient> recipients_;
     /**
      * <pre>
-     * The recipients list of receiver with amount, min 2 recipients.
+     * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9106,7 +9106,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * The recipients list of receiver with amount, min 2 recipients.
+     * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9118,7 +9118,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * The recipients list of receiver with amount, min 2 recipients.
+     * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9129,7 +9129,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * The recipients list of receiver with amount, min 2 recipients.
+     * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9140,7 +9140,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * The recipients list of receiver with amount, min 2 recipients.
+     * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9804,7 +9804,7 @@ public final class TransactionOuterClass {
 
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9818,7 +9818,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9832,7 +9832,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9846,7 +9846,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9867,7 +9867,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9885,7 +9885,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9905,7 +9905,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9926,7 +9926,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9944,7 +9944,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9962,7 +9962,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9981,7 +9981,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -9998,7 +9998,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -10015,7 +10015,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -10026,7 +10026,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -10040,7 +10040,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -10055,7 +10055,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -10066,7 +10066,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -10078,7 +10078,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients list of receiver with amount, min 2 recipients.
+       * The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 3 [json_name = "recipients"];</code>
@@ -10335,7 +10335,7 @@ public final class TransactionOuterClass {
   }
   /**
    * <pre>
-   * Response message contains raw transaction data.
+   * Response message containing raw transaction data.
    * </pre>
    *
    * Protobuf type {@code aerium.GetRawTransactionResponse}
@@ -10638,7 +10638,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * Response message contains raw transaction data.
+     * Response message containing raw transaction data.
      * </pre>
      *
      * Protobuf type {@code aerium.GetRawTransactionResponse}
@@ -15022,7 +15022,7 @@ public final class TransactionOuterClass {
 
     /**
      * <pre>
-     * The recipients of list receiver with amount.
+     * The list of recipients, each with a receiver and amount.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15031,7 +15031,7 @@ public final class TransactionOuterClass {
         getRecipientsList();
     /**
      * <pre>
-     * The recipients of list receiver with amount.
+     * The list of recipients, each with a receiver and amount.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15039,7 +15039,7 @@ public final class TransactionOuterClass {
     aerium.TransactionOuterClass.Recipient getRecipients(int index);
     /**
      * <pre>
-     * The recipients of list receiver with amount.
+     * The list of recipients, each with a receiver and amount.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15047,7 +15047,7 @@ public final class TransactionOuterClass {
     int getRecipientsCount();
     /**
      * <pre>
-     * The recipients of list receiver with amount.
+     * The list of recipients, each with a receiver and amount.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15056,7 +15056,7 @@ public final class TransactionOuterClass {
         getRecipientsOrBuilderList();
     /**
      * <pre>
-     * The recipients of list receiver with amount.
+     * The list of recipients, each with a receiver and amount.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15159,7 +15159,7 @@ public final class TransactionOuterClass {
     private java.util.List<aerium.TransactionOuterClass.Recipient> recipients_;
     /**
      * <pre>
-     * The recipients of list receiver with amount.
+     * The list of recipients, each with a receiver and amount.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15170,7 +15170,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * The recipients of list receiver with amount.
+     * The list of recipients, each with a receiver and amount.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15182,7 +15182,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * The recipients of list receiver with amount.
+     * The list of recipients, each with a receiver and amount.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15193,7 +15193,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * The recipients of list receiver with amount.
+     * The list of recipients, each with a receiver and amount.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15204,7 +15204,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * The recipients of list receiver with amount.
+     * The list of recipients, each with a receiver and amount.
      * </pre>
      *
      * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15691,7 +15691,7 @@ public final class TransactionOuterClass {
 
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15705,7 +15705,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15719,7 +15719,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15733,7 +15733,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15754,7 +15754,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15772,7 +15772,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15792,7 +15792,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15813,7 +15813,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15831,7 +15831,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15849,7 +15849,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15868,7 +15868,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15885,7 +15885,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15902,7 +15902,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15913,7 +15913,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15927,7 +15927,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15942,7 +15942,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15953,7 +15953,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -15965,7 +15965,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * The recipients of list receiver with amount.
+       * The list of recipients, each with a receiver and amount.
        * </pre>
        *
        * <code>repeated .aerium.Recipient recipients = 2 [json_name = "recipients"];</code>
@@ -16076,7 +16076,7 @@ public final class TransactionOuterClass {
   }
   /**
    * <pre>
-   * Recipient is receiver with amount.
+   * Recipient is a receiver with an amount.
    * </pre>
    *
    * Protobuf type {@code aerium.Recipient}
@@ -16348,7 +16348,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * Recipient is receiver with amount.
+     * Recipient is a receiver with an amount.
      * </pre>
      *
      * Protobuf type {@code aerium.Recipient}
@@ -16927,7 +16927,7 @@ public final class TransactionOuterClass {
 
     /**
      * <pre>
-     * Batch Transfer transaction payload.
+     * Batch transfer transaction payload.
      * </pre>
      *
      * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -16936,7 +16936,7 @@ public final class TransactionOuterClass {
     boolean hasBatchTransfer();
     /**
      * <pre>
-     * Batch Transfer transaction payload.
+     * Batch transfer transaction payload.
      * </pre>
      *
      * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -16945,7 +16945,7 @@ public final class TransactionOuterClass {
     aerium.TransactionOuterClass.PayloadBatchTransfer getBatchTransfer();
     /**
      * <pre>
-     * Batch Transfer transaction payload.
+     * Batch transfer transaction payload.
      * </pre>
      *
      * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -17509,7 +17509,7 @@ public final class TransactionOuterClass {
     public static final int BATCH_TRANSFER_FIELD_NUMBER = 35;
     /**
      * <pre>
-     * Batch Transfer transaction payload.
+     * Batch transfer transaction payload.
      * </pre>
      *
      * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -17521,7 +17521,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * Batch Transfer transaction payload.
+     * Batch transfer transaction payload.
      * </pre>
      *
      * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -17536,7 +17536,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * Batch Transfer transaction payload.
+     * Batch transfer transaction payload.
      * </pre>
      *
      * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -19762,7 +19762,7 @@ public final class TransactionOuterClass {
           aerium.TransactionOuterClass.PayloadBatchTransfer, aerium.TransactionOuterClass.PayloadBatchTransfer.Builder, aerium.TransactionOuterClass.PayloadBatchTransferOrBuilder> batchTransferBuilder_;
       /**
        * <pre>
-       * Batch Transfer transaction payload.
+       * Batch transfer transaction payload.
        * </pre>
        *
        * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -19774,7 +19774,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * Batch Transfer transaction payload.
+       * Batch transfer transaction payload.
        * </pre>
        *
        * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -19796,7 +19796,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * Batch Transfer transaction payload.
+       * Batch transfer transaction payload.
        * </pre>
        *
        * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -19816,7 +19816,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * Batch Transfer transaction payload.
+       * Batch transfer transaction payload.
        * </pre>
        *
        * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -19834,7 +19834,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * Batch Transfer transaction payload.
+       * Batch transfer transaction payload.
        * </pre>
        *
        * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -19861,7 +19861,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * Batch Transfer transaction payload.
+       * Batch transfer transaction payload.
        * </pre>
        *
        * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -19884,7 +19884,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * Batch Transfer transaction payload.
+       * Batch transfer transaction payload.
        * </pre>
        *
        * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -19894,7 +19894,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * Batch Transfer transaction payload.
+       * Batch transfer transaction payload.
        * </pre>
        *
        * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -19912,7 +19912,7 @@ public final class TransactionOuterClass {
       }
       /**
        * <pre>
-       * Batch Transfer transaction payload.
+       * Batch transfer transaction payload.
        * </pre>
        *
        * <code>.aerium.PayloadBatchTransfer batch_transfer = 35 [json_name = "batchTransfer"];</code>
@@ -20850,7 +20850,7 @@ public final class TransactionOuterClass {
   }
   /**
    * <pre>
-   * Response message contains the decoded transaction.
+   * Response message containing the decoded transaction.
    * </pre>
    *
    * Protobuf type {@code aerium.DecodeRawTransactionResponse}
@@ -21092,7 +21092,7 @@ public final class TransactionOuterClass {
     }
     /**
      * <pre>
-     * Response message contains the decoded transaction.
+     * Response message containing the decoded transaction.
      * </pre>
      *
      * Protobuf type {@code aerium.DecodeRawTransactionResponse}

@@ -4,7 +4,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
  * <pre>
- * Transaction service defines various RPC methods for interacting with transactions.
+ * The Transaction service defines RPC methods for interacting with transactions.
  * </pre>
  */
 @javax.annotation.Generated(
@@ -358,14 +358,14 @@ public final class TransactionGrpc {
 
   /**
    * <pre>
-   * Transaction service defines various RPC methods for interacting with transactions.
+   * The Transaction service defines RPC methods for interacting with transactions.
    * </pre>
    */
   public interface AsyncService {
 
     /**
      * <pre>
-     * GetTransaction retrieves transaction details based on the provided request parameters.
+     * Retrieves transaction details based on the provided request parameters.
      * </pre>
      */
     default void getTransaction(aerium.TransactionOuterClass.GetTransactionRequest request,
@@ -375,7 +375,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * CalculateFee calculates the transaction fee based on the specified amount and payload type.
+     * Calculates the transaction fee based on the specified amount and payload type.
      * </pre>
      */
     default void calculateFee(aerium.TransactionOuterClass.CalculateFeeRequest request,
@@ -385,7 +385,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * BroadcastTransaction broadcasts a signed transaction to the network.
+     * Broadcasts a signed transaction to the network.
      * </pre>
      */
     default void broadcastTransaction(aerium.TransactionOuterClass.BroadcastTransactionRequest request,
@@ -395,7 +395,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawTransferTransaction retrieves raw details of a transfer transaction.
+     * Retrieves raw details of a transfer transaction.
      * </pre>
      */
     default void getRawTransferTransaction(aerium.TransactionOuterClass.GetRawTransferTransactionRequest request,
@@ -405,7 +405,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawBondTransaction retrieves raw details of a bond transaction.
+     * Retrieves raw details of a bond transaction.
      * </pre>
      */
     default void getRawBondTransaction(aerium.TransactionOuterClass.GetRawBondTransactionRequest request,
@@ -415,7 +415,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawUnbondTransaction retrieves raw details of an unbond transaction.
+     * Retrieves raw details of an unbond transaction.
      * </pre>
      */
     default void getRawUnbondTransaction(aerium.TransactionOuterClass.GetRawUnbondTransactionRequest request,
@@ -425,7 +425,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.
+     * Retrieves raw details of a withdraw transaction.
      * </pre>
      */
     default void getRawWithdrawTransaction(aerium.TransactionOuterClass.GetRawWithdrawTransactionRequest request,
@@ -435,7 +435,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.
+     * Retrieves raw details of a batch transfer transaction.
      * </pre>
      */
     default void getRawBatchTransferTransaction(aerium.TransactionOuterClass.GetRawBatchTransferTransactionRequest request,
@@ -445,7 +445,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * DecodeRawTransaction accepts raw transaction and returns decoded transaction.
+     * Decodes a raw transaction and returns the decoded transaction.
      * </pre>
      */
     default void decodeRawTransaction(aerium.TransactionOuterClass.DecodeRawTransactionRequest request,
@@ -457,7 +457,7 @@ public final class TransactionGrpc {
   /**
    * Base class for the server implementation of the service Transaction.
    * <pre>
-   * Transaction service defines various RPC methods for interacting with transactions.
+   * The Transaction service defines RPC methods for interacting with transactions.
    * </pre>
    */
   public static abstract class TransactionImplBase
@@ -471,7 +471,7 @@ public final class TransactionGrpc {
   /**
    * A stub to allow clients to do asynchronous rpc calls to service Transaction.
    * <pre>
-   * Transaction service defines various RPC methods for interacting with transactions.
+   * The Transaction service defines RPC methods for interacting with transactions.
    * </pre>
    */
   public static final class TransactionStub
@@ -489,7 +489,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetTransaction retrieves transaction details based on the provided request parameters.
+     * Retrieves transaction details based on the provided request parameters.
      * </pre>
      */
     public void getTransaction(aerium.TransactionOuterClass.GetTransactionRequest request,
@@ -500,7 +500,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * CalculateFee calculates the transaction fee based on the specified amount and payload type.
+     * Calculates the transaction fee based on the specified amount and payload type.
      * </pre>
      */
     public void calculateFee(aerium.TransactionOuterClass.CalculateFeeRequest request,
@@ -511,7 +511,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * BroadcastTransaction broadcasts a signed transaction to the network.
+     * Broadcasts a signed transaction to the network.
      * </pre>
      */
     public void broadcastTransaction(aerium.TransactionOuterClass.BroadcastTransactionRequest request,
@@ -522,7 +522,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawTransferTransaction retrieves raw details of a transfer transaction.
+     * Retrieves raw details of a transfer transaction.
      * </pre>
      */
     public void getRawTransferTransaction(aerium.TransactionOuterClass.GetRawTransferTransactionRequest request,
@@ -533,7 +533,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawBondTransaction retrieves raw details of a bond transaction.
+     * Retrieves raw details of a bond transaction.
      * </pre>
      */
     public void getRawBondTransaction(aerium.TransactionOuterClass.GetRawBondTransactionRequest request,
@@ -544,7 +544,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawUnbondTransaction retrieves raw details of an unbond transaction.
+     * Retrieves raw details of an unbond transaction.
      * </pre>
      */
     public void getRawUnbondTransaction(aerium.TransactionOuterClass.GetRawUnbondTransactionRequest request,
@@ -555,7 +555,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.
+     * Retrieves raw details of a withdraw transaction.
      * </pre>
      */
     public void getRawWithdrawTransaction(aerium.TransactionOuterClass.GetRawWithdrawTransactionRequest request,
@@ -566,7 +566,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.
+     * Retrieves raw details of a batch transfer transaction.
      * </pre>
      */
     public void getRawBatchTransferTransaction(aerium.TransactionOuterClass.GetRawBatchTransferTransactionRequest request,
@@ -577,7 +577,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * DecodeRawTransaction accepts raw transaction and returns decoded transaction.
+     * Decodes a raw transaction and returns the decoded transaction.
      * </pre>
      */
     public void decodeRawTransaction(aerium.TransactionOuterClass.DecodeRawTransactionRequest request,
@@ -590,7 +590,7 @@ public final class TransactionGrpc {
   /**
    * A stub to allow clients to do synchronous rpc calls to service Transaction.
    * <pre>
-   * Transaction service defines various RPC methods for interacting with transactions.
+   * The Transaction service defines RPC methods for interacting with transactions.
    * </pre>
    */
   public static final class TransactionBlockingV2Stub
@@ -608,7 +608,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetTransaction retrieves transaction details based on the provided request parameters.
+     * Retrieves transaction details based on the provided request parameters.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetTransactionResponse getTransaction(aerium.TransactionOuterClass.GetTransactionRequest request) {
@@ -618,7 +618,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * CalculateFee calculates the transaction fee based on the specified amount and payload type.
+     * Calculates the transaction fee based on the specified amount and payload type.
      * </pre>
      */
     public aerium.TransactionOuterClass.CalculateFeeResponse calculateFee(aerium.TransactionOuterClass.CalculateFeeRequest request) {
@@ -628,7 +628,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * BroadcastTransaction broadcasts a signed transaction to the network.
+     * Broadcasts a signed transaction to the network.
      * </pre>
      */
     public aerium.TransactionOuterClass.BroadcastTransactionResponse broadcastTransaction(aerium.TransactionOuterClass.BroadcastTransactionRequest request) {
@@ -638,7 +638,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawTransferTransaction retrieves raw details of a transfer transaction.
+     * Retrieves raw details of a transfer transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetRawTransactionResponse getRawTransferTransaction(aerium.TransactionOuterClass.GetRawTransferTransactionRequest request) {
@@ -648,7 +648,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawBondTransaction retrieves raw details of a bond transaction.
+     * Retrieves raw details of a bond transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetRawTransactionResponse getRawBondTransaction(aerium.TransactionOuterClass.GetRawBondTransactionRequest request) {
@@ -658,7 +658,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawUnbondTransaction retrieves raw details of an unbond transaction.
+     * Retrieves raw details of an unbond transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetRawTransactionResponse getRawUnbondTransaction(aerium.TransactionOuterClass.GetRawUnbondTransactionRequest request) {
@@ -668,7 +668,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.
+     * Retrieves raw details of a withdraw transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetRawTransactionResponse getRawWithdrawTransaction(aerium.TransactionOuterClass.GetRawWithdrawTransactionRequest request) {
@@ -678,7 +678,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.
+     * Retrieves raw details of a batch transfer transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetRawTransactionResponse getRawBatchTransferTransaction(aerium.TransactionOuterClass.GetRawBatchTransferTransactionRequest request) {
@@ -688,7 +688,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * DecodeRawTransaction accepts raw transaction and returns decoded transaction.
+     * Decodes a raw transaction and returns the decoded transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.DecodeRawTransactionResponse decodeRawTransaction(aerium.TransactionOuterClass.DecodeRawTransactionRequest request) {
@@ -700,7 +700,7 @@ public final class TransactionGrpc {
   /**
    * A stub to allow clients to do limited synchronous rpc calls to service Transaction.
    * <pre>
-   * Transaction service defines various RPC methods for interacting with transactions.
+   * The Transaction service defines RPC methods for interacting with transactions.
    * </pre>
    */
   public static final class TransactionBlockingStub
@@ -718,7 +718,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetTransaction retrieves transaction details based on the provided request parameters.
+     * Retrieves transaction details based on the provided request parameters.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetTransactionResponse getTransaction(aerium.TransactionOuterClass.GetTransactionRequest request) {
@@ -728,7 +728,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * CalculateFee calculates the transaction fee based on the specified amount and payload type.
+     * Calculates the transaction fee based on the specified amount and payload type.
      * </pre>
      */
     public aerium.TransactionOuterClass.CalculateFeeResponse calculateFee(aerium.TransactionOuterClass.CalculateFeeRequest request) {
@@ -738,7 +738,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * BroadcastTransaction broadcasts a signed transaction to the network.
+     * Broadcasts a signed transaction to the network.
      * </pre>
      */
     public aerium.TransactionOuterClass.BroadcastTransactionResponse broadcastTransaction(aerium.TransactionOuterClass.BroadcastTransactionRequest request) {
@@ -748,7 +748,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawTransferTransaction retrieves raw details of a transfer transaction.
+     * Retrieves raw details of a transfer transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetRawTransactionResponse getRawTransferTransaction(aerium.TransactionOuterClass.GetRawTransferTransactionRequest request) {
@@ -758,7 +758,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawBondTransaction retrieves raw details of a bond transaction.
+     * Retrieves raw details of a bond transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetRawTransactionResponse getRawBondTransaction(aerium.TransactionOuterClass.GetRawBondTransactionRequest request) {
@@ -768,7 +768,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawUnbondTransaction retrieves raw details of an unbond transaction.
+     * Retrieves raw details of an unbond transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetRawTransactionResponse getRawUnbondTransaction(aerium.TransactionOuterClass.GetRawUnbondTransactionRequest request) {
@@ -778,7 +778,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.
+     * Retrieves raw details of a withdraw transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetRawTransactionResponse getRawWithdrawTransaction(aerium.TransactionOuterClass.GetRawWithdrawTransactionRequest request) {
@@ -788,7 +788,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.
+     * Retrieves raw details of a batch transfer transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.GetRawTransactionResponse getRawBatchTransferTransaction(aerium.TransactionOuterClass.GetRawBatchTransferTransactionRequest request) {
@@ -798,7 +798,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * DecodeRawTransaction accepts raw transaction and returns decoded transaction.
+     * Decodes a raw transaction and returns the decoded transaction.
      * </pre>
      */
     public aerium.TransactionOuterClass.DecodeRawTransactionResponse decodeRawTransaction(aerium.TransactionOuterClass.DecodeRawTransactionRequest request) {
@@ -810,7 +810,7 @@ public final class TransactionGrpc {
   /**
    * A stub to allow clients to do ListenableFuture-style rpc calls to service Transaction.
    * <pre>
-   * Transaction service defines various RPC methods for interacting with transactions.
+   * The Transaction service defines RPC methods for interacting with transactions.
    * </pre>
    */
   public static final class TransactionFutureStub
@@ -828,7 +828,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetTransaction retrieves transaction details based on the provided request parameters.
+     * Retrieves transaction details based on the provided request parameters.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.TransactionOuterClass.GetTransactionResponse> getTransaction(
@@ -839,7 +839,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * CalculateFee calculates the transaction fee based on the specified amount and payload type.
+     * Calculates the transaction fee based on the specified amount and payload type.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.TransactionOuterClass.CalculateFeeResponse> calculateFee(
@@ -850,7 +850,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * BroadcastTransaction broadcasts a signed transaction to the network.
+     * Broadcasts a signed transaction to the network.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.TransactionOuterClass.BroadcastTransactionResponse> broadcastTransaction(
@@ -861,7 +861,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawTransferTransaction retrieves raw details of a transfer transaction.
+     * Retrieves raw details of a transfer transaction.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.TransactionOuterClass.GetRawTransactionResponse> getRawTransferTransaction(
@@ -872,7 +872,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawBondTransaction retrieves raw details of a bond transaction.
+     * Retrieves raw details of a bond transaction.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.TransactionOuterClass.GetRawTransactionResponse> getRawBondTransaction(
@@ -883,7 +883,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawUnbondTransaction retrieves raw details of an unbond transaction.
+     * Retrieves raw details of an unbond transaction.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.TransactionOuterClass.GetRawTransactionResponse> getRawUnbondTransaction(
@@ -894,7 +894,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.
+     * Retrieves raw details of a withdraw transaction.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.TransactionOuterClass.GetRawTransactionResponse> getRawWithdrawTransaction(
@@ -905,7 +905,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.
+     * Retrieves raw details of a batch transfer transaction.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.TransactionOuterClass.GetRawTransactionResponse> getRawBatchTransferTransaction(
@@ -916,7 +916,7 @@ public final class TransactionGrpc {
 
     /**
      * <pre>
-     * DecodeRawTransaction accepts raw transaction and returns decoded transaction.
+     * Decodes a raw transaction and returns the decoded transaction.
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<aerium.TransactionOuterClass.DecodeRawTransactionResponse> decodeRawTransaction(

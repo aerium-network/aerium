@@ -16,7 +16,7 @@ func WalletClientCommand(options ...client.Option) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("Wallet"),
 		Short: "Wallet service client",
-		Long:  "Wallet service provides RPC methods for wallet management operations.",
+		Long:  "The Wallet service provides RPC methods for wallet management operations.",
 	}
 	cfg.BindFlags(cmd.PersistentFlags())
 	cmd.AddCommand(
@@ -46,7 +46,7 @@ func _WalletCreateWalletCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("CreateWallet"),
 		Short: "CreateWallet RPC client",
-		Long:  "CreateWallet creates a new wallet with the specified parameters.",
+		Long:  "Creates a new wallet with the specified parameters.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -89,7 +89,7 @@ func _WalletRestoreWalletCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("RestoreWallet"),
 		Short: "RestoreWallet RPC client",
-		Long:  "RestoreWallet restores an existing wallet with the given mnemonic.",
+		Long:  "Restores an existing wallet with the given mnemonic.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -133,7 +133,7 @@ func _WalletLoadWalletCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("LoadWallet"),
 		Short: "LoadWallet RPC client",
-		Long:  "LoadWallet loads an existing wallet with the given name.",
+		Long:  "Loads an existing wallet with the given name.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -175,7 +175,7 @@ func _WalletUnloadWalletCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("UnloadWallet"),
 		Short: "UnloadWallet RPC client",
-		Long:  "UnloadWallet unloads a currently loaded wallet with the specified name.",
+		Long:  "Unloads a currently loaded wallet with the specified name.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -217,7 +217,7 @@ func _WalletGetTotalBalanceCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetTotalBalance"),
 		Short: "GetTotalBalance RPC client",
-		Long:  "GetTotalBalance returns the total available balance of the wallet.",
+		Long:  "Returns the total available balance of the wallet.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -248,7 +248,7 @@ func _WalletGetTotalBalanceCommand(cfg *client.Config) *cobra.Command {
 		},
 	}
 
-	cmd.PersistentFlags().StringVar(&req.WalletName, cfg.FlagNamer("WalletName"), "", "The name of the wallet to get the total balance.")
+	cmd.PersistentFlags().StringVar(&req.WalletName, cfg.FlagNamer("WalletName"), "", "The name of the wallet to get the total balance for.")
 
 	return cmd
 }
@@ -259,7 +259,7 @@ func _WalletSignRawTransactionCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("SignRawTransaction"),
 		Short: "SignRawTransaction RPC client",
-		Long:  "SignRawTransaction signs a raw transaction for a specified wallet.",
+		Long:  "Signs a raw transaction for a specified wallet.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -303,7 +303,7 @@ func _WalletGetValidatorAddressCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetValidatorAddress"),
 		Short: "GetValidatorAddress RPC client",
-		Long:  "GetValidatorAddress retrieves the validator address associated with a public key.",
+		Long:  "Retrieves the validator address associated with a public key.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -345,7 +345,7 @@ func _WalletGetNewAddressCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetNewAddress"),
 		Short: "GetNewAddress RPC client",
-		Long:  "GetNewAddress generates a new address for the specified wallet.",
+		Long:  "Generates a new address for the specified wallet.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -376,10 +376,10 @@ func _WalletGetNewAddressCommand(cfg *client.Config) *cobra.Command {
 		},
 	}
 
-	cmd.PersistentFlags().StringVar(&req.WalletName, cfg.FlagNamer("WalletName"), "", "The name of the wallet to generate a new address.")
+	cmd.PersistentFlags().StringVar(&req.WalletName, cfg.FlagNamer("WalletName"), "", "The name of the wallet to generate a new address for.")
 	flag.EnumVar(cmd.PersistentFlags(), &req.AddressType, cfg.FlagNamer("AddressType"), "The type of address to generate.")
 	cmd.PersistentFlags().StringVar(&req.Label, cfg.FlagNamer("Label"), "", "A label for the new address.")
-	cmd.PersistentFlags().StringVar(&req.Password, cfg.FlagNamer("Password"), "", "Password for the new address. It's required when address_type is Ed25519 type.")
+	cmd.PersistentFlags().StringVar(&req.Password, cfg.FlagNamer("Password"), "", "Password for the new address. Required when address_type is Ed25519.")
 
 	return cmd
 }
@@ -390,7 +390,7 @@ func _WalletGetAddressHistoryCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetAddressHistory"),
 		Short: "GetAddressHistory RPC client",
-		Long:  "GetAddressHistory retrieves the transaction history of an address.",
+		Long:  "Retrieves the transaction history of an address.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -433,7 +433,7 @@ func _WalletSignMessageCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("SignMessage"),
 		Short: "SignMessage RPC client",
-		Long:  "SignMessage signs an arbitrary message using a wallet's private key.",
+		Long:  "Signs an arbitrary message using a wallet's private key.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -478,7 +478,7 @@ func _WalletGetTotalStakeCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetTotalStake"),
 		Short: "GetTotalStake RPC client",
-		Long:  "GetTotalStake returns the total stake amount in the wallet.",
+		Long:  "Returns the total stake amount in the wallet.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -509,7 +509,7 @@ func _WalletGetTotalStakeCommand(cfg *client.Config) *cobra.Command {
 		},
 	}
 
-	cmd.PersistentFlags().StringVar(&req.WalletName, cfg.FlagNamer("WalletName"), "", "The name of the wallet to get the total stake.")
+	cmd.PersistentFlags().StringVar(&req.WalletName, cfg.FlagNamer("WalletName"), "", "The name of the wallet to get the total stake for.")
 
 	return cmd
 }
@@ -520,7 +520,7 @@ func _WalletGetAddressInfoCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetAddressInfo"),
 		Short: "GetAddressInfo RPC client",
-		Long:  "GetAddressInfo returns detailed information about a specific address.",
+		Long:  "Returns detailed information about a specific address.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -563,7 +563,7 @@ func _WalletSetAddressLabelCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("SetAddressLabel"),
 		Short: "SetAddressLabel RPC client",
-		Long:  "SetAddressLabel sets or updates the label for a given address.",
+		Long:  "Sets or updates the label for a given address.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -608,7 +608,7 @@ func _WalletListWalletCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("ListWallet"),
 		Short: "ListWallet RPC client",
-		Long:  "ListWallet returns list of all available wallets.",
+		Long:  "Returns a list of all available wallets.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -648,7 +648,7 @@ func _WalletGetWalletInfoCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("GetWalletInfo"),
 		Short: "GetWalletInfo RPC client",
-		Long:  "GetWalletInfo returns detailed information about a specific wallet.",
+		Long:  "Returns detailed information about a specific wallet.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {
@@ -690,7 +690,7 @@ func _WalletListAddressCommand(cfg *client.Config) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   cfg.CommandNamer("ListAddress"),
 		Short: "ListAddress RPC client",
-		Long:  "ListAddress returns all addresses in the specified wallet.",
+		Long:  "Returns all addresses in the specified wallet.",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if cfg.UseEnvVars {
 				if err := flag.SetFlagsFromEnv(cmd.Parent().PersistentFlags(), true, cfg.EnvVarNamer, cfg.EnvVarPrefix, "Wallet"); err != nil {

@@ -73,7 +73,7 @@ class GetNetworkInfoRequest extends $pb.GeneratedMessage {
   void clearOnlyConnected() => $_clearField(1);
 }
 
-/// Response message contains information about the overall network.
+/// Response message containing information about the overall network.
 class GetNetworkInfoResponse extends $pb.GeneratedMessage {
   factory GetNetworkInfoResponse({
     $core.String? networkName,
@@ -166,7 +166,7 @@ class GetNetworkInfoResponse extends $pb.GeneratedMessage {
   MetricInfo ensureMetricInfo() => $_ensure(3);
 }
 
-/// Request message for retrieving information of the node.
+/// Request message for retrieving information about the node.
 class GetNodeInfoRequest extends $pb.GeneratedMessage {
   factory GetNodeInfoRequest() => create();
   GetNodeInfoRequest._() : super();
@@ -199,7 +199,7 @@ class GetNodeInfoRequest extends $pb.GeneratedMessage {
   static GetNodeInfoRequest? _defaultInstance;
 }
 
-/// Response message contains information about a specific node in the network.
+/// Response message containing information about a specific node in the network.
 class GetNodeInfoResponse extends $pb.GeneratedMessage {
   factory GetNodeInfoResponse({
     $core.String? moniker,
@@ -300,7 +300,7 @@ class GetNodeInfoResponse extends $pb.GeneratedMessage {
   static GetNodeInfoResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetNodeInfoResponse>(create);
   static GetNodeInfoResponse? _defaultInstance;
 
-  /// Moniker or Human-readable name identifying this node in the network.
+  /// Moniker or human-readable name identifying this node in the network.
   @$pb.TagNumber(1)
   $core.String get moniker => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -486,8 +486,7 @@ class ZMQPublisherInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearAddress() => $_clearField(2);
 
-  /// The high-water mark (HWM) for the publisher, indicating the
-  /// maximum number of messages to queue before dropping older ones.
+  /// The high-water mark (HWM) for the publisher, indicating the maximum number of messages to queue before dropping older ones.
   @$pb.TagNumber(3)
   $core.int get hwm => $_getIZ(2);
   @$pb.TagNumber(3)
@@ -634,7 +633,7 @@ class PeerInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearStatus() => $_clearField(1);
 
-  /// Moniker or Human-Readable name of the peer.
+  /// Moniker or human-readable name of the peer.
   @$pb.TagNumber(2)
   $core.String get moniker => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -654,7 +653,7 @@ class PeerInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearAgent() => $_clearField(3);
 
-  /// Peer ID of the peer in P2P network.
+  /// Peer ID of the peer in the P2P network.
   @$pb.TagNumber(4)
   $core.String get peerId => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -778,7 +777,7 @@ class PeerInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(17)
   MetricInfo ensureMetricInfo() => $_ensure(16);
 
-  /// Whether the hello message was sent from the outbound connection.
+  /// Indicates whether the hello message was sent from the outbound connection.
   @$pb.TagNumber(18)
   $core.bool get outboundHelloSent => $_getBF(17);
   @$pb.TagNumber(18)
@@ -1044,16 +1043,16 @@ class CounterInfo extends $pb.GeneratedMessage {
   void clearBundles() => $_clearField(2);
 }
 
-/// Network service provides RPCs for retrieving information about the network.
+/// The Network service provides RPCs for retrieving information about the network.
 class NetworkApi {
   $pb.RpcClient _client;
   NetworkApi(this._client);
 
-  /// GetNetworkInfo retrieves information about the overall network.
+  /// Retrieves information about the overall network.
   $async.Future<GetNetworkInfoResponse> getNetworkInfo($pb.ClientContext? ctx, GetNetworkInfoRequest request) =>
     _client.invoke<GetNetworkInfoResponse>(ctx, 'Network', 'GetNetworkInfo', request, GetNetworkInfoResponse())
   ;
-  /// GetNodeInfo retrieves information about a specific node in the network.
+  /// Retrieves information about a specific node in the network.
   $async.Future<GetNodeInfoResponse> getNodeInfo($pb.ClientContext? ctx, GetNodeInfoRequest request) =>
     _client.invoke<GetNodeInfoResponse>(ctx, 'Network', 'GetNodeInfo', request, GetNodeInfoResponse())
   ;

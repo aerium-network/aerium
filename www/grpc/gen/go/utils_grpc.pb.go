@@ -29,16 +29,15 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// Utils service defines RPC methods for utility functions such as message
-// signing, verification, and etc.
+// The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
 type UtilsClient interface {
-	// SignMessageWithPrivateKey signs a message with the provided private key.
+	// Signs a message with the provided private key.
 	SignMessageWithPrivateKey(ctx context.Context, in *SignMessageWithPrivateKeyRequest, opts ...grpc.CallOption) (*SignMessageWithPrivateKeyResponse, error)
-	// VerifyMessage verifies a signature against the public key and message.
+	// Verifies a signature against the public key and message.
 	VerifyMessage(ctx context.Context, in *VerifyMessageRequest, opts ...grpc.CallOption) (*VerifyMessageResponse, error)
-	// PublicKeyAggregation aggregates multiple BLS public keys into a single key.
+	// Aggregates multiple BLS public keys into a single key.
 	PublicKeyAggregation(ctx context.Context, in *PublicKeyAggregationRequest, opts ...grpc.CallOption) (*PublicKeyAggregationResponse, error)
-	// SignatureAggregation aggregates multiple BLS signatures into a single signature.
+	// Aggregates multiple BLS signatures into a single signature.
 	SignatureAggregation(ctx context.Context, in *SignatureAggregationRequest, opts ...grpc.CallOption) (*SignatureAggregationResponse, error)
 }
 
@@ -94,16 +93,15 @@ func (c *utilsClient) SignatureAggregation(ctx context.Context, in *SignatureAgg
 // All implementations should embed UnimplementedUtilsServer
 // for forward compatibility.
 //
-// Utils service defines RPC methods for utility functions such as message
-// signing, verification, and etc.
+// The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
 type UtilsServer interface {
-	// SignMessageWithPrivateKey signs a message with the provided private key.
+	// Signs a message with the provided private key.
 	SignMessageWithPrivateKey(context.Context, *SignMessageWithPrivateKeyRequest) (*SignMessageWithPrivateKeyResponse, error)
-	// VerifyMessage verifies a signature against the public key and message.
+	// Verifies a signature against the public key and message.
 	VerifyMessage(context.Context, *VerifyMessageRequest) (*VerifyMessageResponse, error)
-	// PublicKeyAggregation aggregates multiple BLS public keys into a single key.
+	// Aggregates multiple BLS public keys into a single key.
 	PublicKeyAggregation(context.Context, *PublicKeyAggregationRequest) (*PublicKeyAggregationResponse, error)
-	// SignatureAggregation aggregates multiple BLS signatures into a single signature.
+	// Aggregates multiple BLS signatures into a single signature.
 	SignatureAggregation(context.Context, *SignatureAggregationRequest) (*SignatureAggregationResponse, error)
 }
 

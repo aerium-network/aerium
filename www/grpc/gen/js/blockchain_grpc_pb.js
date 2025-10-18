@@ -237,9 +237,9 @@ function deserialize_aerium_GetValidatorResponse(buffer_arg) {
 }
 
 
-// Blockchain service defines RPC methods for interacting with the blockchain.
+// The Blockchain service defines RPC methods for interacting with the blockchain.
 var BlockchainService = exports.BlockchainService = {
-  // GetBlock retrieves information about a block based on the provided request parameters.
+  // Retrieves information about a block based on the provided request parameters.
 getBlock: {
     path: '/aerium.Blockchain/GetBlock',
     requestStream: false,
@@ -251,7 +251,7 @@ getBlock: {
     responseSerialize: serialize_aerium_GetBlockResponse,
     responseDeserialize: deserialize_aerium_GetBlockResponse,
   },
-  // GetBlockHash retrieves the hash of a block at the specified height.
+  // Retrieves the hash of a block at the specified height.
 getBlockHash: {
     path: '/aerium.Blockchain/GetBlockHash',
     requestStream: false,
@@ -263,7 +263,7 @@ getBlockHash: {
     responseSerialize: serialize_aerium_GetBlockHashResponse,
     responseDeserialize: deserialize_aerium_GetBlockHashResponse,
   },
-  // GetBlockHeight retrieves the height of a block with the specified hash.
+  // Retrieves the height of a block with the specified hash.
 getBlockHeight: {
     path: '/aerium.Blockchain/GetBlockHeight',
     requestStream: false,
@@ -275,7 +275,7 @@ getBlockHeight: {
     responseSerialize: serialize_aerium_GetBlockHeightResponse,
     responseDeserialize: deserialize_aerium_GetBlockHeightResponse,
   },
-  // GetBlockchainInfo retrieves general information about the blockchain.
+  // Retrieves general information about the blockchain.
 getBlockchainInfo: {
     path: '/aerium.Blockchain/GetBlockchainInfo',
     requestStream: false,
@@ -287,7 +287,7 @@ getBlockchainInfo: {
     responseSerialize: serialize_aerium_GetBlockchainInfoResponse,
     responseDeserialize: deserialize_aerium_GetBlockchainInfoResponse,
   },
-  // GetConsensusInfo retrieves information about the consensus instances.
+  // Retrieves information about consensus instances.
 getConsensusInfo: {
     path: '/aerium.Blockchain/GetConsensusInfo',
     requestStream: false,
@@ -299,7 +299,7 @@ getConsensusInfo: {
     responseSerialize: serialize_aerium_GetConsensusInfoResponse,
     responseDeserialize: deserialize_aerium_GetConsensusInfoResponse,
   },
-  // GetAccount retrieves information about an account based on the provided address.
+  // Retrieves information about an account for the provided address.
 getAccount: {
     path: '/aerium.Blockchain/GetAccount',
     requestStream: false,
@@ -311,7 +311,7 @@ getAccount: {
     responseSerialize: serialize_aerium_GetAccountResponse,
     responseDeserialize: deserialize_aerium_GetAccountResponse,
   },
-  // GetValidator retrieves information about a validator based on the provided address.
+  // Retrieves information about a validator for the provided address.
 getValidator: {
     path: '/aerium.Blockchain/GetValidator',
     requestStream: false,
@@ -323,7 +323,7 @@ getValidator: {
     responseSerialize: serialize_aerium_GetValidatorResponse,
     responseDeserialize: deserialize_aerium_GetValidatorResponse,
   },
-  // GetValidatorByNumber retrieves information about a validator based on the provided number.
+  // Retrieves information about a validator by its number.
 getValidatorByNumber: {
     path: '/aerium.Blockchain/GetValidatorByNumber',
     requestStream: false,
@@ -335,7 +335,7 @@ getValidatorByNumber: {
     responseSerialize: serialize_aerium_GetValidatorResponse,
     responseDeserialize: deserialize_aerium_GetValidatorResponse,
   },
-  // GetValidatorAddresses retrieves a list of all validator addresses.
+  // Retrieves a list of all validator addresses.
 getValidatorAddresses: {
     path: '/aerium.Blockchain/GetValidatorAddresses',
     requestStream: false,
@@ -347,7 +347,7 @@ getValidatorAddresses: {
     responseSerialize: serialize_aerium_GetValidatorAddressesResponse,
     responseDeserialize: deserialize_aerium_GetValidatorAddressesResponse,
   },
-  // GetPublicKey retrieves the public key of an account based on the provided address.
+  // Retrieves the public key of an account for the provided address.
 getPublicKey: {
     path: '/aerium.Blockchain/GetPublicKey',
     requestStream: false,
@@ -359,7 +359,7 @@ getPublicKey: {
     responseSerialize: serialize_aerium_GetPublicKeyResponse,
     responseDeserialize: deserialize_aerium_GetPublicKeyResponse,
   },
-  // GetTxPoolContent retrieves current transactions in the transaction pool.
+  // Retrieves current transactions in the transaction pool.
 getTxPoolContent: {
     path: '/aerium.Blockchain/GetTxPoolContent',
     requestStream: false,

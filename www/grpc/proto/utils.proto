@@ -4,19 +4,18 @@ package aerium;
 option go_package = "github.com/aerium-network/aerium/www/grpc/aerium";
 option java_package = "aerium";
 
-// Utils service defines RPC methods for utility functions such as message
-// signing, verification, and etc.
+// The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
 service Utils {
-  // SignMessageWithPrivateKey signs a message with the provided private key.
+  // Signs a message with the provided private key.
   rpc SignMessageWithPrivateKey(SignMessageWithPrivateKeyRequest) returns (SignMessageWithPrivateKeyResponse);
 
-  // VerifyMessage verifies a signature against the public key and message.
+  // Verifies a signature against the public key and message.
   rpc VerifyMessage(VerifyMessageRequest) returns (VerifyMessageResponse);
 
-  // PublicKeyAggregation aggregates multiple BLS public keys into a single key.
+  // Aggregates multiple BLS public keys into a single key.
   rpc PublicKeyAggregation(PublicKeyAggregationRequest) returns (PublicKeyAggregationResponse);
 
-  // SignatureAggregation aggregates multiple BLS signatures into a single signature.
+  // Aggregates multiple BLS signatures into a single signature.
   rpc SignatureAggregation(SignatureAggregationRequest) returns (SignatureAggregationResponse);
 }
 
@@ -28,7 +27,7 @@ message SignMessageWithPrivateKeyRequest {
   string message = 2;
 }
 
-// Response message contains the signature generated from the message.
+// Response message containing the signature generated from the message.
 message SignMessageWithPrivateKeyResponse {
   // The resulting signature in hexadecimal format.
   string signature = 1;
@@ -44,9 +43,9 @@ message VerifyMessageRequest {
   string public_key = 3;
 }
 
-// Response message contains the verification result.
+// Response message containing the verification result.
 message VerifyMessageResponse {
-  // Boolean indicating whether the signature is valid for the given message and public key.
+  // Indicates whether the signature is valid for the given message and public key.
   bool is_valid = 1;
 }
 
@@ -56,7 +55,7 @@ message PublicKeyAggregationRequest {
   repeated string public_keys = 1;
 }
 
-// Response message contains the aggregated BLS public key result.
+// Response message containing the aggregated BLS public key result.
 message PublicKeyAggregationResponse {
   // The aggregated BLS public key.
   string public_key = 1;
@@ -70,7 +69,7 @@ message SignatureAggregationRequest {
   repeated string signatures = 1;
 }
 
-// Response message contains the aggregated BLS signature.
+// Response message containing the aggregated BLS signature.
 message SignatureAggregationResponse {
   // The aggregated BLS signature in hexadecimal format.
   string signature = 1;

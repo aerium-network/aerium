@@ -27,7 +27,7 @@ public final class NetworkOuterClass {
   }
   /**
    * <pre>
-   * Direction represents the connection direction between peers.
+   * The Direction enum represents the connection direction between peers.
    * </pre>
    *
    * Protobuf enum {@code aerium.Direction}
@@ -44,7 +44,7 @@ public final class NetworkOuterClass {
     DIRECTION_UNKNOWN(0),
     /**
      * <pre>
-     * Inbound connection - peer connected to us.
+     * Inbound connection: peer connected to us.
      * </pre>
      *
      * <code>DIRECTION_INBOUND = 1;</code>
@@ -52,7 +52,7 @@ public final class NetworkOuterClass {
     DIRECTION_INBOUND(1),
     /**
      * <pre>
-     * Outbound connection - we connected to peer.
+     * Outbound connection: we connected to the peer.
      * </pre>
      *
      * <code>DIRECTION_OUTBOUND = 2;</code>
@@ -80,7 +80,7 @@ public final class NetworkOuterClass {
     public static final int DIRECTION_UNKNOWN_VALUE = 0;
     /**
      * <pre>
-     * Inbound connection - peer connected to us.
+     * Inbound connection: peer connected to us.
      * </pre>
      *
      * <code>DIRECTION_INBOUND = 1;</code>
@@ -88,7 +88,7 @@ public final class NetworkOuterClass {
     public static final int DIRECTION_INBOUND_VALUE = 1;
     /**
      * <pre>
-     * Outbound connection - we connected to peer.
+     * Outbound connection: we connected to the peer.
      * </pre>
      *
      * <code>DIRECTION_OUTBOUND = 2;</code>
@@ -749,7 +749,7 @@ public final class NetworkOuterClass {
   }
   /**
    * <pre>
-   * Response message contains information about the overall network.
+   * Response message containing information about the overall network.
    * </pre>
    *
    * Protobuf type {@code aerium.GetNetworkInfoResponse}
@@ -1154,7 +1154,7 @@ public final class NetworkOuterClass {
     }
     /**
      * <pre>
-     * Response message contains information about the overall network.
+     * Response message containing information about the overall network.
      * </pre>
      *
      * Protobuf type {@code aerium.GetNetworkInfoResponse}
@@ -2057,7 +2057,7 @@ public final class NetworkOuterClass {
   }
   /**
    * <pre>
-   * Request message for retrieving information of the node.
+   * Request message for retrieving information about the node.
    * </pre>
    *
    * Protobuf type {@code aerium.GetNodeInfoRequest}
@@ -2244,7 +2244,7 @@ public final class NetworkOuterClass {
     }
     /**
      * <pre>
-     * Request message for retrieving information of the node.
+     * Request message for retrieving information about the node.
      * </pre>
      *
      * Protobuf type {@code aerium.GetNodeInfoRequest}
@@ -2420,7 +2420,7 @@ public final class NetworkOuterClass {
 
     /**
      * <pre>
-     * Moniker or Human-readable name identifying this node in the network.
+     * Moniker or human-readable name identifying this node in the network.
      * </pre>
      *
      * <code>string moniker = 1 [json_name = "moniker"];</code>
@@ -2429,7 +2429,7 @@ public final class NetworkOuterClass {
     java.lang.String getMoniker();
     /**
      * <pre>
-     * Moniker or Human-readable name identifying this node in the network.
+     * Moniker or human-readable name identifying this node in the network.
      * </pre>
      *
      * <code>string moniker = 1 [json_name = "moniker"];</code>
@@ -2713,7 +2713,7 @@ public final class NetworkOuterClass {
   }
   /**
    * <pre>
-   * Response message contains information about a specific node in the network.
+   * Response message containing information about a specific node in the network.
    * </pre>
    *
    * Protobuf type {@code aerium.GetNodeInfoResponse}
@@ -2768,7 +2768,7 @@ public final class NetworkOuterClass {
     private volatile java.lang.Object moniker_ = "";
     /**
      * <pre>
-     * Moniker or Human-readable name identifying this node in the network.
+     * Moniker or human-readable name identifying this node in the network.
      * </pre>
      *
      * <code>string moniker = 1 [json_name = "moniker"];</code>
@@ -2789,7 +2789,7 @@ public final class NetworkOuterClass {
     }
     /**
      * <pre>
-     * Moniker or Human-readable name identifying this node in the network.
+     * Moniker or human-readable name identifying this node in the network.
      * </pre>
      *
      * <code>string moniker = 1 [json_name = "moniker"];</code>
@@ -3572,7 +3572,7 @@ public final class NetworkOuterClass {
     }
     /**
      * <pre>
-     * Response message contains information about a specific node in the network.
+     * Response message containing information about a specific node in the network.
      * </pre>
      *
      * Protobuf type {@code aerium.GetNodeInfoResponse}
@@ -3952,7 +3952,7 @@ public final class NetworkOuterClass {
       private java.lang.Object moniker_ = "";
       /**
        * <pre>
-       * Moniker or Human-readable name identifying this node in the network.
+       * Moniker or human-readable name identifying this node in the network.
        * </pre>
        *
        * <code>string moniker = 1 [json_name = "moniker"];</code>
@@ -3972,7 +3972,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Moniker or Human-readable name identifying this node in the network.
+       * Moniker or human-readable name identifying this node in the network.
        * </pre>
        *
        * <code>string moniker = 1 [json_name = "moniker"];</code>
@@ -3993,7 +3993,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Moniker or Human-readable name identifying this node in the network.
+       * Moniker or human-readable name identifying this node in the network.
        * </pre>
        *
        * <code>string moniker = 1 [json_name = "moniker"];</code>
@@ -4010,7 +4010,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Moniker or Human-readable name identifying this node in the network.
+       * Moniker or human-readable name identifying this node in the network.
        * </pre>
        *
        * <code>string moniker = 1 [json_name = "moniker"];</code>
@@ -4024,7 +4024,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Moniker or Human-readable name identifying this node in the network.
+       * Moniker or human-readable name identifying this node in the network.
        * </pre>
        *
        * <code>string moniker = 1 [json_name = "moniker"];</code>
@@ -5445,8 +5445,7 @@ public final class NetworkOuterClass {
 
     /**
      * <pre>
-     * The high-water mark (HWM) for the publisher, indicating the
-     * maximum number of messages to queue before dropping older ones.
+     * The high-water mark (HWM) for the publisher, indicating the maximum number of messages to queue before dropping older ones.
      * </pre>
      *
      * <code>int32 hwm = 3 [json_name = "hwm"];</code>
@@ -5595,8 +5594,7 @@ public final class NetworkOuterClass {
     private int hwm_ = 0;
     /**
      * <pre>
-     * The high-water mark (HWM) for the publisher, indicating the
-     * maximum number of messages to queue before dropping older ones.
+     * The high-water mark (HWM) for the publisher, indicating the maximum number of messages to queue before dropping older ones.
      * </pre>
      *
      * <code>int32 hwm = 3 [json_name = "hwm"];</code>
@@ -6139,8 +6137,7 @@ public final class NetworkOuterClass {
       private int hwm_ ;
       /**
        * <pre>
-       * The high-water mark (HWM) for the publisher, indicating the
-       * maximum number of messages to queue before dropping older ones.
+       * The high-water mark (HWM) for the publisher, indicating the maximum number of messages to queue before dropping older ones.
        * </pre>
        *
        * <code>int32 hwm = 3 [json_name = "hwm"];</code>
@@ -6152,8 +6149,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * The high-water mark (HWM) for the publisher, indicating the
-       * maximum number of messages to queue before dropping older ones.
+       * The high-water mark (HWM) for the publisher, indicating the maximum number of messages to queue before dropping older ones.
        * </pre>
        *
        * <code>int32 hwm = 3 [json_name = "hwm"];</code>
@@ -6169,8 +6165,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * The high-water mark (HWM) for the publisher, indicating the
-       * maximum number of messages to queue before dropping older ones.
+       * The high-water mark (HWM) for the publisher, indicating the maximum number of messages to queue before dropping older ones.
        * </pre>
        *
        * <code>int32 hwm = 3 [json_name = "hwm"];</code>
@@ -6250,7 +6245,7 @@ public final class NetworkOuterClass {
 
     /**
      * <pre>
-     * Moniker or Human-Readable name of the peer.
+     * Moniker or human-readable name of the peer.
      * </pre>
      *
      * <code>string moniker = 2 [json_name = "moniker"];</code>
@@ -6259,7 +6254,7 @@ public final class NetworkOuterClass {
     java.lang.String getMoniker();
     /**
      * <pre>
-     * Moniker or Human-Readable name of the peer.
+     * Moniker or human-readable name of the peer.
      * </pre>
      *
      * <code>string moniker = 2 [json_name = "moniker"];</code>
@@ -6290,7 +6285,7 @@ public final class NetworkOuterClass {
 
     /**
      * <pre>
-     * Peer ID of the peer in P2P network.
+     * Peer ID of the peer in the P2P network.
      * </pre>
      *
      * <code>string peer_id = 4 [json_name = "peerId"];</code>
@@ -6299,7 +6294,7 @@ public final class NetworkOuterClass {
     java.lang.String getPeerId();
     /**
      * <pre>
-     * Peer ID of the peer in P2P network.
+     * Peer ID of the peer in the P2P network.
      * </pre>
      *
      * <code>string peer_id = 4 [json_name = "peerId"];</code>
@@ -6579,7 +6574,7 @@ public final class NetworkOuterClass {
 
     /**
      * <pre>
-     * Whether the hello message was sent from the outbound connection.
+     * Indicates whether the hello message was sent from the outbound connection.
      * </pre>
      *
      * <code>bool outbound_hello_sent = 18 [json_name = "outboundHelloSent"];</code>
@@ -6661,7 +6656,7 @@ public final class NetworkOuterClass {
     private volatile java.lang.Object moniker_ = "";
     /**
      * <pre>
-     * Moniker or Human-Readable name of the peer.
+     * Moniker or human-readable name of the peer.
      * </pre>
      *
      * <code>string moniker = 2 [json_name = "moniker"];</code>
@@ -6682,7 +6677,7 @@ public final class NetworkOuterClass {
     }
     /**
      * <pre>
-     * Moniker or Human-Readable name of the peer.
+     * Moniker or human-readable name of the peer.
      * </pre>
      *
      * <code>string moniker = 2 [json_name = "moniker"];</code>
@@ -6755,7 +6750,7 @@ public final class NetworkOuterClass {
     private volatile java.lang.Object peerId_ = "";
     /**
      * <pre>
-     * Peer ID of the peer in P2P network.
+     * Peer ID of the peer in the P2P network.
      * </pre>
      *
      * <code>string peer_id = 4 [json_name = "peerId"];</code>
@@ -6776,7 +6771,7 @@ public final class NetworkOuterClass {
     }
     /**
      * <pre>
-     * Peer ID of the peer in P2P network.
+     * Peer ID of the peer in the P2P network.
      * </pre>
      *
      * <code>string peer_id = 4 [json_name = "peerId"];</code>
@@ -7208,7 +7203,7 @@ public final class NetworkOuterClass {
     private boolean outboundHelloSent_ = false;
     /**
      * <pre>
-     * Whether the hello message was sent from the outbound connection.
+     * Indicates whether the hello message was sent from the outbound connection.
      * </pre>
      *
      * <code>bool outbound_hello_sent = 18 [json_name = "outboundHelloSent"];</code>
@@ -8031,7 +8026,7 @@ public final class NetworkOuterClass {
       private java.lang.Object moniker_ = "";
       /**
        * <pre>
-       * Moniker or Human-Readable name of the peer.
+       * Moniker or human-readable name of the peer.
        * </pre>
        *
        * <code>string moniker = 2 [json_name = "moniker"];</code>
@@ -8051,7 +8046,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Moniker or Human-Readable name of the peer.
+       * Moniker or human-readable name of the peer.
        * </pre>
        *
        * <code>string moniker = 2 [json_name = "moniker"];</code>
@@ -8072,7 +8067,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Moniker or Human-Readable name of the peer.
+       * Moniker or human-readable name of the peer.
        * </pre>
        *
        * <code>string moniker = 2 [json_name = "moniker"];</code>
@@ -8089,7 +8084,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Moniker or Human-Readable name of the peer.
+       * Moniker or human-readable name of the peer.
        * </pre>
        *
        * <code>string moniker = 2 [json_name = "moniker"];</code>
@@ -8103,7 +8098,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Moniker or Human-Readable name of the peer.
+       * Moniker or human-readable name of the peer.
        * </pre>
        *
        * <code>string moniker = 2 [json_name = "moniker"];</code>
@@ -8215,7 +8210,7 @@ public final class NetworkOuterClass {
       private java.lang.Object peerId_ = "";
       /**
        * <pre>
-       * Peer ID of the peer in P2P network.
+       * Peer ID of the peer in the P2P network.
        * </pre>
        *
        * <code>string peer_id = 4 [json_name = "peerId"];</code>
@@ -8235,7 +8230,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Peer ID of the peer in P2P network.
+       * Peer ID of the peer in the P2P network.
        * </pre>
        *
        * <code>string peer_id = 4 [json_name = "peerId"];</code>
@@ -8256,7 +8251,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Peer ID of the peer in P2P network.
+       * Peer ID of the peer in the P2P network.
        * </pre>
        *
        * <code>string peer_id = 4 [json_name = "peerId"];</code>
@@ -8273,7 +8268,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Peer ID of the peer in P2P network.
+       * Peer ID of the peer in the P2P network.
        * </pre>
        *
        * <code>string peer_id = 4 [json_name = "peerId"];</code>
@@ -8287,7 +8282,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Peer ID of the peer in P2P network.
+       * Peer ID of the peer in the P2P network.
        * </pre>
        *
        * <code>string peer_id = 4 [json_name = "peerId"];</code>
@@ -9426,7 +9421,7 @@ public final class NetworkOuterClass {
       private boolean outboundHelloSent_ ;
       /**
        * <pre>
-       * Whether the hello message was sent from the outbound connection.
+       * Indicates whether the hello message was sent from the outbound connection.
        * </pre>
        *
        * <code>bool outbound_hello_sent = 18 [json_name = "outboundHelloSent"];</code>
@@ -9438,7 +9433,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Whether the hello message was sent from the outbound connection.
+       * Indicates whether the hello message was sent from the outbound connection.
        * </pre>
        *
        * <code>bool outbound_hello_sent = 18 [json_name = "outboundHelloSent"];</code>
@@ -9454,7 +9449,7 @@ public final class NetworkOuterClass {
       }
       /**
        * <pre>
-       * Whether the hello message was sent from the outbound connection.
+       * Indicates whether the hello message was sent from the outbound connection.
        * </pre>
        *
        * <code>bool outbound_hello_sent = 18 [json_name = "outboundHelloSent"];</code>

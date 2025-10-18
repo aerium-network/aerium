@@ -270,11 +270,11 @@ curl --location 'http://localhost:8545/' \
 
 ### Transaction Service
 
-<p>Transaction service defines various RPC methods for interacting with transactions.</p>
+<p>The Transaction service defines RPC methods for interacting with transactions.</p>
 
 #### aerium.transaction.get_transaction <span id="aerium.transaction.get_transaction" class="rpc-badge"></span>
 
-<p>GetTransaction retrieves transaction details based on the provided request parameters.</p>
+<p>Retrieves transaction details based on the provided request parameters.</p>
 
 <h4>Parameters</h4>
 
@@ -519,7 +519,7 @@ curl --location 'http://localhost:8545/' \
         <td class="fw-bold">transaction.batch_transfer</td>
         <td> object (PayloadBatchTransfer)</td>
         <td>
-        (OneOf)Batch Transfer transaction payload.
+        (OneOf)Batch transfer transaction payload.
         </td>
       </tr>
          <tr>
@@ -533,7 +533,7 @@ curl --location 'http://localhost:8545/' \
             <td class="fw-bold">transaction.batch_transfer.recipients</td>
             <td>repeated object (Recipient)</td>
             <td>
-            The recipients of list receiver with amount.
+            The list of recipients, each with a receiver and amount.
             </td>
           </tr>
           <tr>
@@ -562,7 +562,7 @@ curl --location 'http://localhost:8545/' \
 
 #### aerium.transaction.calculate_fee <span id="aerium.transaction.calculate_fee" class="rpc-badge"></span>
 
-<p>CalculateFee calculates the transaction fee based on the specified amount and payload type.</p>
+<p>Calculates the transaction fee based on the specified amount and payload type.</p>
 
 <h4>Parameters</h4>
 
@@ -629,7 +629,7 @@ curl --location 'http://localhost:8545/' \
 
 #### aerium.transaction.broadcast_transaction <span id="aerium.transaction.broadcast_transaction" class="rpc-badge"></span>
 
-<p>BroadcastTransaction broadcasts a signed transaction to the network.</p>
+<p>Broadcasts a signed transaction to the network.</p>
 
 <h4>Parameters</h4>
 
@@ -642,7 +642,7 @@ curl --location 'http://localhost:8545/' \
     <td class="fw-bold">signed_raw_transaction</td>
     <td> string</td>
     <td>
-    The signed raw transaction data to be broadcasted.
+    The signed raw transaction data to be broadcast.
     </td>
   </tr>
   </tbody>
@@ -666,7 +666,7 @@ curl --location 'http://localhost:8545/' \
 
 #### aerium.transaction.get_raw_transfer_transaction <span id="aerium.transaction.get_raw_transfer_transaction" class="rpc-badge"></span>
 
-<p>GetRawTransferTransaction retrieves raw details of a transfer transaction.</p>
+<p>Retrieves raw details of a transfer transaction.</p>
 
 <h4>Parameters</h4>
 
@@ -745,7 +745,7 @@ curl --location 'http://localhost:8545/' \
 
 #### aerium.transaction.get_raw_bond_transaction <span id="aerium.transaction.get_raw_bond_transaction" class="rpc-badge"></span>
 
-<p>GetRawBondTransaction retrieves raw details of a bond transaction.</p>
+<p>Retrieves raw details of a bond transaction.</p>
 
 <h4>Parameters</h4>
 
@@ -831,7 +831,7 @@ curl --location 'http://localhost:8545/' \
 
 #### aerium.transaction.get_raw_unbond_transaction <span id="aerium.transaction.get_raw_unbond_transaction" class="rpc-badge"></span>
 
-<p>GetRawUnbondTransaction retrieves raw details of an unbond transaction.</p>
+<p>Retrieves raw details of an unbond transaction.</p>
 
 <h4>Parameters</h4>
 
@@ -889,7 +889,7 @@ curl --location 'http://localhost:8545/' \
 
 #### aerium.transaction.get_raw_withdraw_transaction <span id="aerium.transaction.get_raw_withdraw_transaction" class="rpc-badge"></span>
 
-<p>GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.</p>
+<p>Retrieves raw details of a withdraw transaction.</p>
 
 <h4>Parameters</h4>
 
@@ -968,7 +968,7 @@ curl --location 'http://localhost:8545/' \
 
 #### aerium.transaction.get_raw_batch_transfer_transaction <span id="aerium.transaction.get_raw_batch_transfer_transaction" class="rpc-badge"></span>
 
-<p>GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.</p>
+<p>Retrieves raw details of a batch transfer transaction.</p>
 
 <h4>Parameters</h4>
 
@@ -995,7 +995,7 @@ curl --location 'http://localhost:8545/' \
     <td class="fw-bold">recipients</td>
     <td>repeated object (Recipient)</td>
     <td>
-    The recipients list of receiver with amount, min 2 recipients.
+    The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
     </td>
   </tr>
   <tr>
@@ -1040,7 +1040,7 @@ curl --location 'http://localhost:8545/' \
 
 #### aerium.transaction.decode_raw_transaction <span id="aerium.transaction.decode_raw_transaction" class="rpc-badge"></span>
 
-<p>DecodeRawTransaction accepts raw transaction and returns decoded transaction.</p>
+<p>Decodes a raw transaction and returns the decoded transaction.</p>
 
 <h4>Parameters</h4>
 
@@ -1260,7 +1260,7 @@ curl --location 'http://localhost:8545/' \
         <td class="fw-bold">transaction.batch_transfer</td>
         <td> object (PayloadBatchTransfer)</td>
         <td>
-        (OneOf)Batch Transfer transaction payload.
+        (OneOf)Batch transfer transaction payload.
         </td>
       </tr>
          <tr>
@@ -1274,7 +1274,7 @@ curl --location 'http://localhost:8545/' \
             <td class="fw-bold">transaction.batch_transfer.recipients</td>
             <td>repeated object (Recipient)</td>
             <td>
-            The recipients of list receiver with amount.
+            The list of recipients, each with a receiver and amount.
             </td>
           </tr>
           <tr>
@@ -1303,11 +1303,11 @@ curl --location 'http://localhost:8545/' \
 
 ### Blockchain Service
 
-<p>Blockchain service defines RPC methods for interacting with the blockchain.</p>
+<p>The Blockchain service defines RPC methods for interacting with the blockchain.</p>
 
 #### aerium.blockchain.get_block <span id="aerium.blockchain.get_block" class="rpc-badge"></span>
 
-<p>GetBlock retrieves information about a block based on the provided request parameters.</p>
+<p>Retrieves information about a block based on the provided request parameters.</p>
 
 <h4>Parameters</h4>
 
@@ -1460,8 +1460,7 @@ curl --location 'http://localhost:8545/' \
     <td class="fw-bold">txs</td>
     <td>repeated object (TransactionInfo)</td>
     <td>
-    List of transactions in the block, available when verbosity level is set to
-BLOCK_TRANSACTIONS.
+    List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
     </td>
   </tr>
      <tr>
@@ -1652,7 +1651,7 @@ BLOCK_TRANSACTIONS.
         <td class="fw-bold">txs[].batch_transfer</td>
         <td> object (PayloadBatchTransfer)</td>
         <td>
-        (OneOf)Batch Transfer transaction payload.
+        (OneOf)Batch transfer transaction payload.
         </td>
       </tr>
          <tr>
@@ -1666,7 +1665,7 @@ BLOCK_TRANSACTIONS.
             <td class="fw-bold">txs[].batch_transfer.recipients</td>
             <td>repeated object (Recipient)</td>
             <td>
-            The recipients of list receiver with amount.
+            The list of recipients, each with a receiver and amount.
             </td>
           </tr>
           <tr>
@@ -1695,7 +1694,7 @@ BLOCK_TRANSACTIONS.
 
 #### aerium.blockchain.get_block_hash <span id="aerium.blockchain.get_block_hash" class="rpc-badge"></span>
 
-<p>GetBlockHash retrieves the hash of a block at the specified height.</p>
+<p>Retrieves the hash of a block at the specified height.</p>
 
 <h4>Parameters</h4>
 
@@ -1732,7 +1731,7 @@ BLOCK_TRANSACTIONS.
 
 #### aerium.blockchain.get_block_height <span id="aerium.blockchain.get_block_height" class="rpc-badge"></span>
 
-<p>GetBlockHeight retrieves the height of a block with the specified hash.</p>
+<p>Retrieves the height of a block with the specified hash.</p>
 
 <h4>Parameters</h4>
 
@@ -1769,7 +1768,7 @@ BLOCK_TRANSACTIONS.
 
 #### aerium.blockchain.get_blockchain_info <span id="aerium.blockchain.get_blockchain_info" class="rpc-badge"></span>
 
-<p>GetBlockchainInfo retrieves general information about the blockchain.</p>
+<p>Retrieves general information about the blockchain.</p>
 
 <h4>Parameters</h4>
 
@@ -1918,21 +1917,21 @@ Parameters has no fields.
     <td class="fw-bold">is_pruned</td>
     <td> boolean</td>
     <td>
-    If the blocks are subject to pruning.
+    Indicates if blocks are subject to pruning.
     </td>
   </tr>
      <tr>
     <td class="fw-bold">pruning_height</td>
     <td> numeric</td>
     <td>
-    Lowest-height block stored (only present if pruning is enabled)
+    The lowest-height block stored (only present if pruning is enabled).
     </td>
   </tr>
      <tr>
     <td class="fw-bold">last_block_time</td>
     <td> numeric</td>
     <td>
-    Timestamp of the last block in Unix format
+    Timestamp of the last block in Unix format.
     </td>
   </tr>
      <tr>
@@ -1947,7 +1946,7 @@ Parameters has no fields.
 
 #### aerium.blockchain.get_consensus_info <span id="aerium.blockchain.get_consensus_info" class="rpc-badge"></span>
 
-<p>GetConsensusInfo retrieves information about the consensus instances.</p>
+<p>Retrieves information about consensus instances.</p>
 
 <h4>Parameters</h4>
 
@@ -1963,7 +1962,7 @@ Parameters has no fields.
     <td class="fw-bold">proposal</td>
     <td> object (ProposalInfo)</td>
     <td>
-    The proposal of the consensus info.
+    The proposal information for consensus.
     </td>
   </tr>
      <tr>
@@ -2045,9 +2044,9 @@ Parameters has no fields.
               <li>VOTE_TYPE_UNSPECIFIED = 0 (Unspecified vote type.)</li>
               <li>VOTE_TYPE_PREPARE = 1 (Prepare vote type.)</li>
               <li>VOTE_TYPE_PRECOMMIT = 2 (Precommit vote type.)</li>
-              <li>VOTE_TYPE_CP_PRE_VOTE = 3 (Change-proposer:pre-vote vote type.)</li>
-              <li>VOTE_TYPE_CP_MAIN_VOTE = 4 (Change-proposer:main-vote vote type.)</li>
-              <li>VOTE_TYPE_CP_DECIDED = 5 (Change-proposer:decided vote type.)</li>
+              <li>VOTE_TYPE_CP_PRE_VOTE = 3 (Change-proposer pre-vote type.)</li>
+              <li>VOTE_TYPE_CP_MAIN_VOTE = 4 (Change-proposer main-vote type.)</li>
+              <li>VOTE_TYPE_CP_DECIDED = 5 (Change-proposer decided vote type.)</li>
               </ul>
             </td>
           </tr>
@@ -2091,7 +2090,7 @@ Parameters has no fields.
 
 #### aerium.blockchain.get_account <span id="aerium.blockchain.get_account" class="rpc-badge"></span>
 
-<p>GetAccount retrieves information about an account based on the provided address.</p>
+<p>Retrieves information about an account for the provided address.</p>
 
 <h4>Parameters</h4>
 
@@ -2163,7 +2162,7 @@ Parameters has no fields.
 
 #### aerium.blockchain.get_validator <span id="aerium.blockchain.get_validator" class="rpc-badge"></span>
 
-<p>GetValidator retrieves information about a validator based on the provided address.</p>
+<p>Retrieves information about a validator for the provided address.</p>
 
 <h4>Parameters</h4>
 
@@ -2277,7 +2276,7 @@ Parameters has no fields.
 
 #### aerium.blockchain.get_validator_by_number <span id="aerium.blockchain.get_validator_by_number" class="rpc-badge"></span>
 
-<p>GetValidatorByNumber retrieves information about a validator based on the provided number.</p>
+<p>Retrieves information about a validator by its number.</p>
 
 <h4>Parameters</h4>
 
@@ -2391,7 +2390,7 @@ Parameters has no fields.
 
 #### aerium.blockchain.get_validator_addresses <span id="aerium.blockchain.get_validator_addresses" class="rpc-badge"></span>
 
-<p>GetValidatorAddresses retrieves a list of all validator addresses.</p>
+<p>Retrieves a list of all validator addresses.</p>
 
 <h4>Parameters</h4>
 
@@ -2415,7 +2414,7 @@ Parameters has no fields.
 
 #### aerium.blockchain.get_public_key <span id="aerium.blockchain.get_public_key" class="rpc-badge"></span>
 
-<p>GetPublicKey retrieves the public key of an account based on the provided address.</p>
+<p>Retrieves the public key of an account for the provided address.</p>
 
 <h4>Parameters</h4>
 
@@ -2452,7 +2451,7 @@ Parameters has no fields.
 
 #### aerium.blockchain.get_tx_pool_content <span id="aerium.blockchain.get_tx_pool_content" class="rpc-badge"></span>
 
-<p>GetTxPoolContent retrieves current transactions in the transaction pool.</p>
+<p>Retrieves current transactions in the transaction pool.</p>
 
 <h4>Parameters</h4>
 
@@ -2681,7 +2680,7 @@ Parameters has no fields.
         <td class="fw-bold">txs[].batch_transfer</td>
         <td> object (PayloadBatchTransfer)</td>
         <td>
-        (OneOf)Batch Transfer transaction payload.
+        (OneOf)Batch transfer transaction payload.
         </td>
       </tr>
          <tr>
@@ -2695,7 +2694,7 @@ Parameters has no fields.
             <td class="fw-bold">txs[].batch_transfer.recipients</td>
             <td>repeated object (Recipient)</td>
             <td>
-            The recipients of list receiver with amount.
+            The list of recipients, each with a receiver and amount.
             </td>
           </tr>
           <tr>
@@ -2724,11 +2723,11 @@ Parameters has no fields.
 
 ### Network Service
 
-<p>Network service provides RPCs for retrieving information about the network.</p>
+<p>The Network service provides RPCs for retrieving information about the network.</p>
 
 #### aerium.network.get_network_info <span id="aerium.network.get_network_info" class="rpc-badge"></span>
 
-<p>GetNetworkInfo retrieves information about the overall network.</p>
+<p>Retrieves information about the overall network.</p>
 
 <h4>Parameters</h4>
 
@@ -2785,7 +2784,7 @@ Parameters has no fields.
         <td class="fw-bold">connected_peers[].moniker</td>
         <td> string</td>
         <td>
-        Moniker or Human-Readable name of the peer.
+        Moniker or human-readable name of the peer.
         </td>
       </tr>
          <tr>
@@ -2799,7 +2798,7 @@ Parameters has no fields.
         <td class="fw-bold">connected_peers[].peer_id</td>
         <td> string</td>
         <td>
-        Peer ID of the peer in P2P network.
+        Peer ID of the peer in the P2P network.
         </td>
       </tr>
          <tr>
@@ -2865,8 +2864,8 @@ Parameters has no fields.
         (Enum)Connection direction (e.g., inbound, outbound).
         <br>Available values:<ul>
           <li>DIRECTION_UNKNOWN = 0 (Unknown direction (default value).)</li>
-          <li>DIRECTION_INBOUND = 1 (Inbound connection - peer connected to us.)</li>
-          <li>DIRECTION_OUTBOUND = 2 (Outbound connection - we connected to peer.)</li>
+          <li>DIRECTION_INBOUND = 1 (Inbound connection: peer connected to us.)</li>
+          <li>DIRECTION_OUTBOUND = 2 (Outbound connection: we connected to the peer.)</li>
           </ul>
         </td>
       </tr>
@@ -2937,7 +2936,7 @@ Parameters has no fields.
         <td class="fw-bold">connected_peers[].outbound_hello_sent</td>
         <td> boolean</td>
         <td>
-        Whether the hello message was sent from the outbound connection.
+        Indicates whether the hello message was sent from the outbound connection.
         </td>
       </tr>
          <tr>
@@ -3029,7 +3028,7 @@ Parameters has no fields.
 
 #### aerium.network.get_node_info <span id="aerium.network.get_node_info" class="rpc-badge"></span>
 
-<p>GetNodeInfo retrieves information about a specific node in the network.</p>
+<p>Retrieves information about a specific node in the network.</p>
 
 <h4>Parameters</h4>
 
@@ -3045,7 +3044,7 @@ Parameters has no fields.
     <td class="fw-bold">moniker</td>
     <td> string</td>
     <td>
-    Moniker or Human-readable name identifying this node in the network.
+    Moniker or human-readable name identifying this node in the network.
     </td>
   </tr>
      <tr>
@@ -3164,8 +3163,7 @@ Parameters has no fields.
         <td class="fw-bold">zmq_publishers[].hwm</td>
         <td> numeric</td>
         <td>
-        The high-water mark (HWM) for the publisher, indicating the
-maximum number of messages to queue before dropping older ones.
+        The high-water mark (HWM) for the publisher, indicating the maximum number of messages to queue before dropping older ones.
         </td>
       </tr>
          <tr>
@@ -3180,12 +3178,11 @@ maximum number of messages to queue before dropping older ones.
 
 ### Utils Service
 
-<p>Utils service defines RPC methods for utility functions such as message
-signing, verification, and etc.</p>
+<p>The Utils service defines RPC methods for utility functions such as message signing, verification, and more.</p>
 
 #### aerium.utils.sign_message_with_private_key <span id="aerium.utils.sign_message_with_private_key" class="rpc-badge"></span>
 
-<p>SignMessageWithPrivateKey signs a message with the provided private key.</p>
+<p>Signs a message with the provided private key.</p>
 
 <h4>Parameters</h4>
 
@@ -3229,7 +3226,7 @@ signing, verification, and etc.</p>
 
 #### aerium.utils.verify_message <span id="aerium.utils.verify_message" class="rpc-badge"></span>
 
-<p>VerifyMessage verifies a signature against the public key and message.</p>
+<p>Verifies a signature against the public key and message.</p>
 
 <h4>Parameters</h4>
 
@@ -3272,7 +3269,7 @@ signing, verification, and etc.</p>
     <td class="fw-bold">is_valid</td>
     <td> boolean</td>
     <td>
-    Boolean indicating whether the signature is valid for the given message and public key.
+    Indicates whether the signature is valid for the given message and public key.
     </td>
   </tr>
      </tbody>
@@ -3280,7 +3277,7 @@ signing, verification, and etc.</p>
 
 #### aerium.utils.public_key_aggregation <span id="aerium.utils.public_key_aggregation" class="rpc-badge"></span>
 
-<p>PublicKeyAggregation aggregates multiple BLS public keys into a single key.</p>
+<p>Aggregates multiple BLS public keys into a single key.</p>
 
 <h4>Parameters</h4>
 
@@ -3324,7 +3321,7 @@ signing, verification, and etc.</p>
 
 #### aerium.utils.signature_aggregation <span id="aerium.utils.signature_aggregation" class="rpc-badge"></span>
 
-<p>SignatureAggregation aggregates multiple BLS signatures into a single signature.</p>
+<p>Aggregates multiple BLS signatures into a single signature.</p>
 
 <h4>Parameters</h4>
 
@@ -3361,11 +3358,11 @@ signing, verification, and etc.</p>
 
 ### Wallet Service
 
-<p>Wallet service provides RPC methods for wallet management operations.</p>
+<p>The Wallet service provides RPC methods for wallet management operations.</p>
 
 #### aerium.wallet.create_wallet <span id="aerium.wallet.create_wallet" class="rpc-badge"></span>
 
-<p>CreateWallet creates a new wallet with the specified parameters.</p>
+<p>Creates a new wallet with the specified parameters.</p>
 
 <h4>Parameters</h4>
 
@@ -3409,7 +3406,7 @@ signing, verification, and etc.</p>
 
 #### aerium.wallet.restore_wallet <span id="aerium.wallet.restore_wallet" class="rpc-badge"></span>
 
-<p>RestoreWallet restores an existing wallet with the given mnemonic.</p>
+<p>Restores an existing wallet with the given mnemonic.</p>
 
 <h4>Parameters</h4>
 
@@ -3460,7 +3457,7 @@ signing, verification, and etc.</p>
 
 #### aerium.wallet.load_wallet <span id="aerium.wallet.load_wallet" class="rpc-badge"></span>
 
-<p>LoadWallet loads an existing wallet with the given name.</p>
+<p>Loads an existing wallet with the given name.</p>
 
 <h4>Parameters</h4>
 
@@ -3497,7 +3494,7 @@ signing, verification, and etc.</p>
 
 #### aerium.wallet.unload_wallet <span id="aerium.wallet.unload_wallet" class="rpc-badge"></span>
 
-<p>UnloadWallet unloads a currently loaded wallet with the specified name.</p>
+<p>Unloads a currently loaded wallet with the specified name.</p>
 
 <h4>Parameters</h4>
 
@@ -3534,7 +3531,7 @@ signing, verification, and etc.</p>
 
 #### aerium.wallet.get_total_balance <span id="aerium.wallet.get_total_balance" class="rpc-badge"></span>
 
-<p>GetTotalBalance returns the total available balance of the wallet.</p>
+<p>Returns the total available balance of the wallet.</p>
 
 <h4>Parameters</h4>
 
@@ -3547,7 +3544,7 @@ signing, verification, and etc.</p>
     <td class="fw-bold">wallet_name</td>
     <td> string</td>
     <td>
-    The name of the wallet to get the total balance.
+    The name of the wallet to get the total balance for.
     </td>
   </tr>
   </tbody>
@@ -3578,7 +3575,7 @@ signing, verification, and etc.</p>
 
 #### aerium.wallet.sign_raw_transaction <span id="aerium.wallet.sign_raw_transaction" class="rpc-badge"></span>
 
-<p>SignRawTransaction signs a raw transaction for a specified wallet.</p>
+<p>Signs a raw transaction for a specified wallet.</p>
 
 <h4>Parameters</h4>
 
@@ -3636,7 +3633,7 @@ signing, verification, and etc.</p>
 
 #### aerium.wallet.get_validator_address <span id="aerium.wallet.get_validator_address" class="rpc-badge"></span>
 
-<p>GetValidatorAddress retrieves the validator address associated with a public key.</p>
+<p>Retrieves the validator address associated with a public key.</p>
 
 <h4>Parameters</h4>
 
@@ -3673,7 +3670,7 @@ signing, verification, and etc.</p>
 
 #### aerium.wallet.get_new_address <span id="aerium.wallet.get_new_address" class="rpc-badge"></span>
 
-<p>GetNewAddress generates a new address for the specified wallet.</p>
+<p>Generates a new address for the specified wallet.</p>
 
 <h4>Parameters</h4>
 
@@ -3686,7 +3683,7 @@ signing, verification, and etc.</p>
     <td class="fw-bold">wallet_name</td>
     <td> string</td>
     <td>
-    The name of the wallet to generate a new address.
+    The name of the wallet to generate a new address for.
     </td>
   </tr>
   <tr>
@@ -3695,12 +3692,10 @@ signing, verification, and etc.</p>
     <td>
     (Enum)The type of address to generate.
     <br>Available values:<ul>
-      <li>ADDRESS_TYPE_TREASURY = 0 (Treasury address type.
-Should not be used to generate new addresses.)</li>
+      <li>ADDRESS_TYPE_TREASURY = 0 (Treasury address type. Should not be used to generate new addresses.)</li>
       <li>ADDRESS_TYPE_VALIDATOR = 1 (Validator address type used for validator nodes.)</li>
       <li>ADDRESS_TYPE_BLS_ACCOUNT = 2 (Account address type with BLS signature scheme.)</li>
-      <li>ADDRESS_TYPE_ED25519_ACCOUNT = 3 (Account address type with Ed25519 signature scheme.
-Note: Generating a new Ed25519 address requires the wallet password.)</li>
+      <li>ADDRESS_TYPE_ED25519_ACCOUNT = 3 (Account address type with Ed25519 signature scheme. Note: Generating a new Ed25519 address requires the wallet password.)</li>
       </ul>
     </td>
   </tr>
@@ -3715,7 +3710,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
     <td class="fw-bold">password</td>
     <td> string</td>
     <td>
-    Password for the new address. It's required when address_type is Ed25519 type.
+    Password for the new address. Required when address_type is Ed25519.
     </td>
   </tr>
   </tbody>
@@ -3731,7 +3726,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
     <td class="fw-bold">wallet_name</td>
     <td> string</td>
     <td>
-    The name of the wallet where address was generated.
+    The name of the wallet where the address was generated.
     </td>
   </tr>
      <tr>
@@ -3774,7 +3769,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### aerium.wallet.get_address_history <span id="aerium.wallet.get_address_history" class="rpc-badge"></span>
 
-<p>GetAddressHistory retrieves the transaction history of an address.</p>
+<p>Retrieves the transaction history of an address.</p>
 
 <h4>Parameters</h4>
 
@@ -3853,7 +3848,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### aerium.wallet.sign_message <span id="aerium.wallet.sign_message" class="rpc-badge"></span>
 
-<p>SignMessage signs an arbitrary message using a wallet's private key.</p>
+<p>Signs an arbitrary message using a wallet's private key.</p>
 
 <h4>Parameters</h4>
 
@@ -3911,7 +3906,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### aerium.wallet.get_total_stake <span id="aerium.wallet.get_total_stake" class="rpc-badge"></span>
 
-<p>GetTotalStake returns the total stake amount in the wallet.</p>
+<p>Returns the total stake amount in the wallet.</p>
 
 <h4>Parameters</h4>
 
@@ -3924,7 +3919,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
     <td class="fw-bold">wallet_name</td>
     <td> string</td>
     <td>
-    The name of the wallet to get the total stake.
+    The name of the wallet to get the total stake for.
     </td>
   </tr>
   </tbody>
@@ -3955,7 +3950,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### aerium.wallet.get_address_info <span id="aerium.wallet.get_address_info" class="rpc-badge"></span>
 
-<p>GetAddressInfo returns detailed information about a specific address.</p>
+<p>Returns detailed information about a specific address.</p>
 
 <h4>Parameters</h4>
 
@@ -4027,7 +4022,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### aerium.wallet.set_address_label <span id="aerium.wallet.set_address_label" class="rpc-badge"></span>
 
-<p>SetAddressLabel sets or updates the label for a given address.</p>
+<p>Sets or updates the label for a given address.</p>
 
 <h4>Parameters</h4>
 
@@ -4078,7 +4073,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### aerium.wallet.list_wallet <span id="aerium.wallet.list_wallet" class="rpc-badge"></span>
 
-<p>ListWallet returns list of all available wallets.</p>
+<p>Returns a list of all available wallets.</p>
 
 <h4>Parameters</h4>
 
@@ -4102,7 +4097,7 @@ Parameters has no fields.
 
 #### aerium.wallet.get_wallet_info <span id="aerium.wallet.get_wallet_info" class="rpc-badge"></span>
 
-<p>GetWalletInfo returns detailed information about a specific wallet.</p>
+<p>Returns detailed information about a specific wallet.</p>
 
 <h4>Parameters</h4>
 
@@ -4159,7 +4154,7 @@ Parameters has no fields.
     <td class="fw-bold">uuid</td>
     <td> string</td>
     <td>
-    A unique identifier of the wallet.
+    A unique identifier for the wallet.
     </td>
   </tr>
      <tr>
@@ -4174,7 +4169,7 @@ Parameters has no fields.
 
 #### aerium.wallet.list_address <span id="aerium.wallet.list_address" class="rpc-badge"></span>
 
-<p>ListAddress returns all addresses in the specified wallet.</p>
+<p>Returns all addresses in the specified wallet.</p>
 
 <h4>Parameters</h4>
 
@@ -4210,7 +4205,7 @@ Parameters has no fields.
     <td class="fw-bold">data</td>
     <td>repeated object (AddressInfo)</td>
     <td>
-    ist of all addresses in the wallet with their details.
+    List of all addresses in the wallet with their details.
     </td>
   </tr>
      <tr>

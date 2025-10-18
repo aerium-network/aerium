@@ -93,10 +93,9 @@ function deserialize_aerium_VerifyMessageResponse(buffer_arg) {
 }
 
 
-// Utils service defines RPC methods for utility functions such as message
-// signing, verification, and etc.
+// The Utils service defines RPC methods for utility functions such as message signing, verification, and more.
 var UtilsService = exports.UtilsService = {
-  // SignMessageWithPrivateKey signs a message with the provided private key.
+  // Signs a message with the provided private key.
 signMessageWithPrivateKey: {
     path: '/aerium.Utils/SignMessageWithPrivateKey',
     requestStream: false,
@@ -108,7 +107,7 @@ signMessageWithPrivateKey: {
     responseSerialize: serialize_aerium_SignMessageWithPrivateKeyResponse,
     responseDeserialize: deserialize_aerium_SignMessageWithPrivateKeyResponse,
   },
-  // VerifyMessage verifies a signature against the public key and message.
+  // Verifies a signature against the public key and message.
 verifyMessage: {
     path: '/aerium.Utils/VerifyMessage',
     requestStream: false,
@@ -120,7 +119,7 @@ verifyMessage: {
     responseSerialize: serialize_aerium_VerifyMessageResponse,
     responseDeserialize: deserialize_aerium_VerifyMessageResponse,
   },
-  // PublicKeyAggregation aggregates multiple BLS public keys into a single key.
+  // Aggregates multiple BLS public keys into a single key.
 publicKeyAggregation: {
     path: '/aerium.Utils/PublicKeyAggregation',
     requestStream: false,
@@ -132,7 +131,7 @@ publicKeyAggregation: {
     responseSerialize: serialize_aerium_PublicKeyAggregationResponse,
     responseDeserialize: deserialize_aerium_PublicKeyAggregationResponse,
   },
-  // SignatureAggregation aggregates multiple BLS signatures into a single signature.
+  // Aggregates multiple BLS signatures into a single signature.
 signatureAggregation: {
     path: '/aerium.Utils/SignatureAggregation',
     requestStream: false,

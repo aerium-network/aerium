@@ -220,11 +220,11 @@ For seamless integration with Aerium, you can use these client libraries:
 
 ### Transaction Service
 
-<p>Transaction service defines various RPC methods for interacting with transactions.</p>
+<p>The Transaction service defines RPC methods for interacting with transactions.</p>
 
 #### GetTransaction <span id="aerium.Transaction.GetTransaction" class="rpc-badge"></span>
 
-<p>GetTransaction retrieves transaction details based on the provided request parameters.</p>
+<p>Retrieves transaction details based on the provided request parameters.</p>
 
 <h4>GetTransactionRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -469,7 +469,7 @@ For seamless integration with Aerium, you can use these client libraries:
         <td class="fw-bold">transaction.batch_transfer</td>
         <td> PayloadBatchTransfer</td>
         <td>
-        (OneOf)Batch Transfer transaction payload.
+        (OneOf)Batch transfer transaction payload.
         </td>
       </tr>
          <tr>
@@ -483,7 +483,7 @@ For seamless integration with Aerium, you can use these client libraries:
             <td class="fw-bold">transaction.batch_transfer.recipients</td>
             <td>repeated Recipient</td>
             <td>
-            The recipients of list receiver with amount.
+            The list of recipients, each with a receiver and amount.
             </td>
           </tr>
           <tr>
@@ -512,7 +512,7 @@ For seamless integration with Aerium, you can use these client libraries:
 
 #### CalculateFee <span id="aerium.Transaction.CalculateFee" class="rpc-badge"></span>
 
-<p>CalculateFee calculates the transaction fee based on the specified amount and payload type.</p>
+<p>Calculates the transaction fee based on the specified amount and payload type.</p>
 
 <h4>CalculateFeeRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -579,7 +579,7 @@ For seamless integration with Aerium, you can use these client libraries:
 
 #### BroadcastTransaction <span id="aerium.Transaction.BroadcastTransaction" class="rpc-badge"></span>
 
-<p>BroadcastTransaction broadcasts a signed transaction to the network.</p>
+<p>Broadcasts a signed transaction to the network.</p>
 
 <h4>BroadcastTransactionRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -592,7 +592,7 @@ For seamless integration with Aerium, you can use these client libraries:
     <td class="fw-bold">signed_raw_transaction</td>
     <td> string</td>
     <td>
-    The signed raw transaction data to be broadcasted.
+    The signed raw transaction data to be broadcast.
     </td>
   </tr>
   </tbody>
@@ -616,7 +616,7 @@ For seamless integration with Aerium, you can use these client libraries:
 
 #### GetRawTransferTransaction <span id="aerium.Transaction.GetRawTransferTransaction" class="rpc-badge"></span>
 
-<p>GetRawTransferTransaction retrieves raw details of a transfer transaction.</p>
+<p>Retrieves raw details of a transfer transaction.</p>
 
 <h4>GetRawTransferTransactionRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -695,7 +695,7 @@ For seamless integration with Aerium, you can use these client libraries:
 
 #### GetRawBondTransaction <span id="aerium.Transaction.GetRawBondTransaction" class="rpc-badge"></span>
 
-<p>GetRawBondTransaction retrieves raw details of a bond transaction.</p>
+<p>Retrieves raw details of a bond transaction.</p>
 
 <h4>GetRawBondTransactionRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -781,7 +781,7 @@ For seamless integration with Aerium, you can use these client libraries:
 
 #### GetRawUnbondTransaction <span id="aerium.Transaction.GetRawUnbondTransaction" class="rpc-badge"></span>
 
-<p>GetRawUnbondTransaction retrieves raw details of an unbond transaction.</p>
+<p>Retrieves raw details of an unbond transaction.</p>
 
 <h4>GetRawUnbondTransactionRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -839,7 +839,7 @@ For seamless integration with Aerium, you can use these client libraries:
 
 #### GetRawWithdrawTransaction <span id="aerium.Transaction.GetRawWithdrawTransaction" class="rpc-badge"></span>
 
-<p>GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.</p>
+<p>Retrieves raw details of a withdraw transaction.</p>
 
 <h4>GetRawWithdrawTransactionRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -918,7 +918,7 @@ For seamless integration with Aerium, you can use these client libraries:
 
 #### GetRawBatchTransferTransaction <span id="aerium.Transaction.GetRawBatchTransferTransaction" class="rpc-badge"></span>
 
-<p>GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.</p>
+<p>Retrieves raw details of a batch transfer transaction.</p>
 
 <h4>GetRawBatchTransferTransactionRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -945,7 +945,7 @@ For seamless integration with Aerium, you can use these client libraries:
     <td class="fw-bold">recipients</td>
     <td>repeated Recipient</td>
     <td>
-    The recipients list of receiver with amount, min 2 recipients.
+    The list of recipients, each with a receiver and amount. Minimum 2 recipients required.
     </td>
   </tr>
   <tr>
@@ -990,7 +990,7 @@ For seamless integration with Aerium, you can use these client libraries:
 
 #### DecodeRawTransaction <span id="aerium.Transaction.DecodeRawTransaction" class="rpc-badge"></span>
 
-<p>DecodeRawTransaction accepts raw transaction and returns decoded transaction.</p>
+<p>Decodes a raw transaction and returns the decoded transaction.</p>
 
 <h4>DecodeRawTransactionRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -1210,7 +1210,7 @@ For seamless integration with Aerium, you can use these client libraries:
         <td class="fw-bold">transaction.batch_transfer</td>
         <td> PayloadBatchTransfer</td>
         <td>
-        (OneOf)Batch Transfer transaction payload.
+        (OneOf)Batch transfer transaction payload.
         </td>
       </tr>
          <tr>
@@ -1224,7 +1224,7 @@ For seamless integration with Aerium, you can use these client libraries:
             <td class="fw-bold">transaction.batch_transfer.recipients</td>
             <td>repeated Recipient</td>
             <td>
-            The recipients of list receiver with amount.
+            The list of recipients, each with a receiver and amount.
             </td>
           </tr>
           <tr>
@@ -1253,11 +1253,11 @@ For seamless integration with Aerium, you can use these client libraries:
 
 ### Blockchain Service
 
-<p>Blockchain service defines RPC methods for interacting with the blockchain.</p>
+<p>The Blockchain service defines RPC methods for interacting with the blockchain.</p>
 
 #### GetBlock <span id="aerium.Blockchain.GetBlock" class="rpc-badge"></span>
 
-<p>GetBlock retrieves information about a block based on the provided request parameters.</p>
+<p>Retrieves information about a block based on the provided request parameters.</p>
 
 <h4>GetBlockRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -1410,8 +1410,7 @@ For seamless integration with Aerium, you can use these client libraries:
     <td class="fw-bold">txs</td>
     <td>repeated TransactionInfo</td>
     <td>
-    List of transactions in the block, available when verbosity level is set to
-BLOCK_TRANSACTIONS.
+    List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
     </td>
   </tr>
      <tr>
@@ -1602,7 +1601,7 @@ BLOCK_TRANSACTIONS.
         <td class="fw-bold">txs[].batch_transfer</td>
         <td> PayloadBatchTransfer</td>
         <td>
-        (OneOf)Batch Transfer transaction payload.
+        (OneOf)Batch transfer transaction payload.
         </td>
       </tr>
          <tr>
@@ -1616,7 +1615,7 @@ BLOCK_TRANSACTIONS.
             <td class="fw-bold">txs[].batch_transfer.recipients</td>
             <td>repeated Recipient</td>
             <td>
-            The recipients of list receiver with amount.
+            The list of recipients, each with a receiver and amount.
             </td>
           </tr>
           <tr>
@@ -1645,7 +1644,7 @@ BLOCK_TRANSACTIONS.
 
 #### GetBlockHash <span id="aerium.Blockchain.GetBlockHash" class="rpc-badge"></span>
 
-<p>GetBlockHash retrieves the hash of a block at the specified height.</p>
+<p>Retrieves the hash of a block at the specified height.</p>
 
 <h4>GetBlockHashRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -1682,7 +1681,7 @@ BLOCK_TRANSACTIONS.
 
 #### GetBlockHeight <span id="aerium.Blockchain.GetBlockHeight" class="rpc-badge"></span>
 
-<p>GetBlockHeight retrieves the height of a block with the specified hash.</p>
+<p>Retrieves the height of a block with the specified hash.</p>
 
 <h4>GetBlockHeightRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -1719,7 +1718,7 @@ BLOCK_TRANSACTIONS.
 
 #### GetBlockchainInfo <span id="aerium.Blockchain.GetBlockchainInfo" class="rpc-badge"></span>
 
-<p>GetBlockchainInfo retrieves general information about the blockchain.</p>
+<p>Retrieves general information about the blockchain.</p>
 
 <h4>GetBlockchainInfoRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -1868,21 +1867,21 @@ Message has no fields.
     <td class="fw-bold">is_pruned</td>
     <td> bool</td>
     <td>
-    If the blocks are subject to pruning.
+    Indicates if blocks are subject to pruning.
     </td>
   </tr>
      <tr>
     <td class="fw-bold">pruning_height</td>
     <td> uint32</td>
     <td>
-    Lowest-height block stored (only present if pruning is enabled)
+    The lowest-height block stored (only present if pruning is enabled).
     </td>
   </tr>
      <tr>
     <td class="fw-bold">last_block_time</td>
     <td> int64</td>
     <td>
-    Timestamp of the last block in Unix format
+    Timestamp of the last block in Unix format.
     </td>
   </tr>
      <tr>
@@ -1897,7 +1896,7 @@ Message has no fields.
 
 #### GetConsensusInfo <span id="aerium.Blockchain.GetConsensusInfo" class="rpc-badge"></span>
 
-<p>GetConsensusInfo retrieves information about the consensus instances.</p>
+<p>Retrieves information about consensus instances.</p>
 
 <h4>GetConsensusInfoRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -1913,7 +1912,7 @@ Message has no fields.
     <td class="fw-bold">proposal</td>
     <td> ProposalInfo</td>
     <td>
-    The proposal of the consensus info.
+    The proposal information for consensus.
     </td>
   </tr>
      <tr>
@@ -1995,9 +1994,9 @@ Message has no fields.
               <li>VOTE_TYPE_UNSPECIFIED = 0 (Unspecified vote type.)</li>
               <li>VOTE_TYPE_PREPARE = 1 (Prepare vote type.)</li>
               <li>VOTE_TYPE_PRECOMMIT = 2 (Precommit vote type.)</li>
-              <li>VOTE_TYPE_CP_PRE_VOTE = 3 (Change-proposer:pre-vote vote type.)</li>
-              <li>VOTE_TYPE_CP_MAIN_VOTE = 4 (Change-proposer:main-vote vote type.)</li>
-              <li>VOTE_TYPE_CP_DECIDED = 5 (Change-proposer:decided vote type.)</li>
+              <li>VOTE_TYPE_CP_PRE_VOTE = 3 (Change-proposer pre-vote type.)</li>
+              <li>VOTE_TYPE_CP_MAIN_VOTE = 4 (Change-proposer main-vote type.)</li>
+              <li>VOTE_TYPE_CP_DECIDED = 5 (Change-proposer decided vote type.)</li>
               </ul>
             </td>
           </tr>
@@ -2041,7 +2040,7 @@ Message has no fields.
 
 #### GetAccount <span id="aerium.Blockchain.GetAccount" class="rpc-badge"></span>
 
-<p>GetAccount retrieves information about an account based on the provided address.</p>
+<p>Retrieves information about an account for the provided address.</p>
 
 <h4>GetAccountRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -2113,7 +2112,7 @@ Message has no fields.
 
 #### GetValidator <span id="aerium.Blockchain.GetValidator" class="rpc-badge"></span>
 
-<p>GetValidator retrieves information about a validator based on the provided address.</p>
+<p>Retrieves information about a validator for the provided address.</p>
 
 <h4>GetValidatorRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -2227,7 +2226,7 @@ Message has no fields.
 
 #### GetValidatorByNumber <span id="aerium.Blockchain.GetValidatorByNumber" class="rpc-badge"></span>
 
-<p>GetValidatorByNumber retrieves information about a validator based on the provided number.</p>
+<p>Retrieves information about a validator by its number.</p>
 
 <h4>GetValidatorByNumberRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -2341,7 +2340,7 @@ Message has no fields.
 
 #### GetValidatorAddresses <span id="aerium.Blockchain.GetValidatorAddresses" class="rpc-badge"></span>
 
-<p>GetValidatorAddresses retrieves a list of all validator addresses.</p>
+<p>Retrieves a list of all validator addresses.</p>
 
 <h4>GetValidatorAddressesRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -2365,7 +2364,7 @@ Message has no fields.
 
 #### GetPublicKey <span id="aerium.Blockchain.GetPublicKey" class="rpc-badge"></span>
 
-<p>GetPublicKey retrieves the public key of an account based on the provided address.</p>
+<p>Retrieves the public key of an account for the provided address.</p>
 
 <h4>GetPublicKeyRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -2402,7 +2401,7 @@ Message has no fields.
 
 #### GetTxPoolContent <span id="aerium.Blockchain.GetTxPoolContent" class="rpc-badge"></span>
 
-<p>GetTxPoolContent retrieves current transactions in the transaction pool.</p>
+<p>Retrieves current transactions in the transaction pool.</p>
 
 <h4>GetTxPoolContentRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -2631,7 +2630,7 @@ Message has no fields.
         <td class="fw-bold">txs[].batch_transfer</td>
         <td> PayloadBatchTransfer</td>
         <td>
-        (OneOf)Batch Transfer transaction payload.
+        (OneOf)Batch transfer transaction payload.
         </td>
       </tr>
          <tr>
@@ -2645,7 +2644,7 @@ Message has no fields.
             <td class="fw-bold">txs[].batch_transfer.recipients</td>
             <td>repeated Recipient</td>
             <td>
-            The recipients of list receiver with amount.
+            The list of recipients, each with a receiver and amount.
             </td>
           </tr>
           <tr>
@@ -2674,11 +2673,11 @@ Message has no fields.
 
 ### Network Service
 
-<p>Network service provides RPCs for retrieving information about the network.</p>
+<p>The Network service provides RPCs for retrieving information about the network.</p>
 
 #### GetNetworkInfo <span id="aerium.Network.GetNetworkInfo" class="rpc-badge"></span>
 
-<p>GetNetworkInfo retrieves information about the overall network.</p>
+<p>Retrieves information about the overall network.</p>
 
 <h4>GetNetworkInfoRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -2735,7 +2734,7 @@ Message has no fields.
         <td class="fw-bold">connected_peers[].moniker</td>
         <td> string</td>
         <td>
-        Moniker or Human-Readable name of the peer.
+        Moniker or human-readable name of the peer.
         </td>
       </tr>
          <tr>
@@ -2749,7 +2748,7 @@ Message has no fields.
         <td class="fw-bold">connected_peers[].peer_id</td>
         <td> string</td>
         <td>
-        Peer ID of the peer in P2P network.
+        Peer ID of the peer in the P2P network.
         </td>
       </tr>
          <tr>
@@ -2815,8 +2814,8 @@ Message has no fields.
         (Enum)Connection direction (e.g., inbound, outbound).
         <br>Available values:<ul>
           <li>DIRECTION_UNKNOWN = 0 (Unknown direction (default value).)</li>
-          <li>DIRECTION_INBOUND = 1 (Inbound connection - peer connected to us.)</li>
-          <li>DIRECTION_OUTBOUND = 2 (Outbound connection - we connected to peer.)</li>
+          <li>DIRECTION_INBOUND = 1 (Inbound connection: peer connected to us.)</li>
+          <li>DIRECTION_OUTBOUND = 2 (Outbound connection: we connected to the peer.)</li>
           </ul>
         </td>
       </tr>
@@ -2887,7 +2886,7 @@ Message has no fields.
         <td class="fw-bold">connected_peers[].outbound_hello_sent</td>
         <td> bool</td>
         <td>
-        Whether the hello message was sent from the outbound connection.
+        Indicates whether the hello message was sent from the outbound connection.
         </td>
       </tr>
          <tr>
@@ -2979,7 +2978,7 @@ Message has no fields.
 
 #### GetNodeInfo <span id="aerium.Network.GetNodeInfo" class="rpc-badge"></span>
 
-<p>GetNodeInfo retrieves information about a specific node in the network.</p>
+<p>Retrieves information about a specific node in the network.</p>
 
 <h4>GetNodeInfoRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -2995,7 +2994,7 @@ Message has no fields.
     <td class="fw-bold">moniker</td>
     <td> string</td>
     <td>
-    Moniker or Human-readable name identifying this node in the network.
+    Moniker or human-readable name identifying this node in the network.
     </td>
   </tr>
      <tr>
@@ -3114,8 +3113,7 @@ Message has no fields.
         <td class="fw-bold">zmq_publishers[].hwm</td>
         <td> int32</td>
         <td>
-        The high-water mark (HWM) for the publisher, indicating the
-maximum number of messages to queue before dropping older ones.
+        The high-water mark (HWM) for the publisher, indicating the maximum number of messages to queue before dropping older ones.
         </td>
       </tr>
          <tr>
@@ -3130,12 +3128,11 @@ maximum number of messages to queue before dropping older ones.
 
 ### Utils Service
 
-<p>Utils service defines RPC methods for utility functions such as message
-signing, verification, and etc.</p>
+<p>The Utils service defines RPC methods for utility functions such as message signing, verification, and more.</p>
 
 #### SignMessageWithPrivateKey <span id="aerium.Utils.SignMessageWithPrivateKey" class="rpc-badge"></span>
 
-<p>SignMessageWithPrivateKey signs a message with the provided private key.</p>
+<p>Signs a message with the provided private key.</p>
 
 <h4>SignMessageWithPrivateKeyRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3179,7 +3176,7 @@ signing, verification, and etc.</p>
 
 #### VerifyMessage <span id="aerium.Utils.VerifyMessage" class="rpc-badge"></span>
 
-<p>VerifyMessage verifies a signature against the public key and message.</p>
+<p>Verifies a signature against the public key and message.</p>
 
 <h4>VerifyMessageRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3222,7 +3219,7 @@ signing, verification, and etc.</p>
     <td class="fw-bold">is_valid</td>
     <td> bool</td>
     <td>
-    Boolean indicating whether the signature is valid for the given message and public key.
+    Indicates whether the signature is valid for the given message and public key.
     </td>
   </tr>
      </tbody>
@@ -3230,7 +3227,7 @@ signing, verification, and etc.</p>
 
 #### PublicKeyAggregation <span id="aerium.Utils.PublicKeyAggregation" class="rpc-badge"></span>
 
-<p>PublicKeyAggregation aggregates multiple BLS public keys into a single key.</p>
+<p>Aggregates multiple BLS public keys into a single key.</p>
 
 <h4>PublicKeyAggregationRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3274,7 +3271,7 @@ signing, verification, and etc.</p>
 
 #### SignatureAggregation <span id="aerium.Utils.SignatureAggregation" class="rpc-badge"></span>
 
-<p>SignatureAggregation aggregates multiple BLS signatures into a single signature.</p>
+<p>Aggregates multiple BLS signatures into a single signature.</p>
 
 <h4>SignatureAggregationRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3311,11 +3308,11 @@ signing, verification, and etc.</p>
 
 ### Wallet Service
 
-<p>Wallet service provides RPC methods for wallet management operations.</p>
+<p>The Wallet service provides RPC methods for wallet management operations.</p>
 
 #### CreateWallet <span id="aerium.Wallet.CreateWallet" class="rpc-badge"></span>
 
-<p>CreateWallet creates a new wallet with the specified parameters.</p>
+<p>Creates a new wallet with the specified parameters.</p>
 
 <h4>CreateWalletRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3359,7 +3356,7 @@ signing, verification, and etc.</p>
 
 #### RestoreWallet <span id="aerium.Wallet.RestoreWallet" class="rpc-badge"></span>
 
-<p>RestoreWallet restores an existing wallet with the given mnemonic.</p>
+<p>Restores an existing wallet with the given mnemonic.</p>
 
 <h4>RestoreWalletRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3410,7 +3407,7 @@ signing, verification, and etc.</p>
 
 #### LoadWallet <span id="aerium.Wallet.LoadWallet" class="rpc-badge"></span>
 
-<p>LoadWallet loads an existing wallet with the given name.</p>
+<p>Loads an existing wallet with the given name.</p>
 
 <h4>LoadWalletRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3447,7 +3444,7 @@ signing, verification, and etc.</p>
 
 #### UnloadWallet <span id="aerium.Wallet.UnloadWallet" class="rpc-badge"></span>
 
-<p>UnloadWallet unloads a currently loaded wallet with the specified name.</p>
+<p>Unloads a currently loaded wallet with the specified name.</p>
 
 <h4>UnloadWalletRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3484,7 +3481,7 @@ signing, verification, and etc.</p>
 
 #### GetTotalBalance <span id="aerium.Wallet.GetTotalBalance" class="rpc-badge"></span>
 
-<p>GetTotalBalance returns the total available balance of the wallet.</p>
+<p>Returns the total available balance of the wallet.</p>
 
 <h4>GetTotalBalanceRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3497,7 +3494,7 @@ signing, verification, and etc.</p>
     <td class="fw-bold">wallet_name</td>
     <td> string</td>
     <td>
-    The name of the wallet to get the total balance.
+    The name of the wallet to get the total balance for.
     </td>
   </tr>
   </tbody>
@@ -3528,7 +3525,7 @@ signing, verification, and etc.</p>
 
 #### SignRawTransaction <span id="aerium.Wallet.SignRawTransaction" class="rpc-badge"></span>
 
-<p>SignRawTransaction signs a raw transaction for a specified wallet.</p>
+<p>Signs a raw transaction for a specified wallet.</p>
 
 <h4>SignRawTransactionRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3586,7 +3583,7 @@ signing, verification, and etc.</p>
 
 #### GetValidatorAddress <span id="aerium.Wallet.GetValidatorAddress" class="rpc-badge"></span>
 
-<p>GetValidatorAddress retrieves the validator address associated with a public key.</p>
+<p>Retrieves the validator address associated with a public key.</p>
 
 <h4>GetValidatorAddressRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3623,7 +3620,7 @@ signing, verification, and etc.</p>
 
 #### GetNewAddress <span id="aerium.Wallet.GetNewAddress" class="rpc-badge"></span>
 
-<p>GetNewAddress generates a new address for the specified wallet.</p>
+<p>Generates a new address for the specified wallet.</p>
 
 <h4>GetNewAddressRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3636,7 +3633,7 @@ signing, verification, and etc.</p>
     <td class="fw-bold">wallet_name</td>
     <td> string</td>
     <td>
-    The name of the wallet to generate a new address.
+    The name of the wallet to generate a new address for.
     </td>
   </tr>
   <tr>
@@ -3645,12 +3642,10 @@ signing, verification, and etc.</p>
     <td>
     (Enum)The type of address to generate.
     <br>Available values:<ul>
-      <li>ADDRESS_TYPE_TREASURY = 0 (Treasury address type.
-Should not be used to generate new addresses.)</li>
+      <li>ADDRESS_TYPE_TREASURY = 0 (Treasury address type. Should not be used to generate new addresses.)</li>
       <li>ADDRESS_TYPE_VALIDATOR = 1 (Validator address type used for validator nodes.)</li>
       <li>ADDRESS_TYPE_BLS_ACCOUNT = 2 (Account address type with BLS signature scheme.)</li>
-      <li>ADDRESS_TYPE_ED25519_ACCOUNT = 3 (Account address type with Ed25519 signature scheme.
-Note: Generating a new Ed25519 address requires the wallet password.)</li>
+      <li>ADDRESS_TYPE_ED25519_ACCOUNT = 3 (Account address type with Ed25519 signature scheme. Note: Generating a new Ed25519 address requires the wallet password.)</li>
       </ul>
     </td>
   </tr>
@@ -3665,7 +3660,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
     <td class="fw-bold">password</td>
     <td> string</td>
     <td>
-    Password for the new address. It's required when address_type is Ed25519 type.
+    Password for the new address. Required when address_type is Ed25519.
     </td>
   </tr>
   </tbody>
@@ -3681,7 +3676,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
     <td class="fw-bold">wallet_name</td>
     <td> string</td>
     <td>
-    The name of the wallet where address was generated.
+    The name of the wallet where the address was generated.
     </td>
   </tr>
      <tr>
@@ -3724,7 +3719,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### GetAddressHistory <span id="aerium.Wallet.GetAddressHistory" class="rpc-badge"></span>
 
-<p>GetAddressHistory retrieves the transaction history of an address.</p>
+<p>Retrieves the transaction history of an address.</p>
 
 <h4>GetAddressHistoryRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3803,7 +3798,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### SignMessage <span id="aerium.Wallet.SignMessage" class="rpc-badge"></span>
 
-<p>SignMessage signs an arbitrary message using a wallet's private key.</p>
+<p>Signs an arbitrary message using a wallet's private key.</p>
 
 <h4>SignMessageRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3861,7 +3856,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### GetTotalStake <span id="aerium.Wallet.GetTotalStake" class="rpc-badge"></span>
 
-<p>GetTotalStake returns the total stake amount in the wallet.</p>
+<p>Returns the total stake amount in the wallet.</p>
 
 <h4>GetTotalStakeRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3874,7 +3869,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
     <td class="fw-bold">wallet_name</td>
     <td> string</td>
     <td>
-    The name of the wallet to get the total stake.
+    The name of the wallet to get the total stake for.
     </td>
   </tr>
   </tbody>
@@ -3905,7 +3900,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### GetAddressInfo <span id="aerium.Wallet.GetAddressInfo" class="rpc-badge"></span>
 
-<p>GetAddressInfo returns detailed information about a specific address.</p>
+<p>Returns detailed information about a specific address.</p>
 
 <h4>GetAddressInfoRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -3977,7 +3972,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### SetAddressLabel <span id="aerium.Wallet.SetAddressLabel" class="rpc-badge"></span>
 
-<p>SetAddressLabel sets or updates the label for a given address.</p>
+<p>Sets or updates the label for a given address.</p>
 
 <h4>SetAddressLabelRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -4028,7 +4023,7 @@ Note: Generating a new Ed25519 address requires the wallet password.)</li>
 
 #### ListWallet <span id="aerium.Wallet.ListWallet" class="rpc-badge"></span>
 
-<p>ListWallet returns list of all available wallets.</p>
+<p>Returns a list of all available wallets.</p>
 
 <h4>ListWalletRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -4052,7 +4047,7 @@ Message has no fields.
 
 #### GetWalletInfo <span id="aerium.Wallet.GetWalletInfo" class="rpc-badge"></span>
 
-<p>GetWalletInfo returns detailed information about a specific wallet.</p>
+<p>Returns detailed information about a specific wallet.</p>
 
 <h4>GetWalletInfoRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -4109,7 +4104,7 @@ Message has no fields.
     <td class="fw-bold">uuid</td>
     <td> string</td>
     <td>
-    A unique identifier of the wallet.
+    A unique identifier for the wallet.
     </td>
   </tr>
      <tr>
@@ -4124,7 +4119,7 @@ Message has no fields.
 
 #### ListAddress <span id="aerium.Wallet.ListAddress" class="rpc-badge"></span>
 
-<p>ListAddress returns all addresses in the specified wallet.</p>
+<p>Returns all addresses in the specified wallet.</p>
 
 <h4>ListAddressRequest <span class="badge text-bg-info fs-6 align-top">Request</span></h4>
 
@@ -4160,7 +4155,7 @@ Message has no fields.
     <td class="fw-bold">data</td>
     <td>repeated AddressInfo</td>
     <td>
-    ist of all addresses in the wallet with their details.
+    List of all addresses in the wallet with their details.
     </td>
   </tr>
      <tr>

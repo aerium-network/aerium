@@ -44,7 +44,7 @@
   "paths": {
     "/aerium/Utils/public_key_aggregation": {
       "post": {
-        "summary": "PublicKeyAggregation aggregates multiple BLS public keys into a single key.",
+        "summary": "Aggregates multiple BLS public keys into a single key.",
         "operationId": "Utils_PublicKeyAggregation",
         "responses": {
           "200": {
@@ -78,7 +78,7 @@
     },
     "/aerium/Utils/sign_message_with_private_key": {
       "post": {
-        "summary": "SignMessageWithPrivateKey signs a message with the provided private key.",
+        "summary": "Signs a message with the provided private key.",
         "operationId": "Utils_SignMessageWithPrivateKey",
         "responses": {
           "200": {
@@ -112,7 +112,7 @@
     },
     "/aerium/Utils/signature_aggregation": {
       "post": {
-        "summary": "SignatureAggregation aggregates multiple BLS signatures into a single signature.",
+        "summary": "Aggregates multiple BLS signatures into a single signature.",
         "operationId": "Utils_SignatureAggregation",
         "responses": {
           "200": {
@@ -146,7 +146,7 @@
     },
     "/aerium/Utils/verify_message": {
       "post": {
-        "summary": "VerifyMessage verifies a signature against the public key and message.",
+        "summary": "Verifies a signature against the public key and message.",
         "operationId": "Utils_VerifyMessage",
         "responses": {
           "200": {
@@ -180,7 +180,7 @@
     },
     "/aerium/blockchain/get_account": {
       "get": {
-        "summary": "GetAccount retrieves information about an account based on the provided address.",
+        "summary": "Retrieves information about an account for the provided address.",
         "operationId": "Blockchain_GetAccount",
         "responses": {
           "200": {
@@ -212,7 +212,7 @@
     },
     "/aerium/blockchain/get_block": {
       "get": {
-        "summary": "GetBlock retrieves information about a block based on the provided request parameters.",
+        "summary": "Retrieves information about a block based on the provided request parameters.",
         "operationId": "Blockchain_GetBlock",
         "responses": {
           "200": {
@@ -258,7 +258,7 @@
     },
     "/aerium/blockchain/get_block_hash": {
       "get": {
-        "summary": "GetBlockHash retrieves the hash of a block at the specified height.",
+        "summary": "Retrieves the hash of a block at the specified height.",
         "operationId": "Blockchain_GetBlockHash",
         "responses": {
           "200": {
@@ -291,7 +291,7 @@
     },
     "/aerium/blockchain/get_block_height": {
       "get": {
-        "summary": "GetBlockHeight retrieves the height of a block with the specified hash.",
+        "summary": "Retrieves the height of a block with the specified hash.",
         "operationId": "Blockchain_GetBlockHeight",
         "responses": {
           "200": {
@@ -323,7 +323,7 @@
     },
     "/aerium/blockchain/get_blockchain_info": {
       "get": {
-        "summary": "GetBlockchainInfo retrieves general information about the blockchain.",
+        "summary": "Retrieves general information about the blockchain.",
         "operationId": "Blockchain_GetBlockchainInfo",
         "responses": {
           "200": {
@@ -346,7 +346,7 @@
     },
     "/aerium/blockchain/get_consensus_info": {
       "get": {
-        "summary": "GetConsensusInfo retrieves information about the consensus instances.",
+        "summary": "Retrieves information about consensus instances.",
         "operationId": "Blockchain_GetConsensusInfo",
         "responses": {
           "200": {
@@ -369,7 +369,7 @@
     },
     "/aerium/blockchain/get_public_key": {
       "get": {
-        "summary": "GetPublicKey retrieves the public key of an account based on the provided address.",
+        "summary": "Retrieves the public key of an account for the provided address.",
         "operationId": "Blockchain_GetPublicKey",
         "responses": {
           "200": {
@@ -401,7 +401,7 @@
     },
     "/aerium/blockchain/get_txpool_content": {
       "get": {
-        "summary": "GetTxPoolContent retrieves current transactions in the transaction pool.",
+        "summary": "Retrieves current transactions in the transaction pool.",
         "operationId": "Blockchain_GetTxPoolContent",
         "responses": {
           "200": {
@@ -443,7 +443,7 @@
     },
     "/aerium/blockchain/get_validator": {
       "get": {
-        "summary": "GetValidator retrieves information about a validator based on the provided address.",
+        "summary": "Retrieves information about a validator for the provided address.",
         "operationId": "Blockchain_GetValidator",
         "responses": {
           "200": {
@@ -475,7 +475,7 @@
     },
     "/aerium/blockchain/get_validator_by_number": {
       "get": {
-        "summary": "GetValidatorByNumber retrieves information about a validator based on the provided number.",
+        "summary": "Retrieves information about a validator by its number.",
         "operationId": "Blockchain_GetValidatorByNumber",
         "responses": {
           "200": {
@@ -508,7 +508,7 @@
     },
     "/aerium/network/get_network_info": {
       "get": {
-        "summary": "GetNetworkInfo retrieves information about the overall network.",
+        "summary": "Retrieves information about the overall network.",
         "operationId": "Network_GetNetworkInfo",
         "responses": {
           "200": {
@@ -540,7 +540,7 @@
     },
     "/aerium/network/get_node_info": {
       "get": {
-        "summary": "GetNodeInfo retrieves information about a specific node in the network.",
+        "summary": "Retrieves information about a specific node in the network.",
         "operationId": "Network_GetNodeInfo",
         "responses": {
           "200": {
@@ -563,7 +563,7 @@
     },
     "/aerium/transaction/broadcast_transaction": {
       "post": {
-        "summary": "BroadcastTransaction broadcasts a signed transaction to the network.",
+        "summary": "Broadcasts a signed transaction to the network.",
         "operationId": "Transaction_BroadcastTransaction",
         "responses": {
           "200": {
@@ -597,7 +597,7 @@
     },
     "/aerium/transaction/calculate_fee": {
       "post": {
-        "summary": "CalculateFee calculates the transaction fee based on the specified amount and payload type.",
+        "summary": "Calculates the transaction fee based on the specified amount and payload type.",
         "operationId": "Transaction_CalculateFee",
         "responses": {
           "200": {
@@ -616,7 +616,7 @@
         "parameters": [
           {
             "name": "body",
-            "description": "Request message for calculating transaction fee.",
+            "description": "Request message for calculating a transaction fee.",
             "in": "body",
             "required": true,
             "schema": {
@@ -631,7 +631,7 @@
     },
     "/aerium/transaction/decode_raw_transaction": {
       "post": {
-        "summary": "DecodeRawTransaction accepts raw transaction and returns decoded transaction.",
+        "summary": "Decodes a raw transaction and returns the decoded transaction.",
         "operationId": "Transaction_DecodeRawTransaction",
         "responses": {
           "200": {
@@ -665,7 +665,7 @@
     },
     "/aerium/transaction/get_raw_batch_transfer_transaction": {
       "post": {
-        "summary": "GetRawBatchTransferTransaction retrieves raw details of batch transfer transaction.",
+        "summary": "Retrieves raw details of a batch transfer transaction.",
         "operationId": "Transaction_GetRawBatchTransferTransaction",
         "responses": {
           "200": {
@@ -699,7 +699,7 @@
     },
     "/aerium/transaction/get_raw_bond_transaction": {
       "post": {
-        "summary": "GetRawBondTransaction retrieves raw details of a bond transaction.",
+        "summary": "Retrieves raw details of a bond transaction.",
         "operationId": "Transaction_GetRawBondTransaction",
         "responses": {
           "200": {
@@ -733,7 +733,7 @@
     },
     "/aerium/transaction/get_raw_transfer_transaction": {
       "post": {
-        "summary": "GetRawTransferTransaction retrieves raw details of a transfer transaction.",
+        "summary": "Retrieves raw details of a transfer transaction.",
         "operationId": "Transaction_GetRawTransferTransaction",
         "responses": {
           "200": {
@@ -767,7 +767,7 @@
     },
     "/aerium/transaction/get_raw_unbond_transaction": {
       "post": {
-        "summary": "GetRawUnbondTransaction retrieves raw details of an unbond transaction.",
+        "summary": "Retrieves raw details of an unbond transaction.",
         "operationId": "Transaction_GetRawUnbondTransaction",
         "responses": {
           "200": {
@@ -801,7 +801,7 @@
     },
     "/aerium/transaction/get_raw_withdraw_transaction": {
       "post": {
-        "summary": "GetRawWithdrawTransaction retrieves raw details of a withdraw transaction.",
+        "summary": "Retrieves raw details of a withdraw transaction.",
         "operationId": "Transaction_GetRawWithdrawTransaction",
         "responses": {
           "200": {
@@ -835,7 +835,7 @@
     },
     "/aerium/transaction/get_transaction": {
       "get": {
-        "summary": "GetTransaction retrieves transaction details based on the provided request parameters.",
+        "summary": "Retrieves transaction details based on the provided request parameters.",
         "operationId": "Transaction_GetTransaction",
         "responses": {
           "200": {
@@ -879,7 +879,7 @@
     },
     "/aerium/wallet/create_wallet": {
       "get": {
-        "summary": "CreateWallet creates a new wallet with the specified parameters.",
+        "summary": "Creates a new wallet with the specified parameters.",
         "operationId": "Wallet_CreateWallet",
         "responses": {
           "200": {
@@ -918,7 +918,7 @@
     },
     "/aerium/wallet/get_address_history": {
       "get": {
-        "summary": "GetAddressHistory retrieves the transaction history of an address.",
+        "summary": "Retrieves the transaction history of an address.",
         "operationId": "Wallet_GetAddressHistory",
         "responses": {
           "200": {
@@ -957,7 +957,7 @@
     },
     "/aerium/wallet/get_address_info": {
       "get": {
-        "summary": "GetAddressInfo returns detailed information about a specific address.",
+        "summary": "Returns detailed information about a specific address.",
         "operationId": "Wallet_GetAddressInfo",
         "responses": {
           "200": {
@@ -996,7 +996,7 @@
     },
     "/aerium/wallet/get_new_address": {
       "get": {
-        "summary": "GetNewAddress generates a new address for the specified wallet.",
+        "summary": "Generates a new address for the specified wallet.",
         "operationId": "Wallet_GetNewAddress",
         "responses": {
           "200": {
@@ -1015,14 +1015,14 @@
         "parameters": [
           {
             "name": "walletName",
-            "description": "The name of the wallet to generate a new address.",
+            "description": "The name of the wallet to generate a new address for.",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "addressType",
-            "description": "The type of address to generate.\n\n - ADDRESS_TYPE_TREASURY: Treasury address type.\nShould not be used to generate new addresses.\n - ADDRESS_TYPE_VALIDATOR: Validator address type used for validator nodes.\n - ADDRESS_TYPE_BLS_ACCOUNT: Account address type with BLS signature scheme.\n - ADDRESS_TYPE_ED25519_ACCOUNT: Account address type with Ed25519 signature scheme.\nNote: Generating a new Ed25519 address requires the wallet password.",
+            "description": "The type of address to generate.\n\n - ADDRESS_TYPE_TREASURY: Treasury address type. Should not be used to generate new addresses.\n - ADDRESS_TYPE_VALIDATOR: Validator address type used for validator nodes.\n - ADDRESS_TYPE_BLS_ACCOUNT: Account address type with BLS signature scheme.\n - ADDRESS_TYPE_ED25519_ACCOUNT: Account address type with Ed25519 signature scheme. Note: Generating a new Ed25519 address requires the wallet password.",
             "in": "query",
             "required": false,
             "type": "string",
@@ -1043,7 +1043,7 @@
           },
           {
             "name": "password",
-            "description": "Password for the new address. It's required when address_type is Ed25519 type.",
+            "description": "Password for the new address. Required when address_type is Ed25519.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -1056,7 +1056,7 @@
     },
     "/aerium/wallet/get_total_balance": {
       "get": {
-        "summary": "GetTotalBalance returns the total available balance of the wallet.",
+        "summary": "Returns the total available balance of the wallet.",
         "operationId": "Wallet_GetTotalBalance",
         "responses": {
           "200": {
@@ -1075,7 +1075,7 @@
         "parameters": [
           {
             "name": "walletName",
-            "description": "The name of the wallet to get the total balance.",
+            "description": "The name of the wallet to get the total balance for.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -1088,7 +1088,7 @@
     },
     "/aerium/wallet/get_total_stake": {
       "get": {
-        "summary": "GetTotalStake returns the total stake amount in the wallet.",
+        "summary": "Returns the total stake amount in the wallet.",
         "operationId": "Wallet_GetTotalStake",
         "responses": {
           "200": {
@@ -1107,7 +1107,7 @@
         "parameters": [
           {
             "name": "walletName",
-            "description": "The name of the wallet to get the total stake.",
+            "description": "The name of the wallet to get the total stake for.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -1120,7 +1120,7 @@
     },
     "/aerium/wallet/get_validator_address": {
       "get": {
-        "summary": "GetValidatorAddress retrieves the validator address associated with a public key.",
+        "summary": "Retrieves the validator address associated with a public key.",
         "operationId": "Wallet_GetValidatorAddress",
         "responses": {
           "200": {
@@ -1152,7 +1152,7 @@
     },
     "/aerium/wallet/get_wallet_info": {
       "get": {
-        "summary": "GetWalletInfo returns detailed information about a specific wallet.",
+        "summary": "Returns detailed information about a specific wallet.",
         "operationId": "Wallet_GetWalletInfo",
         "responses": {
           "200": {
@@ -1184,7 +1184,7 @@
     },
     "/aerium/wallet/list_address": {
       "get": {
-        "summary": "ListAddress returns all addresses in the specified wallet.",
+        "summary": "Returns all addresses in the specified wallet.",
         "operationId": "Wallet_ListAddress",
         "responses": {
           "200": {
@@ -1216,7 +1216,7 @@
     },
     "/aerium/wallet/list_wallet": {
       "get": {
-        "summary": "ListWallet returns list of all available wallets.",
+        "summary": "Returns a list of all available wallets.",
         "operationId": "Wallet_ListWallet",
         "responses": {
           "200": {
@@ -1239,7 +1239,7 @@
     },
     "/aerium/wallet/load_wallet": {
       "get": {
-        "summary": "LoadWallet loads an existing wallet with the given name.",
+        "summary": "Loads an existing wallet with the given name.",
         "operationId": "Wallet_LoadWallet",
         "responses": {
           "200": {
@@ -1271,7 +1271,7 @@
     },
     "/aerium/wallet/restore_wallet": {
       "get": {
-        "summary": "RestoreWallet restores an existing wallet with the given mnemonic.",
+        "summary": "Restores an existing wallet with the given mnemonic.",
         "operationId": "Wallet_RestoreWallet",
         "responses": {
           "200": {
@@ -1317,7 +1317,7 @@
     },
     "/aerium/wallet/set_address_label": {
       "patch": {
-        "summary": "SetAddressLabel sets or updates the label for a given address.",
+        "summary": "Sets or updates the label for a given address.",
         "operationId": "Wallet_SetAddressLabel",
         "responses": {
           "200": {
@@ -1370,7 +1370,7 @@
     },
     "/aerium/wallet/sign_message": {
       "get": {
-        "summary": "SignMessage signs an arbitrary message using a wallet's private key.",
+        "summary": "Signs an arbitrary message using a wallet's private key.",
         "operationId": "Wallet_SignMessage",
         "responses": {
           "200": {
@@ -1423,7 +1423,7 @@
     },
     "/aerium/wallet/sign_raw_transaction": {
       "get": {
-        "summary": "SignRawTransaction signs a raw transaction for a specified wallet.",
+        "summary": "Signs a raw transaction for a specified wallet.",
         "operationId": "Wallet_SignRawTransaction",
         "responses": {
           "200": {
@@ -1469,7 +1469,7 @@
     },
     "/aerium/wallet/unload_wallet": {
       "get": {
-        "summary": "UnloadWallet unloads a currently loaded wallet with the specified name.",
+        "summary": "Unloads a currently loaded wallet with the specified name.",
         "operationId": "Wallet_UnloadWallet",
         "responses": {
           "200": {
@@ -1527,7 +1527,7 @@
           "description": "The address of the account."
         }
       },
-      "description": "Message contains information about an account."
+      "description": "Message containing information about an account."
     },
     "aeriumAddressInfo": {
       "type": "object",
@@ -1560,7 +1560,7 @@
         "ADDRESS_TYPE_ED25519_ACCOUNT"
       ],
       "default": "ADDRESS_TYPE_TREASURY",
-      "description": "AddressType defines different types of blockchain addresses.\n\n - ADDRESS_TYPE_TREASURY: Treasury address type.\nShould not be used to generate new addresses.\n - ADDRESS_TYPE_VALIDATOR: Validator address type used for validator nodes.\n - ADDRESS_TYPE_BLS_ACCOUNT: Account address type with BLS signature scheme.\n - ADDRESS_TYPE_ED25519_ACCOUNT: Account address type with Ed25519 signature scheme.\nNote: Generating a new Ed25519 address requires the wallet password."
+      "description": "AddressType defines different types of blockchain addresses.\n\n - ADDRESS_TYPE_TREASURY: Treasury address type. Should not be used to generate new addresses.\n - ADDRESS_TYPE_VALIDATOR: Validator address type used for validator nodes.\n - ADDRESS_TYPE_BLS_ACCOUNT: Account address type with BLS signature scheme.\n - ADDRESS_TYPE_ED25519_ACCOUNT: Account address type with Ed25519 signature scheme. Note: Generating a new Ed25519 address requires the wallet password."
     },
     "aeriumBlockHeaderInfo": {
       "type": "object",
@@ -1587,7 +1587,7 @@
           "description": "The address of the proposer of the block."
         }
       },
-      "description": "Message contains information about the header of a block."
+      "description": "Message containing information about the header of a block."
     },
     "aeriumBlockVerbosity": {
       "type": "string",
@@ -1604,7 +1604,7 @@
       "properties": {
         "signedRawTransaction": {
           "type": "string",
-          "description": "The signed raw transaction data to be broadcasted."
+          "description": "The signed raw transaction data to be broadcast."
         }
       },
       "description": "Request message for broadcasting a signed transaction to the network."
@@ -1617,7 +1617,7 @@
           "description": "The unique ID of the broadcasted transaction."
         }
       },
-      "description": "Response message contains the ID of the broadcasted transaction."
+      "description": "Response message containing the ID of the broadcasted transaction."
     },
     "aeriumCalculateFeeRequest": {
       "type": "object",
@@ -1636,7 +1636,7 @@
           "description": "Indicates if the amount should be fixed and include the fee."
         }
       },
-      "description": "Request message for calculating transaction fee."
+      "description": "Request message for calculating a transaction fee."
     },
     "aeriumCalculateFeeResponse": {
       "type": "object",
@@ -1652,7 +1652,7 @@
           "description": "The calculated transaction fee in NanoPAC."
         }
       },
-      "description": "Response message contains the calculated transaction fee."
+      "description": "Response message containing the calculated transaction fee."
     },
     "aeriumCertificateInfo": {
       "type": "object",
@@ -1687,7 +1687,7 @@
           "description": "The signature of the certificate."
         }
       },
-      "description": "Message contains information about a certificate."
+      "description": "Message containing information about a certificate."
     },
     "aeriumConnectionInfo": {
       "type": "object",
@@ -1740,7 +1740,7 @@
           "description": "List of votes in the consensus instance."
         }
       },
-      "description": "Message contains information about a consensus instance."
+      "description": "Message containing information about a consensus instance."
     },
     "aeriumCounterInfo": {
       "type": "object",
@@ -1766,7 +1766,7 @@
           "description": "The mnemonic (seed phrase) for wallet recovery."
         }
       },
-      "description": "Response message contains wallet recovery mnemonic (seed phrase)."
+      "description": "Response message containing wallet recovery mnemonic (seed phrase)."
     },
     "aeriumDecodeRawTransactionRequest": {
       "type": "object",
@@ -1786,7 +1786,7 @@
           "description": "The decoded transaction information."
         }
       },
-      "description": "Response message contains the decoded transaction."
+      "description": "Response message containing the decoded transaction."
     },
     "aeriumDirection": {
       "type": "string",
@@ -1796,7 +1796,7 @@
         "DIRECTION_OUTBOUND"
       ],
       "default": "DIRECTION_UNKNOWN",
-      "description": "Direction represents the connection direction between peers.\n\n - DIRECTION_UNKNOWN: Unknown direction (default value).\n - DIRECTION_INBOUND: Inbound connection - peer connected to us.\n - DIRECTION_OUTBOUND: Outbound connection - we connected to peer."
+      "description": "The Direction enum represents the connection direction between peers.\n\n - DIRECTION_UNKNOWN: Unknown direction (default value).\n - DIRECTION_INBOUND: Inbound connection: peer connected to us.\n - DIRECTION_OUTBOUND: Outbound connection: we connected to the peer."
     },
     "aeriumGetAccountResponse": {
       "type": "object",
@@ -1806,7 +1806,7 @@
           "description": "Detailed information about the account."
         }
       },
-      "description": "Response message contains account information."
+      "description": "Response message containing account information."
     },
     "aeriumGetAddressHistoryResponse": {
       "type": "object",
@@ -1820,7 +1820,7 @@
           "description": "List of all historical transactions associated with the address."
         }
       },
-      "description": "Response message contains address transaction history."
+      "description": "Response message containing address transaction history."
     },
     "aeriumGetAddressInfoResponse": {
       "type": "object",
@@ -1846,7 +1846,7 @@
           "description": "The Hierarchical Deterministic (HD) path of the address."
         }
       },
-      "description": "Response message contains address details."
+      "description": "Response message containing address details."
     },
     "aeriumGetBlockHashResponse": {
       "type": "object",
@@ -1856,7 +1856,7 @@
           "description": "The hash of the block."
         }
       },
-      "description": "Response message contains block hash."
+      "description": "Response message containing a block hash."
     },
     "aeriumGetBlockHeightResponse": {
       "type": "object",
@@ -1867,7 +1867,7 @@
           "description": "The height of the block."
         }
       },
-      "description": "Response message contains block height."
+      "description": "Response message containing a block height."
     },
     "aeriumGetBlockResponse": {
       "type": "object",
@@ -1904,10 +1904,10 @@
             "type": "object",
             "$ref": "#/definitions/aeriumTransactionInfo"
           },
-          "description": "List of transactions in the block, available when verbosity level is set to\nBLOCK_TRANSACTIONS."
+          "description": "List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS."
         }
       },
-      "description": "Response message contains block information."
+      "description": "Response message containing block information."
     },
     "aeriumGetBlockchainInfoResponse": {
       "type": "object",
@@ -1956,17 +1956,17 @@
         },
         "isPruned": {
           "type": "boolean",
-          "description": "If the blocks are subject to pruning."
+          "description": "Indicates if blocks are subject to pruning."
         },
         "pruningHeight": {
           "type": "integer",
           "format": "int64",
-          "title": "Lowest-height block stored (only present if pruning is enabled)"
+          "description": "The lowest-height block stored (only present if pruning is enabled)."
         },
         "lastBlockTime": {
           "type": "string",
           "format": "int64",
-          "title": "Timestamp of the last block in Unix format"
+          "description": "Timestamp of the last block in Unix format."
         },
         "committeeProtocolVersions": {
           "type": "object",
@@ -1977,14 +1977,14 @@
           "description": "Map of protocol versions and their percentages in the committee."
         }
       },
-      "description": "Response message contains general blockchain information."
+      "description": "Response message containing general blockchain information."
     },
     "aeriumGetConsensusInfoResponse": {
       "type": "object",
       "properties": {
         "proposal": {
           "$ref": "#/definitions/aeriumProposalInfo",
-          "description": "The proposal of the consensus info."
+          "description": "The proposal information for consensus."
         },
         "instances": {
           "type": "array",
@@ -1995,7 +1995,7 @@
           "description": "List of consensus instances."
         }
       },
-      "description": "Response message contains consensus information."
+      "description": "Response message containing consensus information."
     },
     "aeriumGetNetworkInfoResponse": {
       "type": "object",
@@ -2022,28 +2022,28 @@
           "description": "Metrics related to node activity."
         }
       },
-      "description": "Response message contains information about the overall network."
+      "description": "Response message containing information about the overall network."
     },
     "aeriumGetNewAddressResponse": {
       "type": "object",
       "properties": {
         "walletName": {
           "type": "string",
-          "description": "The name of the wallet where address was generated."
+          "description": "The name of the wallet where the address was generated."
         },
         "addressInfo": {
           "$ref": "#/definitions/aeriumAddressInfo",
           "description": "Detailed information about the new address."
         }
       },
-      "description": "Response message contains newly generated address information."
+      "description": "Response message containing newly generated address information."
     },
     "aeriumGetNodeInfoResponse": {
       "type": "object",
       "properties": {
         "moniker": {
           "type": "string",
-          "description": "Moniker or Human-readable name identifying this node in the network."
+          "description": "Moniker or human-readable name identifying this node in the network."
         },
         "agent": {
           "type": "string",
@@ -2108,7 +2108,7 @@
           "description": "Current Unix timestamp of the node (UTC)."
         }
       },
-      "description": "Response message contains information about a specific node in the network."
+      "description": "Response message containing information about a specific node in the network."
     },
     "aeriumGetPublicKeyResponse": {
       "type": "object",
@@ -2118,7 +2118,7 @@
           "description": "The public key associated with the provided address."
         }
       },
-      "description": "Response message contains public key information."
+      "description": "Response message containing public key information."
     },
     "aeriumGetRawBatchTransferTransactionRequest": {
       "type": "object",
@@ -2138,7 +2138,7 @@
             "type": "object",
             "$ref": "#/definitions/aeriumRecipient"
           },
-          "description": "The recipients list of receiver with amount, min 2 recipients."
+          "description": "The list of recipients, each with a receiver and amount. Minimum 2 recipients required."
         },
         "fee": {
           "type": "string",
@@ -2201,7 +2201,7 @@
           "description": "The unique ID of the transaction."
         }
       },
-      "description": "Response message contains raw transaction data."
+      "description": "Response message containing raw transaction data."
     },
     "aeriumGetRawTransferTransactionRequest": {
       "type": "object",
@@ -2301,7 +2301,7 @@
           "description": "The total balance of the wallet in NanoPAC."
         }
       },
-      "description": "Response message contains the total available balance of the wallet."
+      "description": "Response message containing the total available balance of the wallet."
     },
     "aeriumGetTotalStakeResponse": {
       "type": "object",
@@ -2316,7 +2316,7 @@
           "description": "The total stake amount in NanoPAC."
         }
       },
-      "description": "Response message contains the total stake of the wallet."
+      "description": "Response message containing the total stake of the wallet."
     },
     "aeriumGetTransactionResponse": {
       "type": "object",
@@ -2336,7 +2336,7 @@
           "description": "Detailed information about the transaction."
         }
       },
-      "description": "Response message contains details of a transaction."
+      "description": "Response message containing details of a transaction."
     },
     "aeriumGetTxPoolContentResponse": {
       "type": "object",
@@ -2350,7 +2350,7 @@
           "description": "List of transactions currently in the pool."
         }
       },
-      "description": "Response message contains transactions in the transaction pool."
+      "description": "Response message containing transactions in the transaction pool."
     },
     "aeriumGetValidatorAddressResponse": {
       "type": "object",
@@ -2373,7 +2373,7 @@
           "description": "List of validator addresses."
         }
       },
-      "description": "Response message contains list of validator addresses."
+      "description": "Response message containing a list of validator addresses."
     },
     "aeriumGetValidatorResponse": {
       "type": "object",
@@ -2383,7 +2383,7 @@
           "description": "Detailed information about the validator."
         }
       },
-      "description": "Response message contains validator information."
+      "description": "Response message containing validator information."
     },
     "aeriumGetWalletInfoResponse": {
       "type": "object",
@@ -2407,7 +2407,7 @@
         },
         "uuid": {
           "type": "string",
-          "description": "A unique identifier of the wallet."
+          "description": "A unique identifier for the wallet."
         },
         "createdAt": {
           "type": "string",
@@ -2415,7 +2415,7 @@
           "description": "Unix timestamp of wallet creation."
         }
       },
-      "description": "Response message contains wallet details."
+      "description": "Response message containing wallet details."
     },
     "aeriumHistoryInfo": {
       "type": "object",
@@ -2458,10 +2458,10 @@
             "type": "object",
             "$ref": "#/definitions/aeriumAddressInfo"
           },
-          "description": "ist of all addresses in the wallet with their details."
+          "description": "List of all addresses in the wallet with their details."
         }
       },
-      "description": "Response message contains wallet addresses."
+      "description": "Response message containing wallet addresses."
     },
     "aeriumListWalletResponse": {
       "type": "object",
@@ -2474,7 +2474,7 @@
           "description": "Array of wallet names."
         }
       },
-      "description": "Response message contains wallet names."
+      "description": "Response message containing wallet names."
     },
     "aeriumLoadWalletResponse": {
       "type": "object",
@@ -2531,7 +2531,7 @@
             "type": "object",
             "$ref": "#/definitions/aeriumRecipient"
           },
-          "description": "The recipients of list receiver with amount."
+          "description": "The list of recipients, each with a receiver and amount."
         }
       },
       "description": "Payload for a batch transfer transaction."
@@ -2645,7 +2645,7 @@
         },
         "moniker": {
           "type": "string",
-          "description": "Moniker or Human-Readable name of the peer."
+          "description": "Moniker or human-readable name of the peer."
         },
         "agent": {
           "type": "string",
@@ -2653,7 +2653,7 @@
         },
         "peerId": {
           "type": "string",
-          "description": "Peer ID of the peer in P2P network."
+          "description": "Peer ID of the peer in the P2P network."
         },
         "consensusKeys": {
           "type": "array",
@@ -2724,7 +2724,7 @@
         },
         "outboundHelloSent": {
           "type": "boolean",
-          "description": "Whether the hello message was sent from the outbound connection."
+          "description": "Indicates whether the hello message was sent from the outbound connection."
         }
       },
       "description": "PeerInfo contains information about a peer in the network."
@@ -2751,7 +2751,7 @@
           "description": "The signature of the proposal, signed by the proposer."
         }
       },
-      "description": "Message contains information about a proposal."
+      "description": "Message containing information about a proposal."
     },
     "aeriumPublicKeyAggregationRequest": {
       "type": "object",
@@ -2778,7 +2778,7 @@
           "description": "The blockchain address derived from the aggregated public key."
         }
       },
-      "description": "Response message contains the aggregated BLS public key result."
+      "description": "Response message containing the aggregated BLS public key result."
     },
     "aeriumRecipient": {
       "type": "object",
@@ -2793,7 +2793,7 @@
           "description": "The amount in NanoPAC."
         }
       },
-      "description": "Recipient is receiver with amount."
+      "description": "Recipient is a receiver with an amount."
     },
     "aeriumRestoreWalletResponse": {
       "type": "object",
@@ -2817,7 +2817,7 @@
           "description": "The signature in hexadecimal format."
         }
       },
-      "description": "Response message contains message signature."
+      "description": "Response message containing the message signature."
     },
     "aeriumSignMessageWithPrivateKeyRequest": {
       "type": "object",
@@ -2841,7 +2841,7 @@
           "description": "The resulting signature in hexadecimal format."
         }
       },
-      "description": "Response message contains the signature generated from the message."
+      "description": "Response message containing the signature generated from the message."
     },
     "aeriumSignRawTransactionResponse": {
       "type": "object",
@@ -2855,7 +2855,7 @@
           "description": "The signed raw transaction data."
         }
       },
-      "description": "Response message contains the transaction ID and signed raw transaction."
+      "description": "Response message containing the transaction ID and signed raw transaction."
     },
     "aeriumSignatureAggregationRequest": {
       "type": "object",
@@ -2878,7 +2878,7 @@
           "description": "The aggregated BLS signature in hexadecimal format."
         }
       },
-      "description": "Response message contains the aggregated BLS signature."
+      "description": "Response message containing the aggregated BLS signature."
     },
     "aeriumTransactionInfo": {
       "type": "object",
@@ -2937,7 +2937,7 @@
         },
         "batchTransfer": {
           "$ref": "#/definitions/aeriumPayloadBatchTransfer",
-          "description": "Batch Transfer transaction payload."
+          "description": "Batch transfer transaction payload."
         },
         "memo": {
           "type": "string",
@@ -3028,7 +3028,7 @@
           "description": "The protocol version of the validator."
         }
       },
-      "description": "Message contains information about a validator."
+      "description": "Message containing information about a validator."
     },
     "aeriumVerifyMessageRequest": {
       "type": "object",
@@ -3053,10 +3053,10 @@
       "properties": {
         "isValid": {
           "type": "boolean",
-          "description": "Boolean indicating whether the signature is valid for the given message and public key."
+          "description": "Indicates whether the signature is valid for the given message and public key."
         }
       },
-      "description": "Response message contains the verification result."
+      "description": "Response message containing the verification result."
     },
     "aeriumVoteInfo": {
       "type": "object",
@@ -3089,7 +3089,7 @@
           "description": "The change-proposer value of the vote."
         }
       },
-      "description": "Message contains information about a vote."
+      "description": "Message containing information about a vote."
     },
     "aeriumVoteType": {
       "type": "string",
@@ -3102,7 +3102,7 @@
         "VOTE_TYPE_CP_DECIDED"
       ],
       "default": "VOTE_TYPE_UNSPECIFIED",
-      "description": "Enumeration for types of votes.\n\n - VOTE_TYPE_UNSPECIFIED: Unspecified vote type.\n - VOTE_TYPE_PREPARE: Prepare vote type.\n - VOTE_TYPE_PRECOMMIT: Precommit vote type.\n - VOTE_TYPE_CP_PRE_VOTE: Change-proposer:pre-vote vote type.\n - VOTE_TYPE_CP_MAIN_VOTE: Change-proposer:main-vote vote type.\n - VOTE_TYPE_CP_DECIDED: Change-proposer:decided vote type."
+      "description": "Enumeration for types of votes.\n\n - VOTE_TYPE_UNSPECIFIED: Unspecified vote type.\n - VOTE_TYPE_PREPARE: Prepare vote type.\n - VOTE_TYPE_PRECOMMIT: Precommit vote type.\n - VOTE_TYPE_CP_PRE_VOTE: Change-proposer pre-vote type.\n - VOTE_TYPE_CP_MAIN_VOTE: Change-proposer main-vote type.\n - VOTE_TYPE_CP_DECIDED: Change-proposer decided vote type."
     },
     "aeriumZMQPublisherInfo": {
       "type": "object",
@@ -3118,7 +3118,7 @@
         "hwm": {
           "type": "integer",
           "format": "int32",
-          "description": "The high-water mark (HWM) for the publisher, indicating the\nmaximum number of messages to queue before dropping older ones."
+          "description": "The high-water mark (HWM) for the publisher, indicating the maximum number of messages to queue before dropping older ones."
         }
       },
       "description": "ZMQPublisherInfo contains information about a ZeroMQ publisher."

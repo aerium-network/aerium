@@ -84,11 +84,11 @@ const (
 	VoteType_VOTE_TYPE_PREPARE VoteType = 1
 	// Precommit vote type.
 	VoteType_VOTE_TYPE_PRECOMMIT VoteType = 2
-	// Change-proposer:pre-vote vote type.
+	// Change-proposer pre-vote type.
 	VoteType_VOTE_TYPE_CP_PRE_VOTE VoteType = 3
-	// Change-proposer:main-vote vote type.
+	// Change-proposer main-vote type.
 	VoteType_VOTE_TYPE_CP_MAIN_VOTE VoteType = 4
-	// Change-proposer:decided vote type.
+	// Change-proposer decided vote type.
 	VoteType_VOTE_TYPE_CP_DECIDED VoteType = 5
 )
 
@@ -185,7 +185,7 @@ func (x *GetAccountRequest) GetAddress() string {
 	return ""
 }
 
-// Response message contains account information.
+// Response message containing account information.
 type GetAccountResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Detailed information about the account.
@@ -268,7 +268,7 @@ func (*GetValidatorAddressesRequest) Descriptor() ([]byte, []int) {
 	return file_blockchain_proto_rawDescGZIP(), []int{2}
 }
 
-// Response message contains list of validator addresses.
+// Response message containing a list of validator addresses.
 type GetValidatorAddressesResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// List of validator addresses.
@@ -406,7 +406,7 @@ func (x *GetValidatorByNumberRequest) GetNumber() int32 {
 	return 0
 }
 
-// Response message contains validator information.
+// Response message containing validator information.
 type GetValidatorResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Detailed information about the validator.
@@ -452,7 +452,7 @@ func (x *GetValidatorResponse) GetValidator() *ValidatorInfo {
 	return nil
 }
 
-// Request message for retrieving public key by address.
+// Request message for retrieving a public key by address.
 type GetPublicKeyRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The address for which to retrieve the public key.
@@ -498,7 +498,7 @@ func (x *GetPublicKeyRequest) GetAddress() string {
 	return ""
 }
 
-// Response message contains public key information.
+// Response message containing public key information.
 type GetPublicKeyResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The public key associated with the provided address.
@@ -544,7 +544,7 @@ func (x *GetPublicKeyResponse) GetPublicKey() string {
 	return ""
 }
 
-// Request message for retrieving block information based on height and verbosity level.
+// Request message for retrieving block information by height and verbosity level.
 type GetBlockRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The height of the block to retrieve.
@@ -599,7 +599,7 @@ func (x *GetBlockRequest) GetVerbosity() BlockVerbosity {
 	return BlockVerbosity_BLOCK_VERBOSITY_DATA
 }
 
-// Response message contains block information.
+// Response message containing block information.
 type GetBlockResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The height of the block.
@@ -614,8 +614,7 @@ type GetBlockResponse struct {
 	Header *BlockHeaderInfo `protobuf:"bytes,5,opt,name=header,proto3" json:"header,omitempty"`
 	// Certificate information of the previous block.
 	PrevCert *CertificateInfo `protobuf:"bytes,6,opt,name=prev_cert,json=prevCert,proto3" json:"prev_cert,omitempty"`
-	// List of transactions in the block, available when verbosity level is set to
-	// BLOCK_TRANSACTIONS.
+	// List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
 	Txs           []*TransactionInfo `protobuf:"bytes,7,rep,name=txs,proto3" json:"txs,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -700,7 +699,7 @@ func (x *GetBlockResponse) GetTxs() []*TransactionInfo {
 	return nil
 }
 
-// Request message for retrieving block hash by height.
+// Request message for retrieving a block hash by height.
 type GetBlockHashRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The height of the block to retrieve the hash for.
@@ -746,7 +745,7 @@ func (x *GetBlockHashRequest) GetHeight() uint32 {
 	return 0
 }
 
-// Response message contains block hash.
+// Response message containing a block hash.
 type GetBlockHashResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The hash of the block.
@@ -792,7 +791,7 @@ func (x *GetBlockHashResponse) GetHash() string {
 	return ""
 }
 
-// Request message for retrieving block height by hash.
+// Request message for retrieving a block height by hash.
 type GetBlockHeightRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The hash of the block to retrieve the height for.
@@ -838,7 +837,7 @@ func (x *GetBlockHeightRequest) GetHash() string {
 	return ""
 }
 
-// Response message contains block height.
+// Response message containing a block height.
 type GetBlockHeightResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The height of the block.
@@ -921,7 +920,7 @@ func (*GetBlockchainInfoRequest) Descriptor() ([]byte, []int) {
 	return file_blockchain_proto_rawDescGZIP(), []int{15}
 }
 
-// Response message contains general blockchain information.
+// Response message containing general blockchain information.
 type GetBlockchainInfoResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The height of the last block in the blockchain.
@@ -940,11 +939,11 @@ type GetBlockchainInfoResponse struct {
 	CommitteePower int64 `protobuf:"varint,6,opt,name=committee_power,json=committeePower,proto3" json:"committee_power,omitempty"`
 	// List of committee validators.
 	CommitteeValidators []*ValidatorInfo `protobuf:"bytes,7,rep,name=committee_validators,json=committeeValidators,proto3" json:"committee_validators,omitempty"`
-	// If the blocks are subject to pruning.
+	// Indicates if blocks are subject to pruning.
 	IsPruned bool `protobuf:"varint,8,opt,name=is_pruned,json=isPruned,proto3" json:"is_pruned,omitempty"`
-	// Lowest-height block stored (only present if pruning is enabled)
+	// The lowest-height block stored (only present if pruning is enabled).
 	PruningHeight uint32 `protobuf:"varint,9,opt,name=pruning_height,json=pruningHeight,proto3" json:"pruning_height,omitempty"`
-	// Timestamp of the last block in Unix format
+	// Timestamp of the last block in Unix format.
 	LastBlockTime int64 `protobuf:"varint,10,opt,name=last_block_time,json=lastBlockTime,proto3" json:"last_block_time,omitempty"`
 	// Map of protocol versions and their percentages in the committee.
 	CommitteeProtocolVersions map[int32]float64 `protobuf:"bytes,11,rep,name=committee_protocol_versions,json=committeeProtocolVersions,proto3" json:"committee_protocol_versions,omitempty" protobuf_key:"varint,1,opt,name=key" protobuf_val:"fixed64,2,opt,name=value"`
@@ -1103,10 +1102,10 @@ func (*GetConsensusInfoRequest) Descriptor() ([]byte, []int) {
 	return file_blockchain_proto_rawDescGZIP(), []int{17}
 }
 
-// Response message contains consensus information.
+// Response message containing consensus information.
 type GetConsensusInfoResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// The proposal of the consensus info.
+	// The proposal information for consensus.
 	Proposal *ProposalInfo `protobuf:"bytes,1,opt,name=proposal,proto3" json:"proposal,omitempty"`
 	// List of consensus instances.
 	Instances     []*ConsensusInfo `protobuf:"bytes,2,rep,name=instances,proto3" json:"instances,omitempty"`
@@ -1204,7 +1203,7 @@ func (x *GetTxPoolContentRequest) GetPayloadType() PayloadType {
 	return PayloadType_PAYLOAD_TYPE_UNSPECIFIED
 }
 
-// Response message contains transactions in the transaction pool.
+// Response message containing transactions in the transaction pool.
 type GetTxPoolContentResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// List of transactions currently in the pool.
@@ -1250,7 +1249,7 @@ func (x *GetTxPoolContentResponse) GetTxs() []*TransactionInfo {
 	return nil
 }
 
-// Message contains information about a validator.
+// Message containing information about a validator.
 type ValidatorInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The hash of the validator.
@@ -1386,7 +1385,7 @@ func (x *ValidatorInfo) GetProtocolVersion() int32 {
 	return 0
 }
 
-// Message contains information about an account.
+// Message containing information about an account.
 type AccountInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The hash of the account.
@@ -1468,7 +1467,7 @@ func (x *AccountInfo) GetAddress() string {
 	return ""
 }
 
-// Message contains information about the header of a block.
+// Message containing information about the header of a block.
 type BlockHeaderInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The version of the block.
@@ -1550,7 +1549,7 @@ func (x *BlockHeaderInfo) GetProposerAddress() string {
 	return ""
 }
 
-// Message contains information about a certificate.
+// Message containing information about a certificate.
 type CertificateInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The hash of the certificate.
@@ -1632,7 +1631,7 @@ func (x *CertificateInfo) GetSignature() string {
 	return ""
 }
 
-// Message contains information about a vote.
+// Message containing information about a vote.
 type VoteInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The type of the vote.
@@ -1723,7 +1722,7 @@ func (x *VoteInfo) GetCpValue() int32 {
 	return 0
 }
 
-// Message contains information about a consensus instance.
+// Message containing information about a consensus instance.
 type ConsensusInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The address of the consensus instance.
@@ -1805,7 +1804,7 @@ func (x *ConsensusInfo) GetVotes() []*VoteInfo {
 	return nil
 }
 
-// Message contains information about a proposal.
+// Message containing information about a proposal.
 type ProposalInfo struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// The height of the proposal.

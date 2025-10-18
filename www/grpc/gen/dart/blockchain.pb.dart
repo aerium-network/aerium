@@ -75,7 +75,7 @@ class GetAccountRequest extends $pb.GeneratedMessage {
   void clearAddress() => $_clearField(1);
 }
 
-/// Response message contains account information.
+/// Response message containing account information.
 class GetAccountResponse extends $pb.GeneratedMessage {
   factory GetAccountResponse({
     AccountInfo? account,
@@ -162,7 +162,7 @@ class GetValidatorAddressesRequest extends $pb.GeneratedMessage {
   static GetValidatorAddressesRequest? _defaultInstance;
 }
 
-/// Response message contains list of validator addresses.
+/// Response message containing a list of validator addresses.
 class GetValidatorAddressesResponse extends $pb.GeneratedMessage {
   factory GetValidatorAddressesResponse({
     $core.Iterable<$core.String>? addresses,
@@ -312,7 +312,7 @@ class GetValidatorByNumberRequest extends $pb.GeneratedMessage {
   void clearNumber() => $_clearField(1);
 }
 
-/// Response message contains validator information.
+/// Response message containing validator information.
 class GetValidatorResponse extends $pb.GeneratedMessage {
   factory GetValidatorResponse({
     ValidatorInfo? validator,
@@ -366,7 +366,7 @@ class GetValidatorResponse extends $pb.GeneratedMessage {
   ValidatorInfo ensureValidator() => $_ensure(0);
 }
 
-/// Request message for retrieving public key by address.
+/// Request message for retrieving a public key by address.
 class GetPublicKeyRequest extends $pb.GeneratedMessage {
   factory GetPublicKeyRequest({
     $core.String? address,
@@ -418,7 +418,7 @@ class GetPublicKeyRequest extends $pb.GeneratedMessage {
   void clearAddress() => $_clearField(1);
 }
 
-/// Response message contains public key information.
+/// Response message containing public key information.
 class GetPublicKeyResponse extends $pb.GeneratedMessage {
   factory GetPublicKeyResponse({
     $core.String? publicKey,
@@ -470,7 +470,7 @@ class GetPublicKeyResponse extends $pb.GeneratedMessage {
   void clearPublicKey() => $_clearField(1);
 }
 
-/// Request message for retrieving block information based on height and verbosity level.
+/// Request message for retrieving block information by height and verbosity level.
 class GetBlockRequest extends $pb.GeneratedMessage {
   factory GetBlockRequest({
     $core.int? height,
@@ -537,7 +537,7 @@ class GetBlockRequest extends $pb.GeneratedMessage {
   void clearVerbosity() => $_clearField(2);
 }
 
-/// Response message contains block information.
+/// Response message containing block information.
 class GetBlockResponse extends $pb.GeneratedMessage {
   factory GetBlockResponse({
     $core.int? height,
@@ -672,13 +672,12 @@ class GetBlockResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   CertificateInfo ensurePrevCert() => $_ensure(5);
 
-  /// List of transactions in the block, available when verbosity level is set to
-  /// BLOCK_TRANSACTIONS.
+  /// List of transactions in the block, available when verbosity level is set to BLOCK_TRANSACTIONS.
   @$pb.TagNumber(7)
   $pb.PbList<$0.TransactionInfo> get txs => $_getList(6);
 }
 
-/// Request message for retrieving block hash by height.
+/// Request message for retrieving a block hash by height.
 class GetBlockHashRequest extends $pb.GeneratedMessage {
   factory GetBlockHashRequest({
     $core.int? height,
@@ -730,7 +729,7 @@ class GetBlockHashRequest extends $pb.GeneratedMessage {
   void clearHeight() => $_clearField(1);
 }
 
-/// Response message contains block hash.
+/// Response message containing a block hash.
 class GetBlockHashResponse extends $pb.GeneratedMessage {
   factory GetBlockHashResponse({
     $core.String? hash,
@@ -782,7 +781,7 @@ class GetBlockHashResponse extends $pb.GeneratedMessage {
   void clearHash() => $_clearField(1);
 }
 
-/// Request message for retrieving block height by hash.
+/// Request message for retrieving a block height by hash.
 class GetBlockHeightRequest extends $pb.GeneratedMessage {
   factory GetBlockHeightRequest({
     $core.String? hash,
@@ -834,7 +833,7 @@ class GetBlockHeightRequest extends $pb.GeneratedMessage {
   void clearHash() => $_clearField(1);
 }
 
-/// Response message contains block height.
+/// Response message containing a block height.
 class GetBlockHeightResponse extends $pb.GeneratedMessage {
   factory GetBlockHeightResponse({
     $core.int? height,
@@ -919,7 +918,7 @@ class GetBlockchainInfoRequest extends $pb.GeneratedMessage {
   static GetBlockchainInfoRequest? _defaultInstance;
 }
 
-/// Response message contains general blockchain information.
+/// Response message containing general blockchain information.
 class GetBlockchainInfoResponse extends $pb.GeneratedMessage {
   factory GetBlockchainInfoResponse({
     $core.int? lastBlockHeight,
@@ -1079,7 +1078,7 @@ class GetBlockchainInfoResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $pb.PbList<ValidatorInfo> get committeeValidators => $_getList(6);
 
-  /// If the blocks are subject to pruning.
+  /// Indicates if blocks are subject to pruning.
   @$pb.TagNumber(8)
   $core.bool get isPruned => $_getBF(7);
   @$pb.TagNumber(8)
@@ -1089,7 +1088,7 @@ class GetBlockchainInfoResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   void clearIsPruned() => $_clearField(8);
 
-  /// Lowest-height block stored (only present if pruning is enabled)
+  /// The lowest-height block stored (only present if pruning is enabled).
   @$pb.TagNumber(9)
   $core.int get pruningHeight => $_getIZ(8);
   @$pb.TagNumber(9)
@@ -1099,7 +1098,7 @@ class GetBlockchainInfoResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   void clearPruningHeight() => $_clearField(9);
 
-  /// Timestamp of the last block in Unix format
+  /// Timestamp of the last block in Unix format.
   @$pb.TagNumber(10)
   $fixnum.Int64 get lastBlockTime => $_getI64(9);
   @$pb.TagNumber(10)
@@ -1157,7 +1156,7 @@ class GetConsensusInfoRequest extends $pb.GeneratedMessage {
   static GetConsensusInfoRequest? _defaultInstance;
 }
 
-/// Response message contains consensus information.
+/// Response message containing consensus information.
 class GetConsensusInfoResponse extends $pb.GeneratedMessage {
   factory GetConsensusInfoResponse({
     ProposalInfo? proposal,
@@ -1203,7 +1202,7 @@ class GetConsensusInfoResponse extends $pb.GeneratedMessage {
   static GetConsensusInfoResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetConsensusInfoResponse>(create);
   static GetConsensusInfoResponse? _defaultInstance;
 
-  /// The proposal of the consensus info.
+  /// The proposal information for consensus.
   @$pb.TagNumber(1)
   ProposalInfo get proposal => $_getN(0);
   @$pb.TagNumber(1)
@@ -1272,7 +1271,7 @@ class GetTxPoolContentRequest extends $pb.GeneratedMessage {
   void clearPayloadType() => $_clearField(1);
 }
 
-/// Response message contains transactions in the transaction pool.
+/// Response message containing transactions in the transaction pool.
 class GetTxPoolContentResponse extends $pb.GeneratedMessage {
   factory GetTxPoolContentResponse({
     $core.Iterable<$0.TransactionInfo>? txs,
@@ -1318,7 +1317,7 @@ class GetTxPoolContentResponse extends $pb.GeneratedMessage {
   $pb.PbList<$0.TransactionInfo> get txs => $_getList(0);
 }
 
-/// Message contains information about a validator.
+/// Message containing information about a validator.
 class ValidatorInfo extends $pb.GeneratedMessage {
   factory ValidatorInfo({
     $core.String? hash,
@@ -1520,7 +1519,7 @@ class ValidatorInfo extends $pb.GeneratedMessage {
   void clearProtocolVersion() => $_clearField(11);
 }
 
-/// Message contains information about an account.
+/// Message containing information about an account.
 class AccountInfo extends $pb.GeneratedMessage {
   factory AccountInfo({
     $core.String? hash,
@@ -1632,7 +1631,7 @@ class AccountInfo extends $pb.GeneratedMessage {
   void clearAddress() => $_clearField(5);
 }
 
-/// Message contains information about the header of a block.
+/// Message containing information about the header of a block.
 class BlockHeaderInfo extends $pb.GeneratedMessage {
   factory BlockHeaderInfo({
     $core.int? version,
@@ -1744,7 +1743,7 @@ class BlockHeaderInfo extends $pb.GeneratedMessage {
   void clearProposerAddress() => $_clearField(5);
 }
 
-/// Message contains information about a certificate.
+/// Message containing information about a certificate.
 class CertificateInfo extends $pb.GeneratedMessage {
   factory CertificateInfo({
     $core.String? hash,
@@ -1844,7 +1843,7 @@ class CertificateInfo extends $pb.GeneratedMessage {
   void clearSignature() => $_clearField(5);
 }
 
-/// Message contains information about a vote.
+/// Message containing information about a vote.
 class VoteInfo extends $pb.GeneratedMessage {
   factory VoteInfo({
     VoteType? type,
@@ -1971,7 +1970,7 @@ class VoteInfo extends $pb.GeneratedMessage {
   void clearCpValue() => $_clearField(6);
 }
 
-/// Message contains information about a consensus instance.
+/// Message containing information about a consensus instance.
 class ConsensusInfo extends $pb.GeneratedMessage {
   factory ConsensusInfo({
     $core.String? address,
@@ -2077,7 +2076,7 @@ class ConsensusInfo extends $pb.GeneratedMessage {
   $pb.PbList<VoteInfo> get votes => $_getList(4);
 }
 
-/// Message contains information about a proposal.
+/// Message containing information about a proposal.
 class ProposalInfo extends $pb.GeneratedMessage {
   factory ProposalInfo({
     $core.int? height,
@@ -2174,52 +2173,52 @@ class ProposalInfo extends $pb.GeneratedMessage {
   void clearSignature() => $_clearField(4);
 }
 
-/// Blockchain service defines RPC methods for interacting with the blockchain.
+/// The Blockchain service defines RPC methods for interacting with the blockchain.
 class BlockchainApi {
   $pb.RpcClient _client;
   BlockchainApi(this._client);
 
-  /// GetBlock retrieves information about a block based on the provided request parameters.
+  /// Retrieves information about a block based on the provided request parameters.
   $async.Future<GetBlockResponse> getBlock($pb.ClientContext? ctx, GetBlockRequest request) =>
     _client.invoke<GetBlockResponse>(ctx, 'Blockchain', 'GetBlock', request, GetBlockResponse())
   ;
-  /// GetBlockHash retrieves the hash of a block at the specified height.
+  /// Retrieves the hash of a block at the specified height.
   $async.Future<GetBlockHashResponse> getBlockHash($pb.ClientContext? ctx, GetBlockHashRequest request) =>
     _client.invoke<GetBlockHashResponse>(ctx, 'Blockchain', 'GetBlockHash', request, GetBlockHashResponse())
   ;
-  /// GetBlockHeight retrieves the height of a block with the specified hash.
+  /// Retrieves the height of a block with the specified hash.
   $async.Future<GetBlockHeightResponse> getBlockHeight($pb.ClientContext? ctx, GetBlockHeightRequest request) =>
     _client.invoke<GetBlockHeightResponse>(ctx, 'Blockchain', 'GetBlockHeight', request, GetBlockHeightResponse())
   ;
-  /// GetBlockchainInfo retrieves general information about the blockchain.
+  /// Retrieves general information about the blockchain.
   $async.Future<GetBlockchainInfoResponse> getBlockchainInfo($pb.ClientContext? ctx, GetBlockchainInfoRequest request) =>
     _client.invoke<GetBlockchainInfoResponse>(ctx, 'Blockchain', 'GetBlockchainInfo', request, GetBlockchainInfoResponse())
   ;
-  /// GetConsensusInfo retrieves information about the consensus instances.
+  /// Retrieves information about consensus instances.
   $async.Future<GetConsensusInfoResponse> getConsensusInfo($pb.ClientContext? ctx, GetConsensusInfoRequest request) =>
     _client.invoke<GetConsensusInfoResponse>(ctx, 'Blockchain', 'GetConsensusInfo', request, GetConsensusInfoResponse())
   ;
-  /// GetAccount retrieves information about an account based on the provided address.
+  /// Retrieves information about an account for the provided address.
   $async.Future<GetAccountResponse> getAccount($pb.ClientContext? ctx, GetAccountRequest request) =>
     _client.invoke<GetAccountResponse>(ctx, 'Blockchain', 'GetAccount', request, GetAccountResponse())
   ;
-  /// GetValidator retrieves information about a validator based on the provided address.
+  /// Retrieves information about a validator for the provided address.
   $async.Future<GetValidatorResponse> getValidator($pb.ClientContext? ctx, GetValidatorRequest request) =>
     _client.invoke<GetValidatorResponse>(ctx, 'Blockchain', 'GetValidator', request, GetValidatorResponse())
   ;
-  /// GetValidatorByNumber retrieves information about a validator based on the provided number.
+  /// Retrieves information about a validator by its number.
   $async.Future<GetValidatorResponse> getValidatorByNumber($pb.ClientContext? ctx, GetValidatorByNumberRequest request) =>
     _client.invoke<GetValidatorResponse>(ctx, 'Blockchain', 'GetValidatorByNumber', request, GetValidatorResponse())
   ;
-  /// GetValidatorAddresses retrieves a list of all validator addresses.
+  /// Retrieves a list of all validator addresses.
   $async.Future<GetValidatorAddressesResponse> getValidatorAddresses($pb.ClientContext? ctx, GetValidatorAddressesRequest request) =>
     _client.invoke<GetValidatorAddressesResponse>(ctx, 'Blockchain', 'GetValidatorAddresses', request, GetValidatorAddressesResponse())
   ;
-  /// GetPublicKey retrieves the public key of an account based on the provided address.
+  /// Retrieves the public key of an account for the provided address.
   $async.Future<GetPublicKeyResponse> getPublicKey($pb.ClientContext? ctx, GetPublicKeyRequest request) =>
     _client.invoke<GetPublicKeyResponse>(ctx, 'Blockchain', 'GetPublicKey', request, GetPublicKeyResponse())
   ;
-  /// GetTxPoolContent retrieves current transactions in the transaction pool.
+  /// Retrieves current transactions in the transaction pool.
   $async.Future<GetTxPoolContentResponse> getTxPoolContent($pb.ClientContext? ctx, GetTxPoolContentRequest request) =>
     _client.invoke<GetTxPoolContentResponse>(ctx, 'Blockchain', 'GetTxPoolContent', request, GetTxPoolContentResponse())
   ;

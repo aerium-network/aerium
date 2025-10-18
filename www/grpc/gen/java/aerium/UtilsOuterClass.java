@@ -789,7 +789,7 @@ public final class UtilsOuterClass {
   }
   /**
    * <pre>
-   * Response message contains the signature generated from the message.
+   * Response message containing the signature generated from the message.
    * </pre>
    *
    * Protobuf type {@code aerium.SignMessageWithPrivateKeyResponse}
@@ -1034,7 +1034,7 @@ public final class UtilsOuterClass {
     }
     /**
      * <pre>
-     * Response message contains the signature generated from the message.
+     * Response message containing the signature generated from the message.
      * </pre>
      *
      * Protobuf type {@code aerium.SignMessageWithPrivateKeyResponse}
@@ -2245,7 +2245,7 @@ public final class UtilsOuterClass {
 
     /**
      * <pre>
-     * Boolean indicating whether the signature is valid for the given message and public key.
+     * Indicates whether the signature is valid for the given message and public key.
      * </pre>
      *
      * <code>bool is_valid = 1 [json_name = "isValid"];</code>
@@ -2255,7 +2255,7 @@ public final class UtilsOuterClass {
   }
   /**
    * <pre>
-   * Response message contains the verification result.
+   * Response message containing the verification result.
    * </pre>
    *
    * Protobuf type {@code aerium.VerifyMessageResponse}
@@ -2298,7 +2298,7 @@ public final class UtilsOuterClass {
     private boolean isValid_ = false;
     /**
      * <pre>
-     * Boolean indicating whether the signature is valid for the given message and public key.
+     * Indicates whether the signature is valid for the given message and public key.
      * </pre>
      *
      * <code>bool is_valid = 1 [json_name = "isValid"];</code>
@@ -2469,7 +2469,7 @@ public final class UtilsOuterClass {
     }
     /**
      * <pre>
-     * Response message contains the verification result.
+     * Response message containing the verification result.
      * </pre>
      *
      * Protobuf type {@code aerium.VerifyMessageResponse}
@@ -2610,7 +2610,7 @@ public final class UtilsOuterClass {
       private boolean isValid_ ;
       /**
        * <pre>
-       * Boolean indicating whether the signature is valid for the given message and public key.
+       * Indicates whether the signature is valid for the given message and public key.
        * </pre>
        *
        * <code>bool is_valid = 1 [json_name = "isValid"];</code>
@@ -2622,7 +2622,7 @@ public final class UtilsOuterClass {
       }
       /**
        * <pre>
-       * Boolean indicating whether the signature is valid for the given message and public key.
+       * Indicates whether the signature is valid for the given message and public key.
        * </pre>
        *
        * <code>bool is_valid = 1 [json_name = "isValid"];</code>
@@ -2638,7 +2638,7 @@ public final class UtilsOuterClass {
       }
       /**
        * <pre>
-       * Boolean indicating whether the signature is valid for the given message and public key.
+       * Indicates whether the signature is valid for the given message and public key.
        * </pre>
        *
        * <code>bool is_valid = 1 [json_name = "isValid"];</code>
@@ -3400,7 +3400,7 @@ public final class UtilsOuterClass {
   }
   /**
    * <pre>
-   * Response message contains the aggregated BLS public key result.
+   * Response message containing the aggregated BLS public key result.
    * </pre>
    *
    * Protobuf type {@code aerium.PublicKeyAggregationResponse}
@@ -3703,7 +3703,7 @@ public final class UtilsOuterClass {
     }
     /**
      * <pre>
-     * Response message contains the aggregated BLS public key result.
+     * Response message containing the aggregated BLS public key result.
      * </pre>
      *
      * Protobuf type {@code aerium.PublicKeyAggregationResponse}
@@ -4770,7 +4770,7 @@ public final class UtilsOuterClass {
   }
   /**
    * <pre>
-   * Response message contains the aggregated BLS signature.
+   * Response message containing the aggregated BLS signature.
    * </pre>
    *
    * Protobuf type {@code aerium.SignatureAggregationResponse}
@@ -5015,7 +5015,7 @@ public final class UtilsOuterClass {
     }
     /**
      * <pre>
-     * Response message contains the aggregated BLS signature.
+     * Response message containing the aggregated BLS signature.
      * </pre>
      *
      * Protobuf type {@code aerium.SignatureAggregationResponse}

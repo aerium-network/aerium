@@ -42,11 +42,11 @@ class VoteType extends $pb.ProtobufEnum {
   static const VoteType VOTE_TYPE_PREPARE = VoteType._(1, _omitEnumNames ? '' : 'VOTE_TYPE_PREPARE');
   /// Precommit vote type.
   static const VoteType VOTE_TYPE_PRECOMMIT = VoteType._(2, _omitEnumNames ? '' : 'VOTE_TYPE_PRECOMMIT');
-  /// Change-proposer:pre-vote vote type.
+  /// Change-proposer pre-vote type.
   static const VoteType VOTE_TYPE_CP_PRE_VOTE = VoteType._(3, _omitEnumNames ? '' : 'VOTE_TYPE_CP_PRE_VOTE');
-  /// Change-proposer:main-vote vote type.
+  /// Change-proposer main-vote type.
   static const VoteType VOTE_TYPE_CP_MAIN_VOTE = VoteType._(4, _omitEnumNames ? '' : 'VOTE_TYPE_CP_MAIN_VOTE');
-  /// Change-proposer:decided vote type.
+  /// Change-proposer decided vote type.
   static const VoteType VOTE_TYPE_CP_DECIDED = VoteType._(5, _omitEnumNames ? '' : 'VOTE_TYPE_CP_DECIDED');
 
   static const $core.List<VoteType> values = <VoteType> [
