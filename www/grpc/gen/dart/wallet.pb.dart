@@ -2059,6 +2059,7 @@ class GetWalletInfoResponse extends $pb.GeneratedMessage {
     $core.bool? encrypted,
     $core.String? uuid,
     $fixnum.Int64? createdAt,
+    $fixnum.Int64? defaultFee,
   }) {
     final $result = create();
     if (walletName != null) {
@@ -2079,6 +2080,9 @@ class GetWalletInfoResponse extends $pb.GeneratedMessage {
     if (createdAt != null) {
       $result.createdAt = createdAt;
     }
+    if (defaultFee != null) {
+      $result.defaultFee = defaultFee;
+    }
     return $result;
   }
   GetWalletInfoResponse._() : super();
@@ -2092,6 +2096,7 @@ class GetWalletInfoResponse extends $pb.GeneratedMessage {
     ..aOB(4, _omitFieldNames ? '' : 'encrypted')
     ..aOS(5, _omitFieldNames ? '' : 'uuid')
     ..aInt64(6, _omitFieldNames ? '' : 'createdAt')
+    ..aInt64(7, _omitFieldNames ? '' : 'defaultFee')
     ..hasRequiredFields = false
   ;
 
@@ -2175,6 +2180,16 @@ class GetWalletInfoResponse extends $pb.GeneratedMessage {
   $core.bool hasCreatedAt() => $_has(5);
   @$pb.TagNumber(6)
   void clearCreatedAt() => $_clearField(6);
+
+  /// The default fee configured for this wallet in NanoAUM.
+  @$pb.TagNumber(7)
+  $fixnum.Int64 get defaultFee => $_getI64(6);
+  @$pb.TagNumber(7)
+  set defaultFee($fixnum.Int64 v) { $_setInt64(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasDefaultFee() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearDefaultFee() => $_clearField(7);
 }
 
 /// Request message for listing wallet addresses.

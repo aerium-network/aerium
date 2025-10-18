@@ -2413,6 +2413,11 @@
           "type": "string",
           "format": "int64",
           "description": "Unix timestamp of wallet creation."
+        },
+        "defaultFee": {
+          "type": "string",
+          "format": "int64",
+          "description": "The default fee configured for this wallet in NanoAUM."
         }
       },
       "description": "Response message contains wallet details."

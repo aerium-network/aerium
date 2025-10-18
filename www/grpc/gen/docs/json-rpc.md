@@ -4169,6 +4169,13 @@ Parameters has no fields.
     Unix timestamp of wallet creation.
     </td>
   </tr>
+     <tr>
+    <td class="fw-bold">default_fee</td>
+    <td> numeric</td>
+    <td>
+    The default fee configured for this wallet in NanoAUM.
+    </td>
+  </tr>
      </tbody>
 </table>
 

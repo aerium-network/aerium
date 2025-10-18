@@ -22869,6 +22869,16 @@ public final class WalletOuterClass {
      * @return The createdAt.
      */
     long getCreatedAt();
+
+    /**
+     * <pre>
+     * The default fee configured for this wallet in NanoAUM.
+     * </pre>
+     *
+     * <code>int64 default_fee = 7 [json_name = "defaultFee"];</code>
+     * @return The defaultFee.
+     */
+    long getDefaultFee();
   }
   /**
    * <pre>
@@ -23100,6 +23110,21 @@ public final class WalletOuterClass {
       return createdAt_;
     }
 
+    public static final int DEFAULT_FEE_FIELD_NUMBER = 7;
+    private long defaultFee_ = 0L;
+    /**
+     * <pre>
+     * The default fee configured for this wallet in NanoAUM.
+     * </pre>
+     *
+     * <code>int64 default_fee = 7 [json_name = "defaultFee"];</code>
+     * @return The defaultFee.
+     */
+    @java.lang.Override
+    public long getDefaultFee() {
+      return defaultFee_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -23132,6 +23157,9 @@ public final class WalletOuterClass {
       if (createdAt_ != 0L) {
         output.writeInt64(6, createdAt_);
       }
+      if (defaultFee_ != 0L) {
+        output.writeInt64(7, defaultFee_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -23162,6 +23190,10 @@ public final class WalletOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, createdAt_);
       }
+      if (defaultFee_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, defaultFee_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -23189,6 +23221,8 @@ public final class WalletOuterClass {
           .equals(other.getUuid())) return false;
       if (getCreatedAt()
           != other.getCreatedAt()) return false;
+      if (getDefaultFee()
+          != other.getDefaultFee()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -23215,6 +23249,9 @@ public final class WalletOuterClass {
       hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCreatedAt());
+      hash = (37 * hash) + DEFAULT_FEE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getDefaultFee());
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -23356,6 +23393,7 @@ public final class WalletOuterClass {
         encrypted_ = false;
         uuid_ = "";
         createdAt_ = 0L;
+        defaultFee_ = 0L;
         return this;
       }
 
@@ -23407,6 +23445,9 @@ public final class WalletOuterClass {
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.createdAt_ = createdAt_;
         }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.defaultFee_ = defaultFee_;
+        }
       }
 
       @java.lang.Override
@@ -23444,6 +23485,9 @@ public final class WalletOuterClass {
         }
         if (other.getCreatedAt() != 0L) {
           setCreatedAt(other.getCreatedAt());
+        }
+        if (other.getDefaultFee() != 0L) {
+          setDefaultFee(other.getDefaultFee());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -23501,6 +23545,11 @@ public final class WalletOuterClass {
                 bitField0_ |= 0x00000020;
                 break;
               } // case 48
+              case 56: {
+                defaultFee_ = input.readInt64();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -23922,6 +23971,50 @@ public final class WalletOuterClass {
       public Builder clearCreatedAt() {
         bitField0_ = (bitField0_ & ~0x00000020);
         createdAt_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long defaultFee_ ;
+      /**
+       * <pre>
+       * The default fee configured for this wallet in NanoAUM.
+       * </pre>
+       *
+       * <code>int64 default_fee = 7 [json_name = "defaultFee"];</code>
+       * @return The defaultFee.
+       */
+      @java.lang.Override
+      public long getDefaultFee() {
+        return defaultFee_;
+      }
+      /**
+       * <pre>
+       * The default fee configured for this wallet in NanoAUM.
+       * </pre>
+       *
+       * <code>int64 default_fee = 7 [json_name = "defaultFee"];</code>
+       * @param value The defaultFee to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDefaultFee(long value) {
+
+        defaultFee_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The default fee configured for this wallet in NanoAUM.
+       * </pre>
+       *
+       * <code>int64 default_fee = 7 [json_name = "defaultFee"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDefaultFee() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        defaultFee_ = 0L;
         onChanged();
         return this;
       }
@@ -25821,52 +25914,53 @@ public final class WalletOuterClass {
       "istWalletRequest\".\n\022ListWalletResponse\022\030" +
       "\n\007wallets\030\001 \003(\tR\007wallets\"7\n\024GetWalletInf" +
       "oRequest\022\037\n\013wallet_name\030\001 \001(\tR\nwalletNam" +
-      "e\"\275\001\n\025GetWalletInfoResponse\022\037\n\013wallet_na" +
+      "e\"\336\001\n\025GetWalletInfoResponse\022\037\n\013wallet_na" +
       "me\030\001 \001(\tR\nwalletName\022\030\n\007version\030\002 \001(\003R\007v" +
       "ersion\022\030\n\007network\030\003 \001(\tR\007network\022\034\n\tencr" +
       "ypted\030\004 \001(\010R\tencrypted\022\022\n\004uuid\030\005 \001(\tR\004uu" +
-      "id\022\035\n\ncreated_at\030\006 \001(\003R\tcreatedAt\"5\n\022Lis" +
-      "tAddressRequest\022\037\n\013wallet_name\030\001 \001(\tR\nwa" +
-      "lletName\"_\n\023ListAddressResponse\022\037\n\013walle" +
-      "t_name\030\001 \001(\tR\nwalletName\022\'\n\004data\030\002 \003(\0132\023" +
-      ".aerium.AddressInfoR\004data*\204\001\n\013AddressTyp" +
-      "e\022\031\n\025ADDRESS_TYPE_TREASURY\020\000\022\032\n\026ADDRESS_" +
-      "TYPE_VALIDATOR\020\001\022\034\n\030ADDRESS_TYPE_BLS_ACC" +
-      "OUNT\020\002\022 \n\034ADDRESS_TYPE_ED25519_ACCOUNT\020\003" +
-      "2\200\n\n\006Wallet\022I\n\014CreateWallet\022\033.aerium.Cre" +
-      "ateWalletRequest\032\034.aerium.CreateWalletRe" +
-      "sponse\022L\n\rRestoreWallet\022\034.aerium.Restore" +
-      "WalletRequest\032\035.aerium.RestoreWalletResp" +
-      "onse\022C\n\nLoadWallet\022\031.aerium.LoadWalletRe" +
-      "quest\032\032.aerium.LoadWalletResponse\022I\n\014Unl" +
-      "oadWallet\022\033.aerium.UnloadWalletRequest\032\034" +
-      ".aerium.UnloadWalletResponse\022R\n\017GetTotal" +
-      "Balance\022\036.aerium.GetTotalBalanceRequest\032" +
-      "\037.aerium.GetTotalBalanceResponse\022[\n\022Sign" +
-      "RawTransaction\022!.aerium.SignRawTransacti" +
-      "onRequest\032\".aerium.SignRawTransactionRes" +
-      "ponse\022^\n\023GetValidatorAddress\022\".aerium.Ge" +
-      "tValidatorAddressRequest\032#.aerium.GetVal" +
-      "idatorAddressResponse\022L\n\rGetNewAddress\022\034" +
-      ".aerium.GetNewAddressRequest\032\035.aerium.Ge" +
-      "tNewAddressResponse\022X\n\021GetAddressHistory" +
-      "\022 .aerium.GetAddressHistoryRequest\032!.aer" +
-      "ium.GetAddressHistoryResponse\022F\n\013SignMes" +
-      "sage\022\032.aerium.SignMessageRequest\032\033.aeriu" +
-      "m.SignMessageResponse\022L\n\rGetTotalStake\022\034" +
-      ".aerium.GetTotalStakeRequest\032\035.aerium.Ge" +
-      "tTotalStakeResponse\022O\n\016GetAddressInfo\022\035." +
-      "aerium.GetAddressInfoRequest\032\036.aerium.Ge" +
-      "tAddressInfoResponse\022R\n\017SetAddressLabel\022" +
-      "\036.aerium.SetAddressLabelRequest\032\037.aerium" +
-      ".SetAddressLabelResponse\022C\n\nListWallet\022\031" +
-      ".aerium.ListWalletRequest\032\032.aerium.ListW" +
-      "alletResponse\022L\n\rGetWalletInfo\022\034.aerium." +
-      "GetWalletInfoRequest\032\035.aerium.GetWalletI" +
-      "nfoResponse\022F\n\013ListAddress\022\032.aerium.List" +
-      "AddressRequest\032\033.aerium.ListAddressRespo" +
-      "nseB:\n\006aeriumZ0github.com/aerium-network" +
-      "/aerium/www/grpc/aeriumb\006proto3"
+      "id\022\035\n\ncreated_at\030\006 \001(\003R\tcreatedAt\022\037\n\013def" +
+      "ault_fee\030\007 \001(\003R\ndefaultFee\"5\n\022ListAddres" +
+      "sRequest\022\037\n\013wallet_name\030\001 \001(\tR\nwalletNam" +
+      "e\"_\n\023ListAddressResponse\022\037\n\013wallet_name\030" +
+      "\001 \001(\tR\nwalletName\022\'\n\004data\030\002 \003(\0132\023.aerium" +
+      ".AddressInfoR\004data*\204\001\n\013AddressType\022\031\n\025AD" +
+      "DRESS_TYPE_TREASURY\020\000\022\032\n\026ADDRESS_TYPE_VA" +
+      "LIDATOR\020\001\022\034\n\030ADDRESS_TYPE_BLS_ACCOUNT\020\002\022" +
+      " \n\034ADDRESS_TYPE_ED25519_ACCOUNT\020\0032\200\n\n\006Wa" +
+      "llet\022I\n\014CreateWallet\022\033.aerium.CreateWall" +
+      "etRequest\032\034.aerium.CreateWalletResponse\022" +
+      "L\n\rRestoreWallet\022\034.aerium.RestoreWalletR" +
+      "equest\032\035.aerium.RestoreWalletResponse\022C\n" +
+      "\nLoadWallet\022\031.aerium.LoadWalletRequest\032\032" +
+      ".aerium.LoadWalletResponse\022I\n\014UnloadWall" +
+      "et\022\033.aerium.UnloadWalletRequest\032\034.aerium" +
+      ".UnloadWalletResponse\022R\n\017GetTotalBalance" +
+      "\022\036.aerium.GetTotalBalanceRequest\032\037.aeriu" +
+      "m.GetTotalBalanceResponse\022[\n\022SignRawTran" +
+      "saction\022!.aerium.SignRawTransactionReque" +
+      "st\032\".aerium.SignRawTransactionResponse\022^" +
+      "\n\023GetValidatorAddress\022\".aerium.GetValida" +
+      "torAddressRequest\032#.aerium.GetValidatorA" +
+      "ddressResponse\022L\n\rGetNewAddress\022\034.aerium" +
+      ".GetNewAddressRequest\032\035.aerium.GetNewAdd" +
+      "ressResponse\022X\n\021GetAddressHistory\022 .aeri" +
+      "um.GetAddressHistoryRequest\032!.aerium.Get" +
+      "AddressHistoryResponse\022F\n\013SignMessage\022\032." +
+      "aerium.SignMessageRequest\032\033.aerium.SignM" +
+      "essageResponse\022L\n\rGetTotalStake\022\034.aerium" +
+      ".GetTotalStakeRequest\032\035.aerium.GetTotalS" +
+      "takeResponse\022O\n\016GetAddressInfo\022\035.aerium." +
+      "GetAddressInfoRequest\032\036.aerium.GetAddres" +
+      "sInfoResponse\022R\n\017SetAddressLabel\022\036.aeriu" +
+      "m.SetAddressLabelRequest\032\037.aerium.SetAdd" +
+      "ressLabelResponse\022C\n\nListWallet\022\031.aerium" +
+      ".ListWalletRequest\032\032.aerium.ListWalletRe" +
+      "sponse\022L\n\rGetWalletInfo\022\034.aerium.GetWall" +
+      "etInfoRequest\032\035.aerium.GetWalletInfoResp" +
+      "onse\022F\n\013ListAddress\022\032.aerium.ListAddress" +
+      "Request\032\033.aerium.ListAddressResponseB:\n\006" +
+      "aeriumZ0github.com/aerium-network/aerium" +
+      "/www/grpc/aeriumb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -26063,7 +26157,7 @@ public final class WalletOuterClass {
     internal_static_aerium_GetWalletInfoResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_aerium_GetWalletInfoResponse_descriptor,
-        new java.lang.String[] { "WalletName", "Version", "Network", "Encrypted", "Uuid", "CreatedAt", });
+        new java.lang.String[] { "WalletName", "Version", "Network", "Encrypted", "Uuid", "CreatedAt", "DefaultFee", });
     internal_static_aerium_ListAddressRequest_descriptor =
       getDescriptor().getMessageTypes().get(32);
     internal_static_aerium_ListAddressRequest_fieldAccessorTable = new

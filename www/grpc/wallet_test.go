@@ -314,7 +314,7 @@ func TestGetWalletInfo_DefaultFee(t *testing.T) {
 	require.NotNil(t, res)
 
 	assert.Equal(t, walletName, res.WalletName)
-	// Default fee should be the vault default (0.01 AUM => 10_000_000 NanoPAC)
+	// Default fee should be the vault default (0.01 AUM => 10_000_000 NanoAUM)
 	assert.EqualValues(t, int64(10_000_000), res.DefaultFee)
 }
 
