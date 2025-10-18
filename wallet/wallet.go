@@ -43,20 +43,22 @@ type Info struct {
 var serversJSON []byte
 
 // GenerateMnemonic is a wrapper for `vault.GenerateMnemonic`.
+// It generates a mnemonic (seed phrase) using the specified entropy.
 func GenerateMnemonic(entropy int) (string, error) {
 	return vault.GenerateMnemonic(entropy)
 }
 
 // CheckMnemonic is a wrapper for `vault.CheckMnemonic`.
+// It validates the provided mnemonic (seed phrase).
 func CheckMnemonic(mnemonic string) error {
 	return vault.CheckMnemonic(mnemonic)
 }
 
-// Open tries to open a wallet at the given path.
-// If the wallet doesn’t exist on this path, it returns an error.
-// A wallet can be opened in offline or online modes.
-// Offline wallet doesn’t have any connection to any node.
-// Online wallet has a connection to one of the pre-defined servers.
+// Open attempts to open a wallet at the given path.
+// If the wallet does not exist at this path, it returns an error.
+// A wallet can be opened in either offline or online mode.
+// An offline wallet does not connect to any node.
+// An online wallet connects to one of the predefined servers.
 func Open(walletPath string, offline bool, options ...Option) (*Wallet, error) {
 	data, err := util.ReadFile(walletPath)
 	if err != nil {
@@ -85,8 +87,8 @@ func Open(walletPath string, offline bool, options ...Option) (*Wallet, error) {
 	return newWallet(walletPath, store, offline, opts)
 }
 
-// Create creates a wallet from mnemonic (seed phrase) and save it at the
-// given path.
+// Create creates a wallet from a mnemonic (seed phrase) and saves it at the
+// specified path.
 func Create(walletPath, mnemonic, password string, chain genesis.ChainType,
 	options ...Option,
 ) (*Wallet, error) {
@@ -120,7 +122,7 @@ func Create(walletPath, mnemonic, password string, chain genesis.ChainType,
 		Network:   chain,
 		Vault:     nil,
 	}
-	// For recovery addresses we need online mode, so set offline to false
+	// For recovering addresses, we need online mode, so set offline to false
 	wallet, err := newWallet(walletPath, store, false, opts)
 	if err != nil {
 		return nil, err
