@@ -5786,7 +5786,8 @@ version: jspb.Message.getFieldWithDefault(msg, 2, 0),
 network: jspb.Message.getFieldWithDefault(msg, 3, ""),
 encrypted: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
 uuid: jspb.Message.getFieldWithDefault(msg, 5, ""),
-createdAt: jspb.Message.getFieldWithDefault(msg, 6, 0)
+createdAt: jspb.Message.getFieldWithDefault(msg, 6, 0),
+defaultFee: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -5846,6 +5847,10 @@ proto.aerium.GetWalletInfoResponse.deserializeBinaryFromReader = function(msg, r
     case 6:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setCreatedAt(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setDefaultFee(value);
       break;
     default:
       reader.skipField();
@@ -5915,6 +5920,13 @@ proto.aerium.GetWalletInfoResponse.serializeBinaryToWriter = function(message, w
   if (f !== 0) {
     writer.writeInt64(
       6,
+      f
+    );
+  }
+  f = message.getDefaultFee();
+  if (f !== 0) {
+    writer.writeInt64(
+      7,
       f
     );
   }
@@ -6026,6 +6038,24 @@ proto.aerium.GetWalletInfoResponse.prototype.getCreatedAt = function() {
  */
 proto.aerium.GetWalletInfoResponse.prototype.setCreatedAt = function(value) {
   return jspb.Message.setProto3IntField(this, 6, value);
+};
+
+
+/**
+ * optional int64 default_fee = 7;
+ * @return {number}
+ */
+proto.aerium.GetWalletInfoResponse.prototype.getDefaultFee = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.aerium.GetWalletInfoResponse} returns this
+ */
+proto.aerium.GetWalletInfoResponse.prototype.setDefaultFee = function(value) {
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 

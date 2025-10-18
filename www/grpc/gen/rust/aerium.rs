@@ -1537,6 +1537,9 @@ pub struct GetWalletInfoResponse {
     /// Unix timestamp of wallet creation.
     #[prost(int64, tag="6")]
     pub created_at: i64,
+    /// The default fee configured for this wallet in NanoAUM.
+    #[prost(int64, tag="7")]
+    pub default_fee: i64,
 }
 /// Request message for listing wallet addresses.
 #[allow(clippy::derive_partial_eq_without_eq)]

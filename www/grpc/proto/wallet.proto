@@ -323,6 +323,8 @@ message GetWalletInfoResponse {
   string uuid = 5;
   // Unix timestamp of wallet creation.
   int64 created_at = 6;
+  // The default fee configured for this wallet in NanoAUM.
+  int64 default_fee = 7;
 }
 
 // Request message for listing wallet addresses.
