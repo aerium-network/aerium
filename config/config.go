@@ -152,6 +152,7 @@ func DefaultConfigMainnet() *Config {
 	conf.HTTP.Enable = false
 	conf.HTTP.Listen = "127.0.0.1:8080"
 	conf.HTTP.BasePath = "/http"
+	conf.HTTP.Origins = []string{}
 	conf.JSONRPC.Enable = false
 	conf.JSONRPC.Listen = "127.0.0.1:8545"
 	conf.JSONRPC.Origins = []string{}
@@ -176,6 +177,7 @@ func DefaultConfigTestnet() *Config {
 	conf.HTTP.Enable = true
 	conf.HTTP.Listen = "[::]:8080"
 	conf.HTTP.BasePath = "/http"
+	conf.HTTP.Origins = []string{}
 	conf.JSONRPC.Enable = true
 	conf.JSONRPC.Listen = "[::]:8545"
 	conf.JSONRPC.Origins = []string{}
@@ -204,6 +206,7 @@ func DefaultConfigLocalnet() *Config {
 	conf.HTML.EnablePprof = true
 	conf.HTTP.Enable = true
 	conf.HTTP.Listen = "[::]:8080"
+	conf.HTTP.Origins = []string{"*"}
 	conf.JSONRPC.Enable = true
 	conf.JSONRPC.Listen = "[::]:8545"
 	conf.JSONRPC.Origins = []string{"*"}
