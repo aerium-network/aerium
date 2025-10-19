@@ -1779,7 +1779,9 @@ type GetWalletInfoResponse struct {
 	// A unique identifier for the wallet.
 	Uuid string `protobuf:"bytes,5,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	// Unix timestamp of wallet creation.
-	CreatedAt     int64 `protobuf:"varint,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	CreatedAt int64 `protobuf:"varint,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// The default fee configured for this wallet in NanoAUM.
+	DefaultFee    int64 `protobuf:"varint,7,opt,name=default_fee,json=defaultFee,proto3" json:"default_fee,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1852,6 +1854,13 @@ func (x *GetWalletInfoResponse) GetUuid() string {
 func (x *GetWalletInfoResponse) GetCreatedAt() int64 {
 	if x != nil {
 		return x.CreatedAt
+	}
+	return 0
+}
+
+func (x *GetWalletInfoResponse) GetDefaultFee() int64 {
+	if x != nil {
+		return x.DefaultFee
 	}
 	return 0
 }
@@ -2076,7 +2085,7 @@ const file_wallet_proto_rawDesc = "" +
 	"\awallets\x18\x01 \x03(\tR\awallets\"7\n" +
 	"\x14GetWalletInfoRequest\x12\x1f\n" +
 	"\vwallet_name\x18\x01 \x01(\tR\n" +
-	"walletName\"\xbd\x01\n" +
+	"walletName\"\xde\x01\n" +
 	"\x15GetWalletInfoResponse\x12\x1f\n" +
 	"\vwallet_name\x18\x01 \x01(\tR\n" +
 	"walletName\x12\x18\n" +
@@ -2085,7 +2094,9 @@ const file_wallet_proto_rawDesc = "" +
 	"\tencrypted\x18\x04 \x01(\bR\tencrypted\x12\x12\n" +
 	"\x04uuid\x18\x05 \x01(\tR\x04uuid\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x06 \x01(\x03R\tcreatedAt\"5\n" +
+	"created_at\x18\x06 \x01(\x03R\tcreatedAt\x12\x1f\n" +
+	"\vdefault_fee\x18\a \x01(\x03R\n" +
+	"defaultFee\"5\n" +
 	"\x12ListAddressRequest\x12\x1f\n" +
 	"\vwallet_name\x18\x01 \x01(\tR\n" +
 	"walletName\"_\n" +
