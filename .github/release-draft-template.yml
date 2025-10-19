@@ -17,9 +17,10 @@ categories:
     label: 'enhancement'
   - title: '🐛 Bug Fixes'
     label: 'bug'
-  - title: '⚙️ Maintenance/misc'
+  - title: '📚 Dependencies'
+    label: 'dependencies'    
+  - title: '⚙️ Maintenance/Misc'
     label:
-      - 'dependencies'
       - 'maintenance'
       - 'documentation'
 template: |
