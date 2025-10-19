@@ -31,6 +31,13 @@ mkdir -p ${PACKAGE_DIR}
 mkdir -p ${PACKAGE_DIR}/js/{aerium-grpc,aerium-jsonrpc}
 mkdir -p ${PACKAGE_DIR}/python/{aerium-grpc,aerium-jsonrpc}
 mkdir -p ${PACKAGE_DIR}/rust/{aerium-grpc,aerium-jsonrpc}
+mkdir -p ${PACKAGE_DIR}/dart/{aerium-grpc,aerium-jsonrpc}
+
+echo "== Building aerium-grpc package for Dart"
+cp -R ${ROOT_DIR}/.github/packager/dart/* ${PACKAGE_DIR}/dart/aerium-grpc
+cp -R ${PROTO_GEN_DIR}/dart/* ${PACKAGE_DIR}/dart/aerium-grpc
+cp ${ROOT_DIR}/LICENSE ${PACKAGE_DIR}/dart/aerium-grpc
+replace_in_place "s/{{ VERSION }}/$VERSION/g" "${PACKAGE_DIR}/dart/aerium-grpc/pubspec.yaml"
 
 echo "== Building aerium-grpc package for JavaScript"
 cp -R ${ROOT_DIR}/.github/packager/js/grpc/* ${PACKAGE_DIR}/js/aerium-grpc
