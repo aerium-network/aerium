@@ -31,7 +31,7 @@ mkdir -p ${PACKAGE_DIR}
 mkdir -p ${PACKAGE_DIR}/js/{aerium-grpc,aerium-jsonrpc}
 mkdir -p ${PACKAGE_DIR}/python/{aerium-grpc,aerium-jsonrpc}
 mkdir -p ${PACKAGE_DIR}/rust/{aerium-grpc,aerium-jsonrpc}
-mkdir -p ${PACKAGE_DIR}/dart/{aerium-grpc,aerium-jsonrpc}
+mkdir -p ${PACKAGE_DIR}/dart/aerium-grpc
 
 echo "== Building aerium-grpc package for Dart"
 cp -R "${ROOT_DIR}/.github/packager/dart/." "${PACKAGE_DIR}/dart/aerium-grpc/"
