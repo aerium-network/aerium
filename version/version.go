@@ -61,16 +61,12 @@ func ParseVersion(versionStr string) (Version, error) {
 	}
 
 	parseUintPart := func(part string, name string) (uint, error) {
-		val64, err := strconv.ParseUint(part, 10, 64)
+		val, err := strconv.ParseUint(part, 10, 0)
 		if err != nil {
 			return 0, fmt.Errorf("failed to parse %s version: %w", name, err)
 		}
-		if val64 > uint64(^uint(0)) { // upper bound check for current architecture
-			return 0, fmt.Errorf("%s version value %d overflows uint", name, val64)
-		}
-		return uint(val64), nil
+		return uint(val), nil
 	}
-
 	var err error
 	if ver.Major, err = parseUintPart(parts[0], "Major"); err != nil {
 		return ver, err
