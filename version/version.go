@@ -47,40 +47,43 @@ func NodeVersion() Version {
 func ParseVersion(versionStr string) (Version, error) {
 	var ver Version
 
+	if versionStr == "" {
+		return ver, errors.New("empty version string")
+	}
+
 	if versionStr[0] == 'v' {
 		versionStr = versionStr[1:]
 	}
-	// Split the version string into parts
+
 	parts := strings.Split(versionStr, ".")
 	if len(parts) != 3 {
 		return ver, errors.New("invalid version format")
 	}
 
-	// Parse Major version
-	major, err := strconv.ParseUint(parts[0], 10, 64)
-	if err != nil {
-		return ver, fmt.Errorf("failed to parse Major version: %w", err)
-	}
-	ver.Major = uint(major)
+	parseUintPart := func(part string, name string) (uint, error) {
+		val, err := strconv.ParseUint(part, 10, 0)
+		if err != nil {
+			return 0, fmt.Errorf("failed to parse %s version: %w", name, err)
+		}
 
-	// Parse Minor version
-	minor, err := strconv.ParseUint(parts[1], 10, 64)
-	if err != nil {
-		return ver, fmt.Errorf("failed to parse Minor version: %w", err)
+		return uint(val), nil
 	}
-	ver.Minor = uint(minor)
+	var err error
+	if ver.Major, err = parseUintPart(parts[0], "Major"); err != nil {
+		return ver, err
+	}
+	if ver.Minor, err = parseUintPart(parts[1], "Minor"); err != nil {
+		return ver, err
+	}
 
-	// Parse Patch version and Meta (if present)
 	patchMeta := strings.Split(parts[2], "-")
 	if len(patchMeta) > 2 {
 		return ver, errors.New("invalid Patch and Meta format")
 	}
 
-	patch, err := strconv.ParseUint(patchMeta[0], 10, 64)
-	if err != nil {
-		return ver, fmt.Errorf("failed to parse Patch version: %w", err)
+	if ver.Patch, err = parseUintPart(patchMeta[0], "Patch"); err != nil {
+		return ver, err
 	}
-	ver.Patch = uint(patch)
 
 	if len(patchMeta) == 2 {
 		ver.Meta = patchMeta[1]
