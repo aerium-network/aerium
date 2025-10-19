@@ -42,7 +42,7 @@ func (p params) GetUint8(key string) uint8 {
 
 func (p params) GetUint32(key string) uint32 {
 	v := p.GetUint64(key)
-	if v > math.MaxUint8 {
+	if v > math.MaxUint32 {
 		return 0
 	}
 	return uint32(v)
