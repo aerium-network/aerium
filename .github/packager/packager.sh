@@ -34,12 +34,19 @@ mkdir -p ${PACKAGE_DIR}/rust/{aerium-grpc,aerium-jsonrpc}
 mkdir -p ${PACKAGE_DIR}/dart/aerium-grpc
 
 echo "== Building aerium-grpc package for Dart"
+<<<<<<< HEAD
 DART_PKG_DIR="${PACKAGE_DIR}/dart/aerium-grpc"
 cp -R ${ROOT_DIR}/.github/packager/dart/* ${DART_PKG_DIR}
 mkdir -p "${DART_PKG_DIR}/lib/src"
 cp -R ${PROTO_GEN_DIR}/dart/* "${DART_PKG_DIR}/lib/src"
 cp ${ROOT_DIR}/LICENSE ${DART_PKG_DIR}
 replace_in_place "s/{{ VERSION }}/$VERSION/g" "${DART_PKG_DIR}/pubspec.yaml"
+=======
+cp -R "${ROOT_DIR}/.github/packager/dart/." "${PACKAGE_DIR}/dart/aerium-grpc/"
+cp -R "${PROTO_GEN_DIR}/dart/." "${PACKAGE_DIR}/dart/aerium-grpc/lib/"
+cp ${ROOT_DIR}/LICENSE ${PACKAGE_DIR}/dart/aerium-grpc
+replace_in_place "s/{{ VERSION }}/$VERSION/g" "${PACKAGE_DIR}/dart/aerium-grpc/pubspec.yaml"
+>>>>>>> bed57bcca9aa6cce09cda9db152cb99a6cb9549a
 
 echo "== Building aerium-grpc package for JavaScript"
 cp -R ${ROOT_DIR}/.github/packager/js/grpc/* ${PACKAGE_DIR}/js/aerium-grpc
