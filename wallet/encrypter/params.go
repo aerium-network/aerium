@@ -37,6 +37,7 @@ func (p params) GetUint8(key string) uint8 {
 	if v > math.MaxUint8 {
 		return 0
 	}
+
 	return uint8(v)
 }
 
@@ -45,6 +46,7 @@ func (p params) GetUint32(key string) uint32 {
 	if v > math.MaxUint32 {
 		return 0
 	}
+
 	return uint32(v)
 }
 

@@ -65,6 +65,7 @@ func ParseVersion(versionStr string) (Version, error) {
 		if err != nil {
 			return 0, fmt.Errorf("failed to parse %s version: %w", name, err)
 		}
+
 		return uint(val), nil
 	}
 	var err error
