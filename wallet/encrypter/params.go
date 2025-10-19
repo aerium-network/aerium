@@ -2,6 +2,7 @@ package encrypter
 
 import (
 	"encoding/base64"
+	"math"
 	"strconv"
 )
 
@@ -32,11 +33,21 @@ func (p params) SetString(key, val string) {
 }
 
 func (p params) GetUint8(key string) uint8 {
-	return uint8(p.GetUint64(key))
+	v := p.GetUint64(key)
+	if v > math.MaxUint8 {
+		return 0
+	}
+
+	return uint8(v)
 }
 
 func (p params) GetUint32(key string) uint32 {
-	return uint32(p.GetUint64(key))
+	v := p.GetUint64(key)
+	if v > math.MaxUint32 {
+		return 0
+	}
+
+	return uint32(v)
 }
 
 func (p params) GetUint64(key string) uint64 {
