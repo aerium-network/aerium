@@ -4,10 +4,13 @@
 # if any command returns a non-zero exit status (i.e., an error).
 set -e
 
+# Helper function for cross-platform 'sed -i'
 replace_in_place() {
   if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS requires an empty string argument to -i
     sed -i '' "$1" "$2"
   else
+    # Linux (GNU sed) does not require or accept the empty string
     sed -i "$1" "$2"
   fi
 }
@@ -26,6 +29,7 @@ VERSION=${VERSION#v}
 
 echo "Packing Version:" ${VERSION}
 
+# --- Cleanup and Global Directory Setup ---
 rm -rf ${PACKAGE_DIR}
 mkdir -p ${PACKAGE_DIR}
 mkdir -p ${PACKAGE_DIR}/js/{aerium-grpc,aerium-jsonrpc}
@@ -33,29 +37,36 @@ mkdir -p ${PACKAGE_DIR}/python/{aerium-grpc,aerium-jsonrpc}
 mkdir -p ${PACKAGE_DIR}/rust/{aerium-grpc,aerium-jsonrpc}
 mkdir -p ${PACKAGE_DIR}/dart/aerium-grpc
 
+# --- Building aerium-grpc package for Dart ---
 echo "== Building aerium-grpc package for Dart"
-<<<<<<< HEAD
-DART_PKG_DIR="${PACKAGE_DIR}/dart/aerium-grpc"
-cp -R ${ROOT_DIR}/.github/packager/dart/* ${DART_PKG_DIR}
-mkdir -p "${DART_PKG_DIR}/lib/src"
-cp -R ${PROTO_GEN_DIR}/dart/* "${DART_PKG_DIR}/lib/src"
-cp ${ROOT_DIR}/LICENSE ${DART_PKG_DIR}
-replace_in_place "s/{{ VERSION }}/$VERSION/g" "${DART_PKG_DIR}/pubspec.yaml"
-=======
-cp -R "${ROOT_DIR}/.github/packager/dart/." "${PACKAGE_DIR}/dart/aerium-grpc/"
-cp -R "${PROTO_GEN_DIR}/dart/." "${PACKAGE_DIR}/dart/aerium-grpc/lib/"
-cp ${ROOT_DIR}/LICENSE ${PACKAGE_DIR}/dart/aerium-grpc
-replace_in_place "s/{{ VERSION }}/$VERSION/g" "${PACKAGE_DIR}/dart/aerium-grpc/pubspec.yaml"
->>>>>>> bed57bcca9aa6cce09cda9db152cb99a6cb9549a
+DART_PKG_ROOT="${PACKAGE_DIR}/dart/aerium-grpc"
+DART_PROTO_DEST="${DART_PKG_ROOT}/lib/src" # Correct destination for proto files
 
+# 1. Copy package files (pubspec.yaml, main library file, etc.)
+#    The '." and '/' ensures that contents are copied, not the directory itself.
+cp -R "${ROOT_DIR}/.github/packager/dart/." "${DART_PKG_ROOT}/"
+
+# 2. Create the required 'lib/src' directory for generated protobuf files
+mkdir -p "${DART_PROTO_DEST}"
+
+# 3. Copy generated protobuf files into lib/src
+cp -R "${PROTO_GEN_DIR}/dart/." "${DART_PROTO_DEST}/"
+
+# 4. Copy license and replace version placeholder
+cp ${ROOT_DIR}/LICENSE ${DART_PKG_ROOT}
+replace_in_place "s/{{ VERSION }}/$VERSION/g" "${DART_PKG_ROOT}/pubspec.yaml"
+
+# --- Building aerium-grpc package for JavaScript ---
 echo "== Building aerium-grpc package for JavaScript"
 cp -R ${ROOT_DIR}/.github/packager/js/grpc/* ${PACKAGE_DIR}/js/aerium-grpc
 cp -R ${PROTO_GEN_DIR}/js/* ${PACKAGE_DIR}/js/aerium-grpc
 cp ${ROOT_DIR}/LICENSE ${PACKAGE_DIR}/js/aerium-grpc
 replace_in_place "s/{{ VERSION }}/$VERSION/g" "${PACKAGE_DIR}/js/aerium-grpc/package.json"
 
+# --- Building aerium-jsonrpc package for JavaScript ---
 echo "== Building aerium-jsonrpc package for JavaScript"
 GENERATOR_DIR="${PACKAGE_DIR}/generator"
+# Note: Cloning inside the package directory. Ensure generator dir is not packaged.
 git clone https://github.com/aerium-network/generator.git "$GENERATOR_DIR" && cd "$GENERATOR_DIR"
 npm install && npm run build
 cd "$ROOT_DIR" && $GENERATOR_DIR/build/cli.js generate \
@@ -74,12 +85,14 @@ cp ${ROOT_DIR}/LICENSE ${PACKAGE_DIR}/js/aerium-jsonrpc
 replace_in_place "s/{{ VERSION }}/$VERSION/g" "${PACKAGE_DIR}/js/aerium-jsonrpc/package.json"
 
 
+# --- Building aerium-grpc package for Python ---
 echo "== Building aerium-grpc package for Python"
 cp -R ${ROOT_DIR}/.github/packager/python/grpc/* ${PACKAGE_DIR}/python/aerium-grpc
 cp ${PROTO_GEN_DIR}/python/* ${PACKAGE_DIR}/python/aerium-grpc/aerium_grpc
 cp ${ROOT_DIR}/LICENSE ${PACKAGE_DIR}/python/aerium-grpc
 replace_in_place "s/{{ VERSION }}/$VERSION/g" ${PACKAGE_DIR}/python/aerium-grpc/setup.py
 
+# --- Building aerium-jsonrpc package for Python ---
 echo "== Building aerium-jsonrpc package for Python"
 pip install openrpcclientgenerator
 ORPC_DIR="${PACKAGE_DIR}/orpc"
@@ -93,12 +106,14 @@ cp ${ORPC_DIR}/out/python/aerium-open-rpc-http-client/aerium_open_rpc_http_clien
 cp ${ROOT_DIR}/LICENSE ${PACKAGE_DIR}/python/aerium-jsonrpc
 replace_in_place "s/{{ VERSION }}/$VERSION/g" ${PACKAGE_DIR}/python/aerium-jsonrpc/setup.py
 
+# --- Building aerium-grpc package for Rust ---
 echo "== Building aerium-grpc package for Rust"
 cp -R ${ROOT_DIR}/.github/packager/rust/grpc/* ${PACKAGE_DIR}/rust/aerium-grpc
 cp -R ${PROTO_GEN_DIR}/rust/* ${PACKAGE_DIR}/rust/aerium-grpc/src
 cp ${ROOT_DIR}/LICENSE ${PACKAGE_DIR}/rust/aerium-grpc
 replace_in_place "s/{{ VERSION }}/$VERSION/g" ${PACKAGE_DIR}/rust/aerium-grpc/Cargo.toml
 
+# --- Building aerium-jsonrpc package for Rust ---
 echo "== Building aerium-jsonrpc package for Rust"
 cd "$ROOT_DIR" && $GENERATOR_DIR/build/cli.js generate \
   -t client \
