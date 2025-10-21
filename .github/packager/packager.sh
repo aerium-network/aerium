@@ -6,7 +6,7 @@ set -e
 
 # Helper function for cross-platform 'sed -i'
 replace_in_place() {
-  if [ "$OSTYPE" = "darwin"* ]; then  # FIX: Changed [[...]] to [...] for sh compatibility
+  if [ "$OSTYPE" = "darwin"* ]; then
     # macOS requires an empty string argument to -i
     sed -i '' "$1" "$2"
   else
@@ -15,20 +15,32 @@ replace_in_place() {
   fi
 }
 
-# --- FIX for "Run from Anywhere" ---
-# 1. Determine the ABSOLUTE path to the script itself, regardless of the current working directory.
-SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+# --------------------------------------------------------------------------
+# CRITICAL FIX: Universal Root Directory Calculation (Runs from anywhere)
+# --------------------------------------------------------------------------
+if [ -n "$AERIUM_ROOT" ]; then
+    # Option 1: Use the root path provided by the user via the environment variable.
+    ROOT_DIR="$AERIUM_ROOT"
+    echo "Using custom root from \$AERIUM_ROOT: $ROOT_DIR"
+else
+    # Option 2: Fallback to calculating the root based on the script's location
+    # Assumes script is in /path/to/repo/.github/packager
+    SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+    ROOT_DIR=$(dirname $(dirname "$SCRIPT_PATH"))
+    echo "Using calculated root from script path: $ROOT_DIR"
+fi
 
-# 2. Calculate the repository root (e.g., /mnt/c/Portfolio/aerium)
-# The script is expected to be in /path/to/repo/.github/packager, so we go up two levels.
-ROOT_DIR=$(dirname $(dirname "$SCRIPT_PATH"))
-# --- END FIX ---
+if [ ! -d "$ROOT_DIR/www" ]; then
+    echo "❌ Error: Calculated ROOT_DIR ($ROOT_DIR) does not appear to be the repository root (www folder not found)."
+    exit 1
+fi
+# --------------------------------------------------------------------------
 
 
 PACKAGE_DIR="${ROOT_DIR}/packages"
 PROTO_GEN_DIR="${ROOT_DIR}/www/grpc/gen"
 
-if [ -z "$VERSION" ]; then # FIX: Changed [[...]] to [...] for sh compatibility
+if [ -z "$VERSION" ]; then
   echo "❌ Error: Version tag not found."
   exit 1
 fi
@@ -57,7 +69,7 @@ DART_PROTO_DEST="${DART_PKG_ROOT}/lib/src" # Correct destination for proto files
 DART_PUBSPEC_FILE="${DART_PKG_ROOT}/pubspec.yaml" # Added for encoding fix below
 
 # 1. Copy package files (pubspec.yaml, main library file, etc.)
-# FIX: Use absolute path relative to the new calculated ROOT_DIR
+# FIX: Uses calculated ROOT_DIR, resolving 'cp: cannot stat' error for other users
 cp -R "${ROOT_DIR}/.github/packager/dart/." "${DART_PKG_ROOT}/"
 
 # NEW FIX 1: Remove potentially problematic ignore files that hide the pubspec and license.
