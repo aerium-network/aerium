@@ -15,14 +15,15 @@ replace_in_place() {
   fi
 }
 
-ROOT_DIR="$(pwd)"
+# --- FIX for "Run from Anywhere" ---
+# 1. Determine the ABSOLUTE path to the script itself, regardless of the current working directory.
+SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-# -----------------------------------------------------------
-# CRITICAL FIX: Since the script is executed from
-# /mnt/c/Portfolio/aerium/.github/packager, the 'pwd' command
-# returns the wrong root. We need to go up two directories.
-# -----------------------------------------------------------
-ROOT_DIR=$(dirname $(dirname "$ROOT_DIR"))
+# 2. Calculate the repository root (e.g., /mnt/c/Portfolio/aerium)
+# The script is expected to be in /path/to/repo/.github/packager, so we go up two levels.
+ROOT_DIR=$(dirname $(dirname "$SCRIPT_PATH"))
+# --- END FIX ---
+
 
 PACKAGE_DIR="${ROOT_DIR}/packages"
 PROTO_GEN_DIR="${ROOT_DIR}/www/grpc/gen"
@@ -70,7 +71,7 @@ cp -R "${PROTO_GEN_DIR}/dart/." "${DART_PROTO_DEST}/"
 
 # 4. FIX: Re-adding encoding fix for pubspec.yaml (Original problem solution)
 if command -v iconv >/dev/null 2>&1; then
-  echo "   (Fixing pubspec.yaml encoding to UTF-8)"
+  echo "   (Fixing pubspec.yaml encoding to UTF-8)"
 
   # Try converting from UTF-16LE to UTF-8, or fallback to UTF-8 -> UTF-8
   iconv -f UTF-16LE -t UTF-8 "$DART_PUBSPEC_FILE" > temp_pubspec.yaml 2>/dev/null || \
@@ -79,10 +80,10 @@ if command -v iconv >/dev/null 2>&1; then
   if [ -f temp_pubspec.yaml ]; then
       mv temp_pubspec.yaml "$DART_PUBSPEC_FILE"
   else
-      echo "   (Encoding fix failed: temp file not created.)"
+      echo "   (Encoding fix failed: temp file not created.)"
   fi
 else
-  echo "   (Warning: iconv not found, skipping encoding fix. If dry-run fails, install iconv.)"
+  echo "   (Warning: iconv not found, skipping encoding fix. If dry-run fails, install iconv.)"
 fi
 
 # 5. Copy license and replace version placeholder
