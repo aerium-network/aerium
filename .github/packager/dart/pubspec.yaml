@@ -1,0 +1,15 @@
+name: aerium_grpc
+version: {{ VERSION }}
+description: Dart client for interacting with the Aerium blockchain via gRPC
+homepage: https://aerium.network
+
+environment:
+  sdk: '>=2.12.0 <4.0.0'
+
+dependencies:
+  grpc: ^4.2.0
+  protobuf: ^5.0.0
+  fixnum: ^1.1.0
+
+dev_dependencies:
+  test: ^1.16.0
