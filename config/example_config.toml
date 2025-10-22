@@ -223,9 +223,16 @@
   base_path = '/http'
 
   # `enable_cors` indicates whether Cross-Origin Resource Sharing (CORS)
-  # should be enabled.
+  # if `enable_cors` is true and `origins` is empty, CORS is enabled for all origins.
   # Default is `false`.
   enable_cors = false
+
+  # `origins` specifies the allowed CORS origins for the HTTP-API server.
+  # This controls which domains can make requests to the HTTP-API from a browser.
+  # Only the specified origins will be allowed. If not set or left empty, CORS is disabled by default.
+  # Example: origins = ["wallet.aerium.app", "*"]
+  origins = []
+
 
 # `html` contains configuration for the HTML server.
 # HTML server is mostly used for debugging and testing purposes.
