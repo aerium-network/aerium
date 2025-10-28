@@ -81,7 +81,7 @@ jobs:
       - name: Upload checksum artifact
         uses: actions/upload-artifact@v4
         with:
-          name: checksum-cli-${{ matrix.name }}
+          name: checksum-gui-${{ matrix.name }}
           path: checksum-${{ matrix.name }}.txt
 
       - name: Publish
@@ -175,7 +175,7 @@ jobs:
       - name: Upload checksum artifact
         uses: actions/upload-artifact@v4
         with:
-          name: checksum-${{ matrix.name }}
+          name: checksum-cli-${{ matrix.name }}
           path: checksum-${{ matrix.name }}.txt
 
       - name: Publish

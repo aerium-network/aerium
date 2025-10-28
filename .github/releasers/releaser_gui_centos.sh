@@ -3,7 +3,7 @@
 set -e
 
 ROOT_DIR="$(pwd)"
-VERSION="$(echo `git -C ${ROOT_DIR} describe --abbrev=0 --tags` | sed 's/^.//')" # "v1.2.3" -> "1.2.3"
+VERSION="$(git -C ${ROOT_DIR} describe --abbrev=0 --tags | sed 's/^v//')" # "v1.2.3" -> "1.2.3"
 BUILD_DIR="${ROOT_DIR}/build"
 PACKAGE_NAME="aerium-gui_${VERSION}"
 PACKAGE_DIR="${ROOT_DIR}/${PACKAGE_NAME}"
@@ -13,11 +13,11 @@ PACKAGE_DIR="${ROOT_DIR}/${PACKAGE_NAME}"
 MAINTAINER="Aerium Developers <info@aerium.network>"
 LICENSE="MIT"
 DESC="Aerium Desktop Wallet (GUI + CLI components)"
-URL=$(echo `git remote show origin | grep "Fetch URL"` | awk '{printf $3}')
+URL=$(git remote get-url origin)
 CATEGORY="User Interface/Desktops"
 
 # Check the architecture
-ARC="aarch64"
+ARC="$(uname -m)"
 
 mkdir -p ${PACKAGE_DIR}
 
@@ -51,7 +51,7 @@ fpm -s dir -t rpm \
 	"${BUILD_DIR}/aerium-wallet"=/usr/local/bin/aerium-wallet \
 	"${BUILD_DIR}/aerium-gui"=/usr/local/bin/aerium-gui \
 	"${ROOT_DIR}/.github/releasers/linux/aerium-gui.desktop"=/usr/share/applications/aerium-gui.desktop \
-	${ROOT_DIR}/cmd/gtk/assets/images/logo.png"=/usr/share/icons/hicolor/256x256/apps/aerium.png
+	"${ROOT_DIR}/cmd/gtk/assets/images/logo.png"=/usr/share/icons/hicolor/256x256/apps/aerium.png
 
 echo "RPM package built successfully for ${ARC} architecture"
 

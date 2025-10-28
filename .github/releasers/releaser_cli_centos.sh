@@ -3,7 +3,7 @@
 set -e
 
 ROOT_DIR="$(pwd)"
-VERSION="$(echo `git -C ${ROOT_DIR} describe --abbrev=0 --tags` | sed 's/^.//')" # "v1.2.3" -> "1.2.3"
+VERSION="$(git -C ${ROOT_DIR} describe --abbrev=0 --tags | sed 's/^v//')" # "v1.2.3" -> "1.2.3"
 BUILD_DIR="${ROOT_DIR}/build"
 PACKAGE_NAME="aerium-cli_${VERSION}"
 PACKAGE_DIR="${ROOT_DIR}/${PACKAGE_NAME}"
@@ -13,7 +13,7 @@ PACKAGE_DIR="${ROOT_DIR}/${PACKAGE_NAME}"
 MAINTAINER="Aerium Developers <info@aerium.network>"
 LICENSE="MIT"
 DESC="Aerium Command-Line Tools (daemon, wallet, shell)"
-URL=$(echo `git remote show origin | grep "Fetch URL"` | awk '{printf $3}')
+URL=$(git remote get-url origin)
 CATEGORY="Applications/Financial"
 
 # Check the architecture
